@@ -10,9 +10,17 @@ This repository documents Team Skib's building and programming process.
 - Harry Xiao, 15
 
 ## Hardware
-### Compnents
-
-- RC Car/Chassis, https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb , $19
+### Components
+* **[Hardware](#-hardware-)**
+  * [Components](#%EF%B8%8F-components-%EF%B8%8F)
+  * [Mobility Management](#-mobility-management-)
+    * [Chassis](#chassis)
+    * [Design](#design)
+    * [Motors](#motors)
+  * [Power and Sense Management](#-power-and-sense-management-)
+    * [Power and Wiring](#power-and-wiring)
+    * [Sensors](#sensors)
+    * [Schematic](#schematic)
 
 
 
