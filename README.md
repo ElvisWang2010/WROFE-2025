@@ -3,7 +3,7 @@
 This repository documents Team Skib's building and programming process.
 
 
-### Team Members
+## Team Members
 
 - Ryan Rao, 14
 - Elvis Wang, 14
