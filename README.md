@@ -9,7 +9,7 @@ This repository documents Team Skib's building and programming process.
 - Elvis Wang, 14
 - Harry Xiao, 15
 
-## Hardware
+## Machinery 
 ### Components
 | Name | Product | Price |
 | ----------- | ----------- | ----------- |
