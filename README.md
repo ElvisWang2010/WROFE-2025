@@ -9,6 +9,11 @@ This repository documents Team Skib's building and programming process.
 - Elvis Wang, 14
 - Harry Xiao, 15
 
+## Hardware
+
+
+## Mechanical Design
+
 The WRO Future Engineers is the competition of the self-driven vehicles. Students of the age group from 15 till 19 need to design a model of a car, equip it with electromechanical components and program it as so it will be able to autonomously drive on the track avoiding objections.
 
 More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/new-competition-formats/future-engineers).
