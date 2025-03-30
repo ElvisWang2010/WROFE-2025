@@ -11,7 +11,7 @@ This repository documents Team Skib's building and programming process.
 
 ## Hardware
 ### Compnents
-- RC Car/Chassis https:ACXWA CD, $19
+- RC Car/Chassis https://www.ACSWA CD, $19
 
 
 ## Mechanical Design
