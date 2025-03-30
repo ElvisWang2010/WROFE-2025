@@ -11,7 +11,7 @@ This repository documents Team Skib's building and programming process.
 
 ## Machinery 
 ### Components
-**Discounts and tax included**
+*Discounts and tax included*
 | Name | Product | Price (CAD)|
 | ----------- | ----------- | ----------- |
 | RC Car | [`ACXWA CD`](https://www.canadahobbies.ca/product/hobby-brands/carisma-rc/gt24-124th-4wd-toyota-celica-gt-four-st185-wrc/)  | $21.63 |
