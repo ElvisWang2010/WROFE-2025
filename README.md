@@ -28,8 +28,8 @@ We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car
 
 #### Pros
 - Cheap
-- Comes with motor stand
-- Large Turning angle
+- Comes with a motor stand
+- Large turning angle
 #### Cons
 - Frictrionless tires
 - Unequal turning angles
