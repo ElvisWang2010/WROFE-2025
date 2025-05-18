@@ -23,6 +23,7 @@ This repository documents Team Skib's building and programming process.
 | Raspberry Pi Fan | [`GeeekPi Fan`](https://www.amazon.ca/dp/B07C9H9LJN?psc=1&ref=ppx_yo2ov_dt_b_product_details) | $19 |
 | ON OFF Switch | [`DaierTek Switch`](https://a.co/d/05vnrpJD) | $13 |
 
+## Mechanical Design
 ### Chassis
 We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car. 
 
@@ -36,7 +37,7 @@ We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car
 - Poor quality
 - Difficult to assemble
 
-## Mechanical Design
+
 
 
 
