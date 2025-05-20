@@ -39,9 +39,8 @@ We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car
 
 
 
-
-
 ## Power Resource Management
+### Battery
 Our rc car gets its power from a single `Gens Ace 1300mAh 7.4V Battery`. We chose this battery primarily for one reason: its high discharge rate. The 45C discharge rate (or higher for some versions) allows for quick bursts of power, making it suitable for demanding applications despite the battery from being compact and lightweight. This powerful battery easily supplies the power demands of all of the components of our car, requiring a voltage regulator that resides in our Pi HAT to power our `Raspberry Pi 4B`, running on 5V.
 
 ## Software
