@@ -23,12 +23,12 @@ This repository documents Team Skib's building and programming process.
 | Raspberry Pi Fan | [`GeeekPi Fan`](https://www.amazon.ca/dp/B07C9H9LJN?psc=1&ref=ppx_yo2ov_dt_b_product_details) | $19 |
 | ON OFF Switch | [`DaierTek Switch`](https://a.co/d/05vnrpJD) | $13 |
 
-## Mechanical Design
+## Component Structure
 ### Chassis
-We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car. 
+We used a non-prebuilt ACXWA CD chassis, originally designed to support adjustable lengths. However, our redesign of the component connecting the front and rear sections restrictes the ability to change lengths. As a result, the final design is fixed to a single size (1/24 scale).
 
 #### Pros
-- Cheap
+- Very cost effective
 - Comes with a motor stand
 - Large turning angle
 #### Cons
@@ -37,11 +37,13 @@ We used the non pre-built ACXWA CD chassis, an extendable 1/28-1/24 scale rc car
 - Poor quality
 - Difficult to assemble
 
+## Design
+## Motor
 
 
 ## Power Resource Management
 ### Battery
-Our rc car gets its power from a single `Gens Ace 1300mAh 7.4V Battery`. We chose this battery primarily for one reason: its high discharge rate. The 45C discharge rate (or higher for some versions) allows for quick bursts of power, making it suitable for demanding applications despite the battery from being compact and lightweight. This powerful battery easily supplies the power demands of all of the components of our car, requiring a voltage regulator that resides in our Pi HAT to power our `Raspberry Pi 4B`, running on 5V.
+Our rc car gets its power from a single `Gens Ace 1300mAh 7.4V Battery`. We chose this battery primarily for one reason: its high discharge rate. The 45C discharge rate allows for quick bursts of power, making it suitable for demanding applications despite the battery from being compact and lightweight. This powerful battery easily supplies the power demands of all of the components of our car, requiring a voltage regulator that resides in our Pi HAT to power our `Raspberry Pi 4B`, running on 5V.
 
 ## Software
 
