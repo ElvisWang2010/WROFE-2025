@@ -26,12 +26,11 @@ This repository documents Team Skib's building and programming process.
 ## Component Structure
 ### Chassis
 We used a non-prebuilt ACXWA CD chassis, originally designed to support adjustable lengths. However, our redesign of the component connecting the front and rear sections restrictes the ability to change lengths. As a result, the final design is fixed to a single size (1/24 scale).
-
-#### Pros
+##### Pros
 - Very cost effective
 - Comes with a motor stand
 - Large turning angle
-#### Cons
+##### Cons
 - Frictrionless tires
 - Unequal turning angles 
 - Poor quality
