@@ -10,7 +10,7 @@ This repository documents Team Skib's building and programming process.
 - Harry Xiao, 15
 
 ## Machinery 
-### Components
+### Componentsin
 | Name | Product | Price (CAD)|
 | ----------- | ----------- | ----------- |
 | RC Car | [`ACXWA CD`](https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb)  | $27 |
@@ -25,12 +25,13 @@ This repository documents Team Skib's building and programming process.
 
 ## Component Structure
 ### Chassis
-We used a non-prebuilt ACXWA CD chassis, originally designed to support adjustable lengths. However, our redesign of the component connecting the front and rear sections restrictes the ability to change lengths. As a result, the final design is fixed to a single size (1/24 scale).
-##### Pros
-- Very cost effective
+For our build, we selected the ACXWA CD chassis, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. However, during the course of our development, we redesigned the component that connects the front and rear sections to improve structural stablility. This modification essentially locked the chassis into a fixed position, limiting it to a 1/24 scale (16.2cm). While adjustable lenghts provides flexibility, in turn they introduce structual weakness. Our fixed build removes this weak point creating a rigid, non sliding frame.
+#### Pros
+- Costing a mere $27 CAD compared to the average $100, the chassis is very cost effective.
 - Comes with a motor stand
 - Large turning angle
-##### Cons
+- Compact
+#### Cons
 - Frictrionless tires
 - Unequal turning angles 
 - Poor quality
