@@ -25,16 +25,26 @@ This repository documents Team Skib's building and programming process.
 | ON OFF Switch | [`DaierTek Switch`]() | $13 |
 
 ## Component Structure
+
 ### Chassis
-For our build, we selected the `ACXWA CD chassis`, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. However, during the course of our development, we redesigned the component that connects the front and rear sections to improve structural stablility. This modification essentially locked the chassis into a fixed position, limiting it to a 1/24 scale (16.2cm). While adjustable lenghts provides flexibility, in turn they introduce structual weakness. Our fixed build removes this weak point creating a rigid, non sliding frame.
-#### Noteable Features/Design Advantages
-The `ACXWA CD chassis` offered several advantages that made it a solid foundation for our RC vehicle. First, its low price point, only $27 CAD, allowed us to remain well within budget while still obtaining a functional and modifiable frame. Comparable prebuilt chassis typically cost between $50–$100+, giving this model a clear cost advantage. 
 
-The inclusion of a motor stand reduced assembly time and ensured accurate motor alignment, which is important for minimizing drivetrain losses and avoiding gear misalignment. The chassis also featured a high steering range, when tested, the front wheels could pivot significantly, allowing the vehicle to make tight turns with less steering input, an asset in sharp, technical track layouts. 
-Its small form factor provided additional benefits: with a fixed 1/24 scale size, it was easier to place and secure all necessary electronics (ESC, battery) in a compact, streamlined layout that reduced internal clutter and improved airflow for cooling. These features combined to offer a stable and agile platform.
+For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduce structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
 
-#### Chassis Limitations 
-Despite its benefits, the chassis came with some notable drawbacks that affected performance and assembly. One of the biggest issues was the use of frictionless plastic tires. During testing, we observed frequent wheelspin and poor grip, especially on smooth surfaces like the game map. This resulted in unstable acceleration and longer braking distances, making the car harder to control at higher speeds.
+### Notable Features / Design Advantages
+
+- **Cost-effective:** At only **$27 CAD**, the chassis allowed us to remain within budget, compared to typical prebuilt chassis costing between **$50–$100+**.
+- **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
+- **High steering range:** Tested front wheels pivoted significantly, enabling tight turns with less steering input—ideal for technical track layouts.
+- **Compact form factor:** The fixed 1/24 scale size facilitated a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
+
+### Chassis Limitations
+
+⚠️ Despite these benefits, the chassis presented several challenges that impacted performance and assembly:
+
+- **Tire traction:** The frictionless plastic tires led to frequent wheelspin and poor grip, especially on smooth surfaces like the game map. This caused unstable acceleration and longer braking distances, reducing control at higher speeds.
+- **Steering imbalance:** Asymmetric turning angles made consistent driving difficult and required software compensation.
+- **Material flex:** The plastic frame flexed under pressure at screw joints, potentially affecting long-term durability.
+- **Assembly complexity:** Non-prebuilt design required manual hole adjustments, and instructions in a foreign language slowed assembly and increased the chance of errors.
 
 Additionally, the steering system exhibited asymmetric turning angles: the car turned more sharply in one direction than the other. This imbalance made it difficult to drive in straight lines or execute consistent turns, and could not be easily corrected due to the limited adjustability of the stock steering linkage. The overall material quality of the chassis also presented concerns. The plastic frame flexed slightly under pressure, particularly at the screw joints, which could compromise long-term durability. Furthermore, although the chassis came with a motor stand, the non-prebuilt nature of the chassis made the assembly process slow and unintuitive. Certain holes required manual widening to fit screws properly, and the instructions were in a different language, which increased the chance of incorrect assembly. As a result, while the chassis served its purpose, it demanded extra effort and compensations to overcome its inherent flaws.
 
