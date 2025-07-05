@@ -24,6 +24,10 @@ This repository documents Team Skib's building and programming process.
 | Raspberry Pi Fan | [`GeeekPi Fan`](https://www.amazon.ca/dp/B07C9H9LJN?psc=1&ref=ppx_yo2ov_dt_b_product_details) | $19 |
 | ON OFF Switch | [`DaierTek Switch`]() | $13 |
 
+## Objectives
+
+### Open Challenge
+### Obstacle Challenge 
 ## Component Structure
 ### Chassis
 For our build, we selected the ACXWA CD chassis, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. However, during the course of our development, we redesigned the component that connects the front and rear sections to improve structural stablility. This modification essentially locked the chassis into a fixed position, limiting it to a 1/24 scale (16.2cm). While adjustable lenghts provides flexibility, in turn they introduce structual weakness. Our fixed build removes this weak point creating a rigid, non sliding frame.
