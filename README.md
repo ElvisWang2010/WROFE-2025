@@ -27,10 +27,7 @@ This repository documents Team Skib's building and programming process.
 ### Chassis
 For our build, we selected the ACXWA CD chassis, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. However, during the course of our development, we redesigned the component that connects the front and rear sections to improve structural stablility. This modification essentially locked the chassis into a fixed position, limiting it to a 1/24 scale (16.2cm). While adjustable lenghts provides flexibility, in turn they introduce structual weakness. Our fixed build removes this weak point creating a rigid, non sliding frame.
 #### Pros
-- Costing a mere $27 CAD compared to the average $100, the chassis is very cost effective.
-- Comes with a motor stand
-- Large turning angle
-- Compact
+The ACXWA CD chassis offered several advantages that made it a solid foundation for our RC vehicle. First, its low price point—only $27 CAD—allowed us to remain well within budget while still obtaining a functional and modifiable frame. Comparable prebuilt chassis typically cost between $40–$60, giving this model a clear cost advantage. The inclusion of a motor stand reduced assembly time and ensured accurate motor alignment, which is important for minimizing drivetrain losses and avoiding gear misalignment. The chassis also featured a high steering range; when tested, the front wheels could pivot significantly, allowing the vehicle to make tight turns with less steering input—an asset in sharp, technical track layouts. Its small form factor provided additional benefits: with a fixed 1/24 scale size, it was easier to place and secure all necessary electronics (ESC, battery, receiver) in a compact, streamlined layout that reduced internal clutter and improved airflow for cooling. These features combined to offer a stable and agile platform, particularly suitable for controlled indoor environments or tight course navigation.
 #### Cons
 - Frictrionless tires
 - Unequal turning angles 
