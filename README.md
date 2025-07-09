@@ -1,6 +1,6 @@
 # Engineering Documentation
 
-This repository documents Team Skib's building and programming process.
+This repository documents Team Buzzy Bee's building and programming process.
 
 
 ## Team Members
@@ -58,6 +58,20 @@ Additionally, the steering system displayed asymmetric turning angles: the car t
 Our rc car gets its power from a single `Gens Ace 1300mAh 7.4V Battery`. We chose this battery primarily for one reason: its high discharge rate. The 45C discharge rate allows for quick bursts of power, making it suitable for demanding applications despite the battery from being compact and lightweight. This powerful battery easily supplies the power demands of all of the components of our car, requiring a voltage regulator that resides in our Pi HAT to power our `Raspberry Pi 4B`, running on 5V.
 
 ## Software
+### Python 3.0
+Python 3 is the core programming language used to build and run the autonomous car logic. It's simplicity, readability, and massive library pool makes it ideal for controlling hardware like the Raspberry Pi. For robotics, Python makes it easy to interface with sensors and actuators, process images, and manage logic. However, Python is slower than compiled languages like C++, and because it’s dynamically typed, certain bugs may only appear at runtime if not carefully tested.
+
+### Picamera2
+Picamera2 is a library used to interface Raspberry Pi's camera module. It allows the robot to capture real time photos and videos, critical for analyzing robot environment. It provides full control over resolution, frame rate, and pixel format to effectively work in tandem with OpenCV.
+
+### OpenCV
+OpenCV (Open Source Computer Vision Library) is used to process camera frames, apply thresholding, and detect contours within specified region of interests (ROIs). This data is used to determine the robot orientation and distance relative to walls to guide it's movement throughout the course.
+
+### ROS_ROBOT_CONTROLLER_SDK
+This custom python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low level control into simple methods, allowing the main code to remain clean.
+
+### RPI.GPIO
+The RPi.GPIO library is used to read inputs from the Raspberry Pi’s GPIO pins, particularly for detecting button presses.
 
 ## Complete Construction Manual
 
