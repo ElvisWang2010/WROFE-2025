@@ -5,9 +5,9 @@ This repository documents Team Buzzy Bee's building and programming process.
 
 ## Team Members
 
-Ryan Rao - 14
-Elvis Wang - 14
-Harry Xiao - 15
+- Ryan Rao - 14
+- Elvis Wang - 14
+- Harry Xiao - 15
 
 ## Machinery 
 ### Components
