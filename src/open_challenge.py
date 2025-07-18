@@ -4,24 +4,24 @@ import time
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
 import ros_robot_controller_sdk as rrc
-#import sys
 
 
 if __name__ == '__main__':
     time.sleep(1)
     # === CONFIGURATION ===
     STRAIGHT_PWM = 1500
-    THROTTLE_PWM = 1660
-    THROTTLE_TURN = 1640
+    THROTTLE_PWM = 1680
+    THROTTLE_TURN = 1680
     TURN_THRESHOLD = 3000
-    EXIT_THRESHOLD = 9000
-    KP = 0.06
-    KD = 0.003
-    MAX_LEFT = 1650
-    MAX_RIGHT = 1350
-    TURN_DEV = 50
+    EXIT_THRESHOLD = 9500
+    KP = 0.01
+    KD = 0.001
+    MAX_LEFT = 1620
+    MAX_RIGHT = 1380
+    TURN_DEV = 30
     board = rrc.Board()
     # === STATE VARIABLES ===
+    last_turn_time = time.time()
     prev_diff = 0
     prev_angle = STRAIGHT_PWM
     left_turn = False
@@ -46,11 +46,10 @@ if __name__ == '__main__':
     right_roi = (510, 200, 160, 180)
 
     board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
-    board.set_rgb([[1, 255, 255, 0]]) #YELLOW
     time.sleep(5)
-
+    board.set_rgb([[1, 255, 255, 0]]) #YELLOW
     print("Board initialized")
-
+     
     """
     switch = 17
 
@@ -61,13 +60,13 @@ if __name__ == '__main__':
     while GPIO.input(switch) == GPIO.HIGH:
         pass
     """
+    
 
     board.set_rgb([[1, 0, 0, 0]]) #OFF
     print("Starting")
     time.sleep(1)
     board.set_rgb([[1, 0, 255, 0]]) #GREEN
     board.set_rgb([[2, 0, 255, 0]]) #GREEN
-    
     
     # === Main loop ===
     while not lap_complete:
@@ -99,17 +98,26 @@ if __name__ == '__main__':
         # ---- Turn state logic ----
         if left_area <= TURN_THRESHOLD and not right_turn:
             left_turn = True
+            board.set_rgb([[1, 0, 0, 255]])
+            board.set_rgb([[2, 0, 0, 255]])
             print("Turning left")
         elif right_area <= TURN_THRESHOLD and not left_turn:
             right_turn = True
+            board.set_rgb([[1, 0, 0, 255]]) 
+            board.set_rgb([[2, 0, 0, 255]])
             print("Turning right")
 
         if left_turn or right_turn:
             if (right_area >= EXIT_THRESHOLD and right_turn) or (left_area >= EXIT_THRESHOLD and left_turn):
-                left_turn = right_turn = False
-                turns += 1
-                prev_diff = 0
-                print(f"Turn complete. Segments = {turns}")
+                current_time = time.time()
+                if current_time - last_turn_time >= 1.4:
+                    left_turn = right_turn = False
+                    board.set_rgb([[1, 0, 255, 0]])
+                    board.set_rgb([[2, 0, 255, 0]])
+                    last_turn_time = current_time
+                    turns += 1
+                    prev_diff = 0
+                    print(f"Turn complete. Segments = {turns}")
 
             elif left_turn:
                 angle_pwm = min(max(angle_pwm, STRAIGHT_PWM + TURN_DEV), MAX_LEFT)
@@ -123,13 +131,13 @@ if __name__ == '__main__':
             board.pwm_servo_set_position(0.1, [[4, angle_pwm], [2, THROTTLE_TURN]])
         else:
             board.pwm_servo_set_position(0.1, [[4, angle_pwm], [2, THROTTLE_PWM]])
-                                                                
+        print(f"Steering angle: {angle_pwm}")                                              
         prev_diff = area_diff
         prev_angle = angle_pwm
 
 
 
-        # ---- Stop ----
+        # ---- Camera only Stop ----
         if turns == 12: 
             print("Completed 3 laps. Stopping.")
             board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
