@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import time
 from picamera2 import Picamera2
-import RPi.GPIO as GPIO
 import ros_robot_controller_sdk as rrc
 
 
@@ -10,11 +9,11 @@ if __name__ == '__main__':
     time.sleep(1)
     # === CONFIGURATION ===
     STRAIGHT_PWM = 1500
-    THROTTLE_PWM = 1680
-    THROTTLE_TURN = 1680
+    THROTTLE_PWM = 1640
+    THROTTLE_TURN = 1640
     TURN_THRESHOLD = 3000
     EXIT_THRESHOLD = 9500
-    KP = 0.01
+    KP = 0.012
     KD = 0.001
     MAX_LEFT = 1620
     MAX_RIGHT = 1380
@@ -26,6 +25,9 @@ if __name__ == '__main__':
     prev_angle = STRAIGHT_PWM
     left_turn = False
     right_turn = False
+    last_orange_time = 0
+    orange_cooldown = 2
+    stop_time = 0
 
     turns = 0
     lap_complete = False
@@ -41,26 +43,19 @@ if __name__ == '__main__':
     picam2.configure("preview")
     picam2.start()
     time.sleep(1)
+    
+    lower_orange = np.array([5, 100, 100])
+    upper_orange = np.array([20, 255, 255])
+    
     # ---- Define ROIs ----
-    left_roi = (0, 200, 160, 180) # x, y, w, l
-    right_roi = (510, 200, 160, 180)
-
+    left_roi = (0, 200, 180, 180) # x, y, w, l
+    right_roi = (460, 200, 180, 180)
+    orange_roi = (100, 360, 440, 40)  # x, y, w, h
+    
     board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
     time.sleep(5)
     board.set_rgb([[1, 255, 255, 0]]) #YELLOW
-    print("Board initialized")
-     
-    """
-    switch = 17
-
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(switch, GPIO.OUT)
-
-
-    while GPIO.input(switch) == GPIO.HIGH:
-        pass
-    """
-    
+    print("Board initialized")    
 
     board.set_rgb([[1, 0, 0, 0]]) #OFF
     print("Starting")
@@ -72,6 +67,24 @@ if __name__ == '__main__':
     while not lap_complete:
         # ---- Get camera frame ----
         frame = picam2.capture_array()
+        x, y, w, h = orange_roi
+        roi_crop = frame[y:y+h, x:x+w]
+
+        # Convert to HSV for color detection
+        hsv = cv2.cvtColor(roi_crop, cv2.COLOR_BGR2HSV)
+        mask_orange = cv2.inRange(hsv, lower_orange, upper_orange)
+
+        # Count orange pixels
+        orange_pixel_count = cv2.countNonZero(mask_orange)
+
+        if orange_pixel_count >= 500:  
+            current_time = time.time()
+            if current_time - last_orange_time > orange_cooldown:
+                turns += 1
+                last_orange_time = current_time
+                print(f"Detected orange line - Turn count: {turns}")
+
+        
         # Thresholding
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         _, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
@@ -115,7 +128,6 @@ if __name__ == '__main__':
                     board.set_rgb([[1, 0, 255, 0]])
                     board.set_rgb([[2, 0, 255, 0]])
                     last_turn_time = current_time
-                    turns += 1
                     prev_diff = 0
                     print(f"Turn complete. Segments = {turns}")
 
@@ -140,8 +152,13 @@ if __name__ == '__main__':
         # ---- Camera only Stop ----
         if turns == 12: 
             print("Completed 3 laps. Stopping.")
-            board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
-            lap_complete = True
+            stop_time = time.time()
+            turns += 1
+        if turns >= 13:
+            current_time = time.time()
+            if current_time - stop_time >= 2.5:
+                board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
+                lap_complete = True
 
 
         # ---- debug view ----      
@@ -156,3 +173,4 @@ if __name__ == '__main__':
 
     cv2.destroyAllWindows()
     GPIO.cleanup()
+
