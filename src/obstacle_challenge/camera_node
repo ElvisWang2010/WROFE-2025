@@ -26,6 +26,8 @@ class CameraNode(Node):
     def publish_frame(self):
         frame = self.picam2.capture_array()
         if frame is not None:
+            if frame.shape[2] == 4:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
             msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
             self.publisher.publish(msg)
 
@@ -44,4 +46,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
