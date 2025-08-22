@@ -49,6 +49,8 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 Additionally, the steering system displayed asymmetric turning angles: the car turned more sharply in one direction than the other. This imbalance made it difficult to drive in straight lines or execute consistent turns, and could not be easily corrected due to the limited adjustability of the stock steering linkage. The overall material quality of the chassis also presented concerns. The plastic frame flexed slightly under pressure, particularly at the screw joints, which could compromise long-term durability. Furthermore, although the chassis came with a motor stand, the non-prebuilt nature of the chassis made the assembly process slow and unintuitive. Certain holes required manual widening to fit screws properly, and the instructions were in a different language, which increased the chance of incorrect assembly. As a result, while the chassis served its purpose, it demanded extra effort and compensations to overcome its inherent flaws.
 
 ## Design
+The RC car parts were unsuitable to be used therefore was repaced with 3-D modeled parts. The turning mechanism and motor mechanism were both replaced and designed by our builder Elvis Wang. The only parts not 3-D modeld are the electronic parts and the board underneath the car supplyed from the original car chassis. 
+
 ## Motor
 
 
