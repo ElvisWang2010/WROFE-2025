@@ -19,7 +19,7 @@ This repository documents Team Buzzy Bee's building and programming process.
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $90 |
 | Turning Motor | [`Hitec HS-5055MG Servo Motor`](https://ca.robotshop.com/products/hs-5055mg-metal-gear-micro-servo-motor?srsltid=AfmBOopv8Z7LoCVOEqe16w05ZV-R78dNmy7dappldIxZiQzCJroxcssFc2Y) | $38 |
 | CSI Camera | [`SainSmart Wide Angle Fish-Eye Camera`](https://www.amazon.ca/SainSmart-Fish-Eye-Camera-Raspberry-Arduino/dp/B00N1YJKFS/ref=sr_1_5) | $19 |
-| Raspberry Pi | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
+| Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 
 
@@ -49,7 +49,33 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 Additionally, the steering system displayed asymmetric turning angles: the car turned more sharply in one direction than the other. This imbalance made it difficult to drive in straight lines or execute consistent turns, and could not be easily corrected due to the limited adjustability of the stock steering linkage. The overall material quality of the chassis also presented concerns. The plastic frame flexed slightly under pressure, particularly at the screw joints, which could compromise long-term durability. Furthermore, although the chassis came with a motor stand, the non-prebuilt nature of the chassis made the assembly process slow and unintuitive. Certain holes required manual widening to fit screws properly, and the instructions were in a different language, which increased the chance of incorrect assembly. As a result, while the chassis served its purpose, it demanded extra effort and compensations to overcome its inherent flaws.
 
 ## Design
-The RC car parts were unsuitable to be used therefore was repaced with 3-D modeled parts. The turning mechanism and motor mechanism were both replaced and designed by our builder Elvis Wang. The only parts not 3-D modeld are the electronic parts and the board underneath the car supplyed from the original car chassis. 
+Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism from either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to printed part.
+
+### The design includes: 
+
+Camara, ESC, RasberryPi5 holder: 
+<img width="598" height="611" alt="image" src="https://github.com/user-attachments/assets/f4a32aea-952e-464d-8d2d-4e37fc32044b" />
+
+
+Survo and Controler Holder: 
+<img width="709" height="536" alt="image" src="https://github.com/user-attachments/assets/a5852082-f2c6-43ce-b2e2-41a676bc3e9a" />
+
+
+Turning Mechanism: 
+<img width="528" height="280" alt="image" src="https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1" />
+
+
+Motor Mechanism: 
+<img width="598" height="347" alt="image" src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" />
+
+
+Survo Mount: 
+<img width="599" height="622" alt="image" src="https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e" />
+
+
+All Together: 
+<img width="649" height="699" alt="image" src="https://github.com/user-attachments/assets/5bd7f71e-6008-450d-a71e-d0bd98a7e613" />
+
 
 ## Motor
 
