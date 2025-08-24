@@ -26,10 +26,11 @@ This repository documents Team Buzzy Bee's building and programming process.
 # Component Structure
 
 ## Motor
+< />
 
 <table>
   <tr>
-    <td><img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/04ddfc2b-97cb-460e-9ae8-ffe4d08a56a1" /></td>
+    <td><img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" /></td>
     <td>
       <b>Specifications:</b><br>
       • Voltage: 12V <br>
