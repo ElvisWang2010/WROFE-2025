@@ -30,39 +30,23 @@ This repository documents Team Buzzy Bee's building and programming process.
 
 <table>
   <tr>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
-      <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+    <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="400" alt="Motor image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
     </td>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
-      <h2>Specifications:</h2>
-      <h3>
-      • KV (rpm/V): 3450<br>
-      • No-load current @10 V: 0.7 A<br>
-      • Power: 120 W<br>
-      • Battery: 2–3S<br>
-      • Resistance: 0.16 Ω<br>
-      • Max current: 10 A<br>
-      • Slot/Pole: 12<br>
-      • Motor size (mm): 15.5 × 20.6<br>
-      • Shaft (mm): 1.5 × 6<br>
-      • Weight: 17.5 g<br>
-      </h3>
-    </td>
-  </tr>
-</table><table>
-  <tr>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
-      <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
-    </td>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
-      <h2>Specifications:</h2>
-      <h3>
-      • Voltage: 10 V <br>
-      • Watt <br>
-      • Speed: 3450 rpm <br>
-      • Resistance: 0.16 Ω <br>
-      • Weight: 17.5 g
-      </h3>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><b>KV (rpm/V):</b> 3450</li>
+        <li><b>No-load current @10 V:</b> 0.7 A</li>
+        <li><b>Power:</b> 120 W</li>
+        <li><b>Battery:</b> 2–3S</li>
+        <li><b>Resistance:</b> 0.16 Ω</li>
+        <li><b>Max current:</b> 10 A</li>
+        <li><b>Slot/Pole:</b> 12</li>
+        <li><b>Motor size (mm):</b> 15.5 × 20.6</li>
+        <li><b>Shaft (mm):</b> 1.5 × 6</li>
+        <li><b>Weight:</b> 17.5 g</li>
+      </ul>
     </td>
   </tr>
 </table>
