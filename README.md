@@ -34,12 +34,35 @@ This repository documents Team Buzzy Bee's building and programming process.
       <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
     </td>
     <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
-      <b>Specifications:</b><br>
+      <h2>Specifications:</h2>
+      <h3>
+      • KV (rpm/V): 3450<br>
+      • No-load current @10 V: 0.7 A<br>
+      • Power: 120 W<br>
+      • Battery: 2–3S<br>
+      • Resistance: 0.16 Ω<br>
+      • Max current: 10 A<br>
+      • Slot/Pole: 12<br>
+      • Motor size (mm): 15.5 × 20.6<br>
+      • Shaft (mm): 1.5 × 6<br>
+      • Weight: 17.5 g<br>
+      </h3>
+    </td>
+  </tr>
+</table><table>
+  <tr>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
+      <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+    </td>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
+      <h2>Specifications:</h2>
+      <h3>
       • Voltage: 10 V <br>
-      • Watt: 120W <br>
+      • Watt <br>
       • Speed: 3450 rpm <br>
       • Resistance: 0.16 Ω <br>
       • Weight: 17.5 g
+      </h3>
     </td>
   </tr>
 </table>
