@@ -51,34 +51,41 @@ Additionally, the steering system displayed asymmetric turning angles: the car t
 ## Design
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism from either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to printed part.
 
-### The design includes: 
+# 📷 Robot Design Overview  
 
-Camara, ESC, RasberryPi5 holder: 
-<img width="598" height="611" alt="image" src="https://github.com/user-attachments/assets/f4a32aea-952e-464d-8d2d-4e37fc32044b" />
+## 1. Camera, ESC & Raspberry Pi 5 Holder  
+![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/f4a32aea-952e-464d-8d2d-4e37fc32044b)  
+This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
 
+---
 
-Survo and Controler Holder: 
-<img width="709" height="536" alt="image" src="https://github.com/user-attachments/assets/a5852082-f2c6-43ce-b2e2-41a676bc3e9a" />
+## 2. Servo & Controller Holder  
+![Servo and Controller Holder](https://github.com/user-attachments/assets/a5852082-f2c6-43ce-b2e2-41a676bc3e9a)  
+Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
 
+---
 
+## 3. Turning Mechanism  
+![Turning Mechanism](https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1)  
+Mechanical system for steering/rotation, linked to the servo mount.  
 
-Turning Mechanism: 
-<img width="528" height="280" alt="image" src="https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1" />
+---
 
+## 4. Motor Mechanism  
+![Motor Mechanism](https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb)  
+Houses the drive motor and transmits torque to the wheels/tracks.  
 
+---
 
-Motor Mechanism: 
-<img width="598" height="347" alt="image" src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" />
+## 5. Servo Mount  
+![Servo Mount](https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e)  
+Dedicated mount for the servo, ensuring correct angle alignment and stability under load.  
 
+---
 
-
-Servo Mount: 
-<img width="599" height="622" alt="image" src="https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e" />
-
-
-
-All Together: 
-<img width="649" height="699" alt="image" src="https://github.com/user-attachments/assets/5bd7f71e-6008-450d-a71e-d0bd98a7e613" />
+## 6. Full Assembly  
+![All Together](https://github.com/user-attachments/assets/5bd7f71e-6008-450d-a71e-d0bd98a7e613)  
+Final integrated system showing all modules combined into the complete build.  
 
 
 ## Motor
