@@ -61,16 +61,20 @@ Survo and Controler Holder:
 <img width="709" height="536" alt="image" src="https://github.com/user-attachments/assets/a5852082-f2c6-43ce-b2e2-41a676bc3e9a" />
 
 
+
 Turning Mechanism: 
 <img width="528" height="280" alt="image" src="https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1" />
+
 
 
 Motor Mechanism: 
 <img width="598" height="347" alt="image" src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" />
 
 
-Survo Mount: 
+
+Servo Mount: 
 <img width="599" height="622" alt="image" src="https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e" />
+
 
 
 All Together: 
