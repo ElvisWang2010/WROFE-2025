@@ -2,8 +2,6 @@
 
 This repository documents Team Buzzy Bee's building and programming process.
 
-## Our Club
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/cbfe1e2f-1bca-4fdb-8929-f244c11fec5a" />
 
 ## Team Members
 
@@ -25,7 +23,10 @@ This repository documents Team Buzzy Bee's building and programming process.
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 
 
-## Component Structure
+# Component Structure
+
+## Drive Motor
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/04ddfc2b-97cb-460e-9ae8-ffe4d08a56a1" />
 
 ### Chassis 
 
