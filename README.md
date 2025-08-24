@@ -30,14 +30,16 @@ This repository documents Team Buzzy Bee's building and programming process.
 
 <table>
   <tr>
-    <td><img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" /></td>
-    <td>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
+      <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+    </td>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:10px;">
       <b>Specifications:</b><br>
-      • Voltage: 10V <br>
-      • Gear Ratio: 1:50 <br>
+      • Voltage: 10 V <br>
+      • Watt: 120W <br>
       • Speed: 3450 rpm <br>
-      • Resistance: 0.16 Ohms<br>
-      • Weight: 17.5g
+      • Resistance: 0.16 Ω <br>
+      • Weight: 17.5 g
     </td>
   </tr>
 </table>
