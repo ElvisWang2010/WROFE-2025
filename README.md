@@ -26,18 +26,18 @@ This repository documents Team Buzzy Bee's building and programming process.
 # Component Structure
 
 ## Motor
-< />
+
 
 <table>
   <tr>
     <td><img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" /></td>
     <td>
       <b>Specifications:</b><br>
-      • Voltage: 12V <br>
+      • Voltage: 10V <br>
       • Gear Ratio: 1:50 <br>
-      • Speed: 650 ± 31% rpm <br>
-      • Torque: 0.67 ± kg·cm <br>
-      • Weight: 9.5g
+      • Speed: 3450 rpm <br>
+      • Resistance: 0.16 Ohms<br>
+      • Weight: 17.5g
     </td>
   </tr>
 </table>
