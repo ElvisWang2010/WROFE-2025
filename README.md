@@ -84,6 +84,28 @@ Despite the benefits, the chassis presented several challenges that impacted per
 We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an ideal balance of power, size, and weight for a small RC car. It has a <strong>45C continuous discharge rate</strong>, and the battery supplies up to <strong>58.5A (1300mAh × 45C)</strong>, meeting up to our power demands. The <strong>1300mAh capacity</strong> gives the car a solid runtime and at only <strong>90g</strong>, the battery minimizes added weight to the chassis, helping the car move quicker. Finally, its <strong>compact dimensions (70.87 × 35.24 × 14.5mm)</strong> allow it to fit securely in the car’s battery compartment, making it both an efficient and reliable power source for our design.
 </p>
 
+### ESC
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="FURITEK LIZARD Pro 30A/50A ESC" src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" />
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
+        <li><strong>BIG BEC:</strong> 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
+        <li><strong>Constant Current:</strong> 30A</li>
+        <li><strong>Burst Current:</strong> 50A</li>
+        <li><strong>Built-in Power Switch</strong></li>
+        <li><strong>Dimensions (mm):</strong> 28 × 15.5</li>
+        <li><strong>Weight:</strong> 3.7 g</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
 ## Motor/Mobility Management
 
 
