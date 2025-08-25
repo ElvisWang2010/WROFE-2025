@@ -44,15 +44,13 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 
 Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
-- **Tire traction:** Plastic tires provided little grip, leading to frequent wheelspin—especially on smooth surfaces like the game map. This caused unstable acceleration, longer braking distances, and reduced control at higher speeds.  
-- **Steering imbalance:** Uneven turning angles from uncentered wheels made consistent driving difficult and required software compensation.  
-
----
+- **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
+- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
 
 ## ✅ How We Overcame These Limitations  
 
-- **Improved traction:** Replaced stock plastic tires with **rubber-coated wheels**, increasing grip and reducing wheelspin.  
-- **Balanced steering:** Designed and **3D-printed a custom steering system**, replacing the original assembly for more consistent turning.  
+- **Improved traction:** We replaced stock plastic tires with **rubber-coated wheels**. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
+- **Balanced steering:** Designed and **3D-printed a custom steering system**, succeeding our previous unequal one.
 
 
 
