@@ -65,13 +65,18 @@ Despite the benefits, the chassis presented several challenges that impacted per
       <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
     </td>
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Information</h2>
+      <h2>Specifications</h2>
       <ul style="font-size:16px; line-height:1.6;">
-        <li><strong>Type:</strong> Gens Ace 1300mAh 7.4V LiPo</li>
-        <li><strong>Weight:</strong> ~86g (light for small RC cars)</li>
-        <li><strong>Capacity:</strong> 1300mAh – balanced runtime without excess weight</li>
-        <li><strong>Discharge Rate:</strong> 25C continuous / 50C burst for fast acceleration</li>
-        <li><strong>Why use it:</strong> Compact, lightweight, and delivers enough power for responsive control and longer drive sessions in small RC cars.</li>
+        <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
+        <li><strong>Capacity:</strong> 1300mAh</li>
+        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
+        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
+        <li><strong>Cell Configuration:</strong> 2S1P</li>
+        <li><strong>Watt Hours:</strong> 9.62Wh</li>
+        <li><strong>ROAR Approved:</strong> No</li>
+        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
+        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
+        <li><strong>Weight:</strong> 3.17oz (90g)</li>
       </ul>
     </td>
   </tr>
@@ -148,8 +153,7 @@ Final integrated system showing all modules combined into the complete build.
 
 
 ## Power Resource Management
-### Battery
-Our RC car gets its power from a single `Gens Ace 1300mAh 7.4V Battery`. We chose this battery primarily for one reason: its high discharge rate. The 45C discharge rate allows for quick bursts of power, making it suitable for demanding applications despite the battery's being compact and lightweight. This powerful battery easily supplies the power demands of all of the components of our car, requiring a voltage regulator that resides in our Pi HAT to power our `Raspberry Pi 4B`, running on 5V.
+
 
 ## Software
 ### Python 3.0
