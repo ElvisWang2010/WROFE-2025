@@ -110,7 +110,10 @@ The ESC is a key component that regulates how the motor receives power. It:
     </td>
   </tr>
 </table>
-This ESC was selected for its excellent compatibility with our power system, supporting **2S–3S LiPo batteries** to perfectly match our **7.4V (2S) Gens Ace battery**. Its current handling—**30A continuous** and **50A burst**—greatly exceeds our motor’s maximum draw of ~10A.  
+
+This ESC was selected for its excellent compatibility with our power system, supporting **2S–3S LiPo batteries** to perfectly match our **7.4V (2S) Gens Ace battery**. Its current handling—**30A continuous** and 
+**50A burst**—greatly exceeds our motor’s maximum draw of ~10A.  
+
 The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servo our to be powered directly without an external BEC, saving both **weight** and **internal chassis space**.  
 At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
 
