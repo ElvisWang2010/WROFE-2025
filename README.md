@@ -128,7 +128,7 @@ We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an id
         <li><b>Shaft (mm):</b> 1.5 × 6</li>
         <li><b>Weight:</b> 17.5 g</li>
       </ul>
-    </td>+
+    </td>
   </tr>
 </table>
 
