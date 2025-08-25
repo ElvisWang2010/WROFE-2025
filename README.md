@@ -84,7 +84,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an ideal balance of power, size, and weight for a small RC car. It has a <strong>45C continuous discharge rate</strong>, and the battery supplies up to <strong>58.5A (1300mAh × 45C)</strong>, meeting up to our power demands. The <strong>1300mAh capacity</strong> gives the car a solid runtime and at only <strong>90g</strong>, the battery minimizes added weight to the chassis, helping the car move quicker. Finally, its <strong>compact dimensions (70.87 × 35.24 × 14.5mm)</strong> allow it to fit securely in the car’s battery compartment, making it both an efficient and reliable power source for our design.
 </p>
 
-**Electronic Speed Controller (ESC)**  
+### Electronic Speed Controller (ESC)
 
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's **speed**  
