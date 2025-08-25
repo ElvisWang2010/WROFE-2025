@@ -84,11 +84,12 @@ Despite the benefits, the chassis presented several challenges that impacted per
 We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an ideal balance of power, size, and weight for a small RC car. It has a <strong>45C continuous discharge rate</strong>, and the battery supplies up to <strong>58.5A (1300mAh × 45C)</strong>, meeting up to our power demands. The <strong>1300mAh capacity</strong> gives the car a solid runtime and at only <strong>90g</strong>, the battery minimizes added weight to the chassis, helping the car move quicker. Finally, its <strong>compact dimensions (70.87 × 35.24 × 14.5mm)</strong> allow it to fit securely in the car’s battery compartment, making it both an efficient and reliable power source for our design.
 </p>
 
-### ESC
-<p style="font-size:16px; line-height:1.6; margin-top:15px;">
-The Electronic Speed Controller (ESC) is a critical component that manages how the motor receives power. 
-It regulates speed, controls direction, and ensures a safe delivery of voltage and current into the motor. 
-</p>
+**Electronic Speed Controller (ESC)**  
+
+The ESC is a key component that regulates how the motor receives power. It:  
+- Controls the motor's **speed**  
+- Manages **direction**  
+- Ensures safe delivery of **voltage and current** to the motor
 
 <table>
   <tr>
@@ -109,9 +110,10 @@ It regulates speed, controls direction, and ensures a safe delivery of voltage a
     </td>
   </tr>
 </table>
-<p style="font-size:16px; line-height:1.6; margin-top:15px;">
-This ESC was selected because it offers voltage compatibility with our power system, supporting 2S–3S LiPo batteries to perfectly match our 7.4V (2S) Gens Ace battery. Its current handling capacity of 30A continuous and 50A burst greatly exceeds our motor’s maximum draw of ~10A. The strong 5V/6.5V 2.5A BEC allows servos to be powered directly without the need for an external BEC, which saves both weight and internal chassis space. At just 3.7g, the ESC is extremely lightweight, making it easy to blend into the chassis while maintaining agility. The built-in power switch also simplifies wiring and improves overall usability compared to ESCs that rely on external switches.
-</p>
+This ESC was selected for its excellent compatibility with our power system, supporting **2S–3S LiPo batteries** to perfectly match our **7.4V (2S) Gens Ace battery**. Its current handling—**30A continuous** and **50A burst**—greatly exceeds our motor’s maximum draw of ~10A.  
+The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servo our to be powered directly without an external BEC, saving both **weight** and **internal chassis space**.  
+At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
+
 
 ## Motor/Mobility Management
 
