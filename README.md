@@ -73,7 +73,6 @@ Despite the benefits, the chassis presented several challenges that impacted per
         <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
         <li><strong>Cell Configuration:</strong> 2S1P</li>
         <li><strong>Watt Hours:</strong> 9.62Wh</li>
-        <li><strong>ROAR Approved:</strong> No</li>
         <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
         <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
         <li><strong>Weight:</strong> 3.17oz (90g)</li>
@@ -81,6 +80,9 @@ Despite the benefits, the chassis presented several challenges that impacted per
     </td>
   </tr>
 </table>
+<p style="font-size:16px; line-height:1.6; margin-top:15px;">
+We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers the ideal balance of power, size, and weight for a small RC car. Its high discharge rate delivers the burst current needed for quick acceleration, while the 1300mAh capacity provides a reasonable runtime without adding unnecessary bulk. At only 90g, it keeps the chassis lightweight and responsive, and its compact dimensions allow it to fit securely within limited battery compartments. Overall, this battery ensures reliable performance, strong handling, and efficient energy use for our design.
+</p>
 
 
 ## Motor/Mobility Management
