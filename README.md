@@ -40,14 +40,14 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 - **High steering range:** Tested front wheels pivoted significantly, enabling tight turns with less steering input—ideal for technical track layouts.
 - **Compact form factor:** The fixed 1/24 scale size facilitated a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
 
-## ⚠️ Chassis Limitations  
+##  Chassis Limitations  
 
 Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
 - **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
 - **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
 
-## ✅ How We Overcame These Limitations  
+##  How We Overcame These Limitations  
 
 - **Improved traction:** We replaced stock plastic tires with **rubber-coated wheels**. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
 - **Balanced steering:** Designed and **3D-printed a custom steering system**, succeeding our previous unequal one.
@@ -149,7 +149,7 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
 ## Design
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism from either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to printed part.
 
-# 📷 Robot Design Overview  
+#  Robot Design Overview  
 
 ## 1. Camera, ESC & Raspberry Pi 5 Holder  
 ![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/f4a32aea-952e-464d-8d2d-4e37fc32044b)  
