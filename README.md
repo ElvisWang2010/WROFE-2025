@@ -40,17 +40,19 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 - **High steering range:** Tested front wheels pivoted significantly, enabling tight turns with less steering input—ideal for technical track layouts.
 - **Compact form factor:** The fixed 1/24 scale size facilitated a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
 
-### Chassis Limitations
+## ⚠️ Chassis Limitations  
 
-⚠️ Despite these benefits, the chassis presented several challenges that impacted performance and assembly:
+Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
-- **Tire traction:** The frictionless plastic tires led to frequent wheelspin and poor grip, especially on smooth surfaces like the game map. This caused unstable acceleration and longer braking distances, reducing control at higher speeds.
-- **Steering imbalance:** Uneven turning angles due to uncentered wheels made consistent driving difficult and required software compensation.
+- **Tire traction:** Plastic tires provided little grip, leading to frequent wheelspin—especially on smooth surfaces like the game map. This caused unstable acceleration, longer braking distances, and reduced control at higher speeds.  
+- **Steering imbalance:** Uneven turning angles from uncentered wheels made consistent driving difficult and required software compensation.  
 
-### ✅ How We Overcame These Limitations  
+---
 
-- **Improved traction:** By replacing the stock plastic tires with rubber coated wheels, grip was increased and wheelspin reduced.
-- **Balanced steering:** We 3D printed the entire steering system, replacing the original with a custom made design.
+## ✅ How We Overcame These Limitations  
+
+- **Improved traction:** Replaced stock plastic tires with **rubber-coated wheels**, increasing grip and reducing wheelspin.  
+- **Balanced steering:** Designed and **3D-printed a custom steering system**, replacing the original assembly for more consistent turning.  
 
 
 
