@@ -79,11 +79,10 @@ Despite the benefits, the chassis presented several challenges that impacted per
       </ul>
     </td>
   </tr>
-</table>
+</table
 <p style="font-size:16px; line-height:1.6; margin-top:15px;">
-We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers the ideal balance of power, size, and weight for a small RC car. Its high discharge rate delivers the burst current needed for quick acceleration, while the 1300mAh capacity provides a reasonable runtime without adding unnecessary bulk. At only 90g, it keeps the chassis lightweight and responsive, and its compact dimensions allow it to fit securely within limited battery compartments. Overall, this battery ensures reliable performance, strong handling, and efficient energy use for our design.
+We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an ideal balance of power, size, and weight for a small RC car. It has a <strong>45C continuous discharge rate</strong>, and the battery supplies up to <strong>58.5A (1300mAh × 45C)</strong>, meeting up to our power demands. The <strong>1300mAh capacity</strong> gives the car a solid runtime and at only <strong>90g</strong>, the battery minimizes added weight to the chassis, helping the car move quicker. Finally, its <strong>compact dimensions (70.87 × 35.24 × 14.5mm)</strong> allow it to fit securely in the car’s battery compartment, making it both an efficient and reliable power source for our design.
 </p>
-
 
 ## Motor/Mobility Management
 
