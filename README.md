@@ -58,6 +58,31 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ## Electronics and Sensors
 
+### Battery
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="Motor image" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><b>KV (rpm/V):</b> 3450</li>
+        <li><b>No-load current @10 V:</b> 0.7 A</li>
+        <li><b>Power:</b> 120 W</li>
+        <li><b>Battery:</b> 2–3S</li>
+        <li><b>Resistance:</b> 0.16 Ω</li>
+        <li><b>Max current:</b> 10 A</li>
+        <li><b>Slot/Pole:</b> 12</li>
+        <li><b>Motor size (mm):</b> 15.5 × 20.6</li>
+        <li><b>Shaft (mm):</b> 1.5 × 6</li>
+        <li><b>Weight:</b> 17.5 g</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
 ## Motor/Mobility Management
 
 
