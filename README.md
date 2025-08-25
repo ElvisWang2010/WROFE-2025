@@ -85,6 +85,11 @@ We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an id
 </p>
 
 ### ESC
+<p style="font-size:16px; line-height:1.6; margin-top:15px;">
+The Electronic Speed Controller (ESC) is a critical component that manages how the motor receives power. 
+It regulates speed, controls direction, and ensures a safe delivery of voltage and current into the motor. 
+</p>
+
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
@@ -104,7 +109,9 @@ We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an id
     </td>
   </tr>
 </table>
-
+<p style="font-size:16px; line-height:1.6; margin-top:15px;">
+This ESC was selected because it offers voltage compatibility with our power system, supporting 2S–3S LiPo batteries to perfectly match our 7.4V (2S) Gens Ace battery. Its current handling capacity of 30A continuous and 50A burst greatly exceeds our motor’s maximum draw of ~10A. The strong 5V/6.5V 2.5A BEC allows servos to be powered directly without the need for an external BEC, which saves both weight and internal chassis space. At just 3.7g, the ESC is extremely lightweight, making it easy to blend into the chassis while maintaining agility. The built-in power switch also simplifies wiring and improves overall usability compared to ESCs that rely on external switches.
+</p>
 
 ## Motor/Mobility Management
 
