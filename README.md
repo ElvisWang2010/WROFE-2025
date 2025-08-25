@@ -23,7 +23,7 @@ This repository documents Team Buzzy Bee's building and programming process.
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 
 
-# Component Structure
+# Component Info
 
 ## Motor
 
