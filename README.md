@@ -7,41 +7,26 @@ Team Buzzy Bee is entering WRO Future Engineers for the first time. As long-time
 1. [Team Members](#team-members)  
 2. [Machinery](#machinery)  
 3. [Hardware Design](#hardware-design)  
-<details>
-  <summary>4. Electronics and Sensors</summary>
-  
-  - [Battery](#battery)  
-  - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
-  - [Motor / Mobility Management](#motormobility-management)  
-
-</details>
-
+4. [Electronics and Sensors](#electronics-and-sensors)  
+   - [Battery](#battery)  
+   - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
+   - [Motor / Mobility Management](#motormobility-management)  
 5. [Design](#design)  
-<details>
-  <summary>6. Robot Design Overview</summary>
-  
-  - [Camera, ESC & Raspberry Pi 5 Holder](#1-camera-esc--raspberry-pi-5-holder)  
-  - [Servo & Controller Holder](#2-servo--controller-holder)  
-  - [Turning Mechanism](#3-turning-mechanism)  
-  - [Motor Mechanism](#4-motor-mechanism)  
-  - [Servo Mount](#5-servo-mount)  
-  - [Full Assembly](#6-full-assembly)  
-
-</details>
-
+6. [Robot Design Overview](#robot-design-overview)  
+   - [Camera, ESC & Raspberry Pi 5 Holder](#1-camera-esc--raspberry-pi-5-holder)  
+   - [Servo & Controller Holder](#2-servo--controller-holder)  
+   - [Turning Mechanism](#3-turning-mechanism)  
+   - [Motor Mechanism](#4-motor-mechanism)  
+   - [Servo Mount](#5-servo-mount)  
+   - [Full Assembly](#6-full-assembly)  
 7. [Motor](#motor)  
 8. [Power Resource Management](#power-resource-management)  
-<details>
-  <summary>9. Software</summary>
-  
-  - [Python 3.0](#python-30)  
-  - [Picamera2](#picamera2)  
-  - [OpenCV](#opencv)  
-  - [ROS_ROBOT_CONTROLLER_SDK](#ros_robot_controller_sdk)  
-  - [RPI.GPIO](#rpigpio)  
-
-</details>
-
+9. [Software](#software)  
+   - [Python 3.0](#python-30)  
+   - [Picamera2](#picamera2)  
+   - [OpenCV](#opencv)  
+   - [ROS_ROBOT_CONTROLLER_SDK](#ros_robot_controller_sdk)  
+   - [RPI.GPIO](#rpigpio)  
 10. [Complete Construction Manual](#complete-construction-manual)  
 
 ## Team Members
