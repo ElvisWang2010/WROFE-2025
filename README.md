@@ -2,8 +2,6 @@
 
 Team Buzzy Bee is entering WRO Future Engineers for the first time. As long-time friends, we wanted to take on this challenge together by building a modular, adaptive car that can respond to its environment.
 
-## Table of Contents
-
 1. [Team Members](#team-members)  
 2. [Machinery](#machinery)  
 3. [Hardware Design](#hardware-design)  
