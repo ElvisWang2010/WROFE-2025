@@ -1,6 +1,6 @@
 # Engineering Documentation
 
-This repository documents Team Buzzy Bee's building and programming process.
+Team Buzzy Bee is entering WRO Future Engineers for the first time. As long-time friends, we wanted to take on this challenge together by building a modular, adaptive car that can respond to its environment.
 
 
 ## Team Members
@@ -9,7 +9,8 @@ This repository documents Team Buzzy Bee's building and programming process.
 - Elvis Wang - 14
 - Harry Xiao - 15
 
-## Our Experience
+## Background
+Heading into our first year of Future Engineers, we didn't know what to expectWe set out to build more than just a car, our modular robot is designed to see, think, and adapt. Using onboard sensors and vision processing, it adjusts its driving behavior to handle every challenge the WRO track presents. 
 
 ## Machinery 
 ### Components
