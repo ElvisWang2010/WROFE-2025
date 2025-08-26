@@ -2,46 +2,32 @@
 
 Team Buzzy Bee is entering WRO Future Engineers for the first time. As long-time friends, we wanted to take on this challenge together by building a modular, adaptive car that can respond to its environment.
 
-## Table of Contents
+## Table of Contents  
 
-<ol>
-  <li><a href="#team-members">Team Members</a></li>
-  <li><a href="#machinery">Machinery</a></li>
-  <li><a href="#hardware-design">Hardware Design</a></li>
-  <li>
-    <a href="#electronics-and-sensors">Electronics and Sensors</a>
-    <ul style="list-style-type: disc; margin: 6px 0 0 1.25rem;">
-      <li><a href="#battery">Battery</a></li>
-      <li><a href="#electronic-speed-controller-esc">Electronic Speed Controller (ESC)</a></li>
-      <li><a href="#motormobility-management">Motor / Mobility Management</a></li>
-    </ul>
-  </li>
-  <li><a href="#design">Design</a></li>
-  <li>
-    <a href="#robot-design-overview">Robot Design Overview</a>
-    <ul style="list-style-type: disc; margin: 6px 0 0 1.25rem;">
-      <li><a href="#1-camera-esc--raspberry-pi-5-holder">Camera, ESC &amp; Raspberry Pi 5 Holder</a></li>
-      <li><a href="#2-servo--controller-holder">Servo &amp; Controller Holder</a></li>
-      <li><a href="#3-turning-mechanism">Turning Mechanism</a></li>
-      <li><a href="#4-motor-mechanism">Motor Mechanism</a></li>
-      <li><a href="#5-servo-mount">Servo Mount</a></li>
-      <li><a href="#6-full-assembly">Full Assembly</a></li>
-    </ul>
-  </li>
-  <li><a href="#motor">Motor</a></li>
-  <li><a href="#power-resource-management">Power Resource Management</a></li>
-  <li>
-    <a href="#software">Software</a>
-    <ul style="list-style-type: disc; margin: 6px 0 0 1.25rem;">
-      <li><a href="#python-30">Python 3.0</a></li>
-      <li><a href="#picamera2">Picamera2</a></li>
-      <li><a href="#opencv">OpenCV</a></li>
-      <li><a href="#ros_robot_controller_sdk">ROS_ROBOT_CONTROLLER_SDK</a></li>
-      <li><a href="#rpigpio">RPI.GPIO</a></li>
-    </ul>
-  </li>
-  <li><a href="#complete-construction-manual">Complete Construction Manual</a></li>
-</ol>
+1. [Team Members](#team-members)  
+2. [Machinery](#machinery)  
+3. [Hardware Design](#hardware-design)  
+4. [Electronics and Sensors](#electronics-and-sensors)  
+   - [Battery](#battery)  
+   - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
+   - [Motor / Mobility Management](#motormobility-management)  
+5. [Design](#design)  
+6. [Robot Design Overview](#robot-design-overview)  
+   - [Camera, ESC & Raspberry Pi 5 Holder](#1-camera-esc--raspberry-pi-5-holder)  
+   - [Servo & Controller Holder](#2-servo--controller-holder)  
+   - [Turning Mechanism](#3-turning-mechanism)  
+   - [Motor Mechanism](#4-motor-mechanism)  
+   - [Servo Mount](#5-servo-mount)  
+   - [Full Assembly](#6-full-assembly)  
+7. [Motor](#motor)  
+8. [Power Resource Management](#power-resource-management)  
+9. [Software](#software)  
+   - [Python 3.0](#python-30)  
+   - [Picamera2](#picamera2)  
+   - [OpenCV](#opencv)  
+   - [ROS_ROBOT_CONTROLLER_SDK](#ros_robot_controller_sdk)  
+   - [RPI.GPIO](#rpigpio)  
+10. [Complete Construction Manual](#complete-construction-manual)  
 
 
 
