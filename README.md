@@ -60,29 +60,28 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ## Electronics and Sensors
 
-### Battery  
-
-<p align="center">
-  <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
-</p>
-
-<details>
-  <summary><b>Specifications</b></summary>
-
-<ul style="font-size:16px; line-height:1.6;">
-  <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
-  <li><strong>Capacity:</strong> 1300mAh</li>
-  <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
-  <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
-  <li><strong>Cell Configuration:</strong> 2S1P</li>
-  <li><strong>Watt Hours:</strong> 9.62Wh</li>
-  <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
-  <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
-  <li><strong>Weight:</strong> 3.17oz (90g)</li>
-</ul>
-
-</details>
-
+### Battery
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
+        <li><strong>Capacity:</strong> 1300mAh</li>
+        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
+        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
+        <li><strong>Cell Configuration:</strong> 2S1P</li>
+        <li><strong>Watt Hours:</strong> 9.62Wh</li>
+        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
+        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
+        <li><strong>Weight:</strong> 3.17oz (90g)</li>
+      </ul>
+    </td>
+  </tr>
+</table
 <p style="font-size:16px; line-height:1.6; margin-top:15px;">
 We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an ideal balance of power, size, and weight for a small RC car. It has a <strong>45C continuous discharge rate</strong>, and the battery supplies up to <strong>58.5A (1300mAh × 45C)</strong>, meeting up to our power demands. The <strong>1300mAh capacity</strong> gives the car a solid runtime and at only <strong>90g</strong>, the battery minimizes added weight to the chassis, helping the car move quicker. Finally, its <strong>compact dimensions (70.87 × 35.24 × 14.5mm)</strong> allow it to fit securely in the car’s battery compartment, making it both an efficient and reliable power source for our design.
 </p>
