@@ -9,6 +9,8 @@ This repository documents Team Buzzy Bee's building and programming process.
 - Elvis Wang - 14
 - Harry Xiao - 15
 
+## Our Experience
+
 ## Machinery 
 ### Components
 | Name | Product | Price (CAD)|
