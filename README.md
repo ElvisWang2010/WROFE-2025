@@ -181,13 +181,13 @@ Most of the car was 3D printed or replaced, for example, the turning mechanism a
 #  Robot Design Overview  
 
 ## 1. Camera, ESC & Raspberry Pi 5 Holder  
-![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/f4a32aea-952e-464d-8d2d-4e37fc32044b)  
+![Camera, ESC, Raspberry Pi 5 Holder](<img width="625" height="578" alt="image" src="https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739" />)  
 This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
 
 ---
 
 ## 2. Servo & Controller Holder  
-![Servo and Controller Holder](https://github.com/user-attachments/assets/a5852082-f2c6-43ce-b2e2-41a676bc3e9a)  
+![Servo and Controller Holder](<img width="1055" height="611" alt="image" src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" />)  
 Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
 
 ---
@@ -210,10 +210,15 @@ Dedicated mount for the servo, ensuring correct angle alignment and stability un
 
 ---
 
-## 6. Full Assembly  
-![All Together](https://github.com/user-attachments/assets/5bd7f71e-6008-450d-a71e-d0bd98a7e613)  
-Final integrated system showing all modules combined into the complete build.  
+## 6. Lidar Mount
+![Servo Mount](<img width="469" height="350" alt="image" src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" />)  
+Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
 
+---
+
+## 7. Full Assembly  
+![All Together](<img width="760" height="710" alt="image" src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" />)  
+Final integrated system showing all modules combined into the complete build.  
 
 ## Motor
 
