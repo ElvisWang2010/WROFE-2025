@@ -79,14 +79,70 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ##  How We Overcame These Limitations  
 
-- **Improved traction:** We replaced stock plastic tires with **rubber-coated wheels**. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
-- **Balanced steering:** Designed and **3D-printed a custom steering system**, succeeding our previous unequal one.
+- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
+- **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
 
 
+## Motor/Mobility Management
 
 
+<table>
+  <tr>
+    <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="400" alt="Motor image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+    </td>
+    <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><b>KV (rpm/V):</b> 3450</li>
+        <li><b>No-load current @10 V:</b> 0.7 A</li>
+        <li><b>Power:</b> 120 W</li>
+        <li><b>Battery:</b> 2–3S</li>
+        <li><b>Resistance:</b> 0.16 Ω</li>
+        <li><b>Max current:</b> 10 A</li>
+        <li><b>Slot/Pole:</b> 12</li>
+        <li><b>Motor size (mm):</b> 15.5 × 20.6</li>
+        <li><b>Shaft (mm):</b> 1.5 × 6</li>
+        <li><b>Weight:</b> 17.5 g</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-## Electronics and Sensors
+### Electronic Speed Controller (ESC)
+
+The ESC is a key component that regulates how the motor receives power. It:  
+- Controls the motor's speed
+- Manages direction 
+- Ensures safe delivery of voltage and current to the motor
+
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="FURITEK LIZARD Pro 30A/50A ESC" src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" />
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
+        <li><strong>BIG BEC:</strong> 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
+        <li><strong>Constant Current:</strong> 30A</li>
+        <li><strong>Burst Current:</strong> 50A</li>
+        <li><strong>Built-in Power Switch</strong></li>
+        <li><strong>Dimensions (mm):</strong> 28 × 15.5</li>
+        <li><strong>Weight:</strong> 3.7 g</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+This ESC was selected for its compatibility with our power system, supporting **2S–3S LiPo batteries** to match our **7.4V (2S) Gens Ace battery**. Its current handling **30A continuous** and **50A burst**greatly exceeds our motor’s maximum draw of ~10A.  
+
+The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
+
+At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
+
+## Electronics 
 
 ### Battery
 <table>
@@ -115,65 +171,9 @@ We chose the <strong>Gens Ace 1300mAh 7.4V LiPo</strong> because it offers an id
 </p>
 
 
-### Electronic Speed Controller (ESC)
-
-The ESC is a key component that regulates how the motor receives power. It:  
-- Controls the motor's **speed**  
-- Manages **direction**  
-- Ensures safe delivery of **voltage and current** to the motor
-
-<table>
-  <tr>
-    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="350" alt="FURITEK LIZARD Pro 30A/50A ESC" src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" />
-    </td>
-    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
-      <ul style="font-size:16px; line-height:1.6;">
-        <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
-        <li><strong>BIG BEC:</strong> 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
-        <li><strong>Constant Current:</strong> 30A</li>
-        <li><strong>Burst Current:</strong> 50A</li>
-        <li><strong>Built-in Power Switch</strong></li>
-        <li><strong>Dimensions (mm):</strong> 28 × 15.5</li>
-        <li><strong>Weight:</strong> 3.7 g</li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-This ESC was selected for its compatibility with our power system, supporting **2S–3S LiPo batteries** to match our **7.4V (2S) Gens Ace battery**. Its current handling **30A continuous** and **50A burst**greatly exceeds our motor’s maximum draw of ~10A.  
-
-The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servos to be powered directly without an external BEC, saving both **weight** and **internal chassis space**.  
-
-At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
 
 
-## Motor/Mobility Management
 
-
-<table>
-  <tr>
-    <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="400" alt="Motor image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
-    </td>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
-      <ul style="font-size:16px; line-height:1.6;">
-        <li><b>KV (rpm/V):</b> 3450</li>
-        <li><b>No-load current @10 V:</b> 0.7 A</li>
-        <li><b>Power:</b> 120 W</li>
-        <li><b>Battery:</b> 2–3S</li>
-        <li><b>Resistance:</b> 0.16 Ω</li>
-        <li><b>Max current:</b> 10 A</li>
-        <li><b>Slot/Pole:</b> 12</li>
-        <li><b>Motor size (mm):</b> 15.5 × 20.6</li>
-        <li><b>Shaft (mm):</b> 1.5 × 6</li>
-        <li><b>Weight:</b> 17.5 g</li>
-      </ul>
-    </td>
-  </tr>
-</table>
 
 ## Design
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism from either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to printed part.
