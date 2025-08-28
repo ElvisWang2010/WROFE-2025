@@ -83,8 +83,11 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ---
 
-## Motor/Mobility Management
+# Electronics
 
+## Mobility Management
+
+### Motor
 
 <table>
   <tr>
@@ -137,12 +140,9 @@ The ESC is a key component that regulates how the motor receives power. It:
 </table>
 
 Its current handling **30A continuous** and **50A burst** greatly exceeds our motor’s maximum draw of ~10A.  
-
 The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
-
 At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
 
-## Electronics 
 
 ### Battery
 <table>
@@ -167,15 +167,14 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
   </tr>
 </table>
 
-<p style="font-size:16px; line-height:1.6; margin-top:15px;">
-
-   
-We chose the **7.4V (2S) Gens Ace 1300mAh LiPo** because it perfectly complements our motor and ESC setup. **This battery matches the ESC’s supported range, as the ESC was selected for its compatibility with 2S–3S LiPo batteries to match our 7.4V (2S) Gens Ace 
-battery.** Its **45C continuous discharge rate (up to 58.5A)** easily covers the motor’s maximum current draw while staying within the ESC’s limits. The **1300mAh capacity** provides a solid runtime, and its **lightweight 90g design** minimizes added mass, helping the car move efficiently. Its **compact dimensions (70.87 × 35.24 × 14.5mm)** allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
+<p style="font-size:16px; line-height:1.6; margin-top:15px;"> 
+We chose this battery for its **45C continuous discharge rate** which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The **1300mAh capacity** provides a solid runtime, and its **lightweight 90g design** minimizes added mass, helping the car move efficiently. Its **compact dimensions (70.87 × 35.24 × 14.5mm)** allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
 </p>
 
+### How the Car Moves
+When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into **rotational motion**, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
 
-
+Together, the motor, ESC, and wheels form the core of our car's **mobility system**, while the battery acts as the powerhouse.
 
 
 
