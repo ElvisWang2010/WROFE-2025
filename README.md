@@ -81,6 +81,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 - **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
 - **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
 
+---
 
 ## Motor/Mobility Management
 
