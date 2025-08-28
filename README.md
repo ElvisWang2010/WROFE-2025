@@ -1,6 +1,6 @@
 # Engineering Documentation
 
-Team Buzzy Bee is entering WRO Future Engineers for the first time. As long-time friends, we wanted to take on this challenge together by building a modular, adaptive car that can respond to its environment.
+This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 
 ## Table of Contents  
 
