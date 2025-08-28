@@ -112,13 +112,13 @@ Dedicated mount for the servo, ensuring correct angle alignment and stability un
 ---
 
 ## 6. Lidar Mount
-![Servo Mount](<img width="469" height="350" alt="image" src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" />)  
+![Servo Mount]("https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b")  
 Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
 
 ---
 
 ## 7. Full Assembly  
-![All Together](<img width="760" height="710" alt="image" src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" />)  
+![All Together]("https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343")  
 Final integrated system showing all modules combined into the complete build.  
 
 ---
