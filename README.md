@@ -82,13 +82,13 @@ Despite the benefits, the chassis presented several challenges that impacted per
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
 
 ## 1. Camera, ESC & Raspberry Pi 5 Holder  
-![Camera, ESC, Raspberry Pi 5 Holder](<img width="625" height="578" alt="image" src="https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739" />)  
+![Camera, ESC, Raspberry Pi 5 Holder]("https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739")  
 This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
 
 ---
 
 ## 2. Servo & Controller Holder  
-![Servo and Controller Holder](<img width="1055" height="611" alt="image" src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" />)  
+![Servo and Controller Holder](https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0")  
 Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
 
 ---
@@ -120,8 +120,8 @@ Supports lidar at an elevated height to make sure it can see over car components
 ## 7. Full Assembly  
 ![All Together](<img width="760" height="710" alt="image" src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" />)  
 Final integrated system showing all modules combined into the complete build.  
----
 
+---
 # Electronics
 
 ## Mobility Management
