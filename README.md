@@ -61,7 +61,7 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 
 #### Notable Features / Design Advantages
 
-- **Cost-effective:** At only **$27 CAD**, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between **$50 and $100+**.
+- **Cost-effective:** At only $27 CAD, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between $50 and $100+.
 - **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
 - **High steering range:** Tested front wheels pivoted significantly, enabling tight turns with less steering input—ideal for technical track layouts.
 - **Compact form factor:** The fixed 1/24 scale size facilitated a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
@@ -178,9 +178,10 @@ The ESC is a key component that regulates how the motor receives power. It:
   </tr>
 </table>
 
-Its current handling **30A continuous** and **50A burst** greatly exceeds our motor’s maximum draw of ~10A.  
-The ESC features a strong, **switchable 5V/6.5V 2.5A BEC**, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
-At just **3.7g**, the ESC is extremely lightweight, blending well into the chassis.
+#### Why This ESC?
+Its current handling 30A continuous and 50A burst greatly exceeds our motor’s maximum draw of ~10A.  
+The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
+At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
 
 ### Battery
@@ -206,27 +207,17 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
   </tr>
 </table>
 
-<p style="font-size:16px; line-height:1.6; margin-top:15px;"> 
-   
-We chose this battery for its **45C continuous discharge rate** which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The **1300mAh capacity** provides a solid runtime, and its **lightweight 90g design** minimizes added mass, helping the car move efficiently. Its **compact dimensions (70.87 × 35.24 × 14.5mm)** allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
-</p>
+
+
+#### Why This Battery?
+We chose this battery for its 45C continuous discharge rate which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The 1300mAh capacity provides a solid runtime, and its lightweight 90g design minimizes added mass, helping the car move efficiently. Its compact dimensions (70.87 × 35.24 × 14.5mm) allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
+
 
 ### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into **rotational motion**, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
 
-Together, the motor, ESC, and wheels form the core of our car's **mobility system**, while the battery acts as the powerhouse.
+Together, the motor, ESC, and wheels form the core of our car's mobility system, while the battery acts as the powerhouse.
 
-
-
-
-
-
-
-
-## Motor
-
-
-## Power Resource Management
 
 
 # Software
