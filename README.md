@@ -84,6 +84,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ## Motor/Mobility Management
 
+
 <table>
   <tr>
     <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
@@ -92,16 +93,16 @@ Despite the benefits, the chassis presented several challenges that impacted per
     <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
       <h2>Specifications</h2>
       <ul style="font-size:16px; line-height:1.6;">
-        <li>**KV (rpm/V):** 3450</li>
-        <li>**No-load current @10 V:** 0.7 A</li>
-        <li>**Power:** 120 W</li>
-        <li>**Battery:** 2–3S</li>
-        <li>**Resistance:** 0.16 Ω</li>
-        <li>**Max current:** 10 A</li>
-        <li>**Slot/Pole:** 12</li>
-        <li>**Motor size (mm):** 15.5 × 20.6</li>
-        <li>**Shaft (mm):** 1.5 × 6</li>
-        <li>**Weight:** 17.5 g</li>
+        <li><strong>KV (rpm/V):</strong> 3450</li>
+        <li><strong>No-load current @10 V:</strong> 0.7 A</li>
+        <li><strong>Power:</strong> 120 W</li>
+        <li><strong>Battery:</strong> 2–3S</li>
+        <li><strong>Resistance:</strong> 0.16 Ω</li>
+        <li><strong>Max current:</strong> 10 A</li>
+        <li><strong>Slot/Pole:</strong> 12</li>
+        <li><strong>Motor size (mm):</strong> 15.5 × 20.6</li>
+        <li><strong>Shaft (mm):</strong> 1.5 × 6</li>
+        <li><strong>Weight:</strong> 17.5 g</li>
       </ul>
     </td>
   </tr>
@@ -110,9 +111,9 @@ Despite the benefits, the chassis presented several challenges that impacted per
 ### Electronic Speed Controller (ESC)
 
 The ESC is a key component that regulates how the motor receives power. It:  
-- Controls the motor's speed  
-- Manages direction  
-- Ensures safe delivery of voltage and current to the motor  
+- Controls the motor's speed
+- Manages direction 
+- Ensures safe delivery of voltage and current to the motor
 
 <table>
   <tr>
@@ -122,13 +123,13 @@ The ESC is a key component that regulates how the motor receives power. It:
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
       <h2>Specifications</h2>
       <ul style="font-size:16px; line-height:1.6;">
-        <li>**Battery Support:** 2S–3S LiPo</li>
-        <li>**BIG BEC:** 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
-        <li>**Constant Current:** 30A</li>
-        <li>**Burst Current:** 50A</li>
-        <li>**Built-in Power Switch**</li>
-        <li>**Dimensions (mm):** 28 × 15.5</li>
-        <li>**Weight:** 3.7 g</li>
+        <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
+        <li><strong>BIG BEC:</strong> 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
+        <li><strong>Constant Current:</strong> 30A</li>
+        <li><strong>Burst Current:</strong> 50A</li>
+        <li><strong>Built-in Power Switch</strong></li>
+        <li><strong>Dimensions (mm):</strong> 28 × 15.5</li>
+        <li><strong>Weight:</strong> 3.7 g</li>
       </ul>
     </td>
   </tr>
@@ -143,7 +144,6 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
 ## Electronics 
 
 ### Battery
-
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
@@ -152,21 +152,22 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
       <h2>Specifications</h2>
       <ul style="font-size:16px; line-height:1.6;">
-        <li>**Nominal Voltage:** 7.4V (2S)</li>
-        <li>**Capacity:** 1300mAh</li>
-        <li>**Maximum Charge Rate:** 5C (6.5A)</li>
-        <li>**Discharge Rate:** 45C Continuous / 90C Peak</li>
-        <li>**Cell Configuration:** 2S1P</li>
-        <li>**Watt Hours:** 9.62Wh</li>
-        <li>**Connector:** T-Style (Battery), G-Tech Smart (Balance)</li>
-        <li>**Dimensions (LxWxH):** 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
-        <li>**Weight:** 3.17oz (90g)</li>
+        <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
+        <li><strong>Capacity:</strong> 1300mAh</li>
+        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
+        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
+        <li><strong>Cell Configuration:</strong> 2S1P</li>
+        <li><strong>Watt Hours:</strong> 9.62Wh</li>
+        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
+        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
+        <li><strong>Weight:</strong> 3.17oz (90g)</li>
       </ul>
     </td>
   </tr>
 </table>
 
 <p style="font-size:16px; line-height:1.6; margin-top:15px;">
+
    
 We chose the **7.4V (2S) Gens Ace 1300mAh LiPo** because it perfectly complements our motor and ESC setup. **This battery matches the ESC’s supported range, as the ESC was selected for its compatibility with 2S–3S LiPo batteries to match our 7.4V (2S) Gens Ace 
 battery.** Its **45C continuous discharge rate (up to 58.5A)** easily covers the motor’s maximum current draw while staying within the ESC’s limits. The **1300mAh capacity** provides a solid runtime, and its **lightweight 90g design** minimizes added mass, helping the car move efficiently. Its **compact dimensions (70.87 × 35.24 × 14.5mm)** allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
