@@ -54,9 +54,6 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 
 # Hardware Design
 
-
-
-
 ## Chassis 
 
 
@@ -81,6 +78,48 @@ Despite the benefits, the chassis presented several challenges that impacted per
 - **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
 - **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
 
+##  Robot Design Overview  
+Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
+
+## 1. Camera, ESC & Raspberry Pi 5 Holder  
+![Camera, ESC, Raspberry Pi 5 Holder](<img width="625" height="578" alt="image" src="https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739" />)  
+This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
+
+---
+
+## 2. Servo & Controller Holder  
+![Servo and Controller Holder](<img width="1055" height="611" alt="image" src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" />)  
+Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
+
+---
+
+## 3. Turning Mechanism  
+![Turning Mechanism](https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1)  
+Mechanical system for steering/rotation, linked to the servo mount.  
+
+---
+
+## 4. Motor Mechanism  
+![Motor Mechanism](https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb)  
+Houses the drive motor and transmits torque to the wheels/tracks.  
+
+---
+
+## 5. Servo Mount  
+![Servo Mount](https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e)  
+Dedicated mount for the servo, ensuring correct angle alignment and stability under load.  
+
+---
+
+## 6. Lidar Mount
+![Servo Mount](<img width="469" height="350" alt="image" src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" />)  
+Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
+
+---
+
+## 7. Full Assembly  
+![All Together](<img width="760" height="710" alt="image" src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" />)  
+Final integrated system showing all modules combined into the complete build.  
 ---
 
 # Electronics
@@ -179,50 +218,10 @@ Together, the motor, ESC, and wheels form the core of our car's **mobility syste
 
 
 
-## Design
-Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism from either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to printed part.
 
-#  Robot Design Overview  
 
-## 1. Camera, ESC & Raspberry Pi 5 Holder  
-![Camera, ESC, Raspberry Pi 5 Holder](<img width="625" height="578" alt="image" src="https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739" />)  
-This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
 
----
 
-## 2. Servo & Controller Holder  
-![Servo and Controller Holder](<img width="1055" height="611" alt="image" src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" />)  
-Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
-
----
-
-## 3. Turning Mechanism  
-![Turning Mechanism](https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1)  
-Mechanical system for steering/rotation, linked to the servo mount.  
-
----
-
-## 4. Motor Mechanism  
-![Motor Mechanism](https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb)  
-Houses the drive motor and transmits torque to the wheels/tracks.  
-
----
-
-## 5. Servo Mount  
-![Servo Mount](https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e)  
-Dedicated mount for the servo, ensuring correct angle alignment and stability under load.  
-
----
-
-## 6. Lidar Mount
-![Servo Mount](<img width="469" height="350" alt="image" src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" />)  
-Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
-
----
-
-## 7. Full Assembly  
-![All Together](<img width="760" height="710" alt="image" src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" />)  
-Final integrated system showing all modules combined into the complete build.  
 
 ## Motor
 
