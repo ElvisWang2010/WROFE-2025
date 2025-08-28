@@ -168,6 +168,7 @@ At just **3.7g**, the ESC is extremely lightweight, blending well into the chass
 </table>
 
 <p style="font-size:16px; line-height:1.6; margin-top:15px;"> 
+   
 We chose this battery for its **45C continuous discharge rate** which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The **1300mAh capacity** provides a solid runtime, and its **lightweight 90g design** minimizes added mass, helping the car move efficiently. Its **compact dimensions (70.87 × 35.24 × 14.5mm)** allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
 </p>
 
