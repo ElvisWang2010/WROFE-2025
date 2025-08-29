@@ -45,6 +45,7 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 | RC Car | [`ACXWA CD`](https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb)  | $27 |
 | RC Car Battery | [`Gens Ace 1300mAh Battery`](https://www.adrenalinehobby.c1om/products/gens-ace-g-tech-1300mah-2s-7-4v-25c-lipo-deans-plug) | $35 | 
 | Drive Motor | [`Furitek Micro Komodo 1212 3450KV Brushless Motor`](https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118) | $39 |
+| Servo Motor | [`HS-5055MG 11.9g Metal Gear Digital Micro Servo`](https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_) | $39 |
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $90 |
 | Turning Motor | [`Hitec HS-5055MG Servo Motor`](https://ca.robotshop.com/products/hs-5055mg-metal-gear-micro-servo-motor?srsltid=AfmBOopv8Z7LoCVOEqe16w05ZV-R78dNmy7dappldIxZiQzCJroxcssFc2Y) | $38 |
 | CSI Camera | [`SainSmart Wide Angle Fish-Eye Camera`](https://www.amazon.ca/SainSmart-Fish-Eye-Camera-Raspberry-Arduino/dp/B00N1YJKFS/ref=sr_1_5) | $19 |
@@ -105,7 +106,7 @@ Final integrated system showing all modules combined into the complete build.
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
+      <img width="350" alt="image" src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" />
     </td>
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
       <h2>Specifications</h2>
@@ -162,7 +163,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
 <table>
   <tr>
     <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="400" alt="Motor image" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+      <img width="400" alt="Furitek Micro Komodo Motor" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
     </td>
     <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
       <h2>Specifications</h2>
@@ -182,6 +183,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
   </tr>
 </table>
 <p><strong>Where to Buy:</strong> <a href="YOUR_LINK_HERE" target="_blank">Click Here</a></p>
+
 ## Electronic Speed Controller (ESC)
 
 The ESC is a key component that regulates how the motor receives power. It:  
