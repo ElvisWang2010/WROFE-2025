@@ -1,4 +1,4 @@
-eed# Engineering Documentation
+# Engineering Documentation
 
 This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 
