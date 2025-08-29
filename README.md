@@ -1,4 +1,4 @@
-# Engineering Documentation
+eed# Engineering Documentation
 
 This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 
@@ -52,32 +52,6 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 
 
-# Hardware Design
-
-## Chassis 
-
-
-For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduced structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
-
-#### Notable Features / Design Advantages
-
-- **Cost-effective:** At only $27 CAD, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between $50 and $100+.
-- **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
-- **High steering range:**  Front wheels pivoted significantly, enabling tight turns with less steering input.
-- **Compact form factor:** The fixed 1/24 scale size aided a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
-
-####  Chassis Limitations  
-
-Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
-
-- **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
-- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
-
-####  How We Overcame These Limitations  
-
-- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
-- **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
-
 ##  Robot Design Overview  
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
 
@@ -122,12 +96,69 @@ Supports lidar at an elevated height to make sure it can see over car components
 Final integrated system showing all modules combined into the complete build.  
 
 ---
-# Electronics
 
-## Mobility Management
 
-### Motor
+# Power Management
 
+## Battery
+
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
+        <li><strong>Capacity:</strong> 1300mAh</li>
+        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
+        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
+        <li><strong>Cell Configuration:</strong> 2S1P</li>
+        <li><strong>Watt Hours:</strong> 9.62Wh</li>
+        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
+        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
+        <li><strong>Weight:</strong> 3.17oz (90g)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+### Why This Battery?
+We chose this battery for its 45C continuous discharge rate which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The 1300mAh capacity provides a solid runtime, and its lightweight 90g design minimizes added mass, helping the car move efficiently. Its compact dimensions (70.87 × 35.24 × 14.5mm) allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
+
+---
+
+# Mobility Management
+
+## Chassis 
+
+
+For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduced structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
+
+#### Notable Features / Design Advantages
+
+- **Cost-effective:** At only $27 CAD, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between $50 and $100+.
+- **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
+- **High steering range:**  Front wheels pivoted significantly, enabling tight turns with less steering input.
+- **Compact form factor:** The fixed 1/24 scale size aided a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
+
+####  Chassis Limitations  
+
+Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
+
+- **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
+- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
+
+####  How We Overcame These Limitations  
+
+- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
+- **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
+
+
+## Motor
+**Furitek Micro Komodo 1212 3450KV Brushless Motor**
+A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
 <table>
   <tr>
     <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
@@ -150,8 +181,8 @@ Final integrated system showing all modules combined into the complete build.
     </td>
   </tr>
 </table>
-
-### Electronic Speed Controller (ESC)
+<p><strong>Where to Buy:</strong> <a href="YOUR_LINK_HERE" target="_blank">Click Here</a></p>
+## Electronic Speed Controller (ESC)
 
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed
@@ -184,41 +215,12 @@ The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be po
 At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
 
-### Battery
-<table>
-  <tr>
-    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="350" alt="Gens Ace 1300mAh Battery" src="https://github.com/user-attachments/assets/4c221224-f5ea-4988-92b6-f819b2148f4a" />
-    </td>
-    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
-      <ul style="font-size:16px; line-height:1.6;">
-        <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
-        <li><strong>Capacity:</strong> 1300mAh</li>
-        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
-        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
-        <li><strong>Cell Configuration:</strong> 2S1P</li>
-        <li><strong>Watt Hours:</strong> 9.62Wh</li>
-        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
-        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
-        <li><strong>Weight:</strong> 3.17oz (90g)</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+#### How the Car Moves
+When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
 
+Together, the motor, ESC, and wheels form the core of our car's mobility system, while the battery holds the energy.
 
-
-#### Why This Battery?
-We chose this battery for its 45C continuous discharge rate which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The 1300mAh capacity provides a solid runtime, and its lightweight 90g design minimizes added mass, helping the car move efficiently. Its compact dimensions (70.87 × 35.24 × 14.5mm) allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
-
-
-### How the Car Moves
-When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into **rotational motion**, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
-
-Together, the motor, ESC, and wheels form the core of our car's mobility system, while the battery acts as the powerhouse.
-
-
+# Sense Managment
 
 # Software
 ## Frameworks
@@ -261,6 +263,7 @@ The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/
 The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
 
 _If you have any suggestions or found some bugs/inconsistencies please report them in form of [the GitHub issue](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/issues/new)._
+
 
 
 
