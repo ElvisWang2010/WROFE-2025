@@ -5,6 +5,7 @@ from std_msgs.msg import Bool
 from cv_bridge import CvBridge
 from picamera2 import Picamera2
 import cv2
+import time
 
 
 class CameraNode(Node):
@@ -15,6 +16,7 @@ class CameraNode(Node):
         self.bridge = CvBridge()
         self.picam2 = Picamera2()
         self.picam2.start()
+        time.sleep(1)
 
         self.timer = self.create_timer(0.1, self.publish_frame) 
 
@@ -28,7 +30,7 @@ class CameraNode(Node):
         if frame is not None:
             if frame.shape[2] == 4:
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
-            msg = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
+            msg = self.bridge.cv2_to_imgmsg(frame, encoding='rgb8')
             self.publisher.publish(msg)
 
 
@@ -43,6 +45,6 @@ def main(args=None):
         node.destroy_node()
         rclpy.shutdown()
 
-
 if __name__ == '__main__':
     main()
+
