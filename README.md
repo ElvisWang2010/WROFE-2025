@@ -96,7 +96,41 @@ Most of the car was 3D printed or replaced, for example, the turning mechanism a
 
 ---
 
-# Robot Photos
+# Assembly Gallery
+## Assembly Gallery
+
+<table>
+  <!-- Row 1 -->
+  <tr>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Front+View" width="100%" alt="Front view of the complete robot" /><br/>
+      <em><strong>Front View</strong><br>Shows the overall profile and front-facing components.</em>
+    </td>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Rear+View" width="100%" alt="Rear view of the complete robot" /><br/>
+      <em><strong>Rear View</strong><br>Shows the drive wheels and rear assembly.</em>
+    </td>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Top+View" width="100%" alt="Top down view of the robot" /><br/>
+      <em><strong>Top View</strong><br>Shows the layout of all major components on the upper chassis.</em>
+    </td>
+  </tr>
+  <!-- Row 2 -->
+  <tr>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Left+View" width="100%" alt="Left side view of the robot" /><br/>
+      <em><strong>Left Side View</strong><br>Shows the side profile and left-side components.</em>
+    </td>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Right+View" width="100%" alt="Right side view of the robot" /><br/>
+      <em><strong>Right Side View</strong><br>Shows the side profile and right-side components.</em>
+    </td>
+    <td align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://placehold.co/600x400/eee/999999/png?text=Bottom+View" width="100%" alt="Bottom view of the robot" /><br/>
+      <em><strong>Bottom View</strong><br>Shows the underside, wheel mounting, and lower chassis details.</em>
+    </td>
+  </tr>
+</table>
 
 # Power Management
 
