@@ -133,14 +133,14 @@ Most of the car was 3D printed or replaced.
 # Power Management
 
 ## Battery
-
+**Gens Ace 1300mAh Battery**
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="350" alt="image" src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" />
+      <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" width="300" alt="Gens Ace 1300mAh 2S LiPo Battery" />
     </td>
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
+      <h2>Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery</h2>
       <ul style="font-size:16px; line-height:1.6;">
         <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
         <li><strong>Capacity:</strong> 1300mAh</li>
@@ -149,16 +149,28 @@ Most of the car was 3D printed or replaced.
         <li><strong>Cell Configuration:</strong> 2S1P</li>
         <li><strong>Watt Hours:</strong> 9.62Wh</li>
         <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
-        <li><strong>Dimensions (LxWxH):</strong> 2.79 x 1.39 x 0.57 in (70.87 x 35.24 x 14.5mm)</li>
-        <li><strong>Weight:</strong> 3.17oz (90g)</li>
+        <li><strong>Dimensions (LxWxH):</strong> 70.87 × 35.24 × 14.5 mm</li>
+        <li><strong>Weight:</strong> 90 g</li>
       </ul>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" style="border:1px solid #ddd; padding:15px; background:#f9f9f9;">
+      <h3>Why We Chose This Battery</h3>
+      <p>
+        This battery was selected for its high 45C continuous discharge rate, which easily 
+        covers the motor’s maximum current draw while staying within the ESC’s limits. 
+        The 1300mAh capacity provides a good balance of runtime and weight efficiency.
+      </p>
+      <h3>Real-World Notes</h3>
+      <p>
+        In practice, the battery delivered stable voltage under load without noticeable 
+        sagging during acceleration. Its compact form factor fit securely in the chassis, 
+        and its lightweight design minimized mass, improving handling and responsiveness.
+      </p>
+    </td>
+  </tr>
 </table>
-
-### Rationale
-We chose this battery for its 45C continuous discharge rate which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The 1300mAh capacity provides a solid runtime, and its lightweight 90g design minimizes added mass, helping the car move efficiently. Its compact dimensions (70.87 × 35.24 × 14.5mm) allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
-
 
 ---
 
@@ -194,29 +206,46 @@ Despite the benefits, the chassis presented several challenges that impacted per
 ## Motor
 **Furitek Micro Komodo 1212 3450KV Brushless Motor**
 A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
+
 <table>
   <tr>
-    <td width="500" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="400" alt="Furitek Micro Komodo Motor" src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" />
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" width="300" alt="Furitek Micro Komodo Motor" />
     </td>
-    <td width="500" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Furitek Micro Komodo 1212 3450KV Brushless Motor</h2>
       <ul style="font-size:16px; line-height:1.6;">
         <li><strong>KV (rpm/V):</strong> 3450</li>
-        <li><strong>No-load current @10 V:</strong> 0.7 A</li>
+        <li><strong>No-load Current @10V:</strong> 0.7 A</li>
         <li><strong>Power:</strong> 120 W</li>
-        <li><strong>Battery:</strong> 2–3S</li>
+        <li><strong>Battery:</strong> 2–3S LiPo</li>
         <li><strong>Resistance:</strong> 0.16 Ω</li>
-        <li><strong>Max current:</strong> 10 A</li>
+        <li><strong>Max Current:</strong> 10 A</li>
         <li><strong>Slot/Pole:</strong> 12</li>
-        <li><strong>Motor size (mm):</strong> 15.5 × 20.6</li>
-        <li><strong>Shaft (mm):</strong> 1.5 × 6</li>
+        <li><strong>Motor Size:</strong> 15.5 × 20.6 mm</li>
+        <li><strong>Shaft:</strong> 1.5 × 6 mm</li>
         <li><strong>Weight:</strong> 17.5 g</li>
       </ul>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" style="border:1px solid #ddd; padding:15px; background:#f9f9f9;">
+      <h3>Why We Chose This Motor</h3>
+      <p>
+        We selected this motor for its exceptional power-to-weight ratio. At only 17.5 g, 
+        it delivers up to 120 W, enabling rapid acceleration and a high top speed while 
+        keeping the vehicle lightweight. Its 3450 KV rating ensures quick response and 
+        strong performance for competitive driving.
+      </p>
+      <h3>Real-World Notes</h3>
+      <p>
+        In testing, the motor provided smooth acceleration with minimal heat buildup, even under
+        sustained load. Its compact 15.5 × 20.6 mm size allowed for a tight fit in the chassis,
+        reducing drivetrain losses and ensuring reliability throughout long runs.
+      </p>
+    </td>
+  </tr>
 </table>
-
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
@@ -234,25 +263,34 @@ The ESC is a key component that regulates how the motor receives power. It:
       <img width="350" alt="FURITEK LIZARD Pro 30A/50A ESC" src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" />
     </td>
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
+      <h2> Furitek Lizard Pro ESC</h2>
       <ul style="font-size:16px; line-height:1.6;">
         <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
         <li><strong>BIG BEC:</strong> 5V or 6.5V, 2.5A (no external BEC needed for big servos)</li>
         <li><strong>Constant Current:</strong> 30A</li>
         <li><strong>Burst Current:</strong> 50A</li>
         <li><strong>Built-in Power Switch</strong></li>
-        <li><strong>Dimensions (mm):</strong> 28 × 15.5</li>
+        <li><strong>Dimensions:</strong> 28 × 15.5 mm</li>
         <li><strong>Weight:</strong> 3.7 g</li>
       </ul>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" style="border:1px solid #ddd; padding:15px; background:#f9f9f9;">
+      <h3>Rationale</h3>
+      <p>
+        Its 30A continuous and 50A burst current capacity far exceeds our motor’s ~10A draw, 
+        ensuring reliable performance under load. The built-in 2.5A BEC powers servos directly, 
+        removing the need for an external BEC and saving both space and weight. 
+      </p>
+      <h3> Real-World Notes</h3>
+      <p>
+        During testing, the ESC stayed cool even during continuous high-speed runs. 
+        The compact size (28 × 15.5 mm) fit perfectly inside our chassis.
+      </p>
+    </td>
+  </tr>
 </table>
-<p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth" target="_blank">Click Here</a></p>
-
-#### Rationale?
-Its current handling 30A continuous and 50A burst greatly exceeds our motor’s maximum draw of ~10A.  
-The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
-At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
 ---
 
@@ -283,12 +321,12 @@ The design features a mounting frame that secures the system to the chassis, a s
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="350" alt="ZETEC DIGITAL TASK INDUSTRIAL Servo" src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" />
+      <img src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" width="300" alt="HS-5055MG Digital Micro Servo" />
     </td>
     <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
-      <h2>Specifications</h2>
+      <h2>HS-5055MG 11.9g Metal Gear Digital Micro Servo</h2>
       <ul style="font-size:16px; line-height:1.6;">
-        <li><strong>Operating Voltage:</strong> 4.8V - 6.0V DC</li>
+        <li><strong>Operating Voltage:</strong> 4.8V – 6.0V DC</li>
         <li><strong>Max Torque:</strong> 22 oz/in (1.6 kg/cm)</li>
         <li><strong>Speed:</strong> 0.17s/60° @ 6.0V</li>
         <li><strong>Stall Current:</strong> 700 mA</li>
@@ -298,12 +336,25 @@ The design features a mounting frame that secures the system to the chassis, a s
       </ul>
     </td>
   </tr>
+  <tr>
+    <td colspan="2" style="border:1px solid #ddd; padding:15px; background:#f9f9f9;">
+      <h3>Why We Chose This Servo</h3>
+      <p>
+        The HS-5055MG was chosen for its precision, strength, and compact design. Its 
+        metal gears provide durability and torque suitable for steering applications, 
+        while its lightweight 9.5 g build minimizes additional load on the chassis. 
+        The programmable digital circuit ensures accurate and repeatable control.
+      </p>
+      <h3>Real-World Notes</h3>
+      <p>
+        In testing, the servo demonstrated consistent steering performance with minimal 
+        backlash. Its torque was sufficient to handle steering loads even under 
+        high-speed maneuvers, and the digital control improved responsiveness compared 
+        to analog alternatives.
+      </p>
+    </td>
+  </tr>
 </table>
-
-<p><strong>Where to Buy:</strong> <a href="https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_" target="_blank">Click Here</a></p>
-
-#### Rationale?
-We selected the Hitec HS-5055MG digital servo for its combination of precision, strength, and lightweight design. Its metal gears provide the durability and torque (22 oz-in) needed for reliable steering, while the programmable digital circuit guaruntees accurate control. Only weighing 9.5 grams, it delivers high performance without adding a significant amount of weight, making it ideal for the precise navigation this competetion demands.
 
 #### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
