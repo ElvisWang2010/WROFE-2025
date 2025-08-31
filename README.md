@@ -189,6 +189,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
 
 ## Electronic Speed Controller (ESC)
 **FURITEK LIZARD Pro 30A/50A Brushed/Brushless Esc**
+
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed
 - Manages direction 
