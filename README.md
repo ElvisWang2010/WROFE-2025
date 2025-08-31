@@ -204,7 +204,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 
 ## Motor
-**Furitek Micro Komodo 1212 3450KV Brushless Motor**
+**Furitek Micro Komodo 1212 3450KV Brushless Motor.**
 A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
 
 <table>
