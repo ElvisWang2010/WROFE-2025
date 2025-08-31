@@ -55,8 +55,7 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 *The chassis/rc car used to be $27 when we bought it. Now its changed to $125 for some reason.*
 
 ##  Robot Design Overview 
-Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter contrast to the PLA material from our printed modules.
-
+Most of the car was 3D printed or replaced.
 <table>
   <tr>
     <td align="center" width="33%">
