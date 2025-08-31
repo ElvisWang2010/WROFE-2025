@@ -127,7 +127,7 @@ Most of the car was 3D printed or replaced, for example, the turning mechanism a
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
       <img src="https://placehold.co/600x400/eee/999999/png?text=Bottom+View" width="100%" alt="Bottom view of the robot" /><br/>
-      <em><strong>Bottom View</strong><br>Shows the underside, wheel mounting, and lower chassis details.</em>
+      <em><strong>Bottom View</strong><br>Shows the underside, wheel mounting, and lower chassis.</em>
     </td>
   </tr>
 </table>
