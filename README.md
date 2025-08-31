@@ -217,6 +217,27 @@ Its current handling 30A continuous and 50A burst greatly exceeds our motor’s 
 The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
 At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
+## Steering/Servo Motor
+<table>
+  <tr>
+    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
+      <img width="350" alt="ZETEC DIGITAL TASK INDUSTRIAL Servo" src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" />
+
+    </td>
+    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+      <h2>Specifications</h2>
+      <ul style="font-size:16px; line-height:1.6;">
+        <li><strong>Operating Voltage:</strong> 4.8V - 6.0V DC</li>
+        <li><strong>Max Torque:</strong> 22 oz/in (1.6 kg/cm)</li>
+        <li><strong>Speed:</strong> 0.17s/60° @ 6.0V</li>
+        <li><strong>Stall Current:</strong> 700 mA</li>
+        <li><strong>Gear Material:</strong> Metal</li>
+        <li><strong>Weight:</strong> 9.5 g</li>
+        <li><strong>Circuit Type:</strong> G1 Programmable Digital</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 #### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
