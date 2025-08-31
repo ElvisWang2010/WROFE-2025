@@ -55,7 +55,7 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 *The chassis/rc car used to be $27 when we bought it. Now its changed to $125 for some reason.*
 
 ##  Robot Design Overview 
-Most of the car was 3D printed or replaced.
+A majority of the robot was 3D printed or replaced.
 <table>
   <tr>
     <td align="center" width="33%">
