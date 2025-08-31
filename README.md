@@ -57,49 +57,55 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 ##  Robot Design Overview 
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
 
-## 1. Camera, ESC & Raspberry Pi 5 Holder  
-![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e)
+## 1. Camera, ESC & Raspberry Pi 5 Holder
+<img src="https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e" width="500" alt="Camera, ESC, Raspberry Pi 5 Holder">
 
 Mounts the Raspberry Pi 5, Electronic Speed Controller, and camera.
 
 ---
 
-## 2. Servo & Controller Holder  
-![Servo and Controller Holder](https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0)  
+## 2. Servo & Controller Holder
+<img src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" width="500" alt="Servo and Controller Holder">
+
 Holds the servo and its controller in alignment.
 
 ---
 
-## 3. Turning Mechanism  
-![Turning Mechanism](https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1)  
-Mechanical system for steering/rotation, linked to the servo mount.  
+## 3. Turning Mechanism
+<img src="https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1" width="500" alt="Turning Mechanism">
+
+Mechanical system for steering/rotation, linked to the servo mount.
 
 ---
 
-## 4. Motor Mechanism  
-![Motor Mechanism](https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb)  
-Houses the drive motor and transmits torque to the wheels/tracks.  
+## 4. Motor Mechanism
+<img src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" width="500" alt="Motor Mechanism">
+
+Houses the drive motor and transmits torque to the wheels/tracks.
 
 ---
 
-## 5. Servo Mount  
-![Servo Mount](https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e)  
+## 5. Servo Mount
+<img src="https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e" width="500" alt="Servo Mount">
+
 Dedicated mount for the servo.
 
 ---
 
 ## 6. Lidar Mount
-![Servo Mount](https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b)  
+<img src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" width="500" alt="Lidar Mount">
+
 Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
 
 ---
 
-## 7. Full Assembly  
-![All Together](https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343)  
-Final integrated system showing all modules combined into the complete build.  
+## 7. Full Assembly
+<img src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" width="500" alt="Full Assembly">
+
+Final integrated system showing all modules combined into the complete build.
 
 ---
-
+# Robot Photos
 
 # Power Management
 
@@ -189,7 +195,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
 ## Electronic Speed Controller (ESC)
-
+**FURITEK LIZARD Pro 30A/50A Brushed/Brushless Esc**
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed
 - Manages direction 
@@ -221,7 +227,24 @@ Its current handling 30A continuous and 50A burst greatly exceeds our motor’s 
 The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
 At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
-## Steering/Servo Motor
+---
+
+## Steering
+Our first prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed.
+
+The design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
+
+<img width="1200" height="660" alt="Untitled design" src="https://github.com/user-attachments/assets/839592d3-8859-4111-a7a7-856aeb2863e8" />
+
+#### Potential Improvements:
+- Used a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
+- Added more fillets on corners, reducing stress concentration and prevents cracks.
+- Implemented brass threaded inserts for screw holes rather than relying on bare plastic.
+- Could have made knuckles thicker to prevent wear from constant movement.
+
+## Servo Motor
+**HS-5055MG 11.9g Metal Gear Digital Micro Servo**
+
 <table>
   <tr>
     <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
@@ -244,10 +267,15 @@ At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
 
 <p><strong>Where to Buy:</strong> <a href="https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_" target="_blank">Click Here</a></p>
 
-#### How the Car Moves
-When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction, allowing it to accelerate, slow down, or reverse in motion.
+#### Why This Servo Motor?
+We selected the Hitec HS-5055MG digital servo for its combination of precision, strength, and lightweight design. Its metal gears provide the durability and torque (22 oz-in) needed for reliable steering, while the programmable digital circuit guaruntees accurate control. Only weighing 9.5 grams, it delivers high performance without adding a significant amount of weight, making it ideal for the precise navigation this competetion demands.
 
-Together, the motor, ESC, and wheels form the core of our car's mobility system, while the battery holds the energy.
+#### How the Car Moves
+When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
+
+In parallel, the servo motor is responsible for steering. It adjusts the angle of the front wheels through the steering system, enabling the car to turn left or right with precision.
+
+Together, the motor, ESC, servo motor, and chassis form the core of our car's mobility system, while the battery holds the energy.
 
 # Sense Managment
 
