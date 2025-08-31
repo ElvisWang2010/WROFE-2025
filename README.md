@@ -58,13 +58,14 @@ Most of the car was 3D printed or replaced, for example, the turning mechanism a
 
 ## 1. Camera, ESC & Raspberry Pi 5 Holder  
 ![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e)
-This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
+
+Mounts the Raspberry Pi 5, Electronic Speed Controller, and camera.
 
 ---
 
 ## 2. Servo & Controller Holder  
 ![Servo and Controller Holder](https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0)  
-Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
+Holds the servo and its controller in alignment.
 
 ---
 
@@ -82,7 +83,7 @@ Houses the drive motor and transmits torque to the wheels/tracks.
 
 ## 5. Servo Mount  
 ![Servo Mount](https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e)  
-Dedicated mount for the servo, ensuring correct angle alignment and stability under load.  
+Dedicated mount for the servo.
 
 ---
 
