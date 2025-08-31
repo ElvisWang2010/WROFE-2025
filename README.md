@@ -55,56 +55,47 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 *The chassis/rc car used to be $27 when we bought it. Now its changed to $125 for some reason.*
 
 ##  Robot Design Overview 
-Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
+Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter contrast to the PLA material from our printed modules.
 
-## 1. Camera, ESC & Raspberry Pi 5 Holder
-<img src="https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e" width="500" alt="Camera, ESC, Raspberry Pi 5 Holder">
-
-Mounts the Raspberry Pi 5, Electronic Speed Controller, and camera.
-
----
-
-## 2. Servo & Controller Holder
-<img src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" width="500" alt="Servo and Controller Holder">
-
-Holds the servo and its controller in alignment.
-
----
-
-## 3. Turning Mechanism
-<img src="https://github.com/user-attachments/assets/1c6ecc1b-0e13-4adc-8c61-39562bed50f1" width="500" alt="Turning Mechanism">
-
-Mechanical system for steering/rotation, linked to the servo mount.
-
----
-
-## 4. Motor Mechanism
-<img src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" width="500" alt="Motor Mechanism">
-
-Houses the drive motor and transmits torque to the wheels/tracks.
-
----
-
-## 5. Servo Mount
-<img src="https://github.com/user-attachments/assets/b30877e6-f7ff-4926-92d1-63a098a3b12e" width="500" alt="Servo Mount">
-
-Dedicated mount for the servo.
-
----
-
-## 6. Lidar Mount
-<img src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" width="500" alt="Lidar Mount">
-
-Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e" width="320" alt="Camera, ESC, Raspberry Pi 5 Holder"><br>
+      <b>1. Camera, ESC & Raspberry Pi 5 Holder</b><br>
+      Mounts the Raspberry Pi 5, ESC, and camera.
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0" width="320" alt="Servo and Controller Holder"><br>
+      <b>2. Servo & Controller Holder</b><br>
+      Holds the servo and its controller in alignment.
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/bf2e3ba0-369d-4ea8-bbc9-abe4e0329b85" width="320" alt="Steering Mechanism"><br>
+      <b>3. Steering Mechanism</b><br>
+      Combines the turning linkage and servo mount to control wheel direction.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/d691f26d-0096-4c3b-9ac7-1ecb6748c1cb" width="320" alt="Motor Mechanism"><br>
+      <b>4. Motor Mechanism</b><br>
+      Houses the drive motor and transmits torque to the wheels/tracks.
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b" width="320" alt="Lidar Mount"><br>
+      <b>5. Lidar Mount</b><br>
+      Holds lidar above components to detect pillars and walls.
+    </td>
+    <td align="center" width="33%">
+      <img src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" width="320" alt="Full Assembly"><br>
+      <b>6. Full Assembly</b><br>
+      Complete integrated build with all modules.
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 7. Full Assembly
-<img src="https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343" width="500" alt="Full Assembly">
-
-Final integrated system showing all modules combined into the complete build.
-
----
 # Robot Photos
 
 # Power Management
@@ -192,6 +183,8 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     </td>
   </tr>
 </table>
+
+
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
 ## Electronic Speed Controller (ESC)
@@ -234,7 +227,15 @@ Our first prototype used a commercial chassis. However, we quickly identified th
 
 The design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
 
-<img width="1200" height="660" alt="Untitled design" src="https://github.com/user-attachments/assets/839592d3-8859-4111-a7a7-856aeb2863e8" />
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="1200" height="570" alt="Untitled design" 
+           src="https://github.com/user-attachments/assets/839592d3-8859-4111-a7a7-856aeb2863e8" />
+    </td>
+  </tr>
+</table>
+
 
 #### Potential Improvements:
 - Used a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
