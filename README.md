@@ -183,7 +183,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     </td>
   </tr>
 </table>
-<p><strong>Where to Buy:</strong> <a href="YOUR_LINK_HERE" target="_blank">Click Here</a></p>
+<p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
 ## Electronic Speed Controller (ESC)
 
