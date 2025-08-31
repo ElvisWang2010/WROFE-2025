@@ -53,17 +53,17 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 
 
-##  Robot Design Overview  
+##  Robot Design Overview 
 Most of the car was 3D printed or replaced, for example, the turning mechanism and motor mechanism were either of poor quality or not durable. The board underneath the car was not 3D printed, as it was made from carbon fiber and is more durable and lighter compared to the printed part.
 
 ## 1. Camera, ESC & Raspberry Pi 5 Holder  
-![Camera, ESC, Raspberry Pi 5 Holder]("https://github.com/user-attachments/assets/f2fdfd0a-07fc-4b67-ac66-ea30c4e25739")  
+![Camera, ESC, Raspberry Pi 5 Holder](https://github.com/user-attachments/assets/08dde4bb-38ca-4fac-9316-b60eb3069f0e)
 This module securely mounts the Raspberry Pi 5, Electronic Speed Controller (ESC), and the camera, keeping wiring compact and accessible.  
 
 ---
 
 ## 2. Servo & Controller Holder  
-![Servo and Controller Holder](https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0")  
+![Servo and Controller Holder](https://github.com/user-attachments/assets/012318fc-d7e4-40a1-8cab-0527ac1ed8a0)  
 Holds the servo and its controller in alignment, ensuring stable mounting and reliable operation.  
 
 ---
@@ -87,13 +87,13 @@ Dedicated mount for the servo, ensuring correct angle alignment and stability un
 ---
 
 ## 6. Lidar Mount
-![Servo Mount]("https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b")  
+![Servo Mount](https://github.com/user-attachments/assets/c26f6fdb-64e1-464d-859f-822a5be7695b)  
 Supports lidar at an elevated height to make sure it can see over car components but detect pillar and walls.
 
 ---
 
 ## 7. Full Assembly  
-![All Together]("https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343")  
+![All Together](https://github.com/user-attachments/assets/92ab470a-5c97-48ca-aca0-c640ddbe2343)  
 Final integrated system showing all modules combined into the complete build.  
 
 ---
