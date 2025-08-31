@@ -133,15 +133,15 @@ Most of the car was 3D printed or replaced.
 # Power Management
 
 ## Battery
-**Gens Ace 1300mAh Battery**
-<table>
+
+<table border="1" width="100%">
   <tr>
-    <td width="400" valign="top" align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" width="300" alt="Gens Ace 1300mAh 2S LiPo Battery" />
+    <td width="40%" align="center">
+      <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" width="250" alt="Gens Ace 1300mAh 2S LiPo Battery" />
     </td>
-    <td width="400" valign="top" style="border:1px solid #ddd; padding:15px;">
+    <td width="60%" valign="top">
       <h2>Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery</h2>
-      <ul style="font-size:16px; line-height:1.6;">
+      <ul>
         <li><strong>Nominal Voltage:</strong> 7.4V (2S)</li>
         <li><strong>Capacity:</strong> 1300mAh</li>
         <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
@@ -155,7 +155,7 @@ Most of the car was 3D printed or replaced.
     </td>
   </tr>
   <tr>
-    <td colspan="2" style="border:1px solid #ddd; padding:15px; background:#f9f9f9;">
+    <td colspan="2">
       <h3>Why We Chose This Battery</h3>
       <p>
         This battery was selected for its high 45C continuous discharge rate, which easily 
@@ -164,9 +164,9 @@ Most of the car was 3D printed or replaced.
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        In practice, the battery delivered stable voltage under load without noticeable 
-        sagging during acceleration. Its compact form factor fit securely in the chassis, 
-        and its lightweight design minimized mass, improving handling and responsiveness.
+        In practice, the battery delivered stable voltage under load without noticeable sag 
+        during acceleration. Its compact form factor fit securely in the chassis, and its 
+        lightweight design minimized mass, improving handling and responsiveness.
       </p>
     </td>
   </tr>
@@ -204,7 +204,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 
 ## Motor
-**Furitek Micro Komodo 1212 3450KV Brushless Motor.**
+
 A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
 
 <table>
@@ -250,7 +250,6 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
 ## Electronic Speed Controller (ESC)
-**FURITEK LIZARD Pro 30A/50A Brushed/Brushless Esc**
 
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed
@@ -316,7 +315,6 @@ The design features a mounting frame that secures the system to the chassis, a s
 - Could have made knuckles thicker to prevent wear from constant movement.
 
 ## Servo Motor
-**HS-5055MG 11.9g Metal Gear Digital Micro Servo**
 
 <table>
   <tr>
