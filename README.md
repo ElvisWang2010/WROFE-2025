@@ -158,7 +158,7 @@ Most of the car was 3D printed or replaced, for example, the turning mechanism a
   </tr>
 </table>
 
-### Why This Battery?
+### Rationale
 We chose this battery for its 45C continuous discharge rate which easily covers the motor’s maximum current draw while staying within the ESC’s limits. The 1300mAh capacity provides a solid runtime, and its lightweight 90g design minimizes added mass, helping the car move efficiently. Its compact dimensions (70.87 × 35.24 × 14.5mm) allow it to fit securely in the chassis, making it a reliable and efficient power source for our design.
 
 ---
@@ -250,7 +250,7 @@ The ESC is a key component that regulates how the motor receives power. It:
 </table>
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth" target="_blank">Click Here</a></p>
 
-#### Why This ESC?
+#### Rationale?
 Its current handling 30A continuous and 50A burst greatly exceeds our motor’s maximum draw of ~10A.  
 The ESC features a strong, switchable 5V/6.5V 2.5A BEC, allowing servos to be powered directly without an external BEC, saving both weight and internal chassis space.  
 At just 3.7g, the ESC is extremely lightweight, blending well into the chassis.
@@ -303,7 +303,7 @@ The design features a mounting frame that secures the system to the chassis, a s
 
 <p><strong>Where to Buy:</strong> <a href="https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_" target="_blank">Click Here</a></p>
 
-#### Why This Servo Motor?
+#### Rationale?
 We selected the Hitec HS-5055MG digital servo for its combination of precision, strength, and lightweight design. Its metal gears provide the durability and torque (22 oz-in) needed for reliable steering, while the programmable digital circuit guaruntees accurate control. Only weighing 9.5 grams, it delivers high performance without adding a significant amount of weight, making it ideal for the precise navigation this competetion demands.
 
 #### How the Car Moves
