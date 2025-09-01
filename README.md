@@ -390,6 +390,23 @@ NumPy is a fundamental Python library for numerical computation. In robotics, it
 ### ROS_ROBOT_CONTROLLER_SDK
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
 
+## Open Challenge
+
+
+## Obstacle Challenge
+### Package structure
+~/fe_ws/src/obstacle_challenge/
+├── obstacle_challenge/
+│   ├── __init__.py
+│   ├── camera_node.py
+│   ├── imu_node.py
+│   ├── navigator_node.py
+│   └── ros_robot_controller_sdk.py
+├── launch/
+│   └── obstacle_challenge.launch.py
+├── package.xml
+└── setup.py
+
 # Building Instructions:
 
 ## Motor Mechanism
