@@ -245,7 +245,7 @@ Since this was our first time in the competition, we wanted to focus on learning
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hinderance. We never believed that we could outmatch our experienced competitors, and came to see that this was more than just a competition.
+        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hinderance. 
       </p>
     </td>
   </tr>
@@ -287,8 +287,6 @@ The ESC is a key component that regulates how the motor receives power. It:
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        The ESC ran cool in extended testing and integrated neatly into the chassis, weighing only 3.7 g. 
-        The built-in switch simplified wiring and improved usability during quick test sessions.
       </p>
     </td>
   </tr>
@@ -397,6 +395,8 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 
 ## Obstacle Challenge
 ### Package structure
+
+```
 ~/fe_ws/src/obstacle_challenge/
 ├── obstacle_challenge/
 │   ├── __init__.py
@@ -408,6 +408,8 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 │   └── obstacle_challenge.launch.py
 ├── package.xml
 └── setup.py
+```
+
 
 <img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/adf65227-4afb-4aa7-91dd-885e6386cb29" />
 
