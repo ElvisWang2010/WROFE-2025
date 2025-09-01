@@ -36,7 +36,20 @@ This repository was created by Team Buzzy Bee for WRO Future Engineers 2025.
 - Elvis Wang - 14
 - Harry Xiao - 15
 
+## Complete Construction Manual
 
+
+The WRO Future Engineers is the competition of the self-driven vehicles. Students of the age group from 15 till 19 need to design a model of a car, equip it with electromechanical components and program it as so it will be able to autonomously drive on the track avoiding objections.
+
+More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/new-competition-formats/future-engineers).
+
+<img src="docs/img/fe-map.png" width="640">
+
+The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/) site generator.
+
+The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
+
+If you have any suggestions or found some bugs/inconsistencies please report them in form of [the GitHub issue](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/issues/new)._
 
 ## Machinery 
 ### Components
@@ -162,7 +175,7 @@ A majority of the robot was 3D printed or replaced.
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        In practice, the battery delivered stable voltage under load without noticeable sag during acceleration. Its compact dimensions and light weight allowed for trouble-free storage while simultaneously providing a significant supply of energy, giving us a quicker and more decisive runs. However, its limited survivability hindered us at some times. In the process of downloading ROS2, the battery would frequently die over the 3 hour download time therefore connecting the car to an outlet was the only solution. We feel that we could have sacrificed a bit of weight for some more power time. Charging was also an issue. The process to charge took a lengthy time, roughly 3 hours.
+        In practice, the battery delivered stable voltage under load without noticeable sag during acceleration. Its compact dimensions and light weight allowed for easy installation while simultaneously providing a significant supply of energy, giving us quicker and more decisive runs. However, its limited survivability proved drawback. In the process of downloading ROS2, the battery would frequently die over the 3 hour download time, so connecting the car to an outlet was the only solution. We feel that we could have sacrificed a bit of weight for some more power time. Charging was also an issue. The process to charge took a lengthy time, roughly 3 hours.
       </p>
     </td>
   </tr>
@@ -378,27 +391,6 @@ NumPy is a fundamental Python library for numerical computation. In robotics, it
 
 ### ROS_ROBOT_CONTROLLER_SDK
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
-
-## Complete Construction Manual
-
-
-The WRO Future Engineers is the competition of the self-driven vehicles. Students of the age group from 15 till 19 need to design a model of a car, equip it with electromechanical components and program it as so it will be able to autonomously drive on the track avoiding objections.
-
-More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/new-competition-formats/future-engineers).
-
-<img src="docs/img/fe-map.png" width="640">
-
-The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/) site generator.
-
-The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
-
-_If you have any suggestions or found some bugs/inconsistencies please report them in form of [the GitHub issue](https://github.com/World-Robot-Olympiad-Association/future-engineers-gs/issues/new)._
-
-
-
-
-
-
 
 # Building Instructions:
 
