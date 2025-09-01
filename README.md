@@ -245,7 +245,7 @@ Since this was our first time in the competition, we wanted to focus on learning
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hinderance. We never believed that we could outmatch our experienced competitors, and came to see that this was more than just a competition, it was a chance to learn and face unique challenges as a team.
+        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hinderance. We never believed that we could outmatch our experienced competitors, and came to see that this was more than just a competition.
       </p>
     </td>
   </tr>
