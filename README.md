@@ -370,6 +370,8 @@ Python 3 is the core programming language used to build and run the autonomous c
 
 ### ROS2 Humble 
 ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time consuming to incorporate a working ROS2 enviorment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone python file.
+<img width="955" height="443" alt="image" src="https://github.com/user-attachments/assets/541fb372-0a35-41a8-9da3-7a418b4bc60a" />
+
 
 ## Libraries
 ### Picamera2
@@ -406,6 +408,11 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 │   └── obstacle_challenge.launch.py
 ├── package.xml
 └── setup.py
+
+<img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/adf65227-4afb-4aa7-91dd-885e6386cb29" />
+
+### NODES/TOPICS
+
 
 # Building Instructions:
 
