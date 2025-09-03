@@ -85,6 +85,7 @@ If you have any suggestions or found some bugs/inconsistencies please report the
 | Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 | Lidar | [`LDROBOT D500 lidar kit TOF laser Radar Lidar Scanner `](https://www.aliexpress.com/item/1005003012681021.html?spm=a2g0o.order_list.order_list_main.11.7a3b18028WK12R). | $82 |
+
 *The chassis/rc car used to be $27 when we bought it. Now its changed to $125 for some reason.*
 
 ##  Robot Design Overview 
@@ -274,44 +275,33 @@ Since this was our first time in the competition, we wanted to focus on learning
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
-## Electronic Speed Controller (ESC)
-
+## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
-- Controls the motor's speed
-- Manages direction 
-- Ensures safe delivery of voltage and current to the motor
+- Controls the motor's speed  
+- Manages direction  
+- Ensures safe delivery of voltage and current to the motor  
 
-<table border="1" width="100%">
-  <tr>
-    <td width="40%" align="center">
-      <img src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" width="250" alt="Furitek Lizard Pro ESC" />
-    </td>
-    <td width="60%" valign="top">
-      <h2>Furitek Lizard Pro 30A/50A ESC</h2>
+<table border="1" width="100%" style="font-size:20px; text-align:left;">
+  <tr> 
+    <td width="50%" align="center" style="vertical-align:top;"> 
+      <img src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" width="500" alt="Furitek Lizard Pro ESC" /> 
+    </td> 
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
+      <h2 style="font-size:28px;">Furitek Lizard Pro 30A/50A ESC</h2> 
       <ul>
-        <li><strong>Battery Support:</strong> 2S–3S LiPo</li>
-        <li><strong>BEC:</strong> 5V or 6.5V, 2.5A</li>
-        <li><strong>Constant Current:</strong> 30A</li>
-        <li><strong>Burst Current:</strong> 50A</li>
-        <li><strong>Built-in Power Switch</strong></li>
-        <li><strong>Dimensions:</strong> 28 × 15.5 mm</li>
-        <li><strong>Weight:</strong> 3.7 g</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <h3>Why We Chose This ESC</h3>
-      <p>
-        Its 30A continuous and 50A burst capacity far exceed our motor’s maximum draw of ~10A, 
-        ensuring reliability. The strong built-in BEC powers servos directly, saving weight and space.
-      </p>
-      <h3>Real-World Notes</h3>
-      <p>
-      </p>
-    </td>
-  </tr>
+        <li><strong>Battery Support:</strong> 2S–3S LiPo</li> 
+        <li><strong>BEC:</strong> 5V or 6.5V, 2.5A</li> 
+        <li><strong>Constant Current:</strong> 30A</li> 
+        <li><strong>Burst Current:</strong> 50A</li> 
+        <li><strong>Built-in Power Switch</strong></li> 
+        <li><strong>Dimensions:</strong> 28 × 15.5 mm</li> 
+        <li><strong>Weight:</strong> 3.7 g</li> 
+      </ul> 
+    </td> 
+  </tr> 
 </table>
+
+
 
 ---
 
