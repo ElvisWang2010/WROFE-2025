@@ -421,10 +421,31 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 └── setup.py
 ```
 
-
-<img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/adf65227-4afb-4aa7-91dd-885e6386cb29" />
+<img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/94e4d3b1-762c-4baa-82bd-70e4aa4d126b" />
 
 ### NODES/TOPICS
+#### navigator_node.py
+- Core decision making node
+- Subscribes to /image_raw from camera_node.py
+- Subscribes to /imu_angle from imu_node.py
+- Subscribes to /lap_status from imu_node.py
+- Subscribes to /ros_robot_controller/button
+- Publishes to /state to communicate to other nodes
+Combines camera and IMU data to output driving decisions (turning, avoiding, lap counting, parking).
+
+#### camera_node.py
+- Captures frames from Raspberry Pi's camera
+- Subscribes to /state to know what to do
+- Publishes to /image_raw to transmit camera information
+Provides visual input for pillar and wall detection
+
+
+#### imu_node.py
+- Reads IMU sensor value and transmits important information
+- Subscribes to /imu/rpy/filtered for filtered IMU data
+- Publishes to /imu_angle to transmit current IMU angle
+- Publishes to /lap_status to transmit lap information
+Provides orientational information for lap counting and navigation
 
 
 # Building Instructions:
