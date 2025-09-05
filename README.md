@@ -416,7 +416,7 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 │   ├── navigator_node.py
 │   └── ros_robot_controller_sdk.py
 ├── launch/
-│   └── obstacle_challenge.launch.py
+│   └── obstacle_challenge_launch.py
 ├── package.xml
 └── setup.py
 ```
@@ -431,13 +431,13 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 - Subscribes to /lap_status from imu_node.py
 - Subscribes to /ros_robot_controller/button
 - Publishes to /state to communicate to other nodes
-Combines camera and IMU data to output driving decisions (turning, avoiding, lap counting, parking).
+  Combines camera and IMU data to output driving decisions (turning, avoiding, lap counting, parking).
 
 #### camera_node.py
 - Captures frames from Raspberry Pi's camera
 - Subscribes to /state to know what to do
 - Publishes to /image_raw to transmit camera information
-Provides visual input for pillar and wall detection
+  Provides visual input for pillar and wall detection
 
 
 #### imu_node.py
@@ -445,7 +445,7 @@ Provides visual input for pillar and wall detection
 - Subscribes to /imu/rpy/filtered for filtered IMU data
 - Publishes to /imu_angle to transmit current IMU angle
 - Publishes to /lap_status to transmit lap information
-Provides orientational information for lap counting and navigation
+  Provides orientational information for lap counting and navigation
 
 
 # Building Instructions:
