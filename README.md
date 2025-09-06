@@ -80,7 +80,6 @@ If you have any suggestions or found some bugs/inconsistencies please report the
 | Drive Motor | [`Furitek Micro Komodo 1212 3450KV Brushless Motor`](https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118) | $35 |
 | Servo Motor | [`HS-5055MG 11.9g Metal Gear Digital Micro Servo`](https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_) | $25 |
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $80 |
-| Turning Motor | [`Hitec HS-5055MG Servo Motor`](https://ca.robotshop.com/products/hs-5055mg-metal-gear-micro-servo-motor?srsltid=AfmBOopv8Z7LoCVOEqe16w05ZV-R78dNmy7dappldIxZiQzCJroxcssFc2Y) | $38 |
 | Camera | [`5MP 1080P HD Camera with OV5647 Sensor`](https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title) | $35 |
 | Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
@@ -202,6 +201,17 @@ A majority of the robot was 3D printed or replaced.
     </td>
   </tr>
 </table>
+
+### Power Table
+| Component                  | Voltage | Max Current Draw | Power (W) |
+|-----------------------------|---------|------------------|-----------|
+| Camera                      | 5 V     | 0.25 A           | 1.25 W    |
+| RRC Lite Controller         | 5 V     | 0.5 A            | 2.5 W     |
+| Furitek Lizard Pro ESC      | 8.4 V   | 50 A             | 420 W     |
+| Furitek Micro Komodo Motor  | 7.4 V   | 5 A              | 37 W      |
+| HS-5055MG Servo Motor       | 5 V     | 0.25 A           | 1.25 W    |
+| YDLidar T-mini              | 5 V     | 0.3 A            | 1.5 W     |
+| MicroSD, LEDs, and Speakers | 5 V     | 0.2 A            | 1 W       |
 
 ---
 
