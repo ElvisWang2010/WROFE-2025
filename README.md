@@ -202,16 +202,20 @@ A majority of the robot was 3D printed or replaced.
   </tr>
 </table>
 
-### Power Table
-| Component                  | Voltage | Max Current Draw | Power (W) |
-|-----------------------------|---------|------------------|-----------|
-| Camera                      | 5 V     | 0.25 A           | 1.25 W    |
-| RRC Lite Controller         | 5 V     | 0.5 A            | 2.5 W     |
-| Furitek Lizard Pro ESC      | 8.4 V   | 50 A             | 420 W     |
-| Furitek Micro Komodo Motor  | 7.4 V   | 5 A              | 37 W      |
-| HS-5055MG Servo Motor       | 5 V     | 0.25 A           | 1.25 W    |
-| YDLidar T-mini              | 5 V     | 0.3 A            | 1.5 W     |
-| MicroSD, LEDs, and Speakers | 5 V     | 0.2 A            | 1 W       |
+### Power Ratings Table
+| Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
+|-|-|-|-|-|-|
+| Camera                      | 5 V     | 0.25 A   | 0.30 A | 1.25 W | 1.50 W |
+| RRC Lite Controller         | 5 V     | 0.30 A   | 0.50 A | 1.50 W | 2.50 W |
+| Furitek Lizard Pro ESC      | 2S – 3S | 0.03 A   | 0.10 A | 0.25 W  | 0.84 W |
+| Furitek Micro Komodo Motor  | 7.4 V   | 2.00 A   | 5.00 A | 14.8 W  | 37.0 W |
+| HS-5055MG Servo Motor       | 5 V     | 0.25 A   | 1.00 A | 1.25 W  | 5.00 W |
+| LDROBOT D500 Lidar          | 5 V     | 0.30 A   | 0.35 A | 1.50 W | 1.75 W  |
+| MicroSD, LEDs, Speakers     | 5 V     | 0.20 A   | 0.30 A | 1.00 W | 1.50 W  |
+| Raspberry Pi 5              | 5 V     | 3.00 A   | 5.00 A | 15.0 W | 25.0 W  |
+| Expansion Board             | 5 V     | 0.30 A   | 0.50 A | 1.50 W | 2.50 W  |
+| Totals                      | —       | —        | —      | ~38 W | ~78 W    |
+
 
 ---
 
