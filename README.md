@@ -375,6 +375,43 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 # Sense Managment
 
+To detect walls and obstacles, we integrate two different sensors, both using different sensing methods, ensuring consistent and accurate environmental perception
+
+## Lidar
+
+This LiDAR was chosen for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our robot.  
+
+<table border="1" width="100%" style="font-size:20px; text-align:left;">
+  <tr> 
+    <td width="50%" align="center" style="vertical-align:top;"> 
+      <img src="https://github.com/user-attachments/assets/9657e574-9164-4301-acbb-571c49af60e9" width="500" alt="LDROBOT D500 LiDAR" /> 
+    </td> 
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
+      <h2 style="font-size:28px;">LDROBOT D500 LiDAR</h2> 
+      <ul>
+        <li><strong>Ranging Distance:</strong> 0.03 – 12 m</li> 
+        <li><strong>Accuracy:</strong> ±10 mm (0.3–0.5 m), ±20 mm (0.5–2 m), ±30 mm (2–12 m)</li> 
+        <li><strong>Scanning Angle:</strong> 360°</li> 
+        <li><strong>Scanning Frequency:</strong> 6 – 13 Hz (Typ. 10 Hz)</li> 
+        <li><strong>Ranging Frequency:</strong> 5000 Hz</li> 
+        <li><strong>Wavelength:</strong> 895 – 915 nm (Typ. 905 nm)</li> 
+        <li><strong>Interface:</strong> UART @ 230400 baud</li> 
+        <li><strong>Ambient Light Tolerance:</strong> up to 60K Lux</li> 
+        <li><strong>Power Supply:</strong> 5 V</li> 
+        <li><strong>Power Consumption:</strong> 1.45 W (290 mA)</li> 
+        <li><strong>Operating Temperature:</strong> -10 ~ 45 °C</li> 
+        <li><strong>Dimensions:</strong> 54 × 46.3 × 35 mm</li> 
+        <li><strong>Weight:</strong> 45 g</li> 
+      </ul> 
+    </td> 
+  </tr> 
+</table>
+
+
+
+
+
+
 # Software
 ## Frameworks
 ### Python 3.0
