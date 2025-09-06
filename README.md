@@ -216,7 +216,7 @@ A majority of the robot was 3D printed or replaced.
 | Expansion Board             | 5 V     | 0.30 A   | 0.50 A | 1.50 W | 2.50 W  |
 | Totals                      | —       | —        | —      | ~38 W | ~78 W    |
 
-The Gens Ace 1300 mAh 2S 7.4 V LiPo offers plenty of power for our robot, as shown in the Power Ratings Table. Normally, the robot uses about 38 W, which is about 5 to 6 A from the battery. The robot typically draws around 10 W (≈1.35 A) and in short bursts can reach 78 W (≈11 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the robot will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals. 
+The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 38 W, which is about 5 to 6 A from the battery. The car typically draws around 10 W (≈1.35 A) and in short bursts can reach 78 W (≈11 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals. 
 
 ---
 
