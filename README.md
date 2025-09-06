@@ -279,7 +279,9 @@ Since this was our first time in the competition, we wanted to focus on learning
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed  
 - Manages direction  
-- Ensures safe delivery of voltage and current to the motor  
+- Ensures safe delivery of voltage and current to the motor
+
+This ESC was chosen for its high current capacity, lightweight design, and reliable built-in BEC, making it well-suited for our motor and servo needs.
 
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
@@ -301,6 +303,8 @@ The ESC is a key component that regulates how the motor receives power. It:
   </tr> 
 </table>
 
+#### Potential Improvements:
+- 
 
 
 ---
@@ -328,13 +332,15 @@ The design features a mounting frame that secures the system to the chassis, a s
 
 ## Servo Motor
 
-<table border="1" width="100%">
+This servo motor was chosen for its compact size, strong torque, and durable metal gears, making it great for precise steering control.
+
+<table border="1" width="100%" style="font-size:20px;">
   <tr>
-    <td width="40%" align="center">
-      <img src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" width="250" alt="HS-5055MG Digital Micro Servo" />
+    <td width="50%" align="center" style="vertical-align:top;">
+      <img src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" width="400" alt="HS-5055MG Digital Micro Servo" />
     </td>
-    <td width="60%" valign="top">
-      <h2>HS-5055MG 11.9g Metal Gear Digital Micro Servo</h2>
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
+      <h2 style="font-size:26px;">HS-5055MG 11.9g Metal Gear Digital Micro Servo</h2>
       <ul>
         <li><strong>Operating Voltage:</strong> 4.8V – 6.0V DC</li>
         <li><strong>Max Torque:</strong> 22 oz/in (1.6 kg/cm)</li>
@@ -346,22 +352,10 @@ The design features a mounting frame that secures the system to the chassis, a s
       </ul>
     </td>
   </tr>
-  <tr>
-    <td colspan="2">
-      <h3>Why We Chose This Servo</h3>
-      <p>
-        The HS-5055MG was chosen for its strength, precision, and compact size. Its metal gears provide 
-        durability for steering, and its programmable digital circuit ensures accurate control.
-      </p>
-      <h3>Real-World Notes</h3>
-      <p>
-        In practice, the servo delivered consistent steering with minimal backlash. It handled loads 
-        even during sharp turns at speed, making it dependable for precision navigation.
-      </p>
-    </td>
-  </tr>
 </table>
 
+#### Potential Improvements:
+-
 
 #### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
