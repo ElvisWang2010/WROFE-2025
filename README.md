@@ -88,7 +88,7 @@
 </table>
 
 
-*We were going to use a LiDAR but ended up removing it*
+
 </div>
 
 </br>
@@ -182,6 +182,8 @@ A majority of the car was 3D printed or replaced.
     </td>
   </tr>
 </table>
+
+*We were going to use a LiDAR but ended up removing it*
 
 </br>
 
