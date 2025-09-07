@@ -475,6 +475,8 @@ While the camera can simultaneously identify different items and surroundings, u
   </tr>
 </table>
 
+We mainly use the IMU to calculate the number of completed laps.
+
 *Comes with the RRC lite expansion board.*
 
 #### Potential Improvements 
@@ -482,13 +484,10 @@ While the camera can simultaneously identify different items and surroundings, u
 - Replace old IMU with higher accuracy.
 - Place IMU further away from vibrating motors for increased precision.
 
-By combining the IMU with the camera, the car can merge multiple data sources to create a clear view of its surroundings. For instance, if the car’s camera spots a wall or pillar, the IMU makes sure the system knows if the car is moving forward, turning, or tilting as it nears the obstacle.
-
-In short, the IMU serves as the car’s sense of balance and movement. It works alongside the external perception from the camera. This teamwork allows the autonomous system to make better decisions, navigate safely, and maintain accurate control at all times.
 
 ## Sensor Consideration/Potential Improvements
 
-We planned to use the LiDAR to find obstacles and measure distances to walls and pillars. This would give us exact information about the environment, allowing the car to plan safe paths. When combined with the IMU, it would improve navigation accuracy during turns and on uneven surfaces.
+We planned to use the LiDAR to find obstacles and measure distances to walls and pillars but eventually decided to stick to a simpler approach. This would've given us exact information about the environment, allowing the car to plan safe paths. When combined with the IMU, it would improve navigation accuracy during turns and on uneven surfaces.
 
 ### Lidar 
 
@@ -559,6 +558,14 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 ### Overview
 The Open Challenge is designed to test a robot’s ability to autonomously navigate a closed-loop course using only the black walls as guidance. The robot must detect walls, align itself, make smooth turns at corners, and complete 3 laps without manual intervention in under 3 minutes. The main focus is on path-following and code accuracy.
 
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="1054" height="303" alt="image" src="https://github.com/user-attachments/assets/ab41b669-f76a-46b9-9b8a-89a8487c6e2c" />
+    </td>
+  </tr>
+</table>
+
 ### Difficulties
 In the Open Challenge, the course can be set up in either a wide(100cm) or a narrow(60cm) configuration, and each comes with its own difficulties for vision and navigation. 
 In the wide setup, the black walls are spaced much farther apart. This makes the robot’s region of interest (ROI) readings weaker because the walls occupy a smaller portion of the camera frame.
@@ -566,7 +573,7 @@ The narrow configuration creates the opposite problem. With the walls placed clo
 
 To be successful, the code must be consistent enough to be able to navigate through both scenarios, which each present conflicting issues. Fixing an error in the wide setup may break something in the narrow setup and vice versa.
 
-### Our solution
+### Our Solution
 The primary means of navigation in the open challenge lies in the camera. The camera captures frames multiple times a second and performs wall following logic with information inside the ROIs. ROIs or region of interests are small rectangles placed strategically in areas of interest, to perform wall detection. The open challenge includes 3 of these ROIs initialized at the top
 
 The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
@@ -635,6 +642,7 @@ right_area = cv2.countNonZero(right_crop)
 
 The purpose of this code is the generate us 3 pieces of information, amount of black pixels in the left roi, the amount of black pixels in the right roi, and the amount of orange pixels in the orange roi. We can then use this information to steer our robot.
 
+### PD Steering
 Most of the time, the robot will be in a straight section where it will use PD steering to avoid walls. PD steering is a system used to correct the robots movements so that it is centered between the two walls. 
 
 The proportional term(P) is simply how far off you are from the center.
@@ -649,9 +657,9 @@ Then you apply:
 ```
 steering = straight_pwm + kp * error
 ```
-where kp is a constant gain. This makes the robot steer proportionally to how far it’s off-center.
+Where kp is a constant gain. This makes the robot steer proportionally to how far it’s off-center.
 
-the derivative term looks at how fast the error is changing.
+The derivative term looks at how fast the error is changing.
 If the error is quickly swinging, it means the robot is wobbling. The derivative dampens this by applying correction against sudden changes:
 ```
 derivative = error - prev_error
@@ -673,6 +681,10 @@ kp = how much to react to a error.
 kd = how much to stabilize a change in turning angle
 (area_diff - prev_diff) is the derivative.
 
+<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/9e6b8493-721e-4a06-91a4-b9b18f1084ec" />
+
+
+### Turning
 When a substantial part of one wall goes missing out of nowhere we detect a turn.
 Initially we had 2 variables control turning
 ```
@@ -726,7 +738,7 @@ else: # Clamp
 ```
 We need to apply the clamp to make sure the steering angle does not surpass the predefined maximums.
 
-The car will continue running all this code in a while loop until it detects 12 oranges lines. Once it does it will continue driving for a set amount of time before stopping:
+The car will continue running all this code in a while loop until it detects 12 oranges lines. Once it does, it will continue driving for a set amount of time before stopping:
 ```
 if turns == 12: 
     stop_time = time.time()
@@ -737,16 +749,32 @@ if turns >= 13:
         board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
         lap_complete = True
 ```
+#### Pre-Turn
+<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/c3dbd833-70f1-4883-b4c9-6e65e34e9c36" />
+
+#### Post-Turn
+<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/54c13de0-d796-43a5-8b65-32d21481195c" />
+
 ## Obstacle Challenge
+
 ### Overview
 The obstacle challenge is much more difficult version of the open challenge. In this challenge there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
+
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="1050" height="428" alt="image" src="https://github.com/user-attachments/assets/f9b9040f-8381-47ac-a8ac-c66108b36919" />
+    </td>
+  </tr>
+</table>
 
 ### Difficulties
 The obstacle challenge presents many difficult challenges that build onto the open challenge. Although the walls are set at 100cm, steering around the pillar while avoiding walls and detecting turns is very difficult to do consistently. 
 In order to perform a parallel park the information and car movements must be incredibly precise since the parking lot is only 1.5x the cars size.
 
 
-### Our solution
+### Our Solution
 Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing speed and reliability. Another reason comes from the complex nature of the challenge. That is why our strategy involves multiple sensors inputs (camera, imu) and several behaviours (park, navigate). Doing all of this in a single python script would be slower, harder to maintain, and harder to debug. ROS 2 allows us to use multiple python scripts (nodes) to communciate to one another with topics. The following is a visualization of the workspace containing all the packages required for ROS 2 to run.
 ```
 ~/fe_ws/src/obstacle_challenge/
