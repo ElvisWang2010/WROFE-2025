@@ -47,15 +47,46 @@
 
 </div>
 
+<div align="center">
+
+---
 
 # Team Photo
 <img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" />
+</div>
 
 ## Team Members
 
-- Ryan Rao - 14
-- Elvis Wang - 14
-- Harry Xiao - 15
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="350">
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/3409afde-0a7f-469a-b698-f86b23a92b8a" /><br>
+      <h3>Ryan</h3>
+      <b>Role:</b> Documenter/Programmer <br>
+      <b>Strengths:</b> Writing, Hardworker. <br>
+      <b>About Me:</b> Hi! I'm Ryan. I'm 14, i love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4 year old golden retriever 😊.
+    </td>
+    <td align="center" width="350">
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548" /><br>
+      <h3>Elvis</h3>
+      <b>Role:</b> Builder/Programmer <br>
+      <b>Strengths:</b> CAD, Fabrication, Team Player, Hardworker. <br>
+      <b>About Me:</b> Hi, I'm Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old and love to work and play Clash Royale.
+    </td>
+    <td align="center" width="350">
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89" /><br>
+      <h3>Harry</h3>
+      <b>Role:</b> Programmer/Documenter <br>
+      <b>Strengths:</b> Python, Problem Solver, Patience, Hardworker.<br>
+      <b>About Me:</b> Hey! My name is Harry. I like to code, play badminton, and I've been coding for more than half a decade. I'm an avid swimmer and have been competing in various swimming competitions for 5 years. I also like to play Valorant with Ryan.
+    </td>
+  </tr>
+</table>
+
+</div>
+
 
 ## Complete Construction Manual
 
