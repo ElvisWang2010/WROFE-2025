@@ -443,6 +443,8 @@ This process put us against tough challenges. In early versions, we found it dif
 
 The new design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
 
+</br>
+
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
