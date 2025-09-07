@@ -73,14 +73,14 @@
       <h3>Elvis</h3>
       <b>Role:</b> Builder/Programmer <br>
       <b>Strengths:</b> CAD, Fabrication, Team Player, Hardworker. <br>
-      <b>About Me:</b> Hi, I'm Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old and love to work and play Clash Royale.
+      <b>About Me:</b> Hi, my name is Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old and love to work and play Clash Royale.
     </td>
     <td align="center" width="350">
       <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89" /><br>
       <h3>Harry</h3>
       <b>Role:</b> Programmer/Documenter <br>
       <b>Strengths:</b> Python, Problem Solver, Patience, Hardworker.<br>
-      <b>About Me:</b> Hey! My name is Harry. I like to code, play badminton, and I've been coding for more than half a decade. I'm an avid swimmer and have been competing in various swimming competitions for 5 years. I also like to play Valorant with Ryan.
+      <b>About Me:</b> Hey! I'm Harry. I've been coding for more than half a decade and love to swim, having competed in various swimming competitions. I also like to play badminton and Valorant with Ryan.
     </td>
   </tr>
 </table>
