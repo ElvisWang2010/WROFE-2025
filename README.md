@@ -297,6 +297,8 @@ Since this was our first time in the competition, we wanted to focus on learning
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
+#### Potential Improvements
+
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
 - Controls the motor's speed  
@@ -516,7 +518,177 @@ NumPy is a fundamental Python library for numerical computation. In robotics, it
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
 
 ## Open Challenge
+### Overview
+The Open Challenge is designed to test a robot’s ability to autonomously navigate a closed-loop course using only the black walls as guidance. The robot must detect walls, align itself, make smooth turns at corners, and complete 3 laps without manual intervention in under 3 minutes. The main focus is on path-following and code accuracy.
 
+### Difficulties
+In the Open Challenge, the course can be set up in either a wide(100cm) or a narrow(60cm) configuration, and each comes with its own difficulties for vision and navigation. 
+In the wide setup, the black walls are spaced much farther apart. This makes the robot’s region of interest (ROI) readings weaker because the walls occupy a smaller portion of the camera frame.
+The narrow configuration creates the opposite problem. With the walls placed close together, the black regions fill a large portion of the ROIs, making the system very sensitive.
+
+To be successful, the code must be consistent enough to be able to navigate through both scenarios, which each present conflicting issues. Fixing an error in the wide setup may break something in the narrow setup and vice versa.
+
+### Our solution
+The primary means of navigation in the open challenge lies in the camera. The camera captures frames multiple times a second and performs wall following logic with information inside the ROIs. ROIs or region of interests are small rectangles placed strategically in areas of interest, to perform wall detection. The open challenge includes 3 of these ROIs initialized at the top
+
+The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
+The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is is used to detect the orange line on the ground, detecting turn areas for lap counting only.
+
+In order to begin camera detection we must define our ROIs, initialize the camera and define the hsv range for orange:
+
+```
+picam2 = Picamera2()
+picam2.preview_configuration.main.size = (640, 480)
+picam2.preview_configuration.main.format = "RGB888"
+picam2.preview_configuration.controls.FrameRate = 30
+picam2.preview_configuration.align()
+picam2.configure("preview")
+picam2.start()
+time.sleep(1)
+
+lower_orange = np.array([5, 100, 100])
+upper_orange = np.array([20, 255, 255])
+
+# ---- Define ROIs ----
+left_roi = (0, 200, 180, 180) # x, y, w, l
+right_roi = (460, 200, 180, 180)
+orange_roi = (100, 360, 440, 40) 
+```   
+
+Now, we can apply masks, crop ROIs, and count pixels
+
+```
+# ---- Get camera frame ----
+frame = picam2.capture_array()
+x, y, w, h = orange_roi
+roi_crop = frame[y:y+h, x:x+w]
+
+# Convert to HSV for color detection
+hsv = cv2.cvtColor(roi_crop, cv2.COLOR_BGR2HSV)
+mask_orange = cv2.inRange(hsv, lower_orange, upper_orange)
+
+# Count orange pixels
+orange_pixel_count = cv2.countNonZero(mask_orange)
+
+if orange_pixel_count >= 500:  
+    current_time = time.time()
+    if current_time - last_orange_time > orange_cooldown:
+        turns += 1
+
+# Thresholding
+gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+_, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
+
+mask = np.zeros_like(thresh)
+cv2.rectangle(mask, (left_roi[0], left_roi[1]), (left_roi[0]+left_roi[2], left_roi[1]+left_roi[3]), 255, -1)
+cv2.rectangle(mask, (right_roi[0], right_roi[1]), (right_roi[0]+right_roi[2], right_roi[1]+right_roi[3]), 255, -1)
+masked = cv2.bitwise_and(thresh, mask)
+
+contours, _ = cv2.findContours(masked, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+# Crop ROIs
+left_crop = thresh[left_roi[1]:left_roi[1]+left_roi[3], left_roi[0]:left_roi[0]+left_roi[2]]
+right_crop = thresh[right_roi[1]:right_roi[1]+right_roi[3], right_roi[0]:right_roi[0]+right_roi[2]]
+
+# Count black pixels
+left_area = cv2.countNonZero(left_crop)
+right_area = cv2.countNonZero(right_crop)
+```
+
+The purpose of this code is the generate us 3 pieces of information, amount of black pixels in the left roi, the amount of black pixels in the right roi, and the amount of orange pixels in the orange roi. We can then use this information to steer our robot.
+
+Most of the time, the robot will be in a straight section where it will use PD steering to avoid walls. PD steering is a system used to correct the robots movements so that it is centered between the two walls. 
+
+The proportional term(P) is simply how far off you are from the center.
+You compute an error with:
+```
+error = right_area - left_area
+```
+If the robot sees more black on the right, error is positive steer left.
+If it sees more black on the left, error is negative steer right.
+
+Then you apply:
+```
+steering = straight_pwm + kp * error
+```
+where kp is a constant gain. This makes the robot steer proportionally to how far it’s off-center.
+
+the derivative term looks at how fast the error is changing.
+If the error is quickly swinging, it means the robot is wobbling. The derivative dampens this by applying correction against sudden changes:
+```
+derivative = error - prev_error
+steering += kd * derivative
+```
+
+where kd is another constant.
+This helps smooth out steering and prevents oscillation (zig-zagging).
+
+Our code utilizes PD steering like this
+```
+area_diff = right_area - left_area
+angle_pwm = int(STRAIGHT_PWM + area_diff * KP + (area_diff - prev_diff) * KD)
+```
+Here:
+area_diff = error.
+straight_pwm = neutral steering.
+kp = how much to react to a error.
+kd = how much to stabilize a change in turning angle
+(area_diff - prev_diff) is the derivative.
+
+When a substantial part of one wall goes missing out of nowhere we detect a turn.
+Initially we had 2 variables control turning
+```
+TURN_THRESHOLD = 3000
+EXIT_THRESHOLD = 9500
+```
+
+If the pixel area on one side dropped below the turn threshold it would initialize a turn. 
+
+```
+if left_area <= TURN_THRESHOLD and not right_turn:
+    left_turn = True
+elif right_area <= TURN_THRESHOLD and not left_turn:
+    right_turn = True
+```
+Then to detect a turn exit:
+```
+if left_turn or right_turn:
+    if (right_area >= EXIT_THRESHOLD and right_turn) or (left_area >= EXIT_THRESHOLD and left_turn):
+        current_time = time.time()
+        if current_time - last_turn_time >= 1.4:
+            left_turn = right_turn = False
+            board.set_rgb([[1, 0, 255, 0]])
+            board.set_rgb([[2, 0, 255, 0]])
+            last_turn_time = current_time
+            prev_diff = 0
+            print(f"Turn complete. Segments = {turns}")
+```
+However, the difference in wall distance scenarios, caused inconsistencies in turn exits.
+
+To combat this we got rid of the exit threshold, instead opting for a proportional turn exit.
+```
+if right_area > left_area * 1.8:  # Right has 80% more black than left
+            current_time = time.time()
+            if current_time - last_turn_time >= 1.2:
+                left_turn = False          
+elif right_turn:
+    if left_area > right_area * 1.8:  # Left has 80% more black than right
+        current_time = time.time()
+        if current_time - last_turn_time >= 1.2:
+            right_turn = False
+```
+Finally, we turn:
+```
+elif left_turn:
+    angle_pwm = min(max(angle_pwm, STRAIGHT_PWM + TURN_DEV), MAX_LEFT)
+elif right_turn:
+    angle_pwm = max(min(angle_pwm, STRAIGHT_PWM - TURN_DEV), MAX_RIGHT)
+else: # Clamp
+  angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
+```
+We need to apply the clamp to make sure the steering angle does not surpass the predefined maximums.
+
+The car will continue running all this code in a while loop until it detects 12 oranges lines:
 
 ## Obstacle Challenge
 ### Package structure
