@@ -492,27 +492,6 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
   Provides orientational information for lap counting and navigation
 
 
-# Building Instructions:
-
-## Motor Mechanism
-### Step 1:
-   Put belt and 12 mm ball berings onto the shaft
-   ![Screenshot 2025-08-29 144137-fotor-20250829144459](https://github.com/user-attachments/assets/a2987109-9992-453f-a72f-bddd081fd541)
-
-### Step 2:
-   Insert 4 of the 6mm ball berings into holes, put shaft mechanism down ontop of 12mm ball bering holder
-   <img width="1138" height="825" alt="image" src="https://github.com/user-attachments/assets/755b32c9-1db5-476a-bc96-4c083b12c792" />
-
-### Step 3: 
-   Put top half of motor mechanism on top of the bottem half
-   <img width="867" height="629" alt="image" src="https://github.com/user-attachments/assets/437a7066-cc08-4258-9962-17ff6d62dabf" />
-
-### Step 4:
-   Screw in the top to the bottem upside down
-   <img width="939" height="605" alt="Screenshot 2025-08-29 145919-fotor-202508291510" src="https://github.com/user-attachments/assets/067696be-cac3-4ae4-b99e-6b38ead02792" />
-### Step 5: 
-   Screw in acxwa motor mount to 2 high holes
-   <img width="807" height="579" alt="image" src="https://github.com/user-attachments/assets/fa540000-e1f0-466f-8508-706494be5705" />
 
    
 
