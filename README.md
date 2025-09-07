@@ -85,6 +85,7 @@ If you have any suggestions or found some bugs/inconsistencies please report the
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
 | Lidar | [`LDROBOT D500 lidar kit TOF laser Radar Lidar Scanner `](https://www.aliexpress.com/item/1005003012681021.html?spm=a2g0o.order_list.order_list_main.11.7a3b18028WK12R). | $82 |
 
+Total : $546
 
 
 ##  Robot Design Overview 
@@ -202,23 +203,24 @@ A majority of the robot was 3D printed or replaced.
   </tr>
 </table>
 
-
+<p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
 
 ### Power Ratings Table
 | Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
 |-|-|-|-|-|-|
-| 5MP 1080P HD Camera         | 5 V     | 0.25 A   | 0.30 A | 1.25 W | 1.50 W |
-| RRC Lite Controller         | 5 V     | 0.30 A   | 0.50 A | 1.50 W | 2.50 W |
-| Furitek Lizard Pro ESC      | 7.4 V   | 0.03 A   | 0.10 A | 0.25 W  | 0.84 W |
-| Furitek Micro Komodo Motor  | 7.4 V   | 2.00 A   | 5.00 A | 14.8 W  | 37.0 W |
-| HS-5055MG Servo Motor       | 5 V     | 0.25 A   | 1.00 A | 1.25 W  | 5.00 W |
-| LDROBOT D500 Lidar          | 5 V     | 0.30 A   | 0.35 A | 1.50 W | 1.75 W  |
-| MicroSD, LEDs, Speakers     | 5 V     | 0.20 A   | 0.30 A | 1.00 W | 1.50 W  |
-| Raspberry Pi 5              | 5 V     | 3.00 A   | 5.00 A | 15.0 W | 25.0 W  |
-| Expansion Board             | 5 V     | 0.30 A   | 0.50 A | 1.50 W | 2.50 W  |
-| Totals                      | —       | —        | —      | ~38 W | ~78 W    |
+| 5MP 1080P HD Camera         | 5 V     | 0.16 A   | 0.20 A | 0.80 W  | 1.00 W  |
+| RRC Lite Controller         | 5 V     | 0.07 A   | 0.50 A | 0.35 W  | 2.50 W  |
+| Furitek Lizard Pro ESC      | 7.4 V   | 0.007 A  | 0.10 A | 0.05 W  | 0.74 W  |
+| Furitek Micro Komodo Motor  | 7.4 V   | 0.95 A   | 10.0 A | 7.00 W  | 74.0 W  |
+| HS-5055MG Servo Motor       | 5 V     | 0.10 A   | 0.70 A | 0.50 W  | 3.50 W  |
+| LDROBOT D500 Lidar          | 5 V     | 0.12 A   | 0.35 A | 0.60 W  | 1.75 W  |
+| MicroSD, LEDs, Speakers     | 5 V     | 0.12 A   | 0.30 A | 0.60 W  | 1.50 W  |
+| Raspberry Pi 5              | 5 V     | 0.55 A   | 2.00 A | 2.75 W  | 10.0 W  |
+| Expansion Board             | 5 V     | 0.12 A   | 0.50 A | 0.60 W  | 2.50 W  |
+| Totals                      | —       | —        | —      | ~13 W   | ~97 W   |
 
-The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 38 W, which is about 5 to 6 A from the battery. The car typically draws around 10 W (≈1.35 A) and in short bursts can reach 78 W (≈11 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals. 
+
+The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
 
 ---
 
