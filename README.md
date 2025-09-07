@@ -487,16 +487,10 @@ By combining the IMU with the camera, the car can merge multiple data sources to
 
 In short, the IMU serves as the car’s sense of balance and movement. It works alongside the external perception from the camera. This teamwork allows the autonomous system to make better decisions, navigate safely, and maintain accurate control at all times.
 
-
-#### How We Detect
-
-The system detects objects by analyzing camera images for edges, shapes, and changes in the environment. Computer vision algorithms identify obstacles, pillars, walls, and open paths by comparing pixel patterns and tracking movement between frames.
-
-The IMU provides motion data, which helps the system understand how the car moves while capturing images. This allows the algorithms to consider tilts, turns, and acceleration, ensuring that object positions are calculated correctly in relation to the car.
-
-By combining visual detection with motion data, the system can reliably estimate the location of obstacles, their distance, and adjust steering or speed to navigate safely through the environment.
-
 ## Sensor Consideration/Potential Improvements
+
+We planned to use the LiDAR to find obstacles and measure distances to walls and pillars. This would give us exact information about the environment, allowing the car to plan safe paths. When combined with the IMU, it would improve navigation accuracy during turns and on uneven surfaces.
+
 ### Lidar 
 
 This LiDAR is good for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our car.  
