@@ -130,13 +130,14 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 | Raspberry Pi 5 8GB | [`Raspberry Pi 5`](https://www.amazon.ca/RasTech-Raspberry-Pi-refroidisseur-inclus/dp/B0DQX6JPVM/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.hjnwoY6Di307ZP-ZXjYU_AmgdoLMC7RS47PGeKtJmhqRtp_k-4b8vYkHuUVwKECxKvsLZj0iaGIogN3I9EAYbOkkLP1mmeFujPf3GbJ2CMFnLyrk19mzn-ImTWQS0CIHPOqaTKx-Ctd1F3jpptYNuSYsMmNl7eHo3YlLS2jAkPG1yBTzWywAtMLtqPDw7h7ECNBYaTd1mWMee3tTjRJN-xMqYHvdCTQPK7nYLTwDF-fwzPk8SNqpdFTZ5PaxoJsqiCrI71GJKbHEhh34FjN7lpqwol6Q_mREib5Uh598Ms4.l7oHUekQqBFhZC9q36eu2RnnsxuvyE01mn0uqJH1tZQ&dib_tag=se&gad_source=1&hvadid=668188233052&hvdev=c&hvexpln=0&hvlocphy=9000756&hvnetw=g&hvocijid=14781734050545810589--&hvqmt=e&hvrand=14781734050545810589&hvtargid=kwd-916491466264&hydadcr=24946_13702398&keywords=raspberry+pi+5+8gb&mcid=370191aac5dd30dfa56c4c13736323b1&qid=1757276490&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) | $170 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $40 |
 | Switch | [`DaierTek ON Off Round Rocker Switches`](https://www.amazon.ca/DaierTek-Listed-Switches-Automotive-KCD1-5Pack/dp/B07S1MV462/ref=asc_df_B07S1MV462?mcid=7da2a9b953e93162885adff341695ef6&tag=googleshopc0c-20&linkCode=df0&hvadid=706726017537&hvpos=&hvnetw=g&hvrand=8977619187557058444&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000756&hvtargid=pla-813471950103&hvocijid=8977619187557058444-B07S1MV462-&hvexpln=0&gad_source=1&th=1). | $2.6 |
+| Wheels | [`Abendor 6 Spoke Wheel Rims`](https://www.amazon.ca/Abendor-Spoke-Narrow-Aluminum-Wltoys/dp/B09ZYVGYB4?th=1). | $31.6 |
 
 
 *Note: The switch is $13 for 5. 13/5 = 2.6.*
 
-**Total:** $435.2 *No Tax*
+**Total:** $466.8 *No Tax*
 
-**With Tax:** $491.78
+**With Tax:** $527.48
 
 </br>
 
@@ -316,8 +317,6 @@ This section covers and houses all components that help or allow or robot to mov
 
 For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduced structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
 
-<p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
-
 </br>
 
 ### Notable Features / Design Advantages
@@ -338,8 +337,31 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ###  How We Overcame These Limitations  
 
-- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and futhered the reliability of the car.
+- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. 
 - **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
+
+</br>
+
+### New Wheels
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="700" height="330" alt="image" src="https://github.com/user-attachments/assets/7c4a07bf-2d26-496d-b0ea-dce096a64a25" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/Abendor-Spoke-Narrow-Aluminum-Wltoys/dp/B09ZYVGYB4?th=1" target="_blank">Click Here</a></p>
+
+</br>
+
+The switch to grippier wheels had an immediate effect on the car's performance. With better traction, the vehicle could accelerate harder without losing control. It could also maintain a steady speed through turns. This made handling more predictable, which was especially important for precise tasks like navigating pillars and parking.
+
+The new wheels also improved efficiency. With less energy wasted on wheel slip, the motor’s output went more directly into forward motion. This not only made the car feel faster but also reduced strain on the drivetrain during long runs. As a result, we had a setup that was both quicker and more reliable in competition.
 
 </br>
 
