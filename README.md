@@ -84,9 +84,8 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 | Camera | [`5MP 1080P HD Camera with OV5647 Sensor`](https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title) | $35 |
 | Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $40 |
-| Lidar | [`LDROBOT D500 lidar kit TOF laser Radar Lidar Scanner `](https://www.aliexpress.com/item/1005003012681021.html?spm=a2g0o.order_list.order_list_main.11.7a3b18028WK12R). | $82 |
 
-Total : $546
+Total : $464
 
 
 ##  Robot/Car Design Overview 
@@ -863,4 +862,9 @@ self.center_green_area = cv2.countNonZero(center_green_mask)
 
 The pixel values are ready, however we also need to find the centroid of the pillars for more accurate steering.
 
+## Our Youtube Videos
 
+
+<p><strong>Open Challenge:</strong> <a href="https://www.youtube.com/watch?v=9s701bJlsVY" target="_blank">Click Here</a></p>
+
+Obstacle Challenge
