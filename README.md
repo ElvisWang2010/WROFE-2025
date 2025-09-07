@@ -440,9 +440,9 @@ The wide-angle camera serves as the car’s primary tool for visual detection. W
 
 We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
-#### Potential Improvements for Camera 
+#### Potential Improvements
 
-While the current Pi Camera and LiDAR provide a good amount sensing for our obstacle challenge, several improvements could improve performance.
+While the current Pi Camera provides a good amount sensing for our obstacle challenge, several improvements could improve performance.
 
 **Camera (5MP Pi Camera w/ OV5647)**
 - Upgrade to a higher resolution or global-shutter sensor (e.g., HQ Camera IMX477) for sharper images and less motion blur.  
@@ -476,9 +476,25 @@ While the camera can simultaneously identify different items and surroundings, u
   </tr>
 </table>
 
-By combining the IMU with the camera and LiDAR, the car can merge multiple data sources to create a clear view of its surroundings. The IMU tracks motion between LiDAR scans and camera frames, which improves mapping and object tracking. For instance, if the car’s camera spots a wall or pillar, the IMU makes sure the system knows if the car is moving forward, turning, or tilting as it nears the obstacle.
+*Comes with the RRC lite expansion board.*
 
-In short, the IMU serves as the car’s sense of balance and movement. It works alongside the external perception from the camera and LiDAR. This teamwork allows the autonomous system to make better decisions, navigate safely, and maintain accurate control at all times.
+#### Potential Improvements 
+- Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
+- Replace old IMU with higher accuracy.
+- Place IMU further away from vibrating motors for increased precision.
+
+By combining the IMU with the camera, the car can merge multiple data sources to create a clear view of its surroundings. For instance, if the car’s camera spots a wall or pillar, the IMU makes sure the system knows if the car is moving forward, turning, or tilting as it nears the obstacle.
+
+In short, the IMU serves as the car’s sense of balance and movement. It works alongside the external perception from the camera. This teamwork allows the autonomous system to make better decisions, navigate safely, and maintain accurate control at all times.
+
+
+#### How We Detect
+
+The system detects objects by analyzing camera images for edges, shapes, and changes in the environment. Computer vision algorithms identify obstacles, pillars, walls, and open paths by comparing pixel patterns and tracking movement between frames.
+
+The IMU provides motion data, which helps the system understand how the car moves while capturing images. This allows the algorithms to consider tilts, turns, and acceleration, ensuring that object positions are calculated correctly in relation to the car.
+
+By combining visual detection with motion data, the system can reliably estimate the location of obstacles, their distance, and adjust steering or speed to navigate safely through the environment.
 
 ## Sensor Consideration/Potential Improvements
 ### Lidar 
