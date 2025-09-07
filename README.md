@@ -411,42 +411,6 @@ The car relies on various sensors to understand its surroundings and interact sa
 
 At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
 
-## Lidar
-
-This LiDAR was chosen for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our car.  
-
-<table border="1" width="100%" style="font-size:20px; text-align:left;">
-  <tr> 
-    <td width="50%" align="center" style="vertical-align:top;"> 
-      <img src="https://github.com/user-attachments/assets/9657e574-9164-4301-acbb-571c49af60e9" width="500" alt="LDROBOT D500 LiDAR" /> 
-    </td> 
-    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
-      <h2 style="font-size:28px;">LDROBOT D500 LiDAR</h2> 
-      <ul>
-        <li><strong>Ranging Distance:</strong> 0.03 – 12 m</li> 
-        <li><strong>Accuracy:</strong> ±10 mm (0.3–0.5 m), ±20 mm (0.5–2 m), ±30 mm (2–12 m)</li> 
-        <li><strong>Scanning Angle:</strong> 360°</li> 
-        <li><strong>Scanning Frequency:</strong> 6 – 13 Hz (Typ. 10 Hz)</li> 
-        <li><strong>Ranging Frequency:</strong> 5000 Hz</li> 
-        <li><strong>Wavelength:</strong> 895 – 915 nm (Typ. 905 nm)</li> 
-        <li><strong>Interface:</strong> UART @ 230400 baud</li> 
-        <li><strong>Ambient Light Tolerance:</strong> up to 60K Lux</li> 
-        <li><strong>Power Supply:</strong> 5 V</li> 
-        <li><strong>Power Consumption:</strong> 1.45 W (290 mA)</li> 
-        <li><strong>Operating Temperature:</strong> -10 ~ 45 °C</li> 
-        <li><strong>Dimensions:</strong> 54 × 46.3 × 35 mm</li> 
-        <li><strong>Weight:</strong> 45 g</li> 
-      </ul> 
-    </td> 
-  </tr> 
-</table>
-
-The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
-
-We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The car can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the car always knows how much space it has to move, no matter the lighting or background conditions.
-
-Another benefit of LiDAR is its stability in changing environments. If a person or another car moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
-
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
 
@@ -476,7 +440,7 @@ The wide-angle camera serves as the car’s primary tool for visual detection. W
 
 We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
-#### Potential Improvements for Camera and LiDAR
+#### Potential Improvements for Camera 
 
 While the current Pi Camera and LiDAR provide a good amount sensing for our obstacle challenge, several improvements could improve performance.
 
@@ -486,15 +450,72 @@ While the current Pi Camera and LiDAR provide a good amount sensing for our obst
 - Explore infrared capability with an IR-sensitive camera and IR light source for consistent performance regardless of ambient lighting.  
 - Apply filtering in software (e.g., erosion/dilation in OpenCV) or use a moving average/Kalman filter to stabilize pillar tracking.
 
-**LiDAR (LDROBOT D500)**
-- Apply filtering methods (median filter, rolling averages, outlier rejection) to remove noise and stabilize distance readings.  
-- Adjust scanning frequency dynamically based on car speed: slower scans for mapping, faster scans for high-speed navigation.  
-- Add obstacle classification by clustering LiDAR points into objects rather than using only raw distance data.  
-- For future work, we will consider upgrading to a 3D LiDAR for full spatial awareness in complex environments. For this competition, it is not vital.
 
 ## Inertial Measurement Unit (IMU)
 
-While the LiDAR provides a precise map of the environment and the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
+While the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
+
+<table border="1" width="100%" style="font-size:20px;">
+  <tr>
+    <td width="50%" align="center" style="vertical-align:top;">
+      <img width="600" alt="image" src="https://github.com/user-attachments/assets/b6fa3cf6-a8aa-4aaa-ab9d-8c2424c89b00" />
+    </td>
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
+      <h2 style="font-size:26px;">MPU-6050 6-Axis IMU</h2>
+      <ul>
+        <li><strong>Sensor Type:</strong> 3-axis Accelerometer + 3-axis Gyroscope</li>
+        <li><strong>Accelerometer Range:</strong> ±16g</li>
+        <li><strong>Gyroscope Range:</strong>  ±2000°/s</li>
+        <li><strong>Resolution:</strong> 16-bit</li>
+        <li><strong>Interface:</strong> I²C (up to 400 kHz)</li>
+        <li><strong>Supply Voltage:</strong> 3.3V – 5V</li>
+        <li><strong>Features:</strong> On-chip DMP, auxiliary I²C bus, built-in temperature sensor, shock tolerant</li>
+        <li><strong>Package:</strong> 4×4×0.9 mm QFN</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+By combining the IMU with the camera and LiDAR, the car can merge multiple data sources to create a clear view of its surroundings. The IMU tracks motion between LiDAR scans and camera frames, which improves mapping and object tracking. For instance, if the car’s camera spots a wall or pillar, the IMU makes sure the system knows if the car is moving forward, turning, or tilting as it nears the obstacle.
+
+In short, the IMU serves as the car’s sense of balance and movement. It works alongside the external perception from the camera and LiDAR. This teamwork allows the autonomous system to make better decisions, navigate safely, and maintain accurate control at all times.
+
+## Sensor Consideration/Potential Improvements
+### Lidar 
+
+This LiDAR is good for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our car.  
+
+<table border="1" width="100%" style="font-size:20px; text-align:left;">
+  <tr> 
+    <td width="50%" align="center" style="vertical-align:top;"> 
+      <img src="https://github.com/user-attachments/assets/9657e574-9164-4301-acbb-571c49af60e9" width="500" alt="LDROBOT D500 LiDAR" /> 
+    </td> 
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
+      <h2 style="font-size:28px;">LDROBOT D500 LiDAR</h2> 
+      <ul>
+        <li><strong>Ranging Distance:</strong> 0.03 – 12 m</li> 
+        <li><strong>Accuracy:</strong> ±10 mm (0.3–0.5 m), ±20 mm (0.5–2 m), ±30 mm (2–12 m)</li> 
+        <li><strong>Scanning Angle:</strong> 360°</li> 
+        <li><strong>Scanning Frequency:</strong> 6 – 13 Hz (Typ. 10 Hz)</li> 
+        <li><strong>Ranging Frequency:</strong> 5000 Hz</li> 
+        <li><strong>Wavelength:</strong> 895 – 915 nm (Typ. 905 nm)</li> 
+        <li><strong>Interface:</strong> UART @ 230400 baud</li> 
+        <li><strong>Ambient Light Tolerance:</strong> up to 60K Lux</li> 
+        <li><strong>Power Supply:</strong> 5 V</li> 
+        <li><strong>Power Consumption:</strong> 1.45 W (290 mA)</li> 
+        <li><strong>Operating Temperature:</strong> -10 ~ 45 °C</li> 
+        <li><strong>Dimensions:</strong> 54 × 46.3 × 35 mm</li> 
+        <li><strong>Weight:</strong> 45 g</li> 
+      </ul> 
+    </td> 
+  </tr> 
+</table>
+
+The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
+
+You can use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The car can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the car always knows how much space it has to move, no matter the lighting or background conditions.
+
+Another benefit of LiDAR is its stability in changing environments. If a person or another car moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
 
 # Software
 ## Frameworks
