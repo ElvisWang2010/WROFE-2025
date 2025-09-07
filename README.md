@@ -82,7 +82,7 @@
       <h3>Harry</h3>
       <b>Role:</b> Programmer/Documenter <br>
       <b>Strengths:</b> Python, Problem Solver, Patience, Hardworker.<br>
-      <b>About Me:</b> Hey! I'm Harry. I've been coding for more than half a decade and love to swim, having competed in various swimming competitions. I also like to play badminton and Valorant with Ryan.
+      <b>About Me:</b> Hey! I'm Harry. I've been coding for more than half a decade and love to swim, having competed in various swimming competitions. I also like to play badminton.
     </td>
   </tr>
 </table>
