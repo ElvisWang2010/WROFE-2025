@@ -61,7 +61,10 @@
 
 The WRO Future Engineers is the competition of the self-driven vehicles. Students of the age group from 15 till 19 need to design a model of a car, equip it with electromechanical components and program it as so it will be able to autonomously drive on the track avoiding objections.
 
-More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/new-competition-formats/future-engineers).
+More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/2025-season/#rules).
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/51e5db22-617e-4d90-a60a-5c4dbe9ec88f" />
+
 
 The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/) site generator.
 
