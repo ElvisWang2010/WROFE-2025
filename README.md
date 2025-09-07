@@ -19,7 +19,7 @@
 1&#46; <a href="#team-members">Team Members</a><br>
 2&#46; <a href="#complete-construction-manual">Complete Construction Manual</a><br>
 3&#46; <a href="#machinery">Machinery</a><br>
-4&#46; <a href="#robot-design-overview">Robot Design Overview</a><br>
+4&#46; <a href="#robot/car-design-overview">Robot/Car Design Overview</a><br>
 5&#46; <a href="#assembly-gallery">Assembly Gallery</a><br>
 6&#46; <a href="#power-management">Power Management</a><br>
 &#8226; <a href="#battery">Battery</a><br>
@@ -89,8 +89,8 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 Total : $546
 
 
-##  Robot Design Overview 
-A majority of the robot was 3D printed or replaced.
+##  Robot/Car Design Overview 
+A majority of the car was 3D printed or replaced.
 <table>
   <tr>
     <td align="center" width="33%">
@@ -252,7 +252,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 ####  How We Overcame These Limitations  
 
-- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and the robot futhered the reliability of the car.
+- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and futhered the reliability of the car.
 - **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
 
 
@@ -285,7 +285,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     <td colspan="2">
       <h3>Why We Chose This Motor</h3>
       <p>
-Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying a new motor, we decided to reuse an existing one, turning it into a learning opportunity. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the robot and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the robot light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and 1.5 mm shaft line up with our gears, and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a robot that reflected our ideas in our first competition.
+Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying a new motor, we decided to reuse an existing one, turning it into a learning opportunity. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and 1.5 mm shaft line up with our gears, and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
       </p>
       <h3>Real-World Notes</h3>
       <p>
@@ -330,8 +330,9 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 
 ## Steering
 Our first prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed.
+This process put us against tough challenges. In early versions, we found it difficult to make the system truly balanced. Even small errors in 3D design or flaws in the printing process led to slight misalignments. These small mistakes resulted in noticeable steering inconsistencies. We had to do multiple redesigns and reprints. By iterating, tightening tolerances, and refining our 3D models, we gradually removed these errors and created a system that was both precise and reliable.
 
-The design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
+The new design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
 
 <table>
   <tr>
@@ -342,12 +343,22 @@ The design features a mounting frame that secures the system to the chassis, a s
   </tr>
 </table>
 
+### Key Improvements Over Stock Design
+1. **Symmetry in Motion** – Both left and right wheels now turn at equal angles, reducing understeer/oversteer imbalance.  
+2. **Reduced Backlash** – By using strong linkages and tightly toleranced 3D-printed parts, uncontrolled movement is minimized.  
+3. **Strength & Durability** – The mounting frame distributes servo torque evenly, reducing wear and preventing chassis flex.  
+4. **Precision Control** – The redesigned geometry allows finer servo adjustments to directly translate into steering corrections.  
+
+### Manufacturing & Assembly
+- All parts were modeled in CAD and 3D-printed using high-strength PLA fillament.  
+- Stainless steel screws and ball bearings were used in the knuckles to reduce friction and extend part life.  
+- The servo linkage was reinforced with a metal rod to prevent bending under load.  
 
 #### Potential Improvements:
-- Used a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
-- Added more fillets on corners, reducing stress concentration and prevents cracks.
-- Implemented brass threaded inserts for screw holes rather than relying on bare plastic.
-- Could have made knuckles thicker to prevent wear from constant movement.
+- Use a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
+- Adde more fillets on corners, reducing stress concentration and prevents cracks.
+- Implement brass threaded inserts for screw holes rather than relying on bare plastic.
+
 
 ## Servo Motor
 
@@ -373,6 +384,10 @@ This servo motor was chosen for its compact size, strong torque, and durable met
   </tr>
 </table>
 
+#### Potential Improvements
+- Improve response time. This servo motor is not as quick as higher-end micro servos, which reduces steering precision during sharp turns.
+- Upgrade to a higher-torque digital micro servo for more reliable steering.
+  
 #### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
 
@@ -384,7 +399,7 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. 
 
-At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the robot maintains a reliable awareness of its environment, even as conditions change.
+At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
 
 ## Lidar
 
@@ -416,11 +431,11 @@ This LiDAR was chosen for its long-range accuracy, compact design, and robust sc
   </tr> 
 </table>
 
-The LiDAR is the robot’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the robot a real-time 2D map of obstacles and open space. 
+The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
-We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The robot can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the robot always knows how much space it has to move, no matter the lighting or background conditions.
+We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The car can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the car always knows how much space it has to move, no matter the lighting or background conditions.
 
-Another benefit of LiDAR is its stability in changing environments. If a person or another robot moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
+Another benefit of LiDAR is its stability in changing environments. If a person or another car moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
 
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
@@ -447,11 +462,11 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
   </tr> 
 </table>
 
-The wide-angle camera serves as the robot’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
+The wide-angle camera serves as the car’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
-We process the camera feed on the Raspberry Pi using computer programs. This setup allows the robot to not only notice when something is in its path but also to identify what it is, such as walls, furniture, people, or open passages. This understanding gives the robot a significant edge over systems that depend solely on distance sensors.
+We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
-### Potential Improvements for Camera and LiDAR
+#### Potential Improvements for Camera and LiDAR
 
 While the current Pi Camera and LiDAR provide a good amount sensing for our obstacle challenge, several improvements could improve performance.
 
@@ -463,11 +478,13 @@ While the current Pi Camera and LiDAR provide a good amount sensing for our obst
 
 **LiDAR (LDROBOT D500)**
 - Apply filtering methods (median filter, rolling averages, outlier rejection) to remove noise and stabilize distance readings.  
-- Adjust scanning frequency dynamically based on robot speed: slower scans for mapping, faster scans for high-speed navigation.  
+- Adjust scanning frequency dynamically based on car speed: slower scans for mapping, faster scans for high-speed navigation.  
 - Add obstacle classification by clustering LiDAR points into objects rather than using only raw distance data.  
 - For future work, we will consider upgrading to a 3D LiDAR for full spatial awareness in complex environments. For this competition, it is not vital.
 
+## Inertial Measurement Unit (IMU)
 
+While the LiDAR provides a precise map of the environment and the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
 
 # Software
 ## Frameworks
