@@ -727,11 +727,28 @@ else: # Clamp
 ```
 We need to apply the clamp to make sure the steering angle does not surpass the predefined maximums.
 
-The car will continue running all this code in a while loop until it detects 12 oranges lines:
-
+The car will continue running all this code in a while loop until it detects 12 oranges lines. Once it does it will continue driving for a set amount of time before stopping:
+```
+if turns == 12: 
+    stop_time = time.time()
+    turns += 1
+if turns >= 13:
+    current_time = time.time()
+    if current_time - stop_time >= 6:
+        board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
+        lap_complete = True
+```
 ## Obstacle Challenge
-### Package structure
+### Overview
+The obstacle challenge is much more difficult version of the open challenge. In this challenge there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
 
+### Difficulties
+The obstacle challenge presents many difficult challenges that build onto the open challenge. Although the walls are set at 100cm, steering around the pillar while avoiding walls and detecting turns is very difficult to do consistently. 
+In order to perform a parallel park the information and car movements must be incredibly precise since the parking lot is only 1.5x the cars size.
+
+
+### Our solution
+Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing speed and reliability. Another reason comes from the complex nature of the challenge. That is why our strategy involves multiple sensors inputs (camera, imu) and several behaviours (park, navigate). Doing all of this in a single python script would be slower, harder to maintain, and harder to debug. ROS 2 allows us to use multiple python scripts (nodes) to communciate to one another with topics. The following is a visualization of the workspace containing all the packages required for ROS 2 to run.
 ```
 ~/fe_ws/src/obstacle_challenge/
 ├── obstacle_challenge/
@@ -746,6 +763,7 @@ The car will continue running all this code in a while loop until it detects 12 
 └── setup.py
 ```
 
+This is a visualziation of how the nodes communciate:
 <img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/94e4d3b1-762c-4baa-82bd-70e4aa4d126b" />
 
 ### NODES/TOPICS
@@ -772,14 +790,77 @@ The car will continue running all this code in a while loop until it detects 12 
 - Publishes to /lap_status to transmit lap information
   Provides orientational information for lap counting and navigation
 
+In short:
+navigator_node.py: The brain of the challenge
+camera_node.py: The eyes of the challenge
+imu_node.py: Balance and lap counting
 
 
-   
+The navigator node is the main file controller the robot. It must communicate with the other nodes with subscribers and publishers to coordinate current drive and button states.
+```
+self.create_subscription(Image, '/image_raw', self.camera_callback, 10)
+self.create_subscription(Float32, '/imu_angle', self.imu_callback, 10)
+self.create_subscription(ButtonState, '/ros_robot_controller/button', self.button_callback, 10)
+self.stat_pub = self.create_publisher(String, '/state', 10)
+```
 
+The camera logic is largely the same with the addition of the central roi and colour detecting hsv ranges
+```
+self.left_roi = (0, 220, 180, 150)  # x, y, w, h
+self.right_roi = (460, 220, 180, 150)
+self.center_roi = (200, 200, 240, 200)
 
+self.lower_red1 = np.array([0, 100, 100])
+self.upper_red1 = np.array([10, 255, 255])
+self.lower_red2 = np.array([160, 100, 100])
+self.upper_red2 = np.array([179, 255, 255])
+self.lower_green = np.array([50, 150, 80])
+self.upper_green = np.array([95, 255, 255])
+self.lower_magenta = np.array([140, 100, 100])
+self.upper_magenta = np.array([170, 255, 255])
+```
 
+The camera node's job is to publish raw coloured frames to the navigator node in order for it to perform turns
+```
+def publish_frame(self):
+    frame = self.picam2.capture_array()
+        msg = self.bridge.cv2_to_imgmsg(frame, encoding='rgb8')
+        self.publisher.publish(msg)
+```
 
+The navigator node receives these frames and performs the same logic as open challenge for black pixels. For the coloured pixels it performs cropping to focus on a particular ROI, and colour masking to isolate specific pixels. Then the pixels are counted to be used for steering logic.
+```
+left_color_crop = frame[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
+                        self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
+right_color_crop = frame[self.right_roi[1]:self.right_roi[1]+self.right_roi[3], 
+                    self.right_roi[0]:self.right_roi[0]+self.right_roi[2]]
+center_color_crop = frame[self.center_roi[1]:self.center_roi[1]+self.center_roi[3], 
+                    self.center_roi[0]:self.center_roi[0]+self.center_roi[2]]
 
+hsv_left = cv2.cvtColor(left_color_crop, cv2.COLOR_RGB2HSV)
+hsv_right = cv2.cvtColor(right_color_crop, cv2.COLOR_RGB2HSV)
+hsv_center = cv2.cvtColor(center_color_crop, cv2.COLOR_RGB2HSV)
 
-   
+left_red_mask = cv2.bitwise_or(cv2.inRange(hsv_left, self.lower_red1, self.upper_red1), 
+                                cv2.inRange(hsv_left, self.lower_red2, self.upper_red2))
+center_red_mask = cv2.bitwise_or(cv2.inRange(hsv_center, self.lower_red1, self.upper_red1), 
+                                cv2.inRange(hsv_center, self.lower_red2, self.upper_red2))
+# Remove magenta from parking lot
+left_magenta_mask = cv2.inRange(hsv_left, self.lower_magenta, self.upper_magenta)
+center_magenta_mask = cv2.inRange(hsv_center, self.lower_magenta, self.upper_magenta)
+
+left_red_mask = cv2.subtract(left_red_mask, left_magenta_mask)
+center_red_mask = cv2.subtract(center_red_mask, center_magenta_mask)
+right_green_mask = cv2.inRange(hsv_right, self.lower_green, self.upper_green)
+center_green_mask = cv2.inRange(hsv_center, self.lower_green, self.upper_green)
+
+# Count pixels
+self.left_red_area = cv2.countNonZero(left_red_mask)
+self.right_green_area = cv2.countNonZero(right_green_mask)
+self.center_red_area = cv2.countNonZero(center_red_mask)
+self.center_green_area = cv2.countNonZero(center_green_mask)
+```
+
+The pixel values are ready, however we also need to find the centroid of the pillars for more accurate steering.
+
 
