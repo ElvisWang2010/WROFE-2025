@@ -19,7 +19,7 @@
 1&#46; <a href="#team-members">Team Members</a><br>
 2&#46; <a href="#complete-construction-manual">Complete Construction Manual</a><br>
 3&#46; <a href="#machinery">Machinery</a><br>
-4&#46; <a href="#robot/car-design-overview">Robot/Car Design Overview</a><br>
+4&#46; <a href="#robotcar-design-overview">Robot/Car Design Overview</a><br>
 5&#46; <a href="#assembly-gallery">Assembly Gallery</a><br>
 6&#46; <a href="#power-management">Power Management</a><br>
 &#8226; <a href="#battery">Battery</a><br>
@@ -40,7 +40,7 @@
 &#8226; <a href="#ros_robot_controller_sdk">ROS_ROBOT_CONTROLLER_SDK</a><br>
 9&#46; <a href="#open-challenge">Open Challenge</a><br>
 10&#46; <a href="#obstacle-challenge">Obstacle Challenge</a><br>
-11&#46; <a href="#building-instructions">Building Instructions</a><br>
+
 </div>
 
 
@@ -285,7 +285,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     <td colspan="2">
       <h3>Why We Chose This Motor</h3>
       <p>
-Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying a new motor, we decided to reuse an existing one, turning it into a learning opportunity. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and 1.5 mm shaft line up with our gears, and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
+Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying a new motor, we decided to reuse an existing one, turning it into a learning opportunity. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
       </p>
       <h3>Real-World Notes</h3>
       <p>
@@ -298,6 +298,9 @@ Since this was our first time in the competition, we wanted to focus on learning
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
 #### Potential Improvements
+- Although the 3450 KV rating is quite fast, this speed sacrifices smooth, controlled rotation at a lower RPM. When we reduce RPM for tight turns, the motor’s choppy rotation slows us down and reduces effectiveness.
+- Improve quality. Under repeated high-load or high-speed operation, the motors components will degrade faster than higher quality ones.
+  
 
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
