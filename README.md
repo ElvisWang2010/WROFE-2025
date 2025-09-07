@@ -204,6 +204,11 @@ A majority of the car was 3D printed or replaced.
   </tr>
 </table>
 
+#### Potential Improvements
+- Faster charge rate to reduce downtime.
+- Longer survivabilty. Sacrifice some weight for a higher mAh, equating to a longer lasting battery.
+- Enhanced safety features such as overcharge. One of our batteries broke due to overcharge.
+
 <p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
 
 We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
