@@ -378,13 +378,17 @@ In parallel, the servo motor is responsible for steering. It adjusts the angle o
 
 Together, the motor, ESC, servo motor, and chassis form the core of our car's mobility system, while the battery holds the energy.
 
-# Sense Managment
+# Sense Management
 
-To detect walls and obstacles, we integrate two different sensors, both using different sensing methods, ensuring consistent and accurate environmental perception
+The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. At the heart of sense management is the idea of prioritization. Different sensors have different strengths; some are better at detecting precise distances, while others excel at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the robot maintains a reliable awareness of its environment, even as conditions change.
+
+Another key aspect of sense management is filtering. Raw sensor data often contains noise or errors that could confuse the robot if used directly. To fix this, the system applies algorithms to smooth out inaccurate readings, eliminate false detections, and keep only the most reliable information. This ensures that the control system always works with clean, consistent data.
+
+Finally, sense management includes synchronization. Sensors operate at different speeds and update at different times, so we align their outputs on a shared timeline. This allows the robot to make decisions based on a complete snapshot of the world instead of mismatched pieces of information. With this foundation, the robot is ready to utilize more specialized sensors introduced in the following sections.
 
 ## Lidar
 
-This LiDAR was chosen for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our robot.  
+This LiDAR was chosen for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our car.  
 
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
@@ -412,7 +416,41 @@ This LiDAR was chosen for its long-range accuracy, compact design, and robust sc
   </tr> 
 </table>
 
+The LiDAR is the robot’s most reliable tool for precise distance measurement and mapping. Unlike the camera, which depends on good lighting and has difficulty estimating exact distances, the LiDAR gives accurate range data in every direction, up to 12 meters away. This provides the robot with a real-time 2D map of obstacles and open space. We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously generates a profile of the environment. The robot can then identify safe routes, avoid collisions, and even build persistent maps of areas it explores. This is critical for autonomous navigation because it ensures the robot always knows how much space it has to maneuver, regardless of lighting or background conditions.
 
+Another advantage of LiDAR is its stability in dynamic environments. If a person or another robot moves into its path, the LiDAR immediately detects the change and updates the map. This makes the system highly responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR complements the camera and provides a level of reliability that vision alone cannot match.
+
+
+## Camera
+This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
+
+<table border="1" width="100%" style="font-size:20px; text-align:left;">
+  <tr> 
+    <td width="50%" align="center" style="vertical-align:top;"> 
+      <img width="500 alt="image" src="https://github.com/user-attachments/assets/f60b01c2-a8af-488a-9bf0-2b0dda0ea1aa" />
+    </td> 
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
+      <h2 style="font-size:28px;">5/Zero Camera Module (OV5647 Sensor)</h2> 
+      <ul>
+        <li><strong>Lens Pixel:</strong> 5 MP</li> 
+        <li><strong>Resolution:</strong> 2592 × 1944</li> 
+        <li><strong>Lens Angle:</strong> 175° Wide Angle</li> 
+        <li><strong>Lens Focal Length:</strong> 3.6 mm</li> 
+        <li><strong>Focus Mode:</strong> Manual</li> 
+        <li><strong>CMOS Size:</strong> 1/2.5 inch</li> 
+        <li><strong>Material:</strong> ABS + Optical Glass</li> 
+        <li><strong>Screw Model:</strong> M2 × 6</li> 
+        <li><strong>Cable:</strong> 15 cm Ribbon Cable</li> 
+      </ul> 
+    </td> 
+  </tr> 
+</table>
+
+The wide-angle camera is our robot’s main source of visual detection. With its 175° lens, the camera captures almost the entire forward field of view, minimizing blind spots and allowing the system to track multiple objects at once. This makes it especially effective for tasks like lane detection, identifying obstacles ahead, and monitoring dynamic changes in the environment.
+
+We process the camera feed on the Raspberry Pi using computer vision algorithms. This allows the robot not just to detect that something is in its path, but also to classify what it is — such as distinguishing between walls, furniture, people, or open passages. This semantic understanding gives the robot a huge advantage over systems that only rely on distance sensors.
+
+Another key benefit of the wide-angle design is its ability to detect context. The robot can see markers, patterns, or pathways on the ground, which supports advanced navigation tasks such as following predefined routes or recognizing visual cues. By relying on a camera for this kind of detection, we avoid the limitations of range-only sensors and make the robot adaptable to a wide variety of environments.
 
 
 
