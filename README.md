@@ -83,7 +83,7 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $80 |
 | Camera | [`5MP 1080P HD Camera with OV5647 Sensor`](https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title) | $35 |
 | Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
-| Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $45 |
+| Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $40 |
 | Lidar | [`LDROBOT D500 lidar kit TOF laser Radar Lidar Scanner `](https://www.aliexpress.com/item/1005003012681021.html?spm=a2g0o.order_list.order_list_main.11.7a3b18028WK12R). | $82 |
 
 Total : $546
@@ -205,6 +205,8 @@ A majority of the robot was 3D printed or replaced.
 </table>
 
 <p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
+
+We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
 
 ### Power Ratings Table
 | Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
@@ -380,11 +382,9 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 # Sense Management
 
-The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. At the heart of sense management is the idea of prioritization. Different sensors have different strengths; some are better at detecting precise distances, while others excel at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the robot maintains a reliable awareness of its environment, even as conditions change.
+The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. 
 
-Another key aspect of sense management is filtering. Raw sensor data often contains noise or errors that could confuse the robot if used directly. To fix this, the system applies algorithms to smooth out inaccurate readings, eliminate false detections, and keep only the most reliable information. This ensures that the control system always works with clean, consistent data.
-
-Finally, sense management includes synchronization. Sensors operate at different speeds and update at different times, so we align their outputs on a shared timeline. This allows the robot to make decisions based on a complete snapshot of the world instead of mismatched pieces of information. With this foundation, the robot is ready to utilize more specialized sensors introduced in the following sections.
+At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the robot maintains a reliable awareness of its environment, even as conditions change.
 
 ## Lidar
 
@@ -416,10 +416,11 @@ This LiDAR was chosen for its long-range accuracy, compact design, and robust sc
   </tr> 
 </table>
 
-The LiDAR is the robot’s most reliable tool for precise distance measurement and mapping. Unlike the camera, which depends on good lighting and has difficulty estimating exact distances, the LiDAR gives accurate range data in every direction, up to 12 meters away. This provides the robot with a real-time 2D map of obstacles and open space. We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously generates a profile of the environment. The robot can then identify safe routes, avoid collisions, and even build persistent maps of areas it explores. This is critical for autonomous navigation because it ensures the robot always knows how much space it has to maneuver, regardless of lighting or background conditions.
+The LiDAR is the robot’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the robot a real-time 2D map of obstacles and open space. 
 
-Another advantage of LiDAR is its stability in dynamic environments. If a person or another robot moves into its path, the LiDAR immediately detects the change and updates the map. This makes the system highly responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR complements the camera and provides a level of reliability that vision alone cannot match.
+We use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The robot can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the robot always knows how much space it has to move, no matter the lighting or background conditions.
 
+Another benefit of LiDAR is its stability in changing environments. If a person or another robot moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
 
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
@@ -446,12 +447,25 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
   </tr> 
 </table>
 
-The wide-angle camera is our robot’s main source of visual detection. With its 175° lens, the camera captures almost the entire forward field of view, minimizing blind spots and allowing the system to track multiple objects at once. This makes it especially effective for tasks like lane detection, identifying obstacles ahead, and monitoring dynamic changes in the environment.
+The wide-angle camera serves as the robot’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
-We process the camera feed on the Raspberry Pi using computer vision algorithms. This allows the robot not just to detect that something is in its path, but also to classify what it is — such as distinguishing between walls, furniture, people, or open passages. This semantic understanding gives the robot a huge advantage over systems that only rely on distance sensors.
+We process the camera feed on the Raspberry Pi using computer programs. This setup allows the robot to not only notice when something is in its path but also to identify what it is, such as walls, furniture, people, or open passages. This understanding gives the robot a significant edge over systems that depend solely on distance sensors.
 
-Another key benefit of the wide-angle design is its ability to detect context. The robot can see markers, patterns, or pathways on the ground, which supports advanced navigation tasks such as following predefined routes or recognizing visual cues. By relying on a camera for this kind of detection, we avoid the limitations of range-only sensors and make the robot adaptable to a wide variety of environments.
+### Potential Improvements for Camera and LiDAR
 
+While the current Pi Camera and LiDAR provide a good amount sensing for our obstacle challenge, several improvements could improve performance.
+
+**Camera (5MP Pi Camera w/ OV5647)**
+- Upgrade to a higher resolution or global-shutter sensor (e.g., HQ Camera IMX477) for sharper images and less motion blur.  
+- Add auto exposure and white balance adjustments to handle changing lighting conditions.    
+- Explore infrared capability with an IR-sensitive camera and IR light source for consistent performance regardless of ambient lighting.  
+- Apply filtering in software (e.g., erosion/dilation in OpenCV) or use a moving average/Kalman filter to stabilize pillar tracking.
+
+**LiDAR (LDROBOT D500)**
+- Apply filtering methods (median filter, rolling averages, outlier rejection) to remove noise and stabilize distance readings.  
+- Adjust scanning frequency dynamically based on robot speed: slower scans for mapping, faster scans for high-speed navigation.  
+- Add obstacle classification by clustering LiDAR points into objects rather than using only raw distance data.  
+- For future work, we will consider upgrading to a 3D LiDAR for full spatial awareness in complex environments. For this competition, it is not vital.
 
 
 
