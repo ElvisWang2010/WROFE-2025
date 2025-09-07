@@ -48,7 +48,8 @@
 </div>
 
 
-
+# Team Photo
+<img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" />
 
 ## Team Members
 
@@ -135,30 +136,30 @@ A majority of the car was 3D printed or replaced.
   <!-- Row 1 -->
   <tr>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Front+View" width="100%" alt="Front view of the complete robot" /><br/>
+    <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/ee71536c-fdad-4c0f-b2a9-c6f9bffe3ca1" /><br/>
       <em><strong>Front View</strong><br>Shows the overall profile and front-facing components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Rear+View" width="100%" alt="Rear view of the complete robot" /><br/>
-      <em><strong>Rear View</strong><br>Shows the drive wheels and rear assembly.</em>
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/e105c404-02f3-450a-915e-0915fe9d4a86" /><br/>
+      <em><strong>Rear View</strong><br>Shows the drive wheels and rear motor assembly.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Top+View" width="100%" alt="Top down view of the robot" /><br/>
+     <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/a586fe6f-86cf-445b-93d6-32a57938c8ed" /><br/>
       <em><strong>Top View</strong><br>Shows the layout of all major components on the upper chassis.</em>
     </td>
   </tr>
   <!-- Row 2 -->
   <tr>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Left+View" width="100%" alt="Left side view of the robot" /><br/>
+     <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/293ffe3b-da48-497b-af34-55a1acfe2bcd" /><br/>
       <em><strong>Left Side View</strong><br>Shows the side profile and left-side components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Right+View" width="100%" alt="Right side view of the robot" /><br/>
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/192e6cf3-a4ba-4d4d-b1c6-edbf07f30618" /><br/>
       <em><strong>Right Side View</strong><br>Shows the side profile and right-side components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img src="https://placehold.co/600x400/eee/999999/png?text=Bottom+View" width="100%" alt="Bottom view of the robot" /><br/>
+      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/55920336-cb9c-41f5-9178-861a165bbac9" /><br/>
       <em><strong>Bottom View</strong><br>Shows the underside, wheel mounting, and lower chassis.</em>
     </td>
   </tr>
