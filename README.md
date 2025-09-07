@@ -1,7 +1,7 @@
 <div align="center">
 
 
-# Engineering Documentation – Team Buzzy Bee
+# Engineering Documentation – Team Bees
 
 
 *WRO Future Engineers 2025 Entry*
