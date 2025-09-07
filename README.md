@@ -114,10 +114,16 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 | Servo Motor | [`HS-5055MG 11.9g Metal Gear Digital Micro Servo`](https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_) | $25 |
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $80 |
 | Camera | [`5MP 1080P HD Camera with OV5647 Sensor`](https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title) | $35 |
-| Raspberry Pi 5 | [`Raspberry Pi 5`](https://www.amazon.ca/Vemico-Raspberry-Kit-Heatsinks-Screwdriver/dp/B09WXRCYL4/ref=sr_1_3) | $180 |
+| Raspberry Pi 5 8GB | [`Raspberry Pi 5`](https://www.amazon.ca/RasTech-Raspberry-Pi-refroidisseur-inclus/dp/B0DQX6JPVM/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.hjnwoY6Di307ZP-ZXjYU_AmgdoLMC7RS47PGeKtJmhqRtp_k-4b8vYkHuUVwKECxKvsLZj0iaGIogN3I9EAYbOkkLP1mmeFujPf3GbJ2CMFnLyrk19mzn-ImTWQS0CIHPOqaTKx-Ctd1F3jpptYNuSYsMmNl7eHo3YlLS2jAkPG1yBTzWywAtMLtqPDw7h7ECNBYaTd1mWMee3tTjRJN-xMqYHvdCTQPK7nYLTwDF-fwzPk8SNqpdFTZ5PaxoJsqiCrI71GJKbHEhh34FjN7lpqwol6Q_mREib5Uh598Ms4.l7oHUekQqBFhZC9q36eu2RnnsxuvyE01mn0uqJH1tZQ&dib_tag=se&gad_source=1&hvadid=668188233052&hvdev=c&hvexpln=0&hvlocphy=9000756&hvnetw=g&hvocijid=14781734050545810589--&hvqmt=e&hvrand=14781734050545810589&hvtargid=kwd-916491466264&hydadcr=24946_13702398&keywords=raspberry+pi+5+8gb&mcid=370191aac5dd30dfa56c4c13736323b1&qid=1757276490&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) | $170 |
 | Expansion Board | [`RRC Lite Controller`](https://www.hiwonder.com/products/rrc-lite?srsltid=AfmBOoqZuQkdiCruulYju-KXoSowMik5Ov_Vs3-_8TA4Bm_luvoK6Oxn). | $40 |
+| Switch | [`DaierTek ON Off Round Rocker Switches`](https://www.amazon.ca/DaierTek-Listed-Switches-Automotive-KCD1-5Pack/dp/B07S1MV462/ref=asc_df_B07S1MV462?mcid=7da2a9b953e93162885adff341695ef6&tag=googleshopc0c-20&linkCode=df0&hvadid=706726017537&hvpos=&hvnetw=g&hvrand=8977619187557058444&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000756&hvtargid=pla-813471950103&hvocijid=8977619187557058444-B07S1MV462-&hvexpln=0&gad_source=1&th=1). | $2.6 |
 
-Total : $464
+
+*Note: The switch is $13 for 5. 13/5 = 2.6*
+
+**Total:** $449.6 *No Tax*
+
+**With Tax:** $508.05
 
 
 ##  Robot/Car Design Overview 
@@ -264,6 +270,7 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 ---
 
 # Mobility Management
+This section covers and houses all components that help or allow or robot to move and steer. It includes the steering system for directional control, the electronic speed controller (ESC) to manage motor power, the main motor for movement, a servo motor for precise adjustments like steering, and the chassis, which is the base to hold and support all these parts securely.
 
 ## Chassis 
 
@@ -590,6 +597,7 @@ This custom Python SDK (Software Development Kit) provided by HiWonder is respon
 ### Overview
 The Open Challenge is designed to test a robot’s ability to autonomously navigate a closed-loop course using only the black walls as guidance. The robot must detect walls, align itself, make smooth turns at corners, and complete 3 laps without manual intervention in under 3 minutes. The main focus is on path-following and code accuracy.
 
+#### Game Map
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
@@ -792,7 +800,7 @@ if turns >= 13:
 ### Overview
 The obstacle challenge is much more difficult version of the open challenge. In this challenge there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
 
-
+#### Game Map
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
