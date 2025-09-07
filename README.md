@@ -87,6 +87,8 @@
   </tr>
 </table>
 
+
+*We were going to use a LiDAR but ended up removing it*
 </div>
 
 </br>
