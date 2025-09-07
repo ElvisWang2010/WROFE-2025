@@ -864,7 +864,8 @@ The pixel values are ready, however we also need to find the centroid of the pil
 
 ## Our Youtube Videos
 
+<p><strong>Open Challenge:</strong> <a href="https://www.youtube.com/watch?v=drlPgeJPFbc" target="_blank">Click Here</a></p>
 
-<p><strong>Open Challenge:</strong> <a href="https://www.youtube.com/watch?v=9s701bJlsVY" target="_blank">Click Here</a></p>
+<p><strong>Obstacle Challenge:</strong> <a href="https://www.youtube.com/watch?v=9s701bJlsVY" target="_blank">Click Here</a></p>
 
-Obstacle Challenge
+
