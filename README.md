@@ -387,7 +387,8 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     <td colspan="2">
       <h3>Why We Chose This Motor</h3>
       <p>
-Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying an expensive motor, we decided to buy a cheaper alternative. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
+Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying an expensive motor, we decided to buy a cheaper alternative. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. 
+    The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
       </p>
       <h3>Real-World Notes</h3>
       <p>
