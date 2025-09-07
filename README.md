@@ -52,6 +52,7 @@
 ---
 
 # Team Photo
+
 <img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" />
 </div>
 
@@ -87,6 +88,11 @@
 
 </div>
 
+</br>
+
+---
+
+</br>
 
 ## Complete Construction Manual
 
@@ -102,14 +108,18 @@ The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/
 
 The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
 
+</br>
 
+---
+
+</br>
 
 ## Machinery 
 ### Components
 | Name | Product | Price (CAD)|
 | ----------- | ----------- | ----------- |
 | RC Car | [`ACXWA CD`](https://www.aliexpress.com/item/1005007495175639.html?src=bing&aff_short_key=UneMJZVf&aff_platform=true&isdl=y&albch=shopping&acnt=135095331&isdl=y&albcp=555018171&albag=1299623888131540&slnk=&trgt=pla-4584826057944442&plac=&crea=81226548307861&netw=o&device=c&mtctp=e&utm_source=Bing&utm_medium=shopping&utm_campaign=PA_Bing_CA_PLA_PC_Hot-Sale_MaxValue_20240715&utm_content=Hot%20sale&utm_term=1%2F28%20car%20chassie&msclkid=b27792305716194d30fcf5a6c0fef479)  | $27 |
-| RC Car Battery | [`Gens Ace 1300mAh Battery`](https://www.adrenalinehobby.c1om/products/gens-ace-g-tech-1300mah-2s-7-4v-25c-lipo-deans-plug) | $35 | 
+| RC Car Battery | [`Gens Ace 1300mAh Battery`](https://genstattu.com/gens-ace-1300mah-2s-7-4v-45c-g-tech-lipo-battery-pack-with-deans-plug/?srsltid=AfmBOoo-qPXzcxuH2dIqTfVYg5ghG9WdKi2b53X-R9M8j3XF_JQlLKJL) | $20.6 | 
 | Drive Motor | [`Furitek Micro Komodo 1212 3450KV Brushless Motor`](https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118) | $35 |
 | Servo Motor | [`HS-5055MG 11.9g Metal Gear Digital Micro Servo`](https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_) | $25 |
 | ESC | [`Furitek Lizard Pro 30A/50A ESC`](https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth). | $80 |
@@ -119,12 +129,17 @@ The example of the site is accessible by https://world-robot-olympiad-associatio
 | Switch | [`DaierTek ON Off Round Rocker Switches`](https://www.amazon.ca/DaierTek-Listed-Switches-Automotive-KCD1-5Pack/dp/B07S1MV462/ref=asc_df_B07S1MV462?mcid=7da2a9b953e93162885adff341695ef6&tag=googleshopc0c-20&linkCode=df0&hvadid=706726017537&hvpos=&hvnetw=g&hvrand=8977619187557058444&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000756&hvtargid=pla-813471950103&hvocijid=8977619187557058444-B07S1MV462-&hvexpln=0&gad_source=1&th=1). | $2.6 |
 
 
-*Note: The switch is $13 for 5. 13/5 = 2.6*
+*Note: The switch is $13 for 5. 13/5 = 2.6.*
 
-**Total:** $449.6 *No Tax*
+**Total:** $435.2 *No Tax*
 
-**With Tax:** $508.05
+**With Tax:** $491.78
 
+</br>
+
+---
+
+</br>
 
 ##  Robot/Car Design Overview 
 A majority of the car was 3D printed or replaced.
@@ -165,7 +180,11 @@ A majority of the car was 3D printed or replaced.
   </tr>
 </table>
 
+</br>
+
 ---
+
+</br>
 
 # Assembly Gallery
 
@@ -202,8 +221,13 @@ A majority of the car was 3D printed or replaced.
   </tr>
 </table>
 
+</br>
+
+---
+</br>
 
 # Power Management
+</br>
 
 ## Battery
 
@@ -242,13 +266,16 @@ A majority of the car was 3D printed or replaced.
 </table>
 
 <p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
+</br>
 
-#### Potential Improvements
+### Potential Improvements
 - Faster charge rate to reduce downtime.
 - Longer survivabilty. Sacrifice some weight for a higher mAh, equating to a longer lasting battery.
 - Enhanced safety features such as overcharge. One of our batteries broke due to overcharge.
   
 We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
+
+</br>
 
 ### Power Ratings Table
 | Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
@@ -264,13 +291,20 @@ We added a velcro strip to both our battery and the base of our chassis, allowin
 | Expansion Board             | 5 V     | 0.12 A   | 0.50 A | 0.60 W  | 2.50 W  |
 | Totals                      | —       | —        | —      | ~13 W   | ~97 W   |
 
+</br>
 
 The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
 
+</br>
+
 ---
+
+</br>
 
 # Mobility Management
 This section covers and houses all components that help or allow or robot to move and steer. It includes the steering system for directional control, the electronic speed controller (ESC) to manage motor power, the main motor for movement, a servo motor for precise adjustments like steering, and the chassis, which is the base to hold and support all these parts securely.
+
+</br>
 
 ## Chassis 
 
@@ -279,29 +313,49 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 
 <p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
 
-#### Notable Features / Design Advantages
+</br>
+
+### Notable Features / Design Advantages
 
 - **Cost-effective:** At only $27 CAD, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between $50 and $100+.
 - **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
 - **High steering range:**  Front wheels pivoted significantly, enabling tight turns with less steering input.
 - **Compact form factor:** The fixed 1/24 scale size aided a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
+</br>
 
-####  Chassis Limitations  
+###  Chassis Limitations  
 
 Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
 - **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
 - **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
+</br>
 
-####  How We Overcame These Limitations  
+###  How We Overcame These Limitations  
 
 - **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. This simple change was crucial, acceleration was more controlled and futhered the reliability of the car.
 - **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
 
+</br>
+
+## Drive System
+
+Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted to the back wheels rather than the front. This configuration provides many benefits to the car.
+
+</br>
+
+### Benefits
+- Better weight distribution. This is since the front wheels handle steering and the rear wheels help with propulsion which helps the car remain more balanced during acceleration and turning.
+- RWD also provides a stronger grip to surfaces. Since the rear of the robot is heavier, the back wheels get pressed into the ground, providing for more traction and therefore enhancing the grip.
+- Since the front wheels are only used for steering, the car can turn more precisely as there is no motor interference.
+
+</br>
 
 ## Motor
 
 A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
+
+</br>
 
 <table border="1" width="100%">
   <tr>
@@ -328,7 +382,7 @@ A compact, high-RPM brushless motor chosen for its exceptional power-to-weight r
     <td colspan="2">
       <h3>Why We Chose This Motor</h3>
       <p>
-Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying a new motor, we decided to reuse an existing one, turning it into a learning opportunity. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
+Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying an expensive motor, we decided to buy a cheaper alternative. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
       </p>
       <h3>Real-World Notes</h3>
       <p>
@@ -340,10 +394,13 @@ Since this was our first time in the competition, we wanted to focus on learning
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
-#### Potential Improvements
+</br>
+
+### Potential Improvements
 - Although the 3450 KV rating is quite fast, this speed sacrifices smooth, controlled rotation at a lower RPM. When we reduce RPM for tight turns, the motor’s choppy rotation slows us down and reduces effectiveness.
 - Improve quality. Under repeated high-load or high-speed operation, the motors components will degrade faster than higher quality ones.
-  
+
+</br>
 
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
@@ -352,6 +409,8 @@ The ESC is a key component that regulates how the motor receives power. It:
 - Ensures safe delivery of voltage and current to the motor
 
 This ESC was chosen for its high current capacity, lightweight design, and reliable built-in BEC, making it well-suited for our motor and servo needs.
+
+</br>
 
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
@@ -376,6 +435,8 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 
 ---
 
+</br>
+
 ## Steering
 Our first prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed.
 This process put us against tough challenges. In early versions, we found it difficult to make the system truly balanced. Even small errors in 3D design or flaws in the printing process led to slight misalignments. These small mistakes resulted in noticeable steering inconsistencies. We had to do multiple redesigns and reprints. By iterating, tightening tolerances, and refining our 3D models, we gradually removed these errors and created a system that was both precise and reliable.
@@ -391,26 +452,35 @@ The new design features a mounting frame that secures the system to the chassis,
   </tr>
 </table>
 
+</br>
+
 ### Key Improvements Over Stock Design
 1. **Symmetry in Motion** – Both left and right wheels now turn at equal angles, reducing understeer/oversteer imbalance.  
 2. **Reduced Backlash** – By using strong linkages and tightly toleranced 3D-printed parts, uncontrolled movement is minimized.  
 3. **Strength & Durability** – The mounting frame distributes servo torque evenly, reducing wear and preventing chassis flex.  
-4. **Precision Control** – The redesigned geometry allows finer servo adjustments to directly translate into steering corrections.  
+4. **Precision Control** – The redesigned geometry allows finer servo adjustments to directly translate into steering corrections.
+   
+</br>
 
 ### Manufacturing & Assembly
 - All parts were modeled in CAD and 3D-printed using high-strength PLA fillament.  
-- Stainless steel screws and ball bearings were used in the knuckles to reduce friction and extend part life.  
-- The servo linkage was reinforced with a metal rod to prevent bending under load.  
+- Ball screw were used in the knuckles to reduce friction and extend part life.  
+- The servo linkage was reinforced with a metal rod to prevent bending under load.
 
-#### Potential Improvements:
+</br>
+
+### Potential Improvements:
 - Use a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
 - Adde more fillets on corners, reducing stress concentration and prevents cracks.
 - Implement brass threaded inserts for screw holes rather than relying on bare plastic.
 
+</br>
 
 ## Servo Motor
 
 This servo motor was chosen for its compact size, strong torque, and durable metal gears, making it great for precise steering control.
+
+</br>
 
 <table border="1" width="100%" style="font-size:20px;">
   <tr>
@@ -432,16 +502,25 @@ This servo motor was chosen for its compact size, strong torque, and durable met
   </tr>
 </table>
 
-#### Potential Improvements
+
+</br>
+
+### Potential Improvements
 - Improve response time. This servo motor is not as quick as higher-end micro servos, which reduces steering precision during sharp turns.
 - Upgrade to a higher-torque digital micro servo for more reliable steering.
-  
-#### How the Car Moves
+
+</br>
+
+### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
 
 In parallel, the servo motor is responsible for steering. It adjusts the angle of the front wheels through the steering system, enabling the car to turn left or right with precision.
 
 Together, the motor, ESC, servo motor, and chassis form the core of our car's mobility system, while the battery holds the energy.
+
+---
+
+</br>
 
 # Sense Management
 
@@ -449,8 +528,11 @@ The car relies on various sensors to understand its surroundings and interact sa
 
 At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
 
+</br>
+
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
+</br>
 
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
@@ -474,11 +556,15 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
   </tr> 
 </table>
 
+</br>
+
 The wide-angle camera serves as the car’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
 We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
-#### Potential Improvements
+</br>
+
+### Potential Improvements
 
 While the current Pi Camera provides a good amount sensing for our obstacle challenge, several improvements could improve performance.
 
@@ -488,10 +574,13 @@ While the current Pi Camera provides a good amount sensing for our obstacle chal
 - Explore infrared capability with an IR-sensitive camera and IR light source for consistent performance regardless of ambient lighting.  
 - Apply filtering in software (e.g., erosion/dilation in OpenCV) or use a moving average/Kalman filter to stabilize pillar tracking.
 
+</br>
 
 ## Inertial Measurement Unit (IMU)
 
 While the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
+
+</br>
 
 <table border="1" width="100%" style="font-size:20px;">
   <tr>
@@ -518,15 +607,19 @@ We mainly use the IMU to calculate the number of completed laps.
 
 *Comes with the RRC lite expansion board.*
 
-#### Potential Improvements 
+</br>
+
+### Potential Improvements 
 - Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
 - Replace old IMU with higher accuracy.
 - Place IMU further away from vibrating motors for increased precision.
-
+</br>
 
 ## Sensor Consideration/Potential Improvements
 
 We planned to use the LiDAR to find obstacles and measure distances to walls and pillars but eventually decided to stick to a simpler approach. This would've given us exact information about the environment, allowing the car to plan safe paths. When combined with the IMU, it would improve navigation accuracy during turns and on uneven surfaces.
+
+</br>
 
 ### Lidar 
 
@@ -558,11 +651,17 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
   </tr> 
 </table>
 
+</br>
+
 The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
 You can use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The car can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the car always knows how much space it has to move, no matter the lighting or background conditions.
 
 Another benefit of LiDAR is its stability in changing environments. If a person or another car moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
+
+---
+
+</br>
 
 # Software
 ## Frameworks
