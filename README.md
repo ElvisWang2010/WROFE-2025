@@ -433,6 +433,9 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
   </tr> 
 </table>
 
+<p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth" target="_blank">Click Here</a></p>
+
+</br>
 
 ---
 
@@ -505,6 +508,7 @@ This servo motor was chosen for its compact size, strong torque, and durable met
   </tr>
 </table>
 
+<p><strong>Where to Buy:</strong> <a href="https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_" target="_blank">Click Here</a></p>
 
 </br>
 
@@ -558,6 +562,8 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
     </td> 
   </tr> 
 </table>
+
+<p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank">Click Here</a></p>
 
 </br>
 
