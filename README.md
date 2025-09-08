@@ -333,7 +333,7 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 #### Raspberry Pi 5
 - **USB-C** ↔ Expansion Board 
 - **USB-A** ↔ Expansion Board 
-- **CAM PORT CSI** ↔ Camera (16-pin ribbon)
+- **CAM PORT CSI** ↔ Camera (15-pin ribbon)
 
 #### Expansion Board
 - **PWM Servo Ports** ↔ Servo Motor
