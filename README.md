@@ -69,14 +69,14 @@
       <h3>Ryan</h3>
       <b>Role:</b> Documenter/Programmer <br>
       <b>Strengths:</b> Writing, Hardworker. <br>
-      <b>About Me:</b> Hi! I'm Ryan. I'm 14, i love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4 year old golden retriever 😊.
+      <b>About Me:</b> Hi! I'm Ryan. I'm 14, i love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
     </td>
     <td align="center" width="350">
       <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548" /><br>
       <h3>Elvis</h3>
       <b>Role:</b> Builder/Programmer <br>
       <b>Strengths:</b> CAD, Fabrication, Team Player, Hardworker. <br>
-      <b>About Me:</b> Hi, my name is Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old and love to work and play Clash Royale.
+      <b>About Me:</b> Hi, my name is Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old, and I love to work and play Clash Royale.
     </td>
     <td align="center" width="350">
       <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89" /><br>
@@ -101,14 +101,14 @@
 ## Complete Construction Manual
 
 
-The WRO Future Engineers is the competition of the self-driven vehicles. Students of the age group from 15 till 19 need to design a model of a car, equip it with electromechanical components and program it as so it will be able to autonomously drive on the track avoiding objections.
+The WRO Future Engineers is a competition for self-driven vehicles. Students in the 15- to 19-year-old age group need to design a model of a car, equip it with electromechanical components, and program it so that it will be able to autonomously drive on the track, avoiding obstacles.
 
 More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/2025-season/#rules).
 
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/51e5db22-617e-4d90-a60a-5c4dbe9ec88f" />
 
 
-The materials are intended to be build with the [Mkdocs](https://www.mkdocs.org/) site generator.
+The materials are intended to be built with the [Mkdocs](https://www.mkdocs.org/) site generator.
 
 The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
 
@@ -262,11 +262,11 @@ A majority of the car was 3D printed or replaced.
     <td colspan="2">
       <h3>Why We Chose This Battery</h3>
       <p>
-       This battery was selected for its high discharge 45C continuous discharge rate, doubling to 90C at its peak, easily meeting our power requirements. The high discharge rate enables for quicker, consistent bursts of energy for acceration, preventing sag that could impact performance. Its light 90g design permitted for a quicker, more agile car while placing less strain on our chassis. Its 7.4V voltage is a perfect suit, jumping into a 11.1V battery may provide more speed, but also wears down components quicker, eventually destroying the part completly; longevity would be a great concern.
+       This battery was selected for its high discharge 45C continuous discharge rate, doubling to 90C at its peak, easily meeting our power requirements. The high discharge rate enables for quicker, consistent bursts of energy for acceration, preventing sag that could impact performance. Its light 90g design permitted for a quicker, more agile car while placing less strain on our chassis. Its 7.4V voltage is a perfect suit, jumping into an 11.1V battery may provide more speed, but also wears down components quicker, eventually destroying the part completly; longevity would be a great concern.
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        In practice, the battery delivered stable voltage under load without noticeable sag during acceleration. Its compact dimensions and light weight allowed for easy installation while simultaneously providing a significant supply of energy, giving us quicker and more decisive runs. However, its limited survivability proved drawback. In the process of downloading ROS2, the battery would frequently die over the 3 hour download time, so connecting the car to an outlet was the only solution. We feel that we could have sacrificed a bit of weight for some more power time. Charging was also an issue. The process to charge took a lengthy time, roughly 3 hours.
+        In practice, the battery delivered stable voltage under load without noticeable sag during acceleration. Its compact dimensions and light weight allowed for easy installation while simultaneously providing a significant supply of energy, giving us quicker and more decisive runs. However, its limited survivability proved drawback. In the process of downloading ROS2, the battery would frequently die over the 3-hour download time, so connecting the car to an outlet was the only solution. We feel that we could have sacrificed a bit of weight for some more power time. Charging was also an issue. The process to charge took a lengthy time, roughly 3 hours.
       </p>
     </td>
   </tr>
@@ -277,8 +277,8 @@ A majority of the car was 3D printed or replaced.
 
 ### Potential Improvements
 - Faster charge rate to reduce downtime.
-- Longer survivabilty. Sacrifice some weight for a higher mAh, equating to a longer lasting battery.
-- Enhanced safety features such as overcharge. One of our batteries broke due to overcharge.
+- Longer survivability. Sacrifice some weight for a higher mAh, equating to a longer lasting battery.
+- Enhanced safety features, such as overcharge protection since one of our batteries broke due to overcharging.
   
 We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
 
@@ -371,7 +371,7 @@ This section covers and houses all components that help or allow or robot to mov
 ## Chassis 
 
 
-For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduced structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
+For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduce structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
 
 </br>
 
@@ -388,7 +388,7 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
 - **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
-- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car to control consistantly.
+- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car difficult to control consistantly.
 </br>
 
 ###  How We Overcame These Limitations  
@@ -428,7 +428,7 @@ Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted 
 </br>
 
 ### Benefits
-- Better weight distribution. This is since the front wheels handle steering and the rear wheels help with propulsion which helps the car remain more balanced during acceleration and turning.
+- Better weight distribution. This is since the front wheels handle steering, and the rear wheels help with propulsion, which helps the car remain more balanced during acceleration and turning.
 - RWD also provides a stronger grip to surfaces. Since the rear of the robot is heavier, the back wheels get pressed into the ground, providing for more traction and therefore enhancing the grip.
 - Since the front wheels are only used for steering, the car can turn more precisely as there is no motor interference.
 
@@ -470,7 +470,7 @@ Since this was our first time in the competition, we wanted to focus on learning
       </p>
       <h3>Real-World Notes</h3>
       <p>
-        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hinderance. 
+        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hindeance. 
       </p>
     </td>
   </tr>
@@ -552,15 +552,15 @@ The new design features a mounting frame that secures the system to the chassis,
 </br>
 
 ### Manufacturing & Assembly
-- All parts were modeled in CAD and 3D-printed using high-strength PLA fillament.  
+- All parts were modeled in CAD and 3D-printed using high-strength PLA filament.  
 - Ball screw were used in the knuckles to reduce friction and extend part life.  
 - The servo linkage was reinforced with a metal rod to prevent bending under load.
 
 </br>
 
 ### Potential Improvements:
-- Use a different material, PLA is brittle and PETG, ABS, or Nylon would've given more toughness and flexibility.
-- Adde more fillets on corners, reducing stress concentration and prevents cracks.
+- Use a different material, PLA is brittle, and PETG, ABS, or Nylon would've given more toughness and flexibility.
+- Add more fillets on corners, reducing stress concentration and preventing cracks.
 - Implement brass threaded inserts for screw holes rather than relying on bare plastic.
 
 </br>
@@ -616,7 +616,7 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. 
 
-At the heart of sense management is the idea of prioritization. Different sensors have different strengths, some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
+At the heart of sense management is the idea of prioritization. Different sensors have different strengths; some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
 
 </br>
 
@@ -658,12 +658,12 @@ We process the camera feed on the Raspberry Pi using computer programs. This set
 
 ### Potential Improvements
 
-While the current Pi Camera provides a good amount sensing for our obstacle challenge, several improvements could improve performance.
+While the current Pi Camera provides a good amount of sensing for our obstacle challenge, several improvements could improve performance.
 
 **Camera (5MP Pi Camera w/ OV5647)**
 - Upgrade to a higher resolution or global-shutter sensor (e.g., HQ Camera IMX477) for sharper images and less motion blur.  
 - Add auto exposure and white balance adjustments to handle changing lighting conditions.    
-- Explore infrared capability with an IR-sensitive camera and IR light source for consistent performance regardless of ambient lighting.  
+- Explore infrared capability with an IR-sensitive camera and an IR light source for consistent performance regardless of ambient lighting.  
 - Apply filtering in software (e.g., erosion/dilation in OpenCV) or use a moving average/Kalman filter to stabilize pillar tracking.
 
 </br>
@@ -703,8 +703,8 @@ We mainly use the IMU to calculate the number of completed laps.
 
 ### Potential Improvements 
 - Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
-- Replace old IMU with higher accuracy.
-- Place IMU further away from vibrating motors for increased precision.
+- Replace the old IMU with a higher accuracy one.
+- Place the IMU further away from the vibrating motors for increased precision.
 </br>
 
 ## Sensor Consideration/Potential Improvements
@@ -715,7 +715,7 @@ We planned to use the LiDAR to find obstacles and measure distances to walls and
 
 ### Lidar 
 
-This LiDAR is good for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection on our car.  
+This LiDAR is good for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection in our car.  
 
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
@@ -761,7 +761,7 @@ Another benefit of LiDAR is its stability in changing environments. If a person 
 Python 3 is the core programming language used to build and run the autonomous car logic. Its simplicity, readability, and massive library pool make it ideal for controlling hardware like the Raspberry Pi. For robotics, Python makes it easy to interface with sensors and actuators, process images, and manage logic. However, Python is slower than compiled languages like C++, and because it’s dynamically typed, certain bugs may only appear at runtime if not carefully tested.
 
 ### ROS2 Humble 
-ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time consuming to incorporate a working ROS2 enviorment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone python file.
+ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time consuming to incorporate a working ROS2 enviorment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone Python file.
 <img width="955" height="443" alt="image" src="https://github.com/user-attachments/assets/541fb372-0a35-41a8-9da3-7a418b4bc60a" />
 
 
@@ -770,7 +770,7 @@ ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middle
 Picamera2 is a library used to interface with the Raspberry Pi's camera module. It allows the robot to capture real-time photos and videos, which are critical for analyzing the robot environment. It provides full control over resolution, frame rate, and pixel format to effectively work in tandem with OpenCV.
 
 ### OpenCV
-OpenCV (Open Source Computer Vision Library) is used to process camera frames, apply thresholding, and detect contours within specified regions of interests (ROIs). This data is used to determine the robots orientation and distance relative to walls and pillars to guide its movement throughout the course.
+OpenCV (Open Source Computer Vision Library) is used to process camera frames, apply thresholding, and detect contours within specified regions of interests (ROIs). This data is used to determine the robot's orientation and distance relative to walls and pillars to guide its movement throughout the course.
 
 ### Cv_bridge
 cv_bridge is a ROS 2 library that converts between ROS Image messages and OpenCV images, enabling image processing with OpenCV in ROS-based applications.
@@ -779,7 +779,7 @@ cv_bridge is a ROS 2 library that converts between ROS Image messages and OpenCV
 The built-in Python time module is used for time-based operations, such as delays (sleep) or measuring time elapsed since an event.
 
 ### Numpy
-NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code it is use for creating and handling arrays for color thresholding in HSV space
+NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code, it is use for creating and handling arrays for color thresholding in HSV space
 
 ### ROS_ROBOT_CONTROLLER_SDK
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
@@ -810,7 +810,7 @@ The primary means of navigation in the open challenge lies in the camera. The ca
 The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
 The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is is used to detect the orange line on the ground, detecting turn areas for lap counting only.
 
-In order to begin camera detection we must define our ROIs, initialize the camera and define the HSV range for orange:
+In order to begin camera detection, we must define our ROIs, initialize the camera, and define the HSV range for orange:
 
 ```
 picam2 = Picamera2()
@@ -831,7 +831,7 @@ right_roi = (460, 200, 180, 180)
 orange_roi = (100, 360, 440, 40) 
 ```   
 
-Now, we can apply masks, crop ROIs, and count pixels
+Now, we can apply masks, crop ROIs, and count pixels.
 
 ```
 # ---- Get camera frame ----
@@ -871,18 +871,18 @@ left_area = cv2.countNonZero(left_crop)
 right_area = cv2.countNonZero(right_crop)
 ```
 
-The purpose of this code is the generate us 3 pieces of information, amount of black pixels in the left roi, the amount of black pixels in the right roi, and the amount of orange pixels in the orange roi. We can then use this information to steer our robot.
+The purpose of this code is the generate us 3 pieces of information: amount of black pixels in the left roi, the amount of black pixels in the right roi, and the number of orange pixels in the orange roi. We can then use this information to steer our robot.
 
 ### PD Steering
-Most of the time, the robot will be in a straight section where it will use PD steering to avoid walls. PD steering is a system used to correct the robots movements so that it is centered between the two walls. 
+Most of the time, the robot will be in a straight section where it will use PD steering to avoid walls. PD steering is a system used to correct the robot's movements so that it is centered between the two walls. 
 
 The proportional term(P) is simply how far off you are from the center.
 You compute an error with:
 ```
 error = right_area - left_area
 ```
-If the robot sees more black on the right, error is positive steer left.
-If it sees more black on the left, error is negative steer right.
+If the robot sees more black on the right, the error is positive, steer left.
+If it sees more black on the left, the error is negative, steer right.
 
 Then you apply:
 ```
@@ -891,7 +891,7 @@ steering = straight_pwm + kp * error
 Where kp is a constant gain. This makes the robot steer proportionally to how far it’s off-center.
 
 The derivative term looks at how fast the error is changing.
-If the error is quickly swinging, it means the robot is wobbling. The derivative dampens this by applying correction against sudden changes:
+If the error is quickly swinging, it means the robot is wobbling. The derivative dampens this by applying a correction against sudden changes:
 ```
 derivative = error - prev_error
 steering += kd * derivative
@@ -900,7 +900,7 @@ steering += kd * derivative
 where kd is another constant.
 This helps smooth out steering and prevents oscillation (zig-zagging).
 
-Our code utilizes PD steering like this
+Our code utilizes PD steering like this.
 ```
 area_diff = right_area - left_area
 angle_pwm = int(STRAIGHT_PWM + area_diff * KP + (area_diff - prev_diff) * KD)
@@ -917,13 +917,13 @@ kd = how much to stabilize a change in turning angle
 
 ### Turning
 When a substantial part of one wall goes missing out of nowhere we detect a turn.
-Initially we had 2 variables control turning
+Initially, we had 2 variables controlling turning.
 ```
 TURN_THRESHOLD = 3000
 EXIT_THRESHOLD = 9500
 ```
 
-If the pixel area on one side dropped below the turn threshold it would initialize a turn. 
+If the pixel area on one side dropped below the turn threshold, it would initialize a turn. 
 
 ```
 if left_area <= TURN_THRESHOLD and not right_turn:
@@ -944,9 +944,9 @@ if left_turn or right_turn:
             prev_diff = 0
             print(f"Turn complete. Segments = {turns}")
 ```
-However, the difference in wall distance scenarios, caused inconsistencies in turn exits.
+However, the difference in wall distance scenarios caused inconsistencies in turn exits.
 
-To combat this we got rid of the exit threshold, instead opting for a proportional turn exit.
+To combat this, we got rid of the exit threshold, instead opting for a proportional turn exit.
 ```
 if right_area > left_area * 1.8:  # Right has 80% more black than left
             current_time = time.time()
@@ -969,7 +969,7 @@ else: # Clamp
 ```
 We need to apply the clamp to make sure the steering angle does not surpass the predefined maximums.
 
-The car will continue running all this code in a while loop until it detects 12 oranges lines. Once it does, it will continue driving for a set amount of time before stopping:
+The car will continue running all this code in a while loop until it detects 12 orange lines. Once it does, it will continue driving for a set amount of time before stopping:
 ```
 if turns == 12: 
     stop_time = time.time()
@@ -989,7 +989,7 @@ if turns >= 13:
 ## Obstacle Challenge
 
 ### Overview
-The obstacle challenge is much more difficult version of the open challenge. In this challenge there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
+The obstacle challenge is a much more difficult version of the open challenge. In this challenge, there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar, and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
 
 #### Game Map
 <table>
@@ -1006,7 +1006,7 @@ In order to perform a parallel park the information and car movements must be in
 
 
 ### Our Solution
-Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing speed and reliability. Another reason comes from the complex nature of the challenge. That is why our strategy involves multiple sensors inputs (camera, imu) and several behaviours (park, navigate). Doing all of this in a single python script would be slower, harder to maintain, and harder to debug. ROS 2 allows us to use multiple python scripts (nodes) to communciate to one another with topics. The following is a visualization of the workspace containing all the packages required for ROS 2 to run.
+Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing speed and reliability. Another reason comes from the complex nature of the challenge. That is why our strategy involves multiple sensors inputs (camera, imu) and several behaviours (park, navigate). Doing all of this in a single Python script would be slower, harder to maintain, and harder to debug. ROS 2 allows us to use multiple Python scripts (nodes) to communicate to one another with topics. The following is a visualization of the workspace containing all the packages required for ROS 2 to run.
 ```
 ~/fe_ws/src/obstacle_challenge/
 ├── obstacle_challenge/
@@ -1021,7 +1021,7 @@ Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing s
 └── setup.py
 ```
 
-This is a visualziation of how the nodes communciate:
+This is a visualziation of how the nodes communicate:
 <img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/94e4d3b1-762c-4baa-82bd-70e4aa4d126b" />
 
 ### NODES/TOPICS
@@ -1035,7 +1035,7 @@ This is a visualziation of how the nodes communciate:
   Combines camera and IMU data to output driving decisions (turning, avoiding, lap counting, parking).
 
 #### camera_node.py
-- Captures frames from Raspberry Pi's camera
+- Captures frames from the Raspberry Pi's camera
 - Subscribes to /state to know what to do
 - Publishes to /image_raw to transmit camera information
   Provides visual input for pillar and wall detection
@@ -1056,15 +1056,15 @@ camera_node.py: The eyes of the challenge
 
 imu_node.py: Balance and lap counting
 
-We like to think of our navigator node as a multi state machine. It has 5 drive states and 3 pillar states. The 5 drive states are as follows:
+We like to think of our navigator node as a multi-state machine. It has 5 drive states and 3 pillar states. The 5 drive states are as follows:
 1. Button: Wait for button press before starting.
 2. Start: Escape from parking lot.
-3. Navigate: Main part of challenge, navigate 3 laps around track.
-4. Park: Go into parking lot.
+3. Navigate: The main part of challenge, navigate 3 laps around the track.
+4. Park: Go into the parking lot.
 5. Stop: Stop all movement and nodes.
 
 
-Since the navigator node is the main file controller the robot. It must communicate with the other nodes with subscribers and publishers to coordinate current drive and button states.
+Since the navigator node is the main for controlling the robot, it must communicate with the other nodes with subscribers and publishers to coordinate current drive and button states.
 ```
 self.create_subscription(Image, '/image_raw', self.camera_callback, 10)
 self.create_subscription(Float32, '/imu_angle', self.imu_callback, 10)
@@ -1077,7 +1077,7 @@ ROI visualization
 <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/0ed6440d-9b01-4633-829b-2a338a402aa3" />
 
 
-The camera logic is largely the same with the addition of the central ROI and colour detecting hsv ranges
+The camera logic is largely the same, with the addition of the central ROI and colour detecting HSV ranges.
 ```
 self.left_roi = (0, 220, 180, 150)  # x, y, w, h
 self.right_roi = (460, 220, 180, 150)
@@ -1093,7 +1093,7 @@ self.lower_magenta = np.array([140, 100, 100])
 self.upper_magenta = np.array([170, 255, 255])
 ```
 
-The camera node's job is to publish raw coloured frames to the navigator node in order for it to perform turns
+The camera node's job is to publish raw coloured frames to the navigator node in order for it to perform turns.
 ```
 def publish_frame(self):
     frame = self.picam2.capture_array()
@@ -1101,7 +1101,7 @@ def publish_frame(self):
         self.publisher.publish(msg)
 ```
 
-The navigator node receives these frames and performs the same logic as open challenge for black pixels. For the coloured pixels it performs cropping to focus on a particular ROI, and colour masking to isolate specific pixels. Then the pixels are counted to be used for steering logic.
+The navigator node receives these frames and performs the same logic as the open challenge for black pixels. For the coloured pixels, it performs cropping to focus on a particular ROI, and colour masking to isolate specific pixels. Then the pixels are counted to be used for steering logic.
 ```
 left_color_crop = frame[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
                         self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
@@ -1134,7 +1134,7 @@ self.center_red_area = cv2.countNonZero(center_red_mask)
 self.center_green_area = cv2.countNonZero(center_green_mask)
 ```
 
-For a more accurate estimation of the pillars location we must find the centroid of the pillar.
+For a more accurate estimation of the pillars' location, we must find the centroid of the pillar.
 
 ```
 M_pillar = cv2.moments(center_mask)
@@ -1142,14 +1142,14 @@ self.pillar_cx = int(M_pillar['m10'] / M_pillar['m00'])
 self.pillar_cy = int(M_pillar['m01'] / M_pillar'm00'])
 ```
 
-With the y-value of the centroid we can apporximate how close the pillar is to determine which of the 3 pillar states it should be in.
-1. Approach: the initial spotting of the pillar, robot should slow down and go closer
+With the y-value of the centroid, we can approximate how close the pillar is to determine which of the 3 pillar states it should be in.
+1. Approach: The initial spotting of the pillar, the robot should slow down and go closer
    <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/00947007-68de-45f7-81fe-508e0dd3bdf6" />
 
 2. Follow: The robot is close to the pillar and needs to steer around it
 <img width="946" height="711" alt="image" src="https://github.com/user-attachments/assets/6a9dccaf-01fe-4f86-bda0-7460b12ae9fd" />
 
-3. Exit: The pillar is on the outskirts of the camera frame and the robot can disengage with steering.
+3. Exit: The pillar is on the outskirts of the camera frame, and the robot can disengage with steering.
 <img width="922" height="721" alt="image" src="https://github.com/user-attachments/assets/3546f967-8a87-4c67-ad7f-1f2d204560c1" />
 
 
