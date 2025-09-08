@@ -1,2 +1,2 @@
 # Videos
-- This Directory Includes Links to Our Youtube Videos.
+- This directory includes links to our YouTube videos.
