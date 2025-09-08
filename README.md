@@ -8,6 +8,7 @@
 
 
 ---
+
 </div>
 
 
@@ -1173,10 +1174,6 @@ def lap_callback(self, msg):
         self.lap_done_time = time.time()
 ```
   
-## Our Youtube Videos
 
-<p><strong>Open Challenge:</strong> <a href="https://www.youtube.com/watch?v=drlPgeJPFbc" target="_blank">Click Here</a></p>
-
-<p><strong>Obstacle Challenge:</strong> <a href="https://www.youtube.com/watch?v=9s701bJlsVY" target="_blank">Click Here</a></p>
 
 
