@@ -1,2 +1,2 @@
 # 3D Model
-- This Directory Includes our 3D Models.
+- This directory includes our 3D models.
