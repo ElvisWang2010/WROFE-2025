@@ -1196,5 +1196,6 @@ def lap_callback(self, msg):
 <p><strong>HS-5055MG Servo:</strong> <a href="http://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOoo0ORKOBdJtCO5Ff2-jTYfZHZvQ5dd-1uvEWV_mLB7F7kc2kuc1" target="_blank">Click Here</a></p>
 <p><strong>5/Zero Camera:</strong> <a href="https://www.amazon.ca/Raspberry-Camera-Module-OV5647-Sensor/dp/B0D324RKRZ/ref=asc_df_B0D324RKRZ?mcid=1f4518f1a5eb31cd9b4ecd50a233320b&tag=googleshopc0c-20&linkCode=df0&hvadid=742370590059&hvpos=&hvnetw=g&hvrand=8203098550634864157&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000757&hvtargid=pla-2413569233270&psc=1&hvocijid=8203098550634864157-B0D324RKRZ-&hvexpln=0&gad_source=1" target="_blank">Click Here</a></p>
 <p><strong>MPU-6050 6-Axis IMU:</strong> <a href="https://www.researchgate.net/figure/MPU6050-MPU6050-sensor-module-is-complete-6-axis-Motion-Tracking-Device-It-combines_fig2_366214205" target="_blank">Click Here</a></p>
-<p><strong>Open and Obstacle Challenge Mats:</strong> <a href="https://wro-association.org/wp-content/uploads/WRO-2025-Future-Engineers-Self-Driving-Cars-General-Rules.pdf" target="_blank">Click Here</a></p>
+<p><strong>Open and Obstacle Challenge Mats (Page 6 and 10):</strong> <a href="https://wro-association.org/wp-content/uploads/WRO-2025-Future-Engineers-Self-Driving-Cars-General-Rules.pdf" target="_blank">Click Here</a></p>
+
 
