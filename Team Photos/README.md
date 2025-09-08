@@ -1,2 +1,2 @@
 # Team Photos
-- This Directory Includes Team Photos Taken.
+- This directory includes our team photos.
