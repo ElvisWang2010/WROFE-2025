@@ -1,2 +1,2 @@
 # src
-- This Directory Includes all of Our Source Code.
+- This directory includes all of our source code.
