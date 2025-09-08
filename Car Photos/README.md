@@ -1,2 +1,2 @@
 # Car Photo
-- Includes different views of our car
+- This Directory Includes Different Views of Our Car.
