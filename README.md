@@ -1133,7 +1133,7 @@ self.right_green_area = cv2.countNonZero(right_green_mask)
 self.center_red_area = cv2.countNonZero(center_red_mask)
 self.center_green_area = cv2.countNonZero(center_green_mask)
 ```
-
+#### Pillar detection
 For a more accurate estimation of the pillars' location, we must find the centroid of the pillar.
 
 ```
