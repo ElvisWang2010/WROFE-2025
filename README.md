@@ -336,21 +336,26 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 - **CAM PORT CSI** ↔ Camera (15-pin ribbon)
 
 #### Expansion Board
-- **PWM Servo Ports** ↔ Servo Motor
-  - Pin 1 → PWM signal (yellow)
-  - Pin 2 → VCC (red)
-  - Pin 3 → GND (black)
-  - Pin 4 → (unused or additional servo)
+- **PWM Servo Ports**
+  
+Channel 1 (unused) → Signal | +5V | GND
+
+Channel 2 (ESC) → Signal (ESC) | +5V  | GND
+
+Channel 3 (unused) → Signal | +5V | GND
+
+Channel 4 (Servo) → Signal (Servo) | +5V (Servo) | GND (Servo)
 
 #### Motor Power
-- Battery (+) → Switch → ESC → Motor
-- ESC also connects to Expansion Board for monitoring/control
+Battery (+) → Switch → ESC → Motor
+ESC also connects to Expansion Board for monitoring/control
 
 #### Wire Color Codes
-- **Red**: VCC / Positive power
-- **Black**: GND / Ground
-- **Yellow**: PWM / Control signal
+*NOTE: Not all wires are color coded*
 
+**Red:** VCC / Positive power
+**Black:** GND / Ground
+**Yellow:** PWM / Control signal
 </br>
 
 ---
@@ -1125,7 +1130,7 @@ self.center_red_area = cv2.countNonZero(center_red_mask)
 self.center_green_area = cv2.countNonZero(center_green_mask)
 ```
 
-For a more accurate estiamtion of the pillars location we must find the centroid of the pillar.
+For a more accurate estimation of the pillars location we must find the centroid of the pillar.
 
 ```
 M_pillar = cv2.moments(center_mask)
