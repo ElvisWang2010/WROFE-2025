@@ -1147,11 +1147,11 @@ With the y-value of the centroid we can apporximate how close the pillar is to d
    <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/00947007-68de-45f7-81fe-508e0dd3bdf6" />
 
 2. Follow: The robot is close to the pillar and needs to steer around it
-   <img width="922" height="721" alt="image" src="https://github.com/user-attachments/assets/3546f967-8a87-4c67-ad7f-1f2d204560c1" />
+<img width="946" height="711" alt="image" src="https://github.com/user-attachments/assets/6a9dccaf-01fe-4f86-bda0-7460b12ae9fd" />
 
 3. Exit: The pillar is on the outskirts of the camera frame and the robot can disengage with steering.
+<img width="922" height="721" alt="image" src="https://github.com/user-attachments/assets/3546f967-8a87-4c67-ad7f-1f2d204560c1" />
 
-<img width="946" height="711" alt="image" src="https://github.com/user-attachments/assets/6a9dccaf-01fe-4f86-bda0-7460b12ae9fd" />
 
 #### Steering logic
 
