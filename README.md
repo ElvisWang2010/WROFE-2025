@@ -804,7 +804,7 @@ The primary means of navigation in the open challenge lies in the camera. The ca
 The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
 The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is is used to detect the orange line on the ground, detecting turn areas for lap counting only.
 
-In order to begin camera detection we must define our ROIs, initialize the camera and define the hsv range for orange:
+In order to begin camera detection we must define our ROIs, initialize the camera and define the HSV range for orange:
 
 ```
 picam2 = Picamera2()
@@ -1042,13 +1042,23 @@ This is a visualziation of how the nodes communciate:
 - Publishes to /lap_status to transmit lap information
   Provides orientational information for lap counting and navigation
 
+#### ROS2
 In short:
 navigator_node.py: The brain of the challenge
+
 camera_node.py: The eyes of the challenge
+
 imu_node.py: Balance and lap counting
 
+We like to think of our navigator node as a multi state machine. It has 5 drive states and 3 pillar states. The 5 drive states are as follows:
+1. Button: Wait for button press before starting.
+2. Start: Escape from parking lot.
+3. Navigate: Main part of challenge, navigate 3 laps around track.
+4. Park: Go into parking lot.
+5. Stop: Stop all movement and nodes.
 
-The navigator node is the main file controller the robot. It must communicate with the other nodes with subscribers and publishers to coordinate current drive and button states.
+
+Since the navigator node is the main file controller the robot. It must communicate with the other nodes with subscribers and publishers to coordinate current drive and button states.
 ```
 self.create_subscription(Image, '/image_raw', self.camera_callback, 10)
 self.create_subscription(Float32, '/imu_angle', self.imu_callback, 10)
@@ -1056,7 +1066,9 @@ self.create_subscription(ButtonState, '/ros_robot_controller/button', self.butto
 self.stat_pub = self.create_publisher(String, '/state', 10)
 ```
 
-The camera logic is largely the same with the addition of the central roi and colour detecting hsv ranges
+#### Camera logic
+
+The camera logic is largely the same with the addition of the central ROI and colour detecting hsv ranges
 ```
 self.left_roi = (0, 220, 180, 150)  # x, y, w, h
 self.right_roi = (460, 220, 180, 150)
@@ -1113,8 +1125,49 @@ self.center_red_area = cv2.countNonZero(center_red_mask)
 self.center_green_area = cv2.countNonZero(center_green_mask)
 ```
 
-The pixel values are ready, however we also need to find the centroid of the pillars for more accurate steering.
+For a more accurate estiamtion of the pillars location we must find the centroid of the pillar.
 
+```
+M_pillar = cv2.moments(center_mask)
+self.pillar_cx = int(M_pillar['m10'] / M_pillar['m00'])
+self.pillar_cy = int(M_pillar['m01'] / M_pillar'm00'])
+```
+
+With the y-value of the centroid we can apporximate how close the pillar is to determine which of the 3 pillar states it should be in.
+1. Approach: the initial spotting of the pillar, robot should slow down and go closer
+2. Follow: The robot is close to the pillar and needs to steer around it
+3. Exit: The pillar is on the outskirts of the camera frame and the robot can disengage with steering.
+
+#### Steering logic
+
+With the x-value of the centroid value we can steer away from the pillar accurately
+
+```
+error = self.pillar_cx - 100 
+steering_adjustment = error * self.gain
+self.angle_pwm = self.straight_pwm - steering_adjustment
+```
+
+Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections without pillars it will default to the same logic used in the open challenge.
+
+Once 3 laps of navigation have been complete, the imu node sends this information to the navigator node.
+
+```
+if self.lap_count >= 3:
+    msg_out = Bool()
+    msg_out.data = True
+    self.lap_done_pub.publish(msg_out)
+    self.get_logger().info("3 laps done!")
+```
+Once the navigator node receives this information it will change it's state
+```
+def lap_callback(self, msg):
+    if msg.data and self.state != "park":
+        self.get_logger().info("Received IMU signal: 3 laps complete, switching to parking mode.")
+        self.state = "park"
+        self.lap_done_time = time.time()
+```
+  
 ## Our Youtube Videos
 
 <p><strong>Open Challenge:</strong> <a href="https://www.youtube.com/watch?v=drlPgeJPFbc" target="_blank">Click Here</a></p>
