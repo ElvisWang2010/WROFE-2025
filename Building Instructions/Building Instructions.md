@@ -122,4 +122,42 @@ It should look like this:
 Place the ESC into its holder.  
 <img width="600" alt="Step 7" src="https://github.com/user-attachments/assets/e4baf873-70fe-408b-9037-bb3a526479a9" />
 
-Now, you've finished!
+Now, you've finished the hardware!
+
+---
+
+# Software Instructions
+
+Since we use a CSI camera, we need to use picamera2. The problem with this is that we use ROS2 and picamera2 cannot be installed in ROS2 docker container.
+
+There are 3 possible solutions:
+
+**Option1:** Use USB camera instead of CSI camera. USB camera can be accessed without picamera2.
+
+
+**Option2:** Split the project into two parts:
+- Create a ROS2 node that runs in Raspberry pi host (instead of inside docker container). This node
+publishes camera related data
+- Create the main ROS2 project in the docker container. It subscribes the topic that publishes
+camera data. It contains the main logic of the project.
+
+
+**Option3:** Create the whole ROS2 project in Raspberry pi host. It can access camera via picamera2. It
+also subscribes topics published by third-party ROS nodes in ROS2 container
+
+*Note: Both option 2 and 3 require us to build a ROS2 environment from source in Raspberry Pi OS.*
+
+We did not want to use a USB camera, instead we opted to build a ROS2 environment from source.
+
+## Building the Environment
+
+1. Build a ROS2 environment from source in Raspberry Pi OS
+   
+2. Switch from AP mode to STA mode so that raspberry pi has access to the internet
+- Run command “nano hiwonder-toolbox/wifi_conf.py”, edit the file with your wifi and password.
+Save the changes and reboot via command “sudo reboot”
+
+<img width="556" height="351" alt="image" src="https://github.com/user-attachments/assets/98e79421-b81a-4495-a92f-75dfc845175b" />
+
+
+
