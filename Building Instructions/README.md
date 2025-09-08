@@ -1,2 +1,2 @@
-# Building Instrucitons
-- This Directory Includes Building Instructions of Our Car.
+# Building Instructions
+- This directory includes building instructions for our car.
