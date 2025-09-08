@@ -17,21 +17,27 @@ class NavigatorNode(Node):
         self.board = rrc.Board()
 
         # Configuration
+        #PD/control
         self.kp = 0.012
         self.kd = 0.002
         self.gain = 0.7
         self.straight_pwm = 1500
         self.throttle_pwm = 1615
         self.throttle_slow = 1610
+        #Turns
         self.angle_pwm = 1500
         self.turn_dev = 30
         self.max_left = 1620
         self.max_right = 1380
         self.exit_threshold = 9500
         self.turn_threshold = 7000
+        #Pillar steering
         self.pillar_detection_thresh = 400
-        self.pillar_clear_thresh = 100 
         self.pillar_timeout = 5.0      
+        self.approach_y_threshold = 40    # Switch to FOLLOW
+        self.passing_y_threshold = 80     # Switch to exit
+        self.min_detection_area = 500
+        #misc
         self.current_angle = 0.0
         self.turn_cooldown = 2.0
         self.stop_timer = 3.0
@@ -64,12 +70,12 @@ class NavigatorNode(Node):
         self.left_turn = False
         self.right_turn = False
         self.frame_ready = False
-        self.pillar_state = None 
+        self.pillar_state = None #DRIVE STATE
         self.pillar_mode = None  #COLOURS
         self.last_pillar_time = 0
         self.exit_start_time = 0
         self.following_error = 0  
-        self.state = "navigate"
+        self.state = "button"
         
 
         """
@@ -106,7 +112,7 @@ class NavigatorNode(Node):
         self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])  
 
     def button_callback(self, msg: ButtonState):
-        if msg.id == 1 and msg.state == 1 and self.state== "button":
+        if msg.id == 2 and msg.state == 1 and self.state== "button":
             self.state = "start"
             
 
@@ -117,7 +123,7 @@ class NavigatorNode(Node):
             self.lap_done_time = time.time()
     
     def imu_callback(self, msg):
-        self.current_angle = msg.data #use later
+        self.current_angle = msg.data 
 
     def camera_callback(self, msg):
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb8')
@@ -151,7 +157,7 @@ class NavigatorNode(Node):
         center_red_mask = cv2.bitwise_or(cv2.inRange(hsv_center, self.lower_red1, self.upper_red1), 
                                         cv2.inRange(hsv_center, self.lower_red2, self.upper_red2))
         
-        # Remove magenta from parking lot
+        # Remove magenta from parking lot to not confuse with red pillars
         left_magenta_mask = cv2.inRange(hsv_left, self.lower_magenta, self.upper_magenta)
         center_magenta_mask = cv2.inRange(hsv_center, self.lower_magenta, self.upper_magenta)
         
@@ -179,80 +185,77 @@ class NavigatorNode(Node):
         self.pillar_cy = None
         current_time = time.time()
 
-        self.pillar_cx = None
-        self.pillar_cy = None
         M_red = cv2.moments(center_red_mask)
         M_green = cv2.moments(center_green_mask)
 
-        if self.pillar_mode is None:
-            if (self.center_red_area > self.pillar_detection_thresh or 
-                self.left_red_area > self.pillar_detection_thresh):
+        # initial detection
+        if self.pillar_mode is None or self.pillar_mode == "exit":
+            if self.center_red_area > self.pillar_detection_thresh and M_red['m00'] > 0:
                 self.pillar_mode = "red"
-                self.pillar_state = "approach" 
-                self.last_pillar_time = current_time
-                if M_red['m00'] > 0:
-                    self.pillar_cx = int(M_red['m10'] / M_red['m00'])
-                    self.pillar_cy = int(M_red['m01'] / M_red['m00'])
-                self.get_logger().info(f"RED pillar detected. APPROACH state. X: {self.pillar_cx}")
+                self.pillar_state = "approach"
+                self.pillar_cx = int(M_red['m10'] / M_red['m00'])
+                self.pillar_cy = int(M_red['m01'] / M_red['m00'])
+                self.get_logger().info(f"RED APPROACH: Detected at Y={self.pillar_cy}")
                 self.board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])
                 
-            elif (self.center_green_area > self.pillar_detection_thresh or 
-                self.right_green_area > self.pillar_detection_thresh):
-                self.pillar_mode = "green"  
+            elif self.center_green_area > self.pillar_detection_thresh and M_green['m00'] > 0:
+                self.pillar_mode = "green"
                 self.pillar_state = "approach"
-                self.last_pillar_time = current_time
-                if M_green['m00'] > 0:
-                    self.pillar_cx = int(M_green['m10'] / M_green['m00'])
-                    self.pillar_cy = int(M_green['m01'] / M_green['m00'])
-                self.get_logger().info(f"GREEN pillar detected. APPROACH state. X: {self.pillar_cx}")
+                self.pillar_cx = int(M_green['m10'] / M_green['m00'])
+                self.pillar_cy = int(M_green['m01'] / M_green['m00'])
+                self.get_logger().info(f"GREEN APPROACH: Detected at Y={self.pillar_cy}")
                 self.board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]])
-
+        # refind centroid of new frame
         else:
             if self.pillar_mode == "red" and M_red['m00'] > 0:
                 self.pillar_cx = int(M_red['m10'] / M_red['m00'])
                 self.pillar_cy = int(M_red['m01'] / M_red['m00'])
-                self.last_pillar_time = current_time
-                current_pillar_area = self.center_red_area
             elif self.pillar_mode == "green" and M_green['m00'] > 0:
                 self.pillar_cx = int(M_green['m10'] / M_green['m00'])
                 self.pillar_cy = int(M_green['m01'] / M_green['m00'])
-                self.last_pillar_time = current_time
-                current_pillar_area = self.center_green_area
             else:
-                if self.pillar_mode == "red":
-                    current_pillar_area = max(self.center_red_area, self.left_red_area)
-                else:
-                    current_pillar_area = max(self.center_green_area, self.right_green_area)
-
-            if current_pillar_area < self.pillar_clear_thresh:
-                time_since_seen = current_time - self.last_pillar_time
-                if time_since_seen > 0.5:
-                    if self.pillar_state == "follow":
-                        self.pillar_state = "exit"
-                        self.exit_start_time = current_time
-                        self.get_logger().info("Passed pillar. EXIT state.")
-                    elif self.pillar_state == "approach":
-                        self.get_logger().info("Lost pillar in APPROACH. Aborting.")
-                        self.pillar_mode = None
-                        self.pillar_state = None
-                        self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
-            
-            if self.pillar_state == "approach" and self.pillar_cx is not None:
-                if (self.pillar_mode == "red" and self.pillar_cx < 120) or \
-                   (self.pillar_mode == "green" and self.pillar_cx > 400):
+                self.get_logger().info(f"no centroid detected")
+            # pillar states 
+            if self.pillar_state == "approach" and self.pillar_cy is not None:
+                self.get_logger().info(f"Current  CY={self.pillar_cy}")
+                if self.pillar_cy > self.approach_y_threshold:
                     self.pillar_state = "follow"
-                    self.get_logger().info(f"Pillar FOLLOW state. X: {self.pillar_cx}")
+                    self.get_logger().info(f"SWITCH TO FOLLOW: Y={self.pillar_cy} > {self.approach_y_threshold}")
 
-            if self.pillar_state == "exit" and (current_time - self.exit_start_time) > 1.5:
-                self.get_logger().info("Pillar maneuver complete.")
-                self.pillar_mode = None
-                self.pillar_state = None
-                self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+            if self.pillar_state == "follow":
+                if self.pillar_mode == "red":
+                    M_left_red = cv2.moments(left_red_mask)  
+                    if M_left_red['m00'] > 0:
+                        left_red_cy = int(M_left_red['m01'] / M_left_red['m00'])
+                        self.get_logger().info(f"Red CY = {left_red_cy}")
+                        if left_red_cy > self.passing_y_threshold: 
+                            self.pillar_state = "exit"
+                            self.exit_start_time = current_time
+                            self.get_logger().info("Red pillar passing left side - SWITCH TO EXIT")
+
+                elif self.pillar_mode == "green":
+                    M_right_green = cv2.moments(right_green_mask)
+                    if M_right_green['m00'] > 0:
+                        right_green_cy = int(M_right_green['m01'] / M_right_green['m00'])
+                        self.get_logger().info(f"Green CY = {right_green_cy}")
+                        if right_green_cy > self.passing_y_threshold:
+                            self.pillar_state = "exit"
+                            self.exit_start_time = current_time
+                            self.get_logger().info("Green pillar passing right side - SWITCH TO EXIT")
+    
+
+            elif self.pillar_state == "exit":
+                if current_time - self.exit_start_time > 1.0:
+                    self.get_logger().info("Pillar maneuver complete")
+                    self.pillar_mode = None
+                    self.pillar_state = None
+                    self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
 
         self.frame_ready = True
 
 
         # Debug rois on frame
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         cv2.rectangle(frame, (self.left_roi[0], self.left_roi[1]), 
                         (self.left_roi[0] + self.left_roi[2], self.left_roi[1] + self.left_roi[3]), (255, 0, 0), 2)
         cv2.rectangle(frame, (self.right_roi[0], self.right_roi[1]), 
@@ -273,11 +276,11 @@ class NavigatorNode(Node):
             return
         
         # default speed
-        self.throttle = self.throttle_turn if (self.left_turn or self.right_turn) else self.throttle_pwm
+        self.throttle = self.throttle_slow if (self.left_turn or self.right_turn) else self.throttle_pwm
         # Default steering
         area_diff = self.right_area - self.left_area
-        self.angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
-        self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+        angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
+        angle_pwm = max(min(angle_pwm, self.max_left), self.max_right)
 
         # Pillar Handling State Machine
         if self.pillar_mode is not None and self.pillar_state is not None:
@@ -286,18 +289,18 @@ class NavigatorNode(Node):
                     if self.pillar_cx is not None:
                         error = self.pillar_cx - 100 
                         steering_adjustment = error * self.gain
-                        self.angle_pwm = self.straight_pwm - steering_adjustment
+                        angle_pwm = self.straight_pwm - steering_adjustment
                     throttle = self.throttle_slow
-                    self.get_logger().info(f"RED APPROACH: CX={self.pillar_cx}, Steering={self.angle_pwm}")
+                    self.get_logger().info(f"RED APPROACH: CX={self.pillar_cx}, Steering={angle_pwm}")
 
                 elif self.pillar_state == "follow":
-                    self.angle_pwm = self.straight_pwm - 40
+                    angle_pwm = self.straight_pwm - 40
                     if self.center_red_area > 2500: 
-                        self.angle_pwm -= 10 
+                        angle_pwm -= 10 
                     elif self.center_red_area < 1500: 
-                        self.angle_pwm += 10 
+                        angle_pwm += 10 
                     self.throttle = self.throttle_slow
-                    self.get_logger().info(f"RED FOLLOW: Area={self.center_red_area}, Steering={self.angle_pwm}")
+                    self.get_logger().info(f"RED FOLLOW: Area={self.center_red_area}, Steering={angle_pwm}")
 
                 elif self.pillar_state == "exit":
                     self.get_logger().info("RED EXIT: Returning to line following")
@@ -307,17 +310,19 @@ class NavigatorNode(Node):
                     if self.pillar_cx is not None:
                         error = self.pillar_cx - 400
                         steering_adjustment = error * self.gain
-                        self.angle_pwm = self.straight_pwm - steering_adjustment
+                        angle_pwm = self.straight_pwm - steering_adjustment
                     self.throttle = self.throttle_slow
-                    self.get_logger().info(f"GREEN APPROACH: CX={self.pillar_cx}, Steering={self.angle_pwm}")
+                    self.get_logger().info(f"GREEN APPROACH: CX={self.pillar_cx}, Steering={angle_pwm}")
 
                 elif self.pillar_state == "follow":
-                    self.angle_pwm = self.straight_pwm + 40
+                    angle_pwm = self.straight_pwm + 40
                     self.throttle = self.throttle_slow
-                    self.get_logger().info(f"GREEN FOLLOW: Area={self.center_green_area}, Steering={self.angle_pwm}")
+                    self.get_logger().info(f"GREEN FOLLOW: Area={self.center_green_area}, Steering={angle_pwm}")
 
                 elif self.pillar_state == "exit":
                     self.get_logger().info("GREEN EXIT: Returning to line following")
+
+
 
         # turn handling
         elif not self.pillar_mode:  #only do turns if we're not in a pillar mode
@@ -342,13 +347,13 @@ class NavigatorNode(Node):
                         self.prev_diff = 0
 
                 elif self.left_turn:
-                    self.angle_pwm = min(max(self.angle_pwm, self.straight_pwm + self.turn_dev), self.max_left)
+                    angle_pwm = min(max(angle_pwm, self.straight_pwm + self.turn_dev), self.max_left)
                 elif self.right_turn:
-                    self.angle_pwm = max(min(self.angle_pwm, self.straight_pwm - self.turn_dev), self.max_right)
+                    angle_pwm = max(min(angle_pwm, self.straight_pwm - self.turn_dev), self.max_right)
 
         state_msg = String()
         state_msg.data = self.state
-        self.stat_pub(state_msg)
+        self.stat_pub.publish(state_msg)
 
         if self.state == "park":
             if time.time() - self.lap_done_time >= self.stop_timer:
@@ -359,19 +364,13 @@ class NavigatorNode(Node):
 
 
         # Apply controls
-        self.speed(self.throttle)
-        self.steer_pwm(self.angle_pwm)
-
+        self.board.pwm_servo_set_position(0.1, [[2, throttle]])
+        self.board.pwm_servo_set_position(0.1, [[4, int(angle_pwm)]])
+    
         # save states
         self.prev_diff = area_diff
-        self.prev_angle = self.angle_pwm
+        self.prev_angle = angle_pwm
 
-
-    def speed(self, throttle):
-        self.board.pwm_servo_set_position(0.1, [[2, throttle]])
-
-    def steer_pwm(self, angle):
-        self.board.pwm_servo_set_position(0.1, [[4, angle]])
 
 def main(args=None):
     rclpy.init(args=args)
