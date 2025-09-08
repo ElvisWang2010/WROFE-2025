@@ -126,7 +126,11 @@ Now, you've finished the hardware!
 
 ---
 
+</br>
+
 # Software Instructions
+
+</br>
 
 Since we use a CSI camera, we need to use picamera2. The problem with this is that we use ROS2 and picamera2 cannot be installed in ROS2 docker container.
 
@@ -151,13 +155,177 @@ We did not want to use a USB camera, instead we opted to build a ROS2 environmen
 
 ## Building the Environment
 
+</br>
+
 1. Build a ROS2 environment from source in Raspberry Pi OS
+
+</br>
    
-2. Switch from AP mode to STA mode so that raspberry pi has access to the internet
+3. Switch from AP mode to STA mode so that raspberry pi has access to the internet
 - Run command “nano hiwonder-toolbox/wifi_conf.py”, edit the file with your wifi and password.
 Save the changes and reboot via command “sudo reboot”
+- In the WIFI_STA_SSID, uncomment it if commented and type in your desired wifi SSID.
+- In the WIFI_STA_PASSWORD, uncomment it if commented and type in your wifi password.
 
-<img width="556" height="351" alt="image" src="https://github.com/user-attachments/assets/98e79421-b81a-4495-a92f-75dfc845175b" />
+Make sure to type in these correctly. If typed in incorrectly, you may need to reflash your SD card.
 
+</br>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="556" height="351" alt="image" src="https://github.com/user-attachments/assets/98e79421-b81a-4495-a92f-75dfc845175b" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+</br>
+
+- Find the IP address of your computer (which is connected to the same wifi access point) by
+running command “ipconfig” in windows command prompt.
+To open command prompt, hit windows + r and type in cmd.
+
+</br>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="553" height="291" alt="image" src="https://github.com/user-attachments/assets/75df32fb-d53d-4c06-8d33-bcc1eeecf349" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+</br>
+
+- Use Advanced IP Scanner or Angry IP Scanner to find the IP address of your Raspberry Pi.
+Note: The IP range to scan should be the same range of your computer’s IP address. For example,
+my computer’s IP address is 172.16.0.223. The scan range is 172.16.0.1~172.16.0.254 (or 255)
+After scan is complete, Uncheck “View-&gt;Show Dead”. Check “View-&gt;Show Details Pane” so that you
+can see the detailed pane on the right side as shown below. Navigate through the list of devices
+found, looking for “ROS Image …” as shown below.
+
+</br>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="558" height="373" alt="image" src="https://github.com/user-attachments/assets/92b27077-e5c1-4ce5-a431-465f1974d1cd" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+</br>
+
+- Create a new connection in RealVNC Viewer using the IP address of your raspberry Pi as shown
+below and connect to it.
+
+</br>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="367" height="261" alt="image" src="https://github.com/user-attachments/assets/8ae7badd-ccbd-4945-aae0-88d5395c49dd" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+</br>
+
+
+
+### Step 1: Install System Dependencies
+
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y \
+  build-essential cmake git wget curl gnupg lsb-release \
+  libpython3-dev python3-colcon-common-extensions \
+  python3-flake8 python3-pip python3-pytest-cov python3-rosdep \
+  python3-setuptools python3-vcstool python3-numpy \
+  libasio-dev libtinyxml2-dev libcunit1-dev unzip libyaml-dev
+sudo apt install -y libfastcdr-dev libfastrtps-dev
+sudo apt install -y python3-dev python3-numpy
+
+
+### Step2: Initialize rosdep
+
+sudo rosdep init || true
+rosdep update
+
+### Step3: Create ROS2 workspace and clone minimal ROS 2 sources
+
+mkdir -p ~/fe_ws/src
+cd ~/fe_ws
+wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
+vcs import src < ros2.repos
+
+
+### Step 4: Install ROS 2 source dependencies
+
+cd ~/fe_ws
+rosdep install --from-paths src --ignore-src -y --rosdistro humble \
+--skip-keys="fastcdr fastrtps rti-connext-dds-6.0.1 urdfdom_headers"
+
+### Step 5: install missing custom message 'ros_robot_controller_msgs/msg/ButtonState'
+
+- use command "docker ps -a" to find the container ID of 'MentorPi' 
+- run "docker cp adb8457c2eec:/home/ubuntu/ros2_ws/src/driver/ros_robot_controller_msgs ~/fe_ws/src/"  
+  where adb8457c2eec should be replace by the container ID of 'MentorPi' you got from previous step
+
+
+### Step 6: Build the workspace
+
+colcon build --symlink-install --packages-skip-regex '^rviz' 
+
+
+### Step 7: switch to bash and reboot
+
+chsh -s /bin/bash 
+sudo reboot
+
+
+### Step 8: Source your environment
+
+echo "source ~/fe_ws/install/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+
+### Step9: Test with commands below. The first command should list all the ros2 topics.  The second command will wait for you to press button 1 or 2
+ros2 topic list
+ros2 topic echo /ros_robot_controller/button
+
+
+
+### Additional Step: Go back to AP mode with DHCP issue prevented
+- update hiwonder-toolbox/wifi_conf.py to switch from STA mode to AP mode
+
+sudo nano /etc/dnsmasq.d/wifi_ap.conf
+- Paste the content below and save it
+interface=wlan0
+dhcp-range=192.168.149.10,192.168.149.100,12h
+bind-interfaces
+
+sudo systemctl restart dnsmasq
+sudo reboot
+
+Congratulations! You have built ROS2 environment under Raspberry Pi Host and created a ROS2
+workspace “fe_ws”. Now you can create ROS2 packages and ROS2 nodes in this workspace.
 
 
