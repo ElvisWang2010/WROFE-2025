@@ -303,6 +303,56 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 
 </br>
 
+## Electrical Wiring
+
+<div align="center">
+
+<table>
+  <tr>
+    <td style="border: 200px solid black; padding: 5px;">
+      <img width="1190" height="845" alt="SCH_Schematic1_1-P1_2025-09-07" src="https://github.com/user-attachments/assets/9f7d0862-7743-446f-8d3a-042c0bbd8374" />
+    </td>
+  </tr>
+</table>
+
+</div>
+
+### Components
+
+- Raspberry Pi 5
+- Expansion Board
+- Camera
+- Servo Motor
+- ESC (Electronic Speed Controller)
+- Motor
+- Battery
+- Switch
+
+### Connections
+
+#### Raspberry Pi 5
+- **USB-C** ↔ Expansion Board 
+- **USB-A** ↔ Expansion Board 
+- **CAM PORT CSI** ↔ Camera (16-pin ribbon)
+
+#### Expansion Board
+- **PWM Servo Ports** ↔ Servo Motor
+  - Pin 1 → PWM signal (yellow)
+  - Pin 2 → VCC (red)
+  - Pin 3 → GND (black)
+  - Pin 4 → (unused or additional servo)
+
+#### Motor Power
+- Battery (+) → Switch → ESC → Motor
+- ESC also connects to Expansion Board for monitoring/control
+
+#### Wire Color Codes
+- **Red**: VCC / Positive power
+- **Black**: GND / Ground
+- **Yellow**: PWM / Control signal
+
+</br>
+
 ---
 
 </br>
