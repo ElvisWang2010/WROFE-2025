@@ -130,21 +130,21 @@ Now, you've finished the hardware!
 
 # Software Instructions
 
-Since we use a CSI camera, we need to use picamera2. The problem with this is that we use ROS2 and picamera2 cannot be installed in ROS2 docker container.
+Since we use a CSI camera, we need to use picamera2. The problem with this is that we use ROS2 and picamera2 cannot be installed in a ROS2 docker container.
 
 There are 3 possible solutions:
 
-**Option1:** Use USB camera instead of CSI camera. USB camera can be accessed without picamera2.
+**Option1:** Use USB camera instead of CSI camera. A USB camera can be accessed without picamera2.
 
 
 **Option2:** Split the project into two parts:
 - Create a ROS2 node that runs in Raspberry pi host (instead of inside docker container). This node
-publishes camera related data
+publishes camera-related data
 - Create the main ROS2 project in the docker container. It subscribes the topic that publishes
 camera data. It contains the main logic of the project.
 
 
-**Option3:** Create the whole ROS2 project in Raspberry pi host. It can access camera via picamera2. It
+**Option3:** Create the whole ROS2 project in a Raspberry pi host. It can access camera via picamera2. It
 also subscribes topics published by third-party ROS nodes in ROS2 container
 
 *Note: Both option 2 and 3 require us to build a ROS2 environment from source in Raspberry Pi OS.*
@@ -224,7 +224,7 @@ found, looking for “ROS Image …” as shown below.*
 
 </br>
 
-#### 5. Create a new connection in RealVNC Viewer using the IP address of your raspberry Pi as shown below and connect to it.
+#### 5. Create a new connection in RealVNC Viewer using the IP address of your raspberry Pi as shown below, and connect to it.
 
 </br>
 
@@ -280,9 +280,9 @@ rosdep install --from-paths src --ignore-src -y --rosdistro humble \
 ```
 ### Step 5: Install Missing Custom Message 'ros_robot_controller_msgs/msg/ButtonState'
 ```
-- use command "docker ps -a" to find the container ID of 'MentorPi' 
+- use the command "docker ps -a" to find the container ID of 'MentorPi' 
 - run "docker cp adb8457c2eec:/home/ubuntu/ros2_ws/src/driver/ros_robot_controller_msgs ~/fe_ws/src/"  
-  where adb8457c2eec should be replace by the container ID of 'MentorPi' you got from previous step
+  where adb8457c2eec should be replaced by the container ID of 'MentorPi' you got from the previous step
 ```
 
 ### Step 6: Build The Workspace
@@ -302,7 +302,7 @@ echo "source ~/fe_ws/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Step 9: Test with Commands Below. The First Command Should List All the ROS2 Topics. The Second Command Will Wait for you to Press Button 1 or 2
+### Step 9: Test with the Commands Below. The First Command Should List All the ROS2 Topics. The Second Command Will Wait for you to Press Button 1 or 2
 ```
 ros2 topic list
 ros2 topic echo /ros_robot_controller/button
@@ -321,7 +321,7 @@ bind-interfaces
 sudo systemctl restart dnsmasq
 sudo reboot
 ```
-Congratulations! You have built ROS2 environment under Raspberry Pi Host and created a ROS2
+Congratulations! You have built a ROS2 environment under a Raspberry Pi Host and created a ROS2
 workspace “fe_ws”. Now you can create ROS2 packages and ROS2 nodes in this workspace.
 
 
