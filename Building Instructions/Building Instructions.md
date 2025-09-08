@@ -138,16 +138,16 @@ There are 3 possible solutions:
 
 
 **Option2:** Split the project into two parts:
-- Create a ROS2 node that runs in Raspberry pi host (instead of inside docker container). This node
+- Create a ROS2 node that runs on a Raspberry Pi host (instead of inside docker container). This node
 publishes camera-related data
-- Create the main ROS2 project in the docker container. It subscribes the topic that publishes
+- Create the main ROS2 project in the docker container. It subscribes to the topic that publishes
 camera data. It contains the main logic of the project.
 
 
-**Option3:** Create the whole ROS2 project in a Raspberry pi host. It can access camera via picamera2. It
+**Option3:** Create the whole ROS2 project in a Raspberry pi host. It can access the camera via picamera2. It
 also subscribes topics published by third-party ROS nodes in ROS2 container
 
-*Note: Both option 2 and 3 require us to build a ROS2 environment from source in Raspberry Pi OS.*
+*Note: Both options 2 and 3 require you to build a ROS2 environment from source in Raspberry Pi OS.*
 
 We did not want to use a USB camera, instead we opted to build a ROS2 environment from source.
 
@@ -158,7 +158,7 @@ We did not want to use a USB camera, instead we opted to build a ROS2 environmen
 
 </br>
    
-#### 2. Switch from AP mode to STA mode so that raspberry pi has access to the internet
+#### 2. Switch from AP mode to STA mode so that Raspberry Pi has access to the internet
 - Run command “nano hiwonder-toolbox/wifi_conf.py”, edit the file with your wifi and password.
 Save the changes and reboot via command “sudo reboot”
 - In the WIFI_STA_SSID, uncomment it if commented and type in your desired wifi SSID.
@@ -202,9 +202,9 @@ Save the changes and reboot via command “sudo reboot”
 </br>
 
 #### 4. Use Advanced IP Scanner or Angry IP Scanner to find the IP address of your Raspberry Pi.
-*The IP range to scan should be the same range of your computer’s IP address. For example,
+*The IP range to scan should be the same as your computer’s IP address. For example,
 my computer’s IP address is 172.16.0.223. The scan range is 172.16.0.1~172.16.0.254 (or 255)
-After scan is complete, Uncheck “View-&gt;Show Dead”. Check “View-&gt;Show Details Pane” so that you
+After the scan is complete, Uncheck “View-&gt;Show Dead”. Check “View-&gt;Show Details Pane” so that you
 can see the detailed pane on the right side as shown below. Navigate through the list of devices
 found, looking for “ROS Image …” as shown below.*
 
@@ -224,7 +224,7 @@ found, looking for “ROS Image …” as shown below.*
 
 </br>
 
-#### 5. Create a new connection in RealVNC Viewer using the IP address of your raspberry Pi as shown below, and connect to it.
+#### 5. Create a new connection in RealVNC Viewer using the IP address of your Raspberry Pi as shown below, and connect to it.
 
 </br>
 
@@ -321,7 +321,11 @@ bind-interfaces
 sudo systemctl restart dnsmasq
 sudo reboot
 ```
+
 Congratulations! You have built a ROS2 environment under a Raspberry Pi Host and created a ROS2
-workspace “fe_ws”. Now you can create ROS2 packages and ROS2 nodes in this workspace.
+workspace “fe_ws”. You can now create ROS2 packages and nodes in this workspace.
+
+Suppose you combine both Hardware and Software, hooray! You have built our entire car!
+
 
 
