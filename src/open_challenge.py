@@ -25,10 +25,11 @@ def listen_to_button_events():
                 button_id = int(line.split(":")[1].strip())
             elif line.startswith("state:"):
                 state = int(line.split(":")[1].strip())
-                if state == 1:
+                if state == 1 and button_id == 2:
                     print(f"Button {button_id} pressed")
                     return button_id
         time.sleep(0.1)
+        
 def check_node_status():
     command = 'source /home/ubuntu/.zshrc && ros2 topic list'
     result = subprocess.run(['docker', 'exec', '-u', 'ubuntu', '-w', '/home/ubuntu', 'MentorPi', '/bin/zsh', '-c', command], capture_output=True, text=True)
@@ -39,14 +40,12 @@ def wait_for_button_press():
     print("Waiting for button press to start...")
     
     # Check if ROS2 node is available
-    if check_node_status():
-        print("ROS2 node detected")
-        button_id = listen_to_button_events()
-        print(f"Button {button_id} pressed! Starting challenge...")
-        return True
-    else:
-        print("ROS2 node not detected. Using fallback button detection...")
-        return False
+    while True:
+        if check_node_status():
+            print("ROS2 node detected")
+            button_id = listen_to_button_events()
+            print(f"Button {button_id} pressed! Starting challenge...")
+            return True
 
 
 if __name__ == '__main__':
@@ -123,8 +122,7 @@ if __name__ == '__main__':
                 turns += 1
                 last_orange_time = current_time
                 print(f"Detected orange line - Turn count: {turns}")
-
-        
+                
         # Thresholding
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         _, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
@@ -208,6 +206,7 @@ if __name__ == '__main__':
             print(f"Throttle: {THROTTLE_PWM}, Steering angle: {angle_pwm}")   
             cv2.rectangle(frame, (left_roi[0], left_roi[1]), (left_roi[0]+left_roi[2], left_roi[1]+left_roi[3]), (255, 0, 0), 2)
             cv2.rectangle(frame, (right_roi[0], right_roi[1]), (right_roi[0]+right_roi[2], right_roi[1]+right_roi[3]), (0, 0, 255), 2)
+            cv2.rectangle(frame, (orange_roi[0], orange_roi[1]), (orange_roi[0]+orange_roi[2], orange_roi[1]+orange_roi[3]), (0, 165, 255), 2) 
             cv2.imshow("Live View", frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
