@@ -1073,6 +1073,9 @@ self.stat_pub = self.create_publisher(String, '/state', 10)
 ```
 
 #### Camera logic
+ROI visualization
+<img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/0ed6440d-9b01-4633-829b-2a338a402aa3" />
+
 
 The camera logic is largely the same with the addition of the central ROI and colour detecting hsv ranges
 ```
@@ -1141,12 +1144,19 @@ self.pillar_cy = int(M_pillar['m01'] / M_pillar'm00'])
 
 With the y-value of the centroid we can apporximate how close the pillar is to determine which of the 3 pillar states it should be in.
 1. Approach: the initial spotting of the pillar, robot should slow down and go closer
+   <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/00947007-68de-45f7-81fe-508e0dd3bdf6" />
+
 2. Follow: The robot is close to the pillar and needs to steer around it
+   <img width="922" height="721" alt="image" src="https://github.com/user-attachments/assets/3546f967-8a87-4c67-ad7f-1f2d204560c1" />
+
 3. Exit: The pillar is on the outskirts of the camera frame and the robot can disengage with steering.
+
+<img width="946" height="711" alt="image" src="https://github.com/user-attachments/assets/6a9dccaf-01fe-4f86-bda0-7460b12ae9fd" />
 
 #### Steering logic
 
 With the x-value of the centroid value we can steer away from the pillar accurately
+
 
 ```
 error = self.pillar_cx - 100 
