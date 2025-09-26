@@ -26,9 +26,9 @@ class NavigatorNode(Node):
         self.previous_pillar_error = 0
         self.pillar_cx = None
         self.pillar_cy = None
-        self.pillar_detection_thresh = 700
+        self.pillar_detection_thresh = 1000
         self.pillar_clear_thresh = 100 
-        self.front_wall_threshold = 3000   
+        self.front_wall_threshold = 3000    # If front ROI has this much black, wall is close
         self.side_wall_threshold = 4000
         self.screen_center_x = 320
 
@@ -38,8 +38,8 @@ class NavigatorNode(Node):
         self.throttle_pwm = 1610
         self.throttle_slow = 1605
         self.angle_pwm = 1500
-        self.max_left = 1700
-        self.max_right = 1300
+        self.max_left = 1800
+        self.max_right = 1200
         self.current_angle = 0.0
         #Park / Stop
         self.stop_timer = 3.0
@@ -49,10 +49,10 @@ class NavigatorNode(Node):
 
         self.left_roi = (0, 220, 180, 200)  # x, y, w, h
         self.right_roi = (460, 220, 180, 200)
-        self.center_roi = (40, 80, 560, 320)  # x, y, w, h
-        self.front_wall_roi = (300, 200, 140, 40)    # Upper center for front walls
-        self.left_wall_roi = (80, 250, 120, 150)     # Left side walls
-        self.right_wall_roi = (440, 250, 120, 150)   # Right side walls
+        self.center_roi = (0, 200, 639, 200)  # x, y, w, h
+        self.front_wall_roi = (240, 280, 160, 40)    # Upper center for front walls
+        self.left_wall_roi = (80, 310, 60, 150)     # Left side walls
+        self.right_wall_roi = (440, 310, 60, 150)   # Right side walls
         
         self.lower_red1 = np.array([0, 100, 100])
         self.upper_red1 = np.array([10, 255, 255])
@@ -95,8 +95,9 @@ class NavigatorNode(Node):
         self.frame_ready = False
         self.parking_side = None
         self.escape_mode = None
-        self.wall_in_front = False
-        self.mode = "button"
+        self.pillar_close = False
+        self.wall_in_front = True
+        self.mode = "navigate"
 
         """
         RGB COLOURS:
@@ -107,7 +108,6 @@ class NavigatorNode(Node):
         1. button: wait for button press
         2. start: escape parking lot
         3. navigate: navigate 3 laps around track
-        4. scan: look for parking lot
         4. park: parallel parking
         5. stop: shutdown all nodes and stop moving
         """
@@ -133,14 +133,14 @@ class NavigatorNode(Node):
             
             
     def lap_callback(self, msg):
-        if msg.data and self.mode != 'park' and self.mode != 'scan':
+        if msg.data and self.mode != 'park':
             self.get_logger().info("Received IMU signal: 3 laps complete, switching to parking mode.")
-            self.mode = 'scan'
+            self.mode = 'park'
             self.lap_done_time = time.time()
         
     def imu_callback(self, msg):
         self.current_angle = msg.data
-
+    
     def camera_callback(self, msg):
         current_time = time.time()
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb8')
@@ -183,16 +183,23 @@ class NavigatorNode(Node):
         self.center_magenta_area = cv2.countNonZero(center_magenta_mask)
         self.center_green_area = cv2.countNonZero(center_green_mask)
         self.center_red_area = cv2.countNonZero(center_red_mask)
-    
+
         if self.front_wall_area >= self.front_wall_threshold:
             self.wall_in_front = True
             #self.get_logger().info("Wall is close")
         else:
             self.wall_in_front = False
             #self.get_logger().info("Wall is no longer close")
-            
+
         # Pillar detection
         current_time = time.time()
+        if self.pillar_mode is not None:
+            current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
+            if current_pillar_area >= 1500:
+                self.pillar_close = True
+            else:
+                self.pillar_close = False
+            
         if self.center_red_area > self.pillar_detection_thresh and self.center_red_area > self.center_green_area:
             self.pillar_mode = "red"
             self.last_pillar_time = current_time
@@ -212,7 +219,7 @@ class NavigatorNode(Node):
             current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
             # Use hysteresis to prevent flickering
             if (current_pillar_area < self.pillar_clear_thresh and 
-                current_time - self.last_pillar_time > 0.5 and self.pillar_mode is not None):  # Wait 0.5s of low signal before confirming pillar gone
+                current_time - self.last_pillar_time > 0.5 and self.pillar_mode is not None):  # Wait 0.5s of low signal
                 self.get_logger().info(f"Exiting {self.pillar_mode} pillar mode")
                 self.pillar_mode = None
                 self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
@@ -235,8 +242,6 @@ class NavigatorNode(Node):
                 self.pillar_cx = int(M["m10"] / M["m00"])
                 self.pillar_cy = int(M["m01"] / M["m00"])
 
-        if self.mode == "scan" and self.center_magenta_area > 5000:
-            self.mode = "park"
 
         if self.mode == "start":
             if self.left_area > self.right_area:
@@ -265,7 +270,7 @@ class NavigatorNode(Node):
         
 
         if self.pillar_cx is not None and self.pillar_cy is not None:
-            cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)  
+            cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)
             cv2.putText(frame, f"CX: {self.pillar_cx}", (self.pillar_cx + 15, self.pillar_cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
             cv2.rectangle(frame, (self.front_wall_roi[0], self.front_wall_roi[1]), 
                         (self.front_wall_roi[0] + self.front_wall_roi[2], self.front_wall_roi[1] + self.front_wall_roi[3]), 
@@ -278,7 +283,7 @@ class NavigatorNode(Node):
                         (0, 255, 255), 2)  
 
             cv2.putText(frame, f"Centroid X: {self.pillar_cx}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
-   
+            
         cv2.putText(frame, f"State: {self.mode}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
         cv2.putText(frame, f"Pillar: {self.pillar_mode}", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
 
@@ -302,7 +307,7 @@ class NavigatorNode(Node):
             
             # Calculate time elapsed in current phase
             phase_elapsed = current_time - self.escape_phase_start
-            
+
             # STATE TRANSITIONS
             if phase_elapsed >= self.escape_timeout:
                 if self.escape_mode == "escape":
@@ -351,40 +356,41 @@ class NavigatorNode(Node):
         if self.pillar_mode and self.mode != "start" and self.mode != "button" and self.mode != "stop":
             current_time = time.time()
             
-            if self.pillar_cx is not None:  # Only steer if centroid is detected
-
+            if self.pillar_cx is not None:  
                 if self.pillar_mode == "red":
-                    error = self.pillar_cx - (self.screen_center_x + 100) 
-                    steering_adjustment = error * 2.0
+                    error = self.pillar_cx - self.screen_center_x + 175  
+                    steering_adjustment = -error * 2.0  
+                    if self.pillar_close:
+                        steering_adjustment -= 20 
                     self.angle_pwm = self.straight_pwm + steering_adjustment
                     if self.wall_in_front:
                         self.angle_pwm = self.max_left
-                        print("emergency left turn")
+                        self.get_logger().info("emergency left turn")
                     self.get_logger().info(f"Red pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
-
-                    
+            
                 elif self.pillar_mode == "green":
-                    error = self.pillar_cx - (self.screen_center_x - 100)  
-                    steering_adjustment = error * 2.0
+                    error = self.pillar_cx - self.screen_center_x - 175
+                    steering_adjustment = -error * 2.0 
+                    if self.pillar_close:
+                        steering_adjustment += 20 
                     self.angle_pwm = self.straight_pwm + steering_adjustment
                     if self.wall_in_front:
                         self.angle_pwm = self.max_right
-                        print("emergency right turn")
-                    
+                        self.get_logger().info("emergency right turn")
                     self.get_logger().info(f"Green pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
-                
-            else:
-                # If centroid lost but still in pillar mode.
-                if self.pillar_mode == "red":
-                    self.angle_pwm = self.straight_pwm - 60  
                 else:
-                    self.angle_pwm = self.straight_pwm + 60  
-                self.get_logger().info(f"{self.pillar_mode} pillar - Centroid lost, using default turn")
-                error = self.prev_pillar_error
+                 
+                    if self.pillar_mode == "red":
+                        self.angle_pwm = self.straight_pwm - 60  # Gentle right turn
+                    
+                    else:
+                        self.angle_pwm = self.straight_pwm + 60  # Gentle left turn
+                    self.get_logger().info(f"{self.pillar_mode} pillar - Centroid lost, using default turn")
+                    error = self.prev_pillar_error
             # Apply limits
             self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
             self.throttle = self.throttle_slow
-            self.prev_pillar_error = error
+            #self.prev_pillar_error = error
         else:
             self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
             area_diff = self.right_area - self.left_area
