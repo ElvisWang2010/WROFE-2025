@@ -50,7 +50,7 @@ class NavigatorNode(Node):
         self.left_roi = (0, 220, 180, 200)  # x, y, w, h
         self.right_roi = (460, 220, 180, 200)
         self.center_roi = (40, 80, 560, 320)  # x, y, w, h
-        self.front_wall_roi = (240, 150, 200, 60)    # Upper center for front walls
+        self.front_wall_roi = (300, 200, 140, 40)    # Upper center for front walls
         self.left_wall_roi = (80, 250, 120, 150)     # Left side walls
         self.right_wall_roi = (440, 250, 120, 150)   # Right side walls
         
@@ -95,6 +95,7 @@ class NavigatorNode(Node):
         self.frame_ready = False
         self.parking_side = None
         self.escape_mode = None
+        self.wall_in_front = False
         self.mode = "button"
 
         """
@@ -106,6 +107,7 @@ class NavigatorNode(Node):
         1. button: wait for button press
         2. start: escape parking lot
         3. navigate: navigate 3 laps around track
+        4. scan: look for parking lot
         4. park: parallel parking
         5. stop: shutdown all nodes and stop moving
         """
@@ -131,9 +133,9 @@ class NavigatorNode(Node):
             
             
     def lap_callback(self, msg):
-        if msg.data and self.mode != 'park':
+        if msg.data and self.mode != 'park' and self.mode != 'scan':
             self.get_logger().info("Received IMU signal: 3 laps complete, switching to parking mode.")
-            self.mode = 'park'
+            self.mode = 'scan'
             self.lap_done_time = time.time()
         
     def imu_callback(self, msg):
@@ -182,6 +184,13 @@ class NavigatorNode(Node):
         self.center_green_area = cv2.countNonZero(center_green_mask)
         self.center_red_area = cv2.countNonZero(center_red_mask)
     
+        if self.front_wall_area >= self.front_wall_threshold:
+            self.wall_in_front = True
+            #self.get_logger().info("Wall is close")
+        else:
+            self.wall_in_front = False
+            #self.get_logger().info("Wall is no longer close")
+            
         # Pillar detection
         current_time = time.time()
         if self.center_red_area > self.pillar_detection_thresh and self.center_red_area > self.center_green_area:
@@ -203,7 +212,7 @@ class NavigatorNode(Node):
             current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
             # Use hysteresis to prevent flickering
             if (current_pillar_area < self.pillar_clear_thresh and 
-                current_time - self.last_pillar_time > 0.5 and self.pillar_mode is not None):  # Wait 0.5s of low signal
+                current_time - self.last_pillar_time > 0.5 and self.pillar_mode is not None):  # Wait 0.5s of low signal before confirming pillar gone
                 self.get_logger().info(f"Exiting {self.pillar_mode} pillar mode")
                 self.pillar_mode = None
                 self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
@@ -226,6 +235,8 @@ class NavigatorNode(Node):
                 self.pillar_cx = int(M["m10"] / M["m00"])
                 self.pillar_cy = int(M["m01"] / M["m00"])
 
+        if self.mode == "scan" and self.center_magenta_area > 5000:
+            self.mode = "park"
 
         if self.mode == "start":
             if self.left_area > self.right_area:
@@ -252,24 +263,22 @@ class NavigatorNode(Node):
         cv2.rectangle(frame, (self.center_roi[0], self.center_roi[1]), 
                         (self.center_roi[0] + self.center_roi[2], self.center_roi[1] + self.center_roi[3]), (0, 0, 255), 2)
         
-        # NEW: Draw centroid if detected
+
         if self.pillar_cx is not None and self.pillar_cy is not None:
-            cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)  # Yellow circle
+            cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)  
             cv2.putText(frame, f"CX: {self.pillar_cx}", (self.pillar_cx + 15, self.pillar_cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
-            # Add to your debug visualization:
             cv2.rectangle(frame, (self.front_wall_roi[0], self.front_wall_roi[1]), 
                         (self.front_wall_roi[0] + self.front_wall_roi[2], self.front_wall_roi[1] + self.front_wall_roi[3]), 
-                        (255, 255, 0), 2)  # Cyan for front wall ROI
+                        (255, 255, 0), 2)  
             cv2.rectangle(frame, (self.left_wall_roi[0], self.left_wall_roi[1]), 
                         (self.left_wall_roi[0] + self.left_wall_roi[2], self.left_wall_roi[1] + self.left_wall_roi[3]), 
-                        (255, 0, 255), 2)  # Magenta for left wall ROI
+                        (255, 0, 255), 2) 
             cv2.rectangle(frame, (self.right_wall_roi[0], self.right_wall_roi[1]), 
                         (self.right_wall_roi[0] + self.right_wall_roi[2], self.right_wall_roi[1] + self.right_wall_roi[3]), 
-                        (0, 255, 255), 2)  # Yellow for right wall ROI
+                        (0, 255, 255), 2)  
 
             cv2.putText(frame, f"Centroid X: {self.pillar_cx}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
-            
-        # NEW: Add pillar mode and centroid info to display
+   
         cv2.putText(frame, f"State: {self.mode}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
         cv2.putText(frame, f"Pillar: {self.pillar_mode}", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
 
@@ -283,14 +292,12 @@ class NavigatorNode(Node):
             return
         
         current_time = time.time()
-
-
         if self.mode == "start":
             # Initialize escape timing
             if self.escape_start_time == 0:
                 self.escape_start_time = current_time
                 self.escape_phase_start = current_time
-                self.escape_mode = "front"
+                self.escape_mode = "escape"
                 self.get_logger().info("Escape maneuver started")
             
             # Calculate time elapsed in current phase
@@ -298,72 +305,44 @@ class NavigatorNode(Node):
             
             # STATE TRANSITIONS
             if phase_elapsed >= self.escape_timeout:
-                if self.escape_mode == "front":
-                    self.escape_mode = "back"
-                    self.escape_attempts += 1
+                if self.escape_mode == "escape":
+                    self.escape_mode = "correct"
                     self.escape_phase_start = current_time
-                    self.get_logger().info(f"Switching to BACK, attempt {self.escape_attempts}")
-                elif self.escape_mode == "back":
-                    self.escape_mode = "front" 
-                    self.escape_attempts += 1
+                    self.get_logger().info(f"Switching escape mode to: {self.escape_mode}")
+                elif self.escape_mode == "correct":
+                    self.escape_mode = "backup"
                     self.escape_phase_start = current_time
-                    self.get_logger().info(f"Switching to FRONT, attempt {self.escape_attempts}")
-                elif self.escape_mode == "correcting":
-                    self.escape_mode = "final"
-                    self.escape_attempts += 1
+                    self.get_logger().info(f"Switching escape mode to: {self.escape_mode}")
+                elif self.escape_mode == "correct":
+                    self.escape_mode = "backup"
                     self.escape_phase_start = current_time
-                    self.get_logger().info("Switching to FINAL approach")
-                elif self.escape_mode == "final":
+                    self.get_logger().info(f"Switching escape mode to: {self.escape_mode}")
+                else:
                     self.mode = "navigate"
-                    self.get_logger().info("Escape complete! Switching to navigate")
                     return
-        
-            if self.escape_attempts >= 6 and self.escape_mode != "correcting" and self.escape_mode != "final":
-                self.escape_mode = "correcting"
-                self.escape_phase_start = current_time
-                self.get_logger().info("Enough attempts, switching to CORRECTING")
-            
-            # EXECUTE CURRENT PHASE
+    
             if self.parking_side == "left":
-                if self.escape_mode == "front":
+                if self.escape_mode == "escape":
                     self.angle_pwm = self.max_right
                     self.throttle = 1570
-                    self.get_logger().info(f"LEFT escape forwards ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "back":
-                    self.angle_pwm = self.max_left
-                    self.throttle = 1430
-                    self.get_logger().info(f"LEFT escape backwards ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "correcting":
-                    # CORRECTING: Drive straight forward to position for pillar detection
-                    self.angle_pwm = self.straight_pwm
-                    self.throttle = 1570
-                    self.get_logger().info(f"LEFT correcting forward ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "final":
-                    # FINAL: Back straight out to clear parking lot
-                    self.angle_pwm = self.straight_pwm
-                    self.throttle = 1430
-                    self.get_logger().info(f"LEFT final backwards ({phase_elapsed:.1f}s)")
-    
+                elif self.escape_mode == "correct":
+                    self.angle_pwm = 1400
+                    self.throttle = 1565
+                else:
+                    self.angle_pwm = 1500
+                    self.throttle = 1450
             else:  # parking_side == "right"
-                if self.escape_mode == "front":
+                if self.escape_mode == "escape":
                     self.angle_pwm = self.max_left
                     self.throttle = 1570
                     self.get_logger().info(f"RIGHT escape forwards ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "back":
-                    self.angle_pwm = self.max_right
-                    self.throttle = 1430
-                    self.get_logger().info(f"RIGHT escape backwards ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "correcting":
-                    # CORRECTING: Drive straight forward to position for pillar detection
-                    self.angle_pwm = self.straight_pwm
-                    self.throttle = 1570
-                    self.get_logger().info(f"RIGHT correcting forward ({phase_elapsed:.1f}s)")
-                elif self.escape_mode == "final":
-                    # FINAL: Back straight out to clear parking lot
-                    self.angle_pwm = self.straight_pwm
-                    self.throttle = 1430
-                    self.get_logger().info(f"RIGHT final backwards ({phase_elapsed:.1f}s)")
-            
+                elif self.escape_mode == "correct":
+                    self.angle_pwm = 1600
+                    self.throttle = 1565
+                else:
+                    self.angle_pwm = 1500
+                    self.throttle = 1450
+
             # Apply controls and return
             self.speed(self.throttle)
             self.steer_pwm(self.angle_pwm)
@@ -378,6 +357,9 @@ class NavigatorNode(Node):
                     error = self.pillar_cx - (self.screen_center_x + 100) 
                     steering_adjustment = error * 2.0
                     self.angle_pwm = self.straight_pwm + steering_adjustment
+                    if self.wall_in_front:
+                        self.angle_pwm = self.max_left
+                        print("emergency left turn")
                     self.get_logger().info(f"Red pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
 
                     
@@ -385,13 +367,16 @@ class NavigatorNode(Node):
                     error = self.pillar_cx - (self.screen_center_x - 100)  
                     steering_adjustment = error * 2.0
                     self.angle_pwm = self.straight_pwm + steering_adjustment
+                    if self.wall_in_front:
+                        self.angle_pwm = self.max_right
+                        print("emergency right turn")
+                    
                     self.get_logger().info(f"Green pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
                 
             else:
                 # If centroid lost but still in pillar mode.
                 if self.pillar_mode == "red":
                     self.angle_pwm = self.straight_pwm - 60  
-                    
                 else:
                     self.angle_pwm = self.straight_pwm + 60  
                 self.get_logger().info(f"{self.pillar_mode} pillar - Centroid lost, using default turn")
