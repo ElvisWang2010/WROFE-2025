@@ -7,12 +7,14 @@
   <a href="#"><img src="https://img.shields.io/badge/TEAM-Bees-ffc107?labelColor=111" /></a>
   <a href="#"><img src="https://img.shields.io/badge/COUNTRY-Canada-ffb300?labelColor=111" /></a>
   <a href="#"><img src="https://img.shields.io/badge/CATEGORY-WRO%202025%20Future%20Engineers-ff9900?labelColor=111" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Finalist-f4c430?labelColor=111" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Qualifiers-f4c430?labelColor=111" /></a>
 </p>
 
 
 
 ![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)
+<a href="https://www.youtube.com/@TeamBees2025"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
+
 
 ---
 
