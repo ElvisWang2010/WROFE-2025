@@ -3,7 +3,8 @@
 
 # Engineering Documentation – Team Bees
 
-![TEAM BEES BANNER](assets/TeamBeesBanner.gif)
+![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)
+
 
 *WRO Future Engineers 2025 Entry*
 
