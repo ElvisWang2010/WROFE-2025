@@ -12,33 +12,36 @@
 
 ---
 
-
-
 # Table of Contents
 
-## Team
+<table>
+  <tr>
+    <td valign="top" width="50%">
+
 <details>
-<summary>Expand</summary>
+<summary><h3>Team</h3></summary>
 
 - [Team Members](#team-members)  
-- [Team Photo](#team-photo)  
+- [Team Photo](#team-photo)
 
 </details>
 
-## Hardware & Build
+<hr/>
+
 <details>
-<summary>Expand</summary>
+<summary><h3>Hardware & Build</h3></summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
 - [Machinery & Components](#machinery)  
 - [Robot/Car Design Overview](#robotcar-design-overview)  
-- [Assembly Gallery](#assembly-gallery)  
+- [Assembly Gallery](#assembly-gallery)
 
 </details>
 
-## Power & Mobility
+<hr/>
+
 <details>
-<summary>Expand</summary>
+<summary><h3>Power & Mobility</h3></summary>
 
 - [Power Management](#power-management)  
   - [Battery](#battery)  
@@ -49,24 +52,27 @@
   - [Motor](#motor)  
   - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
   - [Steering](#steering)  
-  - [Servo Motor](#servo-motor)  
+  - [Servo Motor](#servo-motor)
 
 </details>
 
-## Sensors & Perception
+</td>
+<td valign="top" width="50%">
+
 <details>
-<summary>Expand</summary>
+<summary><h3>Sensors & Perception</h3></summary>
 
 - [Sense Management](#sense-management)  
 - [Camera](#camera)  
 - [IMU](#inertial-measurement-unit-imu)  
-- [LiDAR](#lidar)  
+- [LiDAR](#lidar)
 
 </details>
 
-## Software
+<hr/>
+
 <details>
-<summary>Expand</summary>
+<summary><h3>Software</h3></summary>
 
 - [Frameworks](#software)  
   - [Python 3.0](#python-30)  
@@ -77,18 +83,23 @@
   - [cv_bridge](#cv_bridge)  
   - [Time](#time)  
   - [Numpy](#numpy)  
-  - [ROS Robot Controller SDK](#ros_robot_controller_sdk)  
+  - [ROS Robot Controller SDK](#ros_robot_controller_sdk)
 
 </details>
 
-## WRO Challenges
+<hr/>
+
 <details>
-<summary>Expand</summary>
+<summary><h3>WRO Challenges</h3></summary>
 
 - [Open Challenge](#open-challenge)  
-- [Obstacle Challenge](#obstacle-challenge)  
+- [Obstacle Challenge](#obstacle-challenge)
 
 </details>
+
+  </td>
+  </tr>
+</table>
 
 
 ---
@@ -109,7 +120,7 @@
       <h3>Ryan</h3>
       <b>Role:</b> Documenter/Programmer <br>
       <b>Strengths:</b> Writing, Hardworker. <br>
-      <b>About Me:</b> Hi! I'm Ryan. I'm 14, i love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
+      <b>About Me:</b> Hi! I'm Ryan. I'm 14, I love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
     </td>
     <td align="center" width="350">
       <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548" /><br>
