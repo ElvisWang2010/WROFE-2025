@@ -12,24 +12,30 @@
 
 </div>
 
-## Table of Contents
+# Table of Contents
 
-<details open>
-<summary><b> Team</b></summary>
+## Team
+<summary>Expand</summary>
 
 - [Team Members](#team-members)  
 - [Team Photo](#team-photo)  
+
 </details>
+
+## Hardware & Build
 <details>
-<summary><b>⚙️ Hardware & Build</b></summary>
+<summary>Expand</summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
 - [Machinery & Components](#machinery)  
 - [Robot/Car Design Overview](#robotcar-design-overview)  
 - [Assembly Gallery](#assembly-gallery)  
+
 </details>
+
+## Power & Mobility
 <details>
-<summary><b> Power & Mobility</b></summary>
+<summary>Expand</summary>
 
 - [Power Management](#power-management)  
   - [Battery](#battery)  
@@ -41,16 +47,24 @@
   - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
   - [Steering](#steering)  
   - [Servo Motor](#servo-motor)  
+
 </details>
+
+## Sensors & Perception
 <details>
-<summary><b> Sensors & Perception</b></summary>
+<summary>Expand</summary>
+
 - [Sense Management](#sense-management)  
 - [Camera](#camera)  
 - [IMU](#inertial-measurement-unit-imu)  
 - [LiDAR](#lidar)  
+
 </details>
+
+## Software
 <details>
-<summary><b> Software</b></summary>
+<summary>Expand</summary>
+
 - [Frameworks](#software)  
   - [Python 3.0](#python-30)  
   - [ROS 2 Humble](#ros2-humble)  
@@ -61,14 +75,18 @@
   - [Time](#time)  
   - [Numpy](#numpy)  
   - [ROS Robot Controller SDK](#ros_robot_controller_sdk)  
+
 </details>
+
+## WRO Challenges
 <details>
-<summary><b> Challenges</b></summary>
+<summary>Expand</summary>
 
 - [Open Challenge](#open-challenge)  
 - [Obstacle Challenge](#obstacle-challenge)  
 
 </details>
+
 
 ---
 
