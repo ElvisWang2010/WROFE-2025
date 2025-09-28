@@ -14,10 +14,6 @@
 
 # Table of Contents
 
-<table>
-  <tr>
-    <td valign="top" width="50%">
-
 <details>
 <summary><h3>Team</h3></summary>
 
@@ -26,7 +22,7 @@
 
 </details>
 
-<hr/>
+---
 
 <details>
 <summary><h3>Hardware & Build</h3></summary>
@@ -38,7 +34,7 @@
 
 </details>
 
-<hr/>
+---
 
 <details>
 <summary><h3>Power & Mobility</h3></summary>
@@ -56,8 +52,7 @@
 
 </details>
 
-</td>
-<td valign="top" width="50%">
+---
 
 <details>
 <summary><h3>Sensors & Perception</h3></summary>
@@ -69,7 +64,7 @@
 
 </details>
 
-<hr/>
+---
 
 <details>
 <summary><h3>Software</h3></summary>
@@ -87,7 +82,7 @@
 
 </details>
 
-<hr/>
+---
 
 <details>
 <summary><h3>WRO Challenges</h3></summary>
@@ -97,9 +92,6 @@
 
 </details>
 
-  </td>
-  </tr>
-</table>
 
 
 ---
