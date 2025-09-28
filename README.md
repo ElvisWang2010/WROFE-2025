@@ -14,7 +14,7 @@
 
 # Table of Contents
 
-<details>
+<details open>
 <summary><h3>Team</h3></summary>
 
 - [Team Members](#team-members)  
@@ -24,7 +24,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h3>Hardware & Build</h3></summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
@@ -36,7 +36,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h3>Power & Mobility</h3></summary>
 
 - [Power Management](#power-management)  
@@ -54,7 +54,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h3>Sensors & Perception</h3></summary>
 
 - [Sense Management](#sense-management)  
@@ -66,7 +66,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h3>Software</h3></summary>
 
 - [Frameworks](#software)  
@@ -84,7 +84,7 @@
 
 ---
 
-<details>
+<details open>
 <summary><h3>WRO Challenges</h3></summary>
 
 - [Open Challenge](#open-challenge)  
