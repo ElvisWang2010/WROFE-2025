@@ -10,11 +10,12 @@
 
 ---
 
-</div>
+
 
 # Table of Contents
 
 ## Team
+<details>
 <summary>Expand</summary>
 
 - [Team Members](#team-members)  
