@@ -12,44 +12,63 @@
 
 </div>
 
-<div align="center">
-
 ## Table of Contents
 
+<details open>
+<summary><b> Team</b></summary>
 
-1&#46; <a href="#team-members">Team Members</a><br>
-2&#46; <a href="#complete-construction-manual">Complete Construction Manual</a><br>
-3&#46; <a href="#machinery">Machinery</a><br>
-4&#46; <a href="#robotcar-design-overview">Robot/Car Design Overview</a><br>
-5&#46; <a href="#assembly-gallery">Assembly Gallery</a><br>
-6&#46; <a href="#power-management">Power Management</a><br>
-&#8226; <a href="#battery">Battery</a><br>
-7&#46; <a href="#mobility-management">Mobility Management</a><br>
-&#8226; <a href="#chassis">Chassis</a><br>
-&#8226; <a href="#drive-system">Drive System</a><br>
-&#8226; <a href="#motor">Motor</a><br>
-&#8226; <a href="#electronic-speed-controller-esc">Electronic Speed Controller (ESC)</a><br>
-&#8226; <a href="#steering">Steering</a><br>
-&#8226; <a href="#servo-motor">Servo Motor</a><br>
-8&#46; <a href="#software">Software</a><br>
-&#8226; <a href="#python-30">Python 3.0</a><br>
-&#8226; <a href="#ros2-humble">ROS2 Humble</a><br>
-&#8226; <a href="#picamera2">Picamera2</a><br>
-&#8226; <a href="#opencv">OpenCV</a><br>
-&#8226; <a href="#cv_bridge">Cv_bridge</a><br>
-&#8226; <a href="#time">Time</a><br>
-&#8226; <a href="#numpy">Numpy</a><br>
-&#8226; <a href="#ros_robot_controller_sdk">ROS_ROBOT_CONTROLLER_SDK</a><br>
-9&#46; <a href="#open-challenge">Open Challenge</a><br>
-10&#46; <a href="#obstacle-challenge">Obstacle Challenge</a><br>
+- [Team Members](#team-members)  
+- [Team Photo](#team-photo)  
+</details>
+<details>
+<summary><b>⚙️ Hardware & Build</b></summary>
 
-</div>
+- [Complete Construction Manual](#complete-construction-manual)  
+- [Machinery & Components](#machinery)  
+- [Robot/Car Design Overview](#robotcar-design-overview)  
+- [Assembly Gallery](#assembly-gallery)  
+</details>
+<details>
+<summary><b> Power & Mobility</b></summary>
 
+- [Power Management](#power-management)  
+  - [Battery](#battery)  
+  - [Electrical Wiring](#electrical-wiring)  
+- [Mobility Management](#mobility-management)  
+  - [Chassis](#chassis)  
+  - [Drive System](#drive-system)  
+  - [Motor](#motor)  
+  - [Electronic Speed Controller (ESC)](#electronic-speed-controller-esc)  
+  - [Steering](#steering)  
+  - [Servo Motor](#servo-motor)  
+</details>
+<details>
+<summary><b> Sensors & Perception</b></summary>
+- [Sense Management](#sense-management)  
+- [Camera](#camera)  
+- [IMU](#inertial-measurement-unit-imu)  
+- [LiDAR](#lidar)  
+</details>
+<details>
+<summary><b> Software</b></summary>
+- [Frameworks](#software)  
+  - [Python 3.0](#python-30)  
+  - [ROS 2 Humble](#ros2-humble)  
+- [Libraries](#libraries)  
+  - [Picamera2](#picamera2)  
+  - [OpenCV](#opencv)  
+  - [cv_bridge](#cv_bridge)  
+  - [Time](#time)  
+  - [Numpy](#numpy)  
+  - [ROS Robot Controller SDK](#ros_robot_controller_sdk)  
+</details>
+<details>
+<summary><b> Challenges</b></summary>
 
+- [Open Challenge](#open-challenge)  
+- [Obstacle Challenge](#obstacle-challenge)  
 
-</div>
-
-<div align="center">
+</details>
 
 ---
 
