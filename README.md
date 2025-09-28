@@ -1,14 +1,18 @@
+
 <div align="center">
+   <img width="1400" height="360" alt="bee_header_banner" src="https://github.com/user-attachments/assets/14c3f514-8e8c-4156-beab-9c5c7759effe" width="100%">
+</div>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/TEAM-Bees-ffc107?labelColor=111" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/COUNTRY-Canada-ffb300?labelColor=111" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/CATEGORY-WRO%202025%20Future%20Engineers-ff9900?labelColor=111" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Finalist-f4c430?labelColor=111" /></a>
+</p>
 
 
-# Engineering Documentation – Team Bees
 
 ![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)
-
-
-*WRO Future Engineers 2025 Entry*
-
-</div>
 
 ---
 
