@@ -15,8 +15,8 @@
 ![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)
 <a href="https://www.youtube.com/@TeamBees2025"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
 
+<img width="1600" height="32" alt="divider_yellow_stripe_shadow" src="https://github.com/user-attachments/assets/2ed92872-deab-4ef9-8683-29cb44bf8578" />
 
----
 
 # Table of Contents
 
