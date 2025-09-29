@@ -1,4 +1,6 @@
 
+
+<img src="divider_yellow_stripe_shadow.png" width="100%" alt="divider">
 <div align="center">
    <img width="1400" height="360" alt="bee_header_banner" src="https://github.com/user-attachments/assets/14c3f514-8e8c-4156-beab-9c5c7759effe" width="100%">
 </div>
