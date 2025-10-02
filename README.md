@@ -11,11 +11,11 @@
 </p>
 
 
-<![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)/>
+![TEAM BEES BANNER](https://github.com/user-attachments/assets/75b1021b-45cb-4e07-8d41-e94ad9c873dc)
 
 <a href="https://www.youtube.com/@TeamBees2025"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
 
-<img width="1600" height="32" alt="divider_yellow_stripe_shadow" src="https://github.com/user-attachments/assets/2ed92872-deab-4ef9-8683-29cb44bf8578" />
+<img width="1600" height="32" alt="divider_yellow_stripe_shadow" src="https://github.com/user-attachments/assets/2ed92872-deab-4ef9-8683-29cb44bf8578"/>
 
 
 # Table of Contents
@@ -109,37 +109,88 @@
 
 ## Team Members
 
-<div align="center">
+<h2>Team Photo</h2>
 
-<table>
+<table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:8px 0;">
   <tr>
-    <td align="center" width="350">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/3409afde-0a7f-469a-b698-f86b23a92b8a" /><br>
-      <h3>Ryan</h3>
-      <b>Role:</b> Documenter/Programmer <br>
-      <b>Strengths:</b> Writing, Hardworker. <br>
-      <b>About Me:</b> Hi! I'm Ryan. I'm 14, I love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
-    </td>
-    <td align="center" width="350">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548" /><br>
-      <h3>Elvis</h3>
-      <b>Role:</b> Builder/Programmer <br>
-      <b>Strengths:</b> CAD, Fabrication, Team Player, Hardworker. <br>
-      <b>About Me:</b> Hi, my name is Elvis. I'm 14. I enjoy building and 3D modeling all kinds of things with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old, and I love to work and play Clash Royale.
-    </td>
-    <td align="center" width="350">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89" /><br>
-      <h3>Harry</h3>
-      <b>Role:</b> Programmer/Documenter <br>
-      <b>Strengths:</b> Python, Problem Solver, Patience, Hardworker.<br>
-      <b>About Me:</b> Hey! I'm Harry. I've been coding for more than half a decade and love to swim, having competed in various swimming competitions. I also like to play badminton.
+    <td align="center" style="padding:14px;">
+      <div style="border:2px dashed #FFC107; border-radius:10px; padding:24px; height:320px; display:flex; align-items:center; justify-content:center;">
+        <b>[ ADD TEAM PHOTO HERE — 1000×750 ]</b>
+      </div>
+      <div style="margin-top:8px; color:#444;"><em>Team Bees — WRO 2025 Future Engineers (Nationals → Panama)</em></div>
     </td>
   </tr>
 </table>
 
+<hr/>
 
+<h2>Team Members</h2>
 
-</div>
+<table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
+  <tr>
+    <!-- LEFT: Photo -->
+    <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
+      <img
+        src="https://github.com/user-attachments/assets/3409afde-0a7f-469a-b698-f86b23a92b8a"
+        alt="Ryan"
+        width="240"
+        style="border-radius:10px;"
+      />
+    </td>
+    <!-- RIGHT: Info -->
+    <td width="72%" style="padding:12px 16px;">
+      <h3 style="margin:0 0 6px 0;">Ryan</h3>
+      <div><b>Role:</b> Documenter/Programmer</div>
+      <div><b>Strengths:</b> Writing, Hardworker.</div>
+      <p style="margin-top:8px;">
+        <b>About Me:</b> Hi! I'm Ryan. I'm 14, I love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
+  <tr>
+    <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
+      <img
+        src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548"
+        alt="Elvis"
+        width="240"
+        style="border-radius:10px;"
+      />
+    </td>
+    <td width="72%" style="padding:12px 16px;">
+      <h3 style="margin:0 0 6px 0;">Elvis</h3>
+      <div><b>Role:</b> Builder/Programmer</div>
+      <div><b>Strengths:</b> CAD, Fabrication, Team Player, Hardworker.</div>
+      <p style="margin-top:8px;">
+        <b>About Me:</b> Hi, my name is Elvis. I'm 14. I enjoy building and 3D modeling various objects with Fusion 360. I've been with Explorer Robotics ever since I was 8 years old, and I love to work and play Clash Royale.
+      </p>
+    </td>
+  </tr>
+</table>
+
+<table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
+  <tr>
+    <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
+      <img
+        src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89"
+        alt="Harry"
+        width="240"
+        style="border-radius:10px;"
+      />
+    </td>
+    <td width="72%" style="padding:12px 16px;">
+      <h3 style="margin:0 0 6px 0;">Harry</h3>
+      <div><b>Role:</b> Programmer/Documenter</div>
+      <div><b>Strengths:</b> Python, Problem Solver, Patience, Hardworker.</div>
+      <p style="margin-top:8px;">
+        <b>About Me:</b> Hey! I'm Harry. I've been coding for over half a decade and enjoy swimming, having competed in various swimming competitions. I also like to play badminton.
+      </p>
+    </td>
+  </tr>
+</table>
+
 
 </br>
 
