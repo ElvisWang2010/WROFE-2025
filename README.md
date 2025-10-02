@@ -4,10 +4,10 @@
 </div>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/TEAM-Bees-ffc107?labelColor=111" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/COUNTRY-Canada-ffb300?labelColor=111" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/CATEGORY-WRO%202025%20Future%20Engineers-ff9900?labelColor=111" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Qualifiers-f4c430?labelColor=111" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/TEAM-Bees-ffc107?labelColor=111" /><a>
+  <a href="#"><img src="https://img.shields.io/badge/COUNTRY-Canada-ffb300?labelColor=111" /><a>
+  <a href="#"><img src="https://img.shields.io/badge/CATEGORY-WRO%202025%20Future%20Engineers-ff9900?labelColor=111" /><a>
+  <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Qualifiers-f4c430?labelColor=111" /><a>
 </p>
 
 
