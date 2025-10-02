@@ -104,27 +104,20 @@
 
 # Team Photo
 
-<img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" />
-</div>
-
-## Team Members
-
-<h2>Team Photo</h2>
-
 <table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:8px 0;">
   <tr>
     <td align="center" style="padding:14px;">
       <div style="border:2px dashed #FFC107; border-radius:10px; padding:24px; height:320px; display:flex; align-items:center; justify-content:center;">
-        <b>[ ADD TEAM PHOTO HERE — 1000×750 ]</b>
+        <b><img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" /></b>
       </div>
       <div style="margin-top:8px; color:#444;"><em>Team Bees — WRO 2025 Future Engineers (Nationals → Panama)</em></div>
     </td>
   </tr>
 </table>
 
-<hr/>
+</div>
 
-<h2>Team Members</h2>
+## Team Members
 
 <table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
   <tr>
