@@ -362,7 +362,6 @@ Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted 
 
 <table>
 <tr>
-  <!-- Title Block -->
   <td width="35%" valign="top">
 
   ### Physical Qualities
@@ -375,7 +374,7 @@ Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted 
 
   </td>
 
-  <!-- Motor Photo -->
+
   <td width="65%" align="center">
     <img width="1000" height="666" alt="image" src="https://github.com/user-attachments/assets/3070d15c-5419-4bc4-9259-0041d3cc827d" /><br>
     <em>Furitek Komodo 1212 motor</em>
@@ -396,7 +395,11 @@ Although it isn’t the fastest, pairing it with proper gear mesh and throttle m
 
 ---
 
-### Potential Improvments
+### Potential Improvements
+- Although the 3450 KV rating is quite fast, this speed sacrifices smooth, controlled rotation at a lower RPM. When we reduce RPM for tight turns, the motor’s choppy rotation slows us down and reduces effectiveness.
+- Improve quality. Under repeated high-load or high-speed operation, the motors components will degrade faster than higher quality ones.
+
+</br>
 
 </td>
 
@@ -423,11 +426,10 @@ Although it isn’t the fastest, pairing it with proper gear mesh and throttle m
 
 </br>
 
-### Potential Improvements
-- Although the 3450 KV rating is quite fast, this speed sacrifices smooth, controlled rotation at a lower RPM. When we reduce RPM for tight turns, the motor’s choppy rotation slows us down and reduces effectiveness.
-- Improve quality. Under repeated high-load or high-speed operation, the motors components will degrade faster than higher quality ones.
 
-</br>
+## Motor Stand
+
+---
 
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
