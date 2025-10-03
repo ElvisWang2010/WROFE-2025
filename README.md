@@ -1,4 +1,8 @@
 
+
+
+
+
 <div align="center">
    <img width="1400" height="360" alt="bee_header_banner" src="https://github.com/user-attachments/assets/14c3f514-8e8c-4156-beab-9c5c7759effe" width="100%">
 </div>
@@ -352,47 +356,68 @@ Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted 
 
 </br>
 
-## Motor
+## Furitek Micro Komodo 1212 3450KV Brushless Motor
 
-A compact, high-RPM brushless motor chosen for its exceptional power-to-weight ratio, providing rapid acceleration and high top speed for competitive performance.
+---
 
-</br>
+<table>
+<tr>
+  <!-- Title Block -->
+  <td width="35%" valign="top">
 
-<table border="1" width="100%">
-  <tr>
-    <td width="40%" align="center">
-      <img src="https://github.com/user-attachments/assets/d0dc1c9c-15fc-4828-bf2a-c64bc5550389" width="250" alt="Furitek Micro Komodo Motor" />
-    </td>
-    <td width="60%" valign="top">
-      <h2>Furitek Micro Komodo 1212 3450KV Brushless Motor</h2>
-      <ul>
-        <li><strong>KV (rpm/V):</strong> 3450</li>
-        <li><strong>No-load Current @10V:</strong> 0.7 A</li>
-        <li><strong>Power:</strong> 120 W</li>
-        <li><strong>Battery:</strong> 2–3S LiPo</li>
-        <li><strong>Resistance:</strong> 0.16 Ω</li>
-        <li><strong>Max Current:</strong> 10 A</li>
-        <li><strong>Slot/Pole:</strong> 12</li>
-        <li><strong>Motor Size:</strong> 15.5 × 20.6 mm</li>
-        <li><strong>Shaft:</strong> 1.5 × 6 mm</li>
-        <li><strong>Weight:</strong> 17.5 g</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <h3>Why We Chose This Motor</h3>
-      <p>
-Since this was our first time in the competition, we wanted to focus on learning and keep costs low. Rather than buying an expensive motor, we decided to buy a cheaper alternative. At the same time, we chose to redesign the drivetrain, not because the motor didn’t fit, but to personalize the car and make it our own. 
-    The motor wasn’t the fastest nor was it the most powerful, but its 17.5 g weight kept the car light, and 120 W of power drove the system reliably. Its 3450 KV rating provided enough speed, and the low internal resistance helped maintain efficiency. The compact size and the 12-slot stator with multipole rotor delivered smooth torque for better control. It wasn’t the “best” motor available, but reusing it let us learn, save money, and create a car that reflected our ideas in our first competition.
-      </p>
-      <h3>Real-World Notes</h3>
-      <p>
-        Testing showed smooth acceleration with minimal heat buildup. Its compact design fit tightly in the chassis, reducing drivetrain losses and maintaining reliability through repeated runs. Although not our ideal pick, it was definitely not much of a hindeance. 
-      </p>
-    </td>
-  </tr>
+  ### Physical Qualities
+  | Field          | Value                              |
+  |----------------|------------------------------------|
+  | **Product Title** | Furitek Micro Komodo 1212 3450KV |
+  | **Size**          | 15.5 × 20.6 mm                   |
+  | **Weight**        | 17.5 g                           |
+  | **Physical State**| Brushless Outrunner (12-slot)    |
+
+  </td>
+
+  <!-- Motor Photo -->
+  <td width="65%" align="center">
+    <img width="1000" height="666" alt="image" src="https://github.com/user-attachments/assets/3070d15c-5419-4bc4-9259-0041d3cc827d" /><br>
+    <em>Furitek Komodo 1212 motor</em>
+  </td>
+</tr>
 </table>
+
+---
+
+<table>
+<tr>
+<td width="65%" valign="top">
+
+### Reasoning of Purchase
+The motor’s 17.5 g mass supports a low center of gravity and quick directional changes.  
+Its 12-slot stator and multipole rotor deliver smooth torque for precise control.  
+Although it isn’t the fastest, pairing it with proper gear mesh and throttle mapping gave dependable performance with minimal heat rise.
+
+---
+
+### Potential Improvments
+
+</td>
+
+<td width="35%" valign="top">
+
+### Performance Specifications
+- KV: **3450 rpm/V**  
+- No-load @10V: **0.7 A**  
+- Power: **120 W**  
+- Battery: **2–3S LiPo**  
+- Resistance: **0.16 Ω**  
+- Max Current: **10 A**  
+- Slot/Pole: **12**  
+- Shaft: **1.5 × 6 mm**  
+
+</td>
+</tr>
+</table>
+
+---
+
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118" target="_blank">Click Here</a></p>
 
