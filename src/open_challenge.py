@@ -43,6 +43,7 @@ def wait_for_button_press():
     while True:
         if check_node_status():
             print("ROS2 node detected")
+            board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])
             button_id = listen_to_button_events()
             print(f"Button {button_id} pressed! Starting challenge...")
             return True
@@ -53,29 +54,21 @@ if __name__ == '__main__':
     # === CONFIGURATION ===
     STRAIGHT_PWM = 1500
     THROTTLE_PWM = 1610
-    THROTTLE_TURN = 1605 
-    TURN_THRESHOLD = 2500
-    KP = 0.012
-    KD = 0.001
-    MAX_LEFT = 1640
-    MAX_RIGHT = 1360
-    TURN_DEV = 100
+    KP = 0.08
+    KD = 0.003
+    MAX_LEFT = 1700
+    MAX_RIGHT = 1300
     board = rrc.Board()
     # === STATE VARIABLES ===
     last_turn_time = time.time()
     prev_diff = 0
     prev_angle = STRAIGHT_PWM
-    left_turn = False
-    right_turn = False
     last_orange_time = 0
-    orange_cooldown = 3.5
+    orange_cooldown = 3.0
     stop_time = 0
     turns = 0
     lap_complete = False
-
-    board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])   
-    wait_for_button_press()
-    board.set_rgb([[1, 255, 255, 0], [2, 255, 255, 0]])   
+  
     # === Initialize camera ===
     picam2 = Picamera2()
     picam2.preview_configuration.main.size = (640, 480)
@@ -88,20 +81,23 @@ if __name__ == '__main__':
     
     lower_orange = np.array([5, 100, 100])
     upper_orange = np.array([20, 255, 255])
-    
+
     # ---- Define ROIs ----
-    left_roi = (0, 230, 180, 150) # x, y, w, l
-    right_roi = (460, 230, 180, 150)
+    left_roi = (0, 200, 180, 170) # x, y, w, l
+    right_roi = (460, 200, 180, 170)
     orange_roi = (100, 300, 440, 80) # x, y, w, h
     
 
     board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
     time.sleep(4)
     print("Board initialized")
+   
+    wait_for_button_press()
+    board.set_rgb([[1, 255, 255, 0], [2, 255, 255, 0]]) 
     print("Starting")
     time.sleep(1)
-    board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]]) 
-    
+    board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]])
+
     # === Main loop ===
     while not lap_complete:
         # ---- Get camera frame ----
@@ -146,46 +142,11 @@ if __name__ == '__main__':
         # ---- PD steering ----
         area_diff = right_area - left_area
         angle_pwm = int(STRAIGHT_PWM + area_diff * KP + (area_diff - prev_diff) * KD)
-        
-        # ---- Turn state logic ----
-        if left_area <= TURN_THRESHOLD and not right_turn:
-            left_turn = True
-            board.set_rgb([[1, 0, 0, 255], [2, 0, 0, 255]]) 
-        elif right_area <= TURN_THRESHOLD and not left_turn:
-            right_turn = True
-            board.set_rgb([[1, 0, 0, 255], [2, 0, 0, 255]]) 
-        # Turn exits
-        if left_turn or right_turn:
-            if left_turn:
-                if right_area > left_area * 1.8:  
-                    current_time = time.time()
-                    if current_time - last_turn_time >= 1.2:
-                        left_turn = False
-                        board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]]) 
-                        last_turn_time = current_time
-                        prev_diff = 0
-                        
-            elif right_turn:
-                if left_area > right_area * 1.8:  
-                    current_time = time.time()
-                    if current_time - last_turn_time >= 1.2:
-                        right_turn = False
-                        board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]]) 
-                        last_turn_time = current_time
-                        prev_diff = 0
-
-            elif left_turn:
-                angle_pwm = min(max(angle_pwm, STRAIGHT_PWM + TURN_DEV), MAX_LEFT)
-            elif right_turn:
-                angle_pwm = max(min(angle_pwm, STRAIGHT_PWM - TURN_DEV), MAX_RIGHT)
-        else:
-            angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
 
         # ---- Drive ----
-        if left_turn or right_turn:
-            board.pwm_servo_set_position(0.1, [[4, angle_pwm], [2, THROTTLE_TURN]])
-        else:
-            board.pwm_servo_set_position(0.1, [[4, angle_pwm], [2, THROTTLE_PWM]])                                           
+        angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
+        board.pwm_servo_set_position(0.1, [[4, angle_pwm], [2, THROTTLE_PWM]])        
+
         prev_diff = area_diff
         prev_angle = angle_pwm
 
@@ -196,7 +157,7 @@ if __name__ == '__main__':
             turns += 1
         if turns >= 13:
             current_time = time.time()
-            if current_time - stop_time >= 6:
+            if current_time - stop_time >= 5:
                 board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
                 lap_complete = True
 
@@ -214,3 +175,4 @@ if __name__ == '__main__':
                 break
 
     cv2.destroyAllWindows()
+
