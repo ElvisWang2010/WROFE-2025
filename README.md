@@ -345,14 +345,14 @@ The new wheels also improved efficiency. With less energy wasted on wheel slip, 
 
 ## Drive System
 
-Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted to the back wheels rather than the front. This configuration provides many benefits to the car.
+Our car uses a rear wheel drive (RWD), meaning that motor's power is transmitted to the back wheels rather than the front. This configuration provides many benefits to the car.
 
 </br>
 
 ### Benefits
-- Better weight distribution. This is since the front wheels handle steering, and the rear wheels help with propulsion, which helps the car remain more balanced during acceleration and turning.
+- Better weight distribution. This is because the front wheels handle steering, and the rear wheels help with propulsion, which helps the car remain more balanced during acceleration and turning.
 - RWD also provides a stronger grip to surfaces. Since the rear of the robot is heavier, the back wheels get pressed into the ground, providing for more traction and therefore enhancing the grip.
-- Since the front wheels are only used for steering, the car can turn more precisely as there is no motor interference.
+- Since the front wheels are only used for steering, the car can turn more precisely, as there is no motor interference.
 
 </br>
 
@@ -389,16 +389,15 @@ Our car uses a rear wheel drive (RWD), meaning that motors power is transmitted 
 <td width="65%" valign="top">
 
 ### Reasoning of Purchase
-The motor’s 17.5 g mass supports a low center of gravity and quick directional changes.  
-Its 12-slot stator and multipole rotor deliver smooth torque for precise control.  
-Although it isn’t the fastest, pairing it with proper gear mesh and throttle mapping gave dependable performance with minimal heat rise.
+Following a review of suitable brushless options, we selected the Furitek Micro Komodo 1212 3450 KV brushless motor. This motor is compact and lightweight, making it perfect for a small self-driving platform where space and weight impact agility and energy use. Its 12-slot, multipole design distributes torque more evenly during rotation. This results in less cogging, smoother throttle response, and better control at low speeds.
 
 ---
 
 ### Potential Improvements
-- Although the 3450 KV rating is quite fast, this speed sacrifices smooth, controlled rotation at a lower RPM. When we reduce RPM for tight turns, the motor’s choppy rotation slows us down and reduces effectiveness.
-- Improve quality. Under repeated high-load or high-speed operation, the motors components will degrade faster than higher quality ones.
-
+- Replace plastic gears with metal gears to withstand sustained, high-speed usage.
+- Experiment with 10 : 58 – 14 : 58 combinations to tune the balance between torque and top speed.
+- Upgrade or lubricate bearings to reduce friction and improve consistency over multiple heats.
+  
 </br>
 
 </td>
@@ -427,9 +426,11 @@ Although it isn’t the fastest, pairing it with proper gear mesh and throttle m
 </br>
 
 
-## Motor Stand
+## Motor Mount
 
----
+*Insert Image Here*
+
+Our motor is tightly secured to our 3D printed motor stand.
 
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
