@@ -23,7 +23,7 @@ class NavigatorNode(Node):
         # Pillar 
         self.pillar_cx = None
         self.pillar_cy = None
-        self.pillar_detection_thresh = 1600
+        self.pillar_detection_thresh = 1800
         self.pillar_clear_thresh = 100 
         self.front_wall_threshold = 7000    # If frontm ROI has this much black, wall is close
         self.side_wall_threshold = 2500
@@ -40,14 +40,14 @@ class NavigatorNode(Node):
         self.current_angle = 0.0
         #Park / Stop
         self.stop_timer = 3.0
-        self.escape_timeout = 2.6
+        self.escape_timeout = 2.3
         self.backup_timer = 3
         self.backup_time = 0
 
         self.left_roi = (0, 200, 180, 200)  # x, y, w, h
         self.right_roi = (460, 200, 180, 200)
-        self.center_roi = (0, 150, 639, 260)  # x, y, w, h
-        self.front_wall_roi = (240, 240, 160, 40)    # Upper center for front walls
+        self.center_roi = (0, 180, 639, 260)  # x, y, w, h
+        self.front_wall_roi = (260, 200, 160, 180)    # Upper center for front walls
         self.left_wall_roi = (100, 300, 60, 60)     # Left side walls
         self.right_wall_roi = (480, 300, 60, 60)   # Right side walls
         
@@ -63,13 +63,13 @@ class NavigatorNode(Node):
         self.upper_magenta = np.array([170, 255, 255])
         """
         #home ranges
-        self.lower_red1 = np.array([0, 100, 100])
-        self.upper_red1 = np.array([10, 255, 255])
-        self.lower_red2 = np.array([160, 100, 100])
+        self.lower_red1 = np.array([0, 120, 50])
+        self.upper_red1 = np.array([5, 255, 255])
+        self.lower_red2 = np.array([175, 120, 50])
         self.upper_red2 = np.array([179, 255, 255])
         self.lower_green = np.array([50, 150, 80])
         self.upper_green = np.array([95, 255, 255])
-        self.lower_magenta = np.array([140, 100, 100])
+        self.lower_magenta = np.array([150, 100, 80])
         self.upper_magenta = np.array([170, 255, 255])
         
         self.lower_orange = np.array([5, 100, 100])
@@ -192,7 +192,92 @@ class NavigatorNode(Node):
         self.center_green_area = cv2.countNonZero(center_green_mask)
         self.center_red_area = cv2.countNonZero(center_red_mask)
 
-        if self.fron}, CENTROID Y: {self.pillar_cy}")
+        if self.front_wall_area >= self.front_wall_threshold:
+            self.wall_in_front = True
+            #self.get_logger().info("Wall is close")
+        else:
+            self.wall_in_front = False
+            #self.get_logger().info("Wall is no longer close")
+        
+        if self.left_wall_area >= self.side_wall_threshold:
+            self.left_wall_close = True
+            self.right_wall_close = False
+            #self.get_logger().info("Wall is close")
+        elif self.right_wall_area >= self.side_wall_threshold:
+            self.right_wall_close = True
+            self.left_wall_close = False
+            #self.get_logger().info("Wall is close")    
+        else:
+            self.left_wall_close = False
+            self.right_wall_close = False
+            #self.get_logger().info("Wall is no longer close")
+            
+        # Pillar detection
+        current_time = time.time()
+        if self.pillar_mode is not None:
+            current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
+            if current_pillar_area >= self.front_wall_threshold:
+                self.pillar_close = True
+            else:
+                self.pillar_close = False
+            
+        if self.center_red_area > self.pillar_detection_thresh and self.center_red_area > self.center_green_area:
+            self.pillar_mode = "red"
+            self.last_pillar = "red"
+            self.last_pillar_time = current_time
+            self.prev_pillar_error = self.center_red_area
+            self.get_logger().info("Entering RED pillar mode")
+            self.board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])
+            
+        elif self.center_green_area > self.pillar_detection_thresh and self.center_green_area > self.center_red_area:
+            self.pillar_mode = "green"  
+            self.last_pillar = "green"
+            self.last_pillar_time = current_time
+            self.prev_pillar_error = self.center_green_area
+            self.get_logger().info("Entering GREEN pillar mode")
+            self.board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]])
+
+        else:
+            #Exit condition
+            current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
+            # Use hysteresis to prevent flickering
+            if (current_pillar_area < self.pillar_clear_thresh and 
+                current_time - self.last_pillar_time > 0.1 and self.pillar_mode is not None):  # Wait 0.5s of low signal
+                self.get_logger().info(f"Exiting {self.pillar_mode} pillar mode")
+                self.pillar_mode = None
+                self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+            
+        self.pillar_cx = None  # Reset centroid each frame
+        self.pillar_cy = None
+
+        if self.pillar_mode == "red":
+            # Find centroid
+            M = cv2.moments(center_red_mask)
+            if M["m00"] > 0:
+                self.pillar_cx = int(M["m10"] / M["m00"])
+                self.pillar_cy = int(M["m01"] / M["m00"])
+                self.pillar_cy = self.pillar_cy + self.center_roi[1]
+
+        elif self.pillar_mode == "green":
+            # Find centroid
+            M = cv2.moments(center_green_mask)
+            if M["m00"] > 0:
+                self.pillar_cx = int(M["m10"] / M["m00"])
+                self.pillar_cy = int(M["m01"] / M["m00"])
+                self.pillar_cy = self.pillar_cy + self.center_roi[1]
+                
+        if self.mode == "start":
+            if self.left_area > self.right_area:
+                self.parking_side = "left"
+                self.get_logger().info("Parking lot detected on LEFT")
+            elif self.right_area > self.left_area:
+                self.parking_side = "right" 
+                self.get_logger().info("Parking lot detected on RIGHT")
+            self.escape_phase = "front"
+            
+        # DEBUG
+        if self.pillar_mode is not None:
+            self.get_logger().info(f"CENTROID X: {self.pillar_cx}, CENTROID Y: {self.pillar_cy}")
         self.get_logger().info(f"Center ROI -> Red: {self.center_red_area}, Green: {self.center_green_area}")
         self.get_logger().info("-" * 40)
     
@@ -210,17 +295,18 @@ class NavigatorNode(Node):
             cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)  # Yellow circle
             cv2.putText(frame, f"CX: {self.pillar_cx}", (self.pillar_cx + 15, self.pillar_cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
             # Add to your debug visualization:
-            cv2.rectangle(frame, (self.front_wall_roi[0], self.front_wall_roi[1]), 
-                        (self.front_wall_roi[0] + self.front_wall_roi[2], self.front_wall_roi[1] + self.front_wall_roi[3]), 
-                        (255, 255, 0), 2)  # Cyan for front wall ROI
-            cv2.rectangle(frame, (self.left_wall_roi[0], self.left_wall_roi[1]), 
-                        (self.left_wall_roi[0] + self.left_wall_roi[2], self.left_wall_roi[1] + self.left_wall_roi[3]), 
-                        (255, 0, 255), 2)  # Magenta for left wall ROI
-            cv2.rectangle(frame, (self.right_wall_roi[0], self.right_wall_roi[1]), 
-                        (self.right_wall_roi[0] + self.right_wall_roi[2], self.right_wall_roi[1] + self.right_wall_roi[3]), 
-                        (0, 255, 255), 2)  # Yellow for right wall ROI
+            
+        cv2.rectangle(frame, (self.front_wall_roi[0], self.front_wall_roi[1]), 
+                    (self.front_wall_roi[0] + self.front_wall_roi[2], self.front_wall_roi[1] + self.front_wall_roi[3]), 
+                    (255, 255, 0), 2)  # Cyan for front wall ROI
+        cv2.rectangle(frame, (self.left_wall_roi[0], self.left_wall_roi[1]), 
+                    (self.left_wall_roi[0] + self.left_wall_roi[2], self.left_wall_roi[1] + self.left_wall_roi[3]), 
+                    (255, 0, 255), 2)  # Magenta for left wall ROI
+        cv2.rectangle(frame, (self.right_wall_roi[0], self.right_wall_roi[1]), 
+                    (self.right_wall_roi[0] + self.right_wall_roi[2], self.right_wall_roi[1] + self.right_wall_roi[3]), 
+                    (0, 255, 255), 2)  # Yellow for right wall ROI
         
-            cv2.putText(frame, f"Centroid X: {self.pillar_cx}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
+        cv2.putText(frame, f"Centroid X: {self.pillar_cx}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             
         # NEW: Add pillar mode and centroid info to display
         cv2.putText(frame, f"State: {self.mode}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
@@ -244,7 +330,7 @@ class NavigatorNode(Node):
                 self.escape_mode = "front"
                 self.get_logger().info("Escape maneuver started")
             
-            if  self.current_angle >= 80 and self.escape_attempts >= 5:
+            if  self.current_angle >= 80 or self.escape_attempts >= 4:
                 self.mode = "navigate"
                 self.get_logger().info("Max escape attempts reached, switching to navigate")
                 return
@@ -253,7 +339,7 @@ class NavigatorNode(Node):
             phase_elapsed = current_time - self.escape_phase_start
             
             # Check if phase should switch
-            if phase_elapsed >= self.escape_timeout:
+            if phase_elapsed >= self.escape_timeout and phase_elapsed < self.escape_timeout + 0.1:
                 if self.escape_mode == "front":
                     self.escape_mode = "back"
                     self.escape_attempts += 1
@@ -261,14 +347,89 @@ class NavigatorNode(Node):
                     self.get_logger().info(f"Switching to BACK, attempt {self.escape_attempts}")
                 else:
                     self.escape_mode = "front" 
-                    self.throttle = self.throttle_pwm
+                    self.escape_attempts += 1
+                    self.escape_phase_start = current_time  # RESET PHASE TIMER
+                    self.get_logger().info(f"Switching to FRONT, attempt {self.escape_attempts}")
+                return  # Skip execution this cycle to allow timer reset
+            
+            # Execute current phase
+            if self.parking_side == "left":
+                if self.escape_mode == "front":
+                    self.angle_pwm = self.max_right - 200
+                    self.throttle = 1570
+                    self.get_logger().info(f"LEFT escape forwards ({phase_elapsed:.1f}s)")
+                else:
+                    self.angle_pwm = self.max_left + 200
+                    self.throttle = 1420
+                    self.get_logger().info(f"LEFT escape backwards ({phase_elapsed:.1f}s)")
+            else:
+                if self.escape_mode == "front":
+                    self.angle_pwm = self.max_left + 200
+                    self.throttle = 1570
+                    self.get_logger().info(f"RIGHT escape forwards ({phase_elapsed:.1f}s)")
+                else:
+                    self.angle_pwm = self.max_right - 200
+                    self.throttle = 1420
+                    self.get_logger().info(f"RIGHT escape backwards ({phase_elapsed:.1f}s)")
+                
+            # Apply controls and return
+            self.speed(self.throttle)
+            self.steer_pwm(self.angle_pwm)
+            return
+        
+
+        if self.pillar_mode and self.mode != "start" and self.mode != "button" and self.mode != "stop":
+            current_time = time.time()
+        
+            if self.pillar_cx is not None:  
+                if self.pillar_mode == "red":
+                    error = self.pillar_cx - self.screen_center_x + 225
+                    steering_adjustment = -error * 1.5  
+                    if self.pillar_close:
+                        steering_adjustment -= 30
+                    self.angle_pwm = self.straight_pwm + steering_adjustment
+                    if self.wall_in_front or self.right_wall_close:
+                        self.angle_pwm = self.max_left
+                        self.get_logger().info("emergency left turn")
+                    self.get_logger().info(f"Red pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
+                    
+                elif self.pillar_mode == "green":
+                    error = self.pillar_cx - self.screen_center_x - 225
+                    steering_adjustment = -error * 1.5
+                    if self.pillar_close:
+                        steering_adjustment += 30 
+                    self.angle_pwm = self.straight_pwm + steering_adjustment
+                    if self.wall_in_front or self.left_wall_close:
+                        self.angle_pwm = self.max_right
+                        self.get_logger().info("emergency right turn")
+                    self.get_logger().info(f"Green pillar - CX: {self.pillar_cx}, Error: {error}, PWM: {self.angle_pwm}")
+                
+                else:
+                    if self.pillar_mode == "red":
+                        self.angle_pwm = self.straight_pwm - 200  # Gentle right turn                   
+                    else:
+                        self.angle_pwm = self.straight_pwm + 200  # Gentle left turn
+                    self.get_logger().info(f"{self.pillar_mode} pillar - Centroid lost, using default turn")
+                    error = self.prev_pillar_error
+                
+            # Apply limits
+            self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+            self.throttle = self.throttle_slow
+            #self.prev_pillar_error = error
+        
+        else:
+            self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+            area_diff = self.right_area - self.left_area
+            self.angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
+            self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+            self.throttle = self.throttle_pwm
             if self.last_pillar == "red" and (self.wall_in_front or self.right_wall_close):
                 self.angle_pwm = self.max_left
                 self.get_logger().info("emergency left turn")
             elif self.last_pillar == "green" and (self.wall_in_front or self.left_wall_close):
                 self.angle_pwm = self.max_right
                 self.get_logger().info("emergency right turn")
-            #self.prev_diff = area_diff
+            self.prev_diff = area_diff
         
 
         # Park
@@ -310,5 +471,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-
