@@ -516,8 +516,7 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 </br>
 
 ## Steering
-Our prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed. We created two different steering designs, the first features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more promise. After testing, its performance outclassed the first design. Consisting of 
-
+Our prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed. We created two different steering designs, the first features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more promise. After testing, its performance outclassed the first design, consisting of an antisway arm, steering knuckles, and control arm, providing a more consistent turn, easier assembly, and increased durability.
 </br>
 
 <img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/ae47c905-b52a-4d0d-850f-63ae427cce4b" />
