@@ -191,6 +191,11 @@
 
 </br>
 
+## Introduction
+Team Bees is a group of high-school students from Ontario, Canada, passionate about robotics and self-driving technologies. Our car was designed and programmed to complete both the Open and Obstacle Challenges of WRO 2025 Future Engineers. After only placing 5th in Ottawa Nationals, we advanced to Panama Internationals, representing our country.
+
+Our objective is to design a low-cost, fully autonomous miniature car using accessible components and open-source software, integrating vision, IMU, and LiDAR for perception and ROS 2 Humble for system control.
+
 ---
 
 </br>
@@ -310,7 +315,7 @@ For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame origin
 Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
 
 - **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
-- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredicable and when navigating precise maneuvers, uneven steering made the car difficult to control consistantly.
+- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredictable, and when navigating precise maneuvers, uneven steering made the car difficult to control consistently.
 </br>
 
 ###  How We Overcame These Limitations  
@@ -474,49 +479,6 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 
 ---
 
-</br>
-
-## Steering
-Our first prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed.
-This process put us against tough challenges. In early versions, we found it difficult to make the system truly balanced. Even small errors in 3D design or flaws in the printing process led to slight misalignments. These small mistakes resulted in noticeable steering inconsistencies. We had to do multiple redesigns and reprints. By iterating, tightening tolerances, and refining our 3D models, we gradually removed these errors and created a system that was both precise and reliable.
-
-The new design features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles that translate the servo’s rotation into precise, symmetrical wheel movement. This layout ensures consistent handling and greatly improves control compared to the original design.
-
-</br>
-
-<table>
-  <tr>
-    <td style="border: 200px solid black; padding: 5px;">
-      <img width="1200" height="570" alt="Untitled design" 
-           src="https://github.com/user-attachments/assets/839592d3-8859-4111-a7a7-856aeb2863e8" />
-    </td>
-  </tr>
-</table>
-
-</br>
-
-### Key Improvements Over Stock Design
-1. **Symmetry in Motion** – Both left and right wheels now turn at equal angles, reducing understeer/oversteer imbalance.  
-2. **Reduced Backlash** – By using strong linkages and tightly toleranced 3D-printed parts, uncontrolled movement is minimized.  
-3. **Strength & Durability** – The mounting frame distributes servo torque evenly, reducing wear and preventing chassis flex.  
-4. **Precision Control** – The redesigned geometry allows finer servo adjustments to translate directly into steering corrections.
-   
-</br>
-
-### Manufacturing & Assembly
-- All parts were modeled in CAD and 3D-printed using high-strength PLA filament.  
-- Ball screw were used in the knuckles to reduce friction and extend part life.  
-- The servo linkage was reinforced with a metal rod to prevent bending under load.
-
-</br>
-
-### Potential Improvements:
-- Use a different material, PLA is brittle, and PETG, ABS, or Nylon would've given more toughness and flexibility.
-- Add more fillets on corners, reducing stress concentration and preventing cracks.
-- Implement brass threaded inserts for screw holes rather than relying on bare plastic.
-
-</br>
-
 ## Servo Motor
 
 This servo motor was chosen for its compact size, strong torque, and durable metal gears, making it great for precise steering control.
@@ -552,6 +514,39 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 - Upgrade to a higher-torque digital micro servo for more reliable steering.
 
 </br>
+
+## Steering
+Our prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed. We created two different steering designs, the first features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more promise. After testing, its performance outclassed the first design. Consisting of 
+
+</br>
+
+<img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/cb7de1cd-9c0b-4e7d-9be8-92ceb6334f4a" />
+
+
+</br>
+
+### Key Improvements Over Stock Design
+1. **Symmetry in Motion** – Both left and right wheels now turn at equal angles, reducing understeer/oversteer imbalance.  
+2. **Reduced Backlash** – By using strong linkages and tightly toleranced 3D-printed parts, uncontrolled movement is minimized.  
+3. **Strength & Durability** – The mounting frame distributes servo torque evenly, reducing wear and preventing chassis flex.  
+4. **Precision Control** – The redesigned geometry allows finer servo adjustments to translate directly into steering corrections.
+   
+</br>
+
+### Manufacturing & Assembly
+- All parts were modeled in CAD and 3D-printed using high-strength PLA filament.  
+- Ball screw were used in the knuckles to reduce friction and extend part life.  
+- The servo linkage was reinforced with a metal rod to prevent bending under load.
+
+</br>
+
+### Potential Improvements:
+- Use a different material, PLA is brittle, and PETG, ABS, or Nylon would've given more toughness and flexibility.
+- Add more fillets on corners, reducing stress concentration and preventing cracks.
+- Implement brass threaded inserts for screw holes rather than relying on bare plastic.
+
+</br>
+
 
 ### How the Car Moves
 When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
@@ -592,7 +587,7 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
     <td colspan="2">
       <h3>Why We Chose This Battery</h3>
       <p>
-       This battery was selected for its high discharge 45C continuous discharge rate, doubling to 90C at its peak, easily meeting our power requirements. The high discharge rate enables for quicker, consistent bursts of energy for acceration, preventing sag that could impact performance. Its light 90g design permitted for a quicker, more agile car while placing less strain on our chassis. Its 7.4V voltage is a perfect suit, jumping into an 11.1V battery may provide more speed, but also wears down components quicker, eventually destroying the part completly; longevity would be a great concern.
+       This battery was selected for its high discharge 45C continuous discharge rate, doubling to 90C at its peak, easily meeting our power requirements. The high discharge rate enables for quicker, consistent bursts of energy for acceleration, preventing sag that could impact performance. Its light 90g design permitted for a quicker, more agile car while placing less strain on our chassis. Its 7.4V voltage is a perfect fit, jumping into an 11.1V battery may provide more speed, but also wears down components quicker, eventually destroying the part completly; longevity would be a great concern.
       </p>
       <h3>Real-World Notes</h3>
       <p>
@@ -607,8 +602,8 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 ### Potential Improvements
 - Faster charge rate to reduce downtime.
-- Longer survivability. Sacrifice some weight for a higher mAh, equating to a longer lasting battery.
-- Enhanced safety features, such as overcharge protection since one of our batteries broke due to overcharging.
+- Longer survivability. Sacrifice some weight for a higher mAh, equating to a longer-lasting battery.
+- Enhanced safety features, such as overcharge protection, since one of our batteries broke due to overcharging.
   
 We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
 
