@@ -464,6 +464,12 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth" target="_blank">Click Here</a></p>
 
+
+</br>
+
+### Potential Improvements
+
+
 </br>
 
 ---
@@ -493,7 +499,7 @@ The new design features a mounting frame that secures the system to the chassis,
 1. **Symmetry in Motion** – Both left and right wheels now turn at equal angles, reducing understeer/oversteer imbalance.  
 2. **Reduced Backlash** – By using strong linkages and tightly toleranced 3D-printed parts, uncontrolled movement is minimized.  
 3. **Strength & Durability** – The mounting frame distributes servo torque evenly, reducing wear and preventing chassis flex.  
-4. **Precision Control** – The redesigned geometry allows finer servo adjustments to directly translate into steering corrections.
+4. **Precision Control** – The redesigned geometry allows finer servo adjustments to translate directly into steering corrections.
    
 </br>
 
