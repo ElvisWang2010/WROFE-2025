@@ -520,7 +520,8 @@ Our prototype used a commercial chassis. However, we quickly identified that the
 
 </br>
 
-<img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/cb7de1cd-9c0b-4e7d-9be8-92ceb6334f4a" />
+<img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/ae47c905-b52a-4d0d-850f-63ae427cce4b" />
+
 
 
 </br>
