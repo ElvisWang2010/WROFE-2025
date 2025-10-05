@@ -453,7 +453,7 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
       <img src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" width="500" alt="Furitek Lizard Pro ESC" /> 
     </td> 
     <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
-      <h2 style="font-size:28px;">Furitek Lizard Pro 30A/50A ESC</h2> 
+         <h2 style="font-size:28px;">Furitek Lizard Pro 30A/50A ESC</h2> 
       <ul>
         <li><strong>Battery Support:</strong> 2S–3S LiPo</li> 
         <li><strong>BEC:</strong> 5V or 6.5V, 2.5A</li> 
@@ -468,11 +468,6 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 </table>
 
 <p><strong>Where to Buy:</strong> <a href="https://furitek.com/products/combo-of-furitek-lizard-pro-30a-50a-brushed-brushless-esc-for-axial-scx24-with-bluetooth" target="_blank">Click Here</a></p>
-
-
-</br>
-
-### Potential Improvements
 
 
 </br>
@@ -519,9 +514,6 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 Our prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed. We created two different steering designs, the first features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more promise. After testing, its performance outclassed the first design, consisting of an antisway arm, steering knuckles, and control arm, providing a more consistent turn, easier assembly, and increased durability.
 </br>
 
-<img width="1000" height="650" alt="image" src="https://github.com/user-attachments/assets/ae47c905-b52a-4d0d-850f-63ae427cce4b" />
-
-
 
 </br>
 
@@ -558,7 +550,9 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 ---
 
 </br>
+
 # Power Management
+
 </br>
 
 ## Battery
