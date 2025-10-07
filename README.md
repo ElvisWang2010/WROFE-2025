@@ -431,7 +431,8 @@ Following a review of suitable brushless options, we selected the Furitek Micro 
 </br>
 
 
-![Motor Mount Video](https://github.com/user-attachments/assets/7acecc8d-c95e-430d-81dc-c76496412ba5)
+![Motor Mount](https://github.com/user-attachments/assets/0cda8906-4617-4c8e-97d2-19aec24da7c0)
+
 
 
 Our motor is tightly secured to our 3D printed motor stand.
