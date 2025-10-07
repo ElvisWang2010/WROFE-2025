@@ -511,7 +511,7 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 </br>
 
 ## Steering
-Our prototype used a commercial chassis. However, we quickly identified that the steering system was inefficient and turned asymmetrically. To overcome this, we engineered a completely new steering system from the ground up, 3D-printing all components to achieve the symmetric and precise control we needed. We created two different steering designs, the first features a mounting frame that secures the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more promise. After testing, its performance outclassed the first design, consisting of an antisway arm, steering knuckles, and control arm, providing a more consistent turn, easier assembly, and increased durability.
+Our prototype used a commercial chassis. We quickly found that the steering system was inefficient and turned unevenly. To fix this, we built a completely new steering system from scratch, 3D-printing all the components for the precise and balanced control we needed. We developed two different steering designs. The first design includes a mounting frame that attaches the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more potential. After testing, it performed better than the first design. This design features an antisway arm, steering knuckles, and a control arm, offering a more consistent turn, easier assembly, and greater durability.
 </br>
 
 
@@ -541,9 +541,9 @@ Our prototype used a commercial chassis. However, we quickly identified that the
 
 
 ### How the Car Moves
-When the battery supplies power, the ESC controls the amount of electricity funneled to the motor. The motor then converts this regulated flow of electricity into rotational motion, thereby spinning the wheels of the car. By adjusting the voltage and current through the ESC, we can control the car's speed and direction (forwards and backwards), allowing it to accelerate, slow down, or reverse in motion.
+When the battery provides power, the ESC manages the electricity sent to the motor. The motor turns this controlled flow of electricity into rotational motion, which makes the car's wheels spin. By changing the voltage and current through the ESC, we can control the car's speed and direction, enabling it to move forward, backward, accelerate, slow down, or reverse.
 
-In parallel, the servo motor is responsible for steering. It adjusts the angle of the front wheels through the steering system, enabling the car to turn left or right with precision.
+At the same time, the servo motor handles steering. It changes the angle of the front wheels through the steering system, allowing the car to turn left or right accurately.
 
 ---
 
@@ -559,26 +559,22 @@ In parallel, the servo motor is responsible for steering. It adjusts the angle o
 
 <table>
 <tr>
-  <td width="35%" valign="top">
+  <td valign="top" width="35%">
 
   ### Physical Qualities
   | Field | Value |
   |--------|--------|
-  | **Product Title** | Gens Ace 1300mAh 2S 7.4V 25C LiPo |
-  | **Voltage** | 7.4 V (2S) |
-  | **Capacity** | 1300 mAh |
-  | **Discharge Rate** | 45C Continuous / 90C Peak |
-  | **Charge Rate** | 5C (6.5 A Max) |
-  | **Configuration** | 2S1P |
-  | **Connector** | T-Style (Battery), G-Tech Smart (Balance) |
-  | **Dimensions** | 70.9 × 35.2 × 14.5 mm |
-  | **Weight** | 90 g |
+  | Product Title | Gens Ace 1300mAh 2S 7.4V 25C LiPo |
+  | Size | 70.9 × 35.2 × 14.5 mm |
+  | Weight | 90 g |
+  | Type | 2S1P LiPo Battery |
+  | Connector | T-Style (Battery), G-Tech Smart (Balance) |
 
   </td>
 
-  <td width="65%" align="center">
-    <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" alt="Gens Ace 1300mAh 2S 7.4V LiPo Battery" width="400"/><br>
-    <em>Gens Ace 1300 mAh 2S LiPo Battery</em>
+  <td align="center" width="65%">
+    <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" alt="Gens Ace 1300mAh 2S 7.4V LiPo Battery" width="600"/><br>
+    <em>Gens Ace 1300mAh 2S LiPo Battery</em>
   </td>
 </tr>
 </table>
@@ -587,13 +583,49 @@ In parallel, the servo motor is responsible for steering. It adjusts the angle o
 
 <table>
 <tr>
-<td width="65%" valign="top">
+<td valign="top" width="65%">
 
 ### Reasoning of Purchase
-We selected the Gens Ace 1300 mAh 2S LiPo for its balance between weight, capacity, and discharge performance.  
-Its 45C continuous (90C burst) discharge rate provides a strong current for rapid acceleration while minimizing voltage sag under high load.  
+We selected the Gens Ace 1300mAh 2S LiPo for its excellent balance between weight, capacity, and current output.  
+Its 45C continuous (90C burst) discharge rate provides strong acceleration without noticeable voltage drop.  
+The compact design keeps our self-driving car lightweight and well-balanced, ideal for quick maneuvers on WRO courses.  
+Its 7.4V rating offers stable power delivery without the extra wear that 3S (11.1V) packs can cause on smaller ESCs and motors.
+
+---
+
+### Potential Improvements
+- Increase capacity to 1500–1800mAh for longer runtime between charges.  
+- Support faster charging by using a pack with higher C-rate.  
+- Add built-in protection for overcharge or over-discharge safety.  
+
+</br>
+
+</td>
+
+<td valign="top" width="35%">
+
+### Performance Specifications
+- Voltage: 7.4V (2S)  
+- Capacity: 1300mAh  
+- Discharge Rate: 45C Continuous / 90C Peak  
+- Charge Rate: 5C (6.5A Max)  
+- Cell Configuration: 2S1P  
+- Watt Hours: 9.62Wh  
+- Connector: T-Style, G-Tech Smart Balance  
+- Dimensions: 70.9 × 35.2 × 14.5 mm  
+- Weight: 90 g  
+
+</td>
+</tr>
+</table>
+
+---
 
 
+<p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
+
+The battery is located at the lowest point of the chassis and is securely attached with Velcro. This setup reduces slippage and helps lower the center of gravity, improving cornering stability.
+</br>
 
 ### Power Ratings Table
 | Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
@@ -611,9 +643,10 @@ Its 45C continuous (90C burst) discharge rate provides a strong current for rapi
 
 </br>
 
-The Gens Ace 1300 mAh 2S 7.4V LiPo Battery offers ample power for our car, as indicated in the Power Ratings Table. Normally, the car uses about 13 W, which corresponds to approximately 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
+The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
 
 </br>
+
 
 ## Electrical Wiring
 
