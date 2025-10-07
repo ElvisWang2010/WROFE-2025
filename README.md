@@ -545,8 +545,6 @@ When the battery supplies power, the ESC controls the amount of electricity funn
 
 In parallel, the servo motor is responsible for steering. It adjusts the angle of the front wheels through the steering system, enabling the car to turn left or right with precision.
 
-Together, the motor, ESC, servo motor, and chassis form the core of our car's mobility system, while the battery holds the energy.
-
 ---
 
 </br>
@@ -555,53 +553,47 @@ Together, the motor, ESC, servo motor, and chassis form the core of our car's mo
 
 </br>
 
-## Battery
+## Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery
 
-<table border="2" width="100%">
-  <tr>
-    <td width="40%" align="center">
-      <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" width="250" alt="Gens Ace 1300mAh 2S LiPo Battery" />
-    </td>
-    <td width="60%" valign="top">
-      <h2>Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery</h2>
-      <ul>
-        <li><strong>Voltage:</strong> 7.4V (2S)</li>
-        <li><strong>Capacity:</strong> 1300mAh</li>
-        <li><strong>Maximum Charge Rate:</strong> 5C (6.5A)</li>
-        <li><strong>Discharge Rate:</strong> 45C Continuous / 90C Peak</li>
-        <li><strong>Cell Configuration:</strong> 2S1P</li>
-        <li><strong>Watt Hours:</strong> 9.62Wh</li>
-        <li><strong>Connector:</strong> T-Style (Battery), G-Tech Smart (Balance)</li>
-        <li><strong>Dimensions (LxWxH):</strong> 70.87 × 35.24 × 14.5 mm</li>
-        <li><strong>Weight:</strong> 90 g</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <h3>Why We Chose This Battery</h3>
-      <p>
-       This battery was selected for its high discharge 45C continuous discharge rate, doubling to 90C at its peak, easily meeting our power requirements. The high discharge rate enables for quicker, consistent bursts of energy for acceleration, preventing sag that could impact performance. Its light 90g design permitted for a quicker, more agile car while placing less strain on our chassis. Its 7.4V voltage is a perfect fit, jumping into an 11.1V battery may provide more speed, but also wears down components quicker, eventually destroying the part completly; longevity would be a great concern.
-      </p>
-      <h3>Real-World Notes</h3>
-      <p>
-        In practice, the battery delivered stable voltage under load without noticeable sag during acceleration. Its compact dimensions and light weight allowed for easy installation while simultaneously providing a significant supply of energy, giving us quicker and more decisive runs. However, its limited survivability proved drawback. In the process of downloading ROS2, the battery would frequently die over the 3-hour download time, so connecting the car to an outlet was the only solution. We feel that we could have sacrificed a bit of weight for some more power time. Charging was also an issue. The process to charge took a lengthy time, roughly 3 hours.
-      </p>
-    </td>
-  </tr>
+---
+
+<table>
+<tr>
+  <td width="35%" valign="top">
+
+  ### Physical Qualities
+  | Field | Value |
+  |--------|--------|
+  | **Product Title** | Gens Ace 1300mAh 2S 7.4V 25C LiPo |
+  | **Voltage** | 7.4 V (2S) |
+  | **Capacity** | 1300 mAh |
+  | **Discharge Rate** | 45C Continuous / 90C Peak |
+  | **Charge Rate** | 5C (6.5 A Max) |
+  | **Configuration** | 2S1P |
+  | **Connector** | T-Style (Battery), G-Tech Smart (Balance) |
+  | **Dimensions** | 70.9 × 35.2 × 14.5 mm |
+  | **Weight** | 90 g |
+
+  </td>
+
+  <td width="65%" align="center">
+    <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" alt="Gens Ace 1300mAh 2S 7.4V LiPo Battery" width="400"/><br>
+    <em>Gens Ace 1300 mAh 2S LiPo Battery</em>
+  </td>
+</tr>
 </table>
 
-<p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
-</br>
+---
 
-### Potential Improvements
-- Faster charge rate to reduce downtime.
-- Longer survivability. Sacrifice some weight for a higher mAh, equating to a longer-lasting battery.
-- Enhanced safety features, such as overcharge protection, since one of our batteries broke due to overcharging.
-  
-We added a velcro strip to both our battery and the base of our chassis, allowing our battery to sit securely on the bottom of our car.
+<table>
+<tr>
+<td width="65%" valign="top">
 
-</br>
+### Reasoning of Purchase
+We selected the Gens Ace 1300 mAh 2S LiPo for its balance between weight, capacity, and discharge performance.  
+Its 45C continuous (90C burst) discharge rate provides a strong current for rapid acceleration while minimizing voltage sag under high load.  
+
+
 
 ### Power Ratings Table
 | Component | Voltage | Normal Current Draw | Max Current Draw | Normal Power | Max Power |
@@ -619,7 +611,7 @@ We added a velcro strip to both our battery and the base of our chassis, allowin
 
 </br>
 
-The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
+The Gens Ace 1300 mAh 2S 7.4V LiPo Battery offers ample power for our car, as indicated in the Power Ratings Table. Normally, the car uses about 13 W, which corresponds to approximately 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
 
 </br>
 
@@ -681,6 +673,7 @@ ESC also connects to Expansion Board for monitoring/control
 ---
 
 </br>
+
 # Sense Management
 
 The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. 
