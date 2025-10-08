@@ -3,73 +3,82 @@
 ## Motor Mechanism
 
 ### Step 1
-Put the belt and 12 mm ball bearings onto the shaft.  
-<img width="600" alt="Step 1" src="https://github.com/user-attachments/assets/a2987109-9992-453f-a72f-bddd081fd541" />
+<img width="1920" height="1080" alt="10" src="https://github.com/user-attachments/assets/bcee8d9c-88c7-4a3b-b4fb-9554c036c81a" />
 
 ---
 
 ### Step 2
-Insert 4 of the 6 mm ball bearings into the holes, then place the shaft mechanism down on top of the 12 mm ball bearing holder.  
-<img width="600" alt="Step 2" src="https://github.com/user-attachments/assets/755b32c9-1db5-476a-bc96-4c083b12c792" />
+<img width="1920" height="1080" alt="11" src="https://github.com/user-attachments/assets/0af967da-dc5d-46ef-8f46-ebcb80b8efde" />
+
 
 ---
 
 ### Step 3
-Place the top half of the motor mechanism on top of the bottom half.  
-<img width="600" alt="Step 3" src="https://github.com/user-attachments/assets/437a7066-cc08-4258-9962-17ff6d62dabf" />
+<img width="1920" height="1080" alt="12" src="https://github.com/user-attachments/assets/d94f8e51-e614-445f-987f-99c0c8d10cbf" />
+
 
 ---
 
 ### Step 4
-Screw the top to the bottom (upside down).  
-<img width="600" alt="Step 4" src="https://github.com/user-attachments/assets/067696be-cac3-4ae4-b99e-6b38ead02792" />
+<img width="1920" height="1080" alt="13" src="https://github.com/user-attachments/assets/e51cad15-b466-4e23-ae4a-11b73d5b29d6" />
 
 ---
 
 ### Step 5
-Screw the ACXWA motor mount into the two high holes.  
-<img width="600" alt="Step 5" src="https://github.com/user-attachments/assets/fa540000-e1f0-466f-8508-706494be5705" />
+<img width="1920" height="1080" alt="14" src="https://github.com/user-attachments/assets/034a97d4-ae09-4f3c-b82a-17ecd76ff70e" />
 
----
-
-## Turning Mechanism
-
-### Step 1
-Put 6 ball head screws onto the caster block.  
-<img width="600" alt="Step 1" src="https://github.com/user-attachments/assets/d87e028d-0c1c-433c-b1f8-9778088a66d0" />
-
----
-
-### Step 2
-Connect the caster block to the suspension arm.  
-<img width="600" alt="Step 2" src="https://github.com/user-attachments/assets/f1c13142-cf7f-45d5-987f-d48232a1a89f" />
-
----
-
-### Step 3
-Connect the toe link to the outer ball head screws.  
-<img width="600" alt="Step 3" src="https://github.com/user-attachments/assets/d81d0363-0046-4be2-8719-2df912aac021" />
-
----
-
-### Step 4
-Screw in ball screws to the servo horn.  
-<img width="600" alt="Step 4" src="https://github.com/user-attachments/assets/bac2505d-1dc4-43a9-ac13-41494a90e503" />
-
----
-
-### Step 5
-Connect the toe link to the ball screw attached to the servo horn, then screw the servo horn onto the servo.  
-<img width="600" alt="Step 5" src="https://github.com/user-attachments/assets/3170d68a-c79d-4c4a-930c-f361121de986" />
 
 ---
 
 ### Step 6
-Attach four 6 mm ball bearings to the caster block, insert the axle through, then attach the wheel and screw it in.  
-<img width="600" alt="Step 6" src="https://github.com/user-attachments/assets/7b6f6226-9883-40d0-a468-56d8355eff5f" />
+<img width="1920" height="1080" alt="15" src="https://github.com/user-attachments/assets/f173d15d-3710-475c-9c52-a6843aca70df" />
 
 ---
 
+### Step 7
+<img width="1920" height="1080" alt="16" src="https://github.com/user-attachments/assets/f4165715-9bdf-400e-82b3-beb994ad6ec6" />
+
+## Turning Mechanism
+
+### Step 1
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/5e3960f6-a35e-4ae2-91ed-f44a422b2519" />
+
+---
+
+### Step 2
+<img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/67b0f7c3-91e9-4097-b294-289ac460a065" />
+
+---
+
+### Step 3
+<img width="1920" height="1080" alt="3" src="https://github.com/user-attachments/assets/193df7d9-ca9a-45f0-bedb-a3da8c9da0f8" />
+
+---
+
+### Step 4
+<img width="1920" height="1080" alt="4" src="https://github.com/user-attachments/assets/3d4ce9af-56a6-4fdc-8e1d-be55245090f2" />
+
+---
+
+### Step 5
+<img width="1920" height="1080" alt="5" src="https://github.com/user-attachments/assets/41350b79-8176-40a2-9dd9-309c001fc259" />
+
+---
+
+### Step 6
+<img width="1920" height="1080" alt="6" src="https://github.com/user-attachments/assets/159d2e14-3571-4c23-8503-7bae09055a60" />
+
+---
+
+### Step 7
+<img width="1920" height="1080" alt="7" src="https://github.com/user-attachments/assets/1ccc3b20-343d-4b09-9bf3-0c9157acbf31" />
+
+---
+
+### Step 8
+<img width="1920" height="1080" alt="8" src="https://github.com/user-attachments/assets/399cfa92-d75b-4ee0-8486-dbcc473184e3" />
+
+---
 # Building the Entire Robot
 
 ### Step 1
