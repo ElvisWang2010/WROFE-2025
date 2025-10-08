@@ -915,7 +915,7 @@ The primary means of navigation in the open challenge lies in the camera. The ca
 The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
 The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is is used to detect the orange line on the ground, detecting turn areas for lap counting only.
 
-In order to begin camera detection, we must define our ROIs, initialize the camera, and define the HSV range for orange:
+In order to begin camera detection, we must define our ROIs, initialize the camera, and define the HSV ranges for orange:
 
 ```
 picam2 = Picamera2()
@@ -936,7 +936,52 @@ right_roi = (460, 200, 180, 180)
 orange_roi = (100, 360, 440, 40) 
 ```   
 
-Now, we can apply masks, crop ROIs, and count pixels.
+Wait for button press with ROS2 threading before starting.
+```
+def listen_to_button_events():
+    command = 'source /home/ubuntu/.zshrc && ros2 topic echo /ros_robot_controller/button'
+    process = subprocess.Popen(
+        ['docker', 'exec', '-u', 'ubuntu', '-w', '/home/ubuntu', 'MentorPi', '/bin/zsh', '-c', command],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+
+    while True:
+        output = process.stdout.readline()
+        if output:
+            line = output.strip()
+            if line.startswith("id:"):
+                button_id = int(line.split(":")[1].strip())
+            elif line.startswith("state:"):
+                state = int(line.split(":")[1].strip())
+                if state == 1 and button_id == 2:
+                    print(f"Button {button_id} pressed")
+                    return button_id
+        time.sleep(0.1)
+        
+def check_node_status():
+    command = 'source /home/ubuntu/.zshrc && ros2 topic list'
+    result = subprocess.run(['docker', 'exec', '-u', 'ubuntu', '-w', '/home/ubuntu', 'MentorPi', '/bin/zsh', '-c', command], capture_output=True, text=True)
+    return '/ros_robot_controller/button' in result.stdout
+
+def wait_for_button_press():
+    """Wait for button press using Docker ROS2 or fallback"""
+    print("Waiting for button press to start...")
+    
+    # Check if ROS2 node is available
+    while True:
+        if check_node_status():
+            print("ROS2 node detected")
+            board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])
+            button_id = listen_to_button_events()
+            print(f"Button {button_id} pressed! Starting challenge...")
+            return True
+
+wait_for_button_press()
+```
+
+Now, we can apply masks, crop ROIs, and count pixels for navigation.
 
 ```
 # ---- Get camera frame ----
@@ -976,7 +1021,7 @@ left_area = cv2.countNonZero(left_crop)
 right_area = cv2.countNonZero(right_crop)
 ```
 
-The purpose of this code is the generate us 3 pieces of information: amount of black pixels in the left roi, the amount of black pixels in the right roi, and the number of orange pixels in the orange roi. We can then use this information to steer our robot.
+The purpose of this code is the generate us 3 pieces of information: amount of black pixels in the left roi, the amount of black pixels in the right roi, and the number of orange pixels in the orange roi. We can then use this information to steer our robot and count turns.
 
 ### PD Steering
 Most of the time, the robot will be in a straight section where it will use PD steering to avoid walls. PD steering is a system used to correct the robot's movements so that it is centered between the two walls. 
@@ -1018,70 +1063,20 @@ kd = how much to stabilize a change in turning angle
 (area_diff - prev_diff) is the derivative.
 
 <img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/9e6b8493-721e-4a06-91a4-b9b18f1084ec" />
-
-
-### Turning
-When a substantial part of one wall goes missing out of nowhere we detect a turn.
-Initially, we had 2 variables controlling turning.
+Then we apply a clamp to make sure the steering angle never exceeds the predefined maximums and minimums
 ```
-TURN_THRESHOLD = 3000
-EXIT_THRESHOLD = 9500
-```
-
-If the pixel area on one side dropped below the turn threshold, it would initialize a turn. 
-
-```
-if left_area <= TURN_THRESHOLD and not right_turn:
-    left_turn = True
-elif right_area <= TURN_THRESHOLD and not left_turn:
-    right_turn = True
-```
-Then to detect a turn exit:
-```
-if left_turn or right_turn:
-    if (right_area >= EXIT_THRESHOLD and right_turn) or (left_area >= EXIT_THRESHOLD and left_turn):
-        current_time = time.time()
-        if current_time - last_turn_time >= 1.4:
-            left_turn = right_turn = False
-            board.set_rgb([[1, 0, 255, 0]])
-            board.set_rgb([[2, 0, 255, 0]])
-            last_turn_time = current_time
-            prev_diff = 0
-            print(f"Turn complete. Segments = {turns}")
-```
-However, the difference in wall distance scenarios caused inconsistencies in turn exits.
-
-To combat this, we got rid of the exit threshold, instead opting for a proportional turn exit.
-```
-if right_area > left_area * 1.8:  # Right has 80% more black than left
-            current_time = time.time()
-            if current_time - last_turn_time >= 1.2:
-                left_turn = False          
-elif right_turn:
-    if left_area > right_area * 1.8:  # Left has 80% more black than right
-        current_time = time.time()
-        if current_time - last_turn_time >= 1.2:
-            right_turn = False
-```
-Finally, we turn:
-```
-elif left_turn:
-    angle_pwm = min(max(angle_pwm, STRAIGHT_PWM + TURN_DEV), MAX_LEFT)
-elif right_turn:
-    angle_pwm = max(min(angle_pwm, STRAIGHT_PWM - TURN_DEV), MAX_RIGHT)
-else: # Clamp
-  angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
+angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
 ```
 We need to apply the clamp to make sure the steering angle does not surpass the predefined maximums.
 
-The car will continue running all this code in a while loop until it detects 12 orange lines. Once it does, it will continue driving for a set amount of time before stopping:
+The car will continue running this code in a while loop until it detects 12 orange lines. Once it does, it will continue driving for a set amount of time before stopping:
 ```
 if turns == 12: 
     stop_time = time.time()
     turns += 1
 if turns >= 13:
     current_time = time.time()
-    if current_time - stop_time >= 6:
+    if current_time - stop_time >= 5:
         board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
         lap_complete = True
 ```
@@ -1094,7 +1089,7 @@ if turns >= 13:
 ## Obstacle Challenge
 
 ### Overview
-The obstacle challenge is a much more difficult version of the open challenge. In this challenge, there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar, and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car must perform a difficult parallel parking maneuver for additional points.
+The obstacle challenge is a much more difficult version of the open challenge. In this challenge, there are red and green traffic pillars that the car must navigate around, as well as a parking lot. A red pillar indicates that the car should turn right to pass the pillar, and a green pillar indicates a left turn to pass the pillar. The car starts in a straight section or parking lot (for extra points) and must navigate 3 laps around the track avoiding obstacles. Once the 3 laps are finished the car can perform a difficult parallel parking maneuver for additional points. The parking lot is 1.5x the length of the car. In our case the parking lot will be about 24.5cm.
 
 #### Game Map
 <table>
@@ -1106,8 +1101,8 @@ The obstacle challenge is a much more difficult version of the open challenge. I
 </table>
 
 ### Difficulties
-The obstacle challenge presents many difficult challenges that build onto the open challenge. Although the walls are set at 100cm, steering around the pillar while avoiding walls and detecting turns is very difficult to do consistently. 
-In order to perform a parallel park the information and car movements must be incredibly precise since the parking lot is only 1.5x the cars size.
+The obstacle challenge presents many difficult challenges that build onto the open challenge. Although the walls are set at 100cm, steering around the pillar while avoiding walls and detecting turns is difficult to do consistently. 
+In order to perform a parallel park the information and car movements must be very precise since the parking lot is only 1.5x the cars size.
 
 
 ### Our Solution
@@ -1205,71 +1200,132 @@ def publish_frame(self):
         msg = self.bridge.cv2_to_imgmsg(frame, encoding='rgb8')
         self.publisher.publish(msg)
 ```
-
 The navigator node receives these frames and performs the same logic as the open challenge for black pixels. For the coloured pixels, it performs cropping to focus on a particular ROI, and colour masking to isolate specific pixels. Then the pixels are counted to be used for steering logic.
 ```
-left_color_crop = frame[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
-                        self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
-right_color_crop = frame[self.right_roi[1]:self.right_roi[1]+self.right_roi[3], 
-                    self.right_roi[0]:self.right_roi[0]+self.right_roi[2]]
-center_color_crop = frame[self.center_roi[1]:self.center_roi[1]+self.center_roi[3], 
-                    self.center_roi[0]:self.center_roi[0]+self.center_roi[2]]
+    
+gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+_, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
 
-hsv_left = cv2.cvtColor(left_color_crop, cv2.COLOR_RGB2HSV)
-hsv_right = cv2.cvtColor(right_color_crop, cv2.COLOR_RGB2HSV)
+left_crop = thresh[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
+                   self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
+right_crop = thresh[self.right_roi[1]:self.right_roi[1]+self.right_roi[3], 
+                   self.right_roi[0]:self.right_roi[0]+self.right_roi[2]]
+front_wall_crop = thresh[self.front_wall_roi[1]:self.front_wall_roi[1]+self.front_wall_roi[3], 
+                  self.front_wall_roi[0]:self.front_wall_roi[0]+self.front_wall_roi[2]]
+left_wall_crop = thresh[self.left_wall_roi[1]:self.left_wall_roi[1]+self.left_wall_roi[3], 
+                   self.left_wall_roi[0]:self.left_wall_roi[0]+self.left_wall_roi[2]]
+right_wall_crop = thresh[self.right_wall_roi[1]:self.right_wall_roi[1]+self.right_wall_roi[3], 
+                   self.right_wall_roi[0]:self.right_wall_roi[0]+self.right_wall_roi[2]]
+center_color_crop = frame[self.center_roi[1]:self.center_roi[1]+self.center_roi[3], 
+                   self.center_roi[0]:self.center_roi[0]+self.center_roi[2]]
+
+self.left_area = cv2.countNonZero(left_crop)
+self.right_area = cv2.countNonZero(right_crop)
+#pillar steering
+self.front_wall_area = cv2.countNonZero(front_wall_crop)
+self.left_wall_area = cv2.countNonZero(left_wall_crop)
+self.right_wall_area = cv2.countNonZero(right_wall_crop)
+
 hsv_center = cv2.cvtColor(center_color_crop, cv2.COLOR_RGB2HSV)
 
-left_red_mask = cv2.bitwise_or(cv2.inRange(hsv_left, self.lower_red1, self.upper_red1), 
-                                cv2.inRange(hsv_left, self.lower_red2, self.upper_red2))
-center_red_mask = cv2.bitwise_or(cv2.inRange(hsv_center, self.lower_red1, self.upper_red1), 
-                                cv2.inRange(hsv_center, self.lower_red2, self.upper_red2))
-# Remove magenta from parking lot
-left_magenta_mask = cv2.inRange(hsv_left, self.lower_magenta, self.upper_magenta)
 center_magenta_mask = cv2.inRange(hsv_center, self.lower_magenta, self.upper_magenta)
-
-left_red_mask = cv2.subtract(left_red_mask, left_magenta_mask)
-center_red_mask = cv2.subtract(center_red_mask, center_magenta_mask)
-right_green_mask = cv2.inRange(hsv_right, self.lower_green, self.upper_green)
+center_orange_mask = cv2.inRange(hsv_center, self.lower_orange, self.upper_orange)
+       
 center_green_mask = cv2.inRange(hsv_center, self.lower_green, self.upper_green)
+center_red_mask = cv2.bitwise_or(cv2.inRange(hsv_center, self.lower_red1, self.upper_red1), 
+                       cv2.inRange(hsv_center, self.lower_red2, self.upper_red2))
+center_red_mask = cv2.subtract(center_red_mask, center_magenta_mask)
+center_red_mask = cv2.subtract(center_red_mask, center_orange_mask)
 
 # Count pixels
-self.left_red_area = cv2.countNonZero(left_red_mask)
-self.right_green_area = cv2.countNonZero(right_green_mask)
-self.center_red_area = cv2.countNonZero(center_red_mask)
+self.center_magenta_area = cv2.countNonZero(center_magenta_mask)
 self.center_green_area = cv2.countNonZero(center_green_mask)
-```
-#### Pillar detection
-For a more accurate estimation of the pillars' location, we must find the centroid of the pillar.
-
-```
-M_pillar = cv2.moments(center_mask)
-self.pillar_cx = int(M_pillar['m10'] / M_pillar['m00'])
-self.pillar_cy = int(M_pillar['m01'] / M_pillar'm00'])
+self.center_red_area = cv2.countNonZero(center_red_mask)
 ```
 
-With the y-value of the centroid, we can approximate how close the pillar is to determine which of the 3 pillar states it should be in.
-1. Approach: The initial spotting of the pillar, the robot should slow down and go closer
-   <img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/00947007-68de-45f7-81fe-508e0dd3bdf6" />
+#### Parking lot escape
+In order to escape the parking lot, we must determine which side the car is on. We can do this by comparing the amount of black pixels in the left roi with the right roi.
+```
+if self.mode == "start" and self.parking_side is None:
+   if self.left_area > self.right_area:
+       self.parking_side = "left"
+   elif self.right_area > self.left_area:
+       self.parking_side = "right" 
+```
+#### Pillar detection/Navigation
+If the center ROI sees enough pixels of red/green it will stop PD steering and enter the corresponding pillar mode.
 
-2. Follow: The robot is close to the pillar and needs to steer around it
-<img width="946" height="711" alt="image" src="https://github.com/user-attachments/assets/6a9dccaf-01fe-4f86-bda0-7460b12ae9fd" />
+```
+if self.center_red_area > self.pillar_detection_thresh and self.center_red_area > self.center_green_area:
+   self.pillar_mode = "red"
+   self.prev_pillar_error = self.center_red_area
+   
+elif self.center_green_area > self.pillar_detection_thresh and self.center_green_area > self.center_red_area:
+   self.pillar_mode = "green"  
+   self.prev_pillar_error = self.center_green_area
 
-3. Exit: The pillar is on the outskirts of the camera frame, and the robot can disengage with steering.
-<img width="922" height="721" alt="image" src="https://github.com/user-attachments/assets/3546f967-8a87-4c67-ad7f-1f2d204560c1" />
+else:
+   #Exit condition
+   current_pillar_area = self.center_red_area if self.pillar_mode == "red" else self.center_green_area
+   # Use hysteresis to prevent flickering
+   if (current_pillar_area < self.pillar_clear_thresh and 
+       current_time - self.last_pillar_time > 0.1 and self.pillar_mode is not None):  # Wait 0.5s of low signal
+       self.pillar_mode = None
+```
+For a more accurate estimation of the pillars' location, we must find the x-value of the pillar centroid while the y-value is used for debugging.
 
+```
+self.pillar_cx = None  # Reset centroid each frame
+self.pillar_cy = None
 
+if self.pillar_mode == "red":
+   # Find centroid
+   M = cv2.moments(center_red_mask)
+   if M["m00"] > 0:
+       self.pillar_cx = int(M["m10"] / M["m00"])
+       self.pillar_cy = int(M["m01"] / M["m00"])
+       self.pillar_cy = self.pillar_cy + self.center_roi[1]
+
+elif self.pillar_mode == "green":
+   # Find centroid
+   M = cv2.moments(center_green_mask)
+   if M["m00"] > 0:
+       self.pillar_cx = int(M["m10"] / M["m00"])
+       self.pillar_cy = int(M["m01"] / M["m00"])
+       self.pillar_cy = self.pillar_cy + self.center_roi[1]
+```
+
+You may have also noticed the 3 additional wall rois
+```
+self.front_wall_roi = (260, 200, 160, 180)    # Upper center for front walls
+self.left_wall_roi = (100, 300, 60, 60)     # Left side walls
+self.right_wall_roi = (480, 300, 60, 60)   # Right side walls
+```
+These ROIs are used to prevent hitting a wall in certain cases, primarily if a wall is between the car and a pillar or if the pillar is placed at a 90 degree turning section. The front_wall_roi will detect black in front of the car and trigger a harsh turn according to the pillar colour. Similarly if enough black is detected in the left or right wall roi it will turn the other direction. 
+```
+#emergency turns within pillar steering logic.
+if self.wall_in_front or self.right_wall_close:
+   self.angle_pwm = self.max_left
+if self.wall_in_front or self.left_wall_close:
+   self.angle_pwm = self.max_right
+```
 #### Steering logic
 
 With the x-value of the centroid value we can steer away from the pillar accurately
-
-
 ```
-error = self.pillar_cx - 100 
-steering_adjustment = error * self.gain
-self.angle_pwm = self.straight_pwm - steering_adjustment
+if self.pillar_cx is not None:  
+    if self.pillar_mode == "red":
+        error = self.pillar_cx - self.screen_center_x + 225
+        steering_adjustment = -error * 1.5  
+        self.angle_pwm = self.straight_pwm + steering_adjustment
+        
+    elif self.pillar_mode == "green":
+        error = self.pillar_cx - self.screen_center_x - 225
+        steering_adjustment = -error * 1.5
+        self.angle_pwm = self.straight_pwm + steering_adjustment
 ```
 
-Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections without pillars it will default to the same logic used in the open challenge.
+Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections without pillars it will default to the same PD steering logic used in the open challenge.
 
 Once 3 laps of navigation have been complete, the imu node sends this information to the navigator node.
 
@@ -1288,7 +1344,8 @@ def lap_callback(self, msg):
         self.state = "park"
         self.lap_done_time = time.time()
 ```
-  
+
+#### Parking
 ## Image Resources
 
 
