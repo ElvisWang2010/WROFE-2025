@@ -203,7 +203,7 @@ Our objective is to design a low-cost, fully autonomous miniature car using acce
 ## Complete Construction Manual
 
 
-The WRO Future Engineers is a competition for self-driven vehicles. Students in the 15- to 19-year-old age group need to design a model of a car, equip it with electromechanical components, and program it so that it will be able to autonomously drive on the track, avoiding obstacles.
+The WRO Future Engineers is a competition for self-driven vehicles. Students in the 15- to 19-year-old age group need to design a model of a car, equip it with electromechanical components, and program it so that it can drive autonomously on the track, avoiding obstacles.
 
 More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/2025-season/#rules).
 
@@ -212,7 +212,7 @@ More details about the competition can be found on [the official site of WRO Ass
 
 The materials are intended to be built with the [Mkdocs](https://www.mkdocs.org/) site generator.
 
-The example of the site is accessible by https://world-robot-olympiad-association.github.io/future-engineers-gs/.
+The example of the site is accessible at https://world-robot-olympiad-association.github.io/future-engineers-gs/.
 
 </br>
 
@@ -430,12 +430,22 @@ Following a review of suitable brushless options, we selected the Furitek Micro 
 
 </br>
 
+To secure the motor to the chassis, we 3D printed a motor mechanism with a slot designed to fit the motor's axle.
 
-![Motor Mount](https://github.com/user-attachments/assets/0cda8906-4617-4c8e-97d2-19aec24da7c0)
+</br>
 
+| ![Motor Mechanism](https://github.com/user-attachments/assets/cd8a5bfc-a8c7-4a32-b751-fa0a5de1196a) |
+|:--:|
+| **Motor Mechanism** |
 
+</br>
 
-Our motor is tightly secured to our 3D printed motor stand.
+This 3D-printed motor gear mount assembly connects the brushless motor to the drivetrain using a fixed spur gear reduction system. The motor’s pinion drives a larger spur gear on the output shaft, which reduces speed and increases torque. The mount has a sturdy motor plate, gear supports that fit bearings, and a reinforced base that keeps both shafts aligned. This setup ensures smooth power transfer and consistent gear meshing. The design reduces energy loss and mechanical vibration from misalignment while remaining lightweight and compact. 
+
+### Potential Improvements
+- Implement a stronger motor holder to cut down on vibration and improve stability when it's under load.
+- Explore different motor designs to improve performance and reduce weight.
+
 
 ## Electronic Speed Controller (ESC)  
 The ESC is a key component that regulates how the motor receives power. It:  
