@@ -884,7 +884,7 @@ cv_bridge is a ROS 2 library that converts between ROS Image messages and OpenCV
 The built-in Python time module is used for time-based operations, such as delays (sleep) or measuring time elapsed since an event.
 
 ### Numpy
-NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code, it is use for creating and handling arrays for color thresholding in HSV space
+NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code, it is use for creating and handling arrays for color thresholding in HSV space.
 
 ### ROS_ROBOT_CONTROLLER_SDK
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
