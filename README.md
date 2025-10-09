@@ -249,7 +249,7 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 
 | <img src="/media/repository-photos/full-robot.gif"> |
 |:--:|
-| *Fully 3D printed design, every component made in-house* |
+| *Fully 3D printed design, every component custom designed* |
 
 ### Overview  
 3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
