@@ -1352,10 +1352,12 @@ def lap_callback(self, msg):
 ```
 
 #### Parking
+
+
 ## Image Resources
 
 
-<p><strong>Lidar:</strong> <a href="https://www.alibaba.com/product-detail/LDROBOT-D500-Lidar-Kit-DTOF-ROS_1601053242626.html" target="_blank">Click Here</a></p>
+<p><strong>Lidar:</strong> <a href="https://botland.store/laser-scanners-lidar/21991-d500-lidar-kit-stl-19p-laser-scanner-360-degrees-12m-dfrobot-sen0547-6959420922680.html" target="_blank">Click Here</a></p>
 <p><strong>WRO Future Engineers Map:</strong> <a href="https://world-robot-olympiad-association.github.io/future-engineers-gs/" target="_blank">Click Here</a></p>
 <p><strong>Gens Ace 1300 mAh LiPo Battery:</strong> <a href="https://www.horizonhobby.com/product/7.4v-1300mah-2s-45c-g-tech-smart-lipo-battery-deans/GEA132S45DGT.html" target="_blank">Click Here</a></p>
 <p><strong>Wheels:</strong> <a href="https://www.amazon.ca/Abendor-Spoke-Narrow-Aluminum-Wltoys/dp/B09ZYVGYB4?th=1" target="_blank">Click Here</a></p>
