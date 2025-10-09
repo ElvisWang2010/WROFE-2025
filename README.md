@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src=".media/repository-photos/teambeesbanner.png/" alt="teambeesbanner">
+<img src="media/repository-photos/teambeesbanner.png/" alt="teambeesbanner">
 </div>
 
 
@@ -11,11 +11,11 @@
   <a href="#"><img src="https://img.shields.io/badge/STATUS-International%20Qualifiers-f4c430?labelColor=111" /><a>
 </p>
 
-<img src="./Repository Photos/teambeesgif.gif" alt="teambeesgif">
+<img src="media/repository-photos/teambeesgif.gif/" alt="teambeesgif">
 
 <a href="https://www.youtube.com/@TeamBees2025"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
 
-<img width="1600" height="32" alt="divider_yellow_stripe_shadow" src="https://github.com/user-attachments/assets/2ed92872-deab-4ef9-8683-29cb44bf8578"/>
+---
 
 
 # Table of Contents
@@ -30,7 +30,7 @@
 
 ---
 
-<details open>
+<details>
 <summary><h3>Hardware & Build</h3></summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
@@ -42,7 +42,7 @@
 
 ---
 
-<details open>
+<details>
 <summary><h3>Power & Mobility</h3></summary>
 
 - [Power Management](#power-management)  
@@ -60,7 +60,7 @@
 
 ---
 
-<details open>
+<details>
 <summary><h3>Sensors & Perception</h3></summary>
 
 - [Sense Management](#sense-management)  
@@ -72,7 +72,7 @@
 
 ---
 
-<details open>
+<details>
 <summary><h3>Software</h3></summary>
 
 - [Frameworks](#software)  
@@ -90,7 +90,7 @@
 
 ---
 
-<details open>
+<details>
 <summary><h3>WRO Challenges</h3></summary>
 
 - [Open Challenge](#open-challenge)  
