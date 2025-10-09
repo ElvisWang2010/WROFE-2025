@@ -766,7 +766,7 @@ We mainly use the IMU to calculate the number of completed laps.
 
 | ![Bottom Chassis](https://github.com/user-attachments/assets/925e56d0-8333-46a9-b433-a4e84bd4fb91) |
 |:--:|
-| **Lidar Stand** |
+| **Bottom Chassis** |
 
 
 ## Camera
@@ -798,6 +798,13 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
 <p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/dp/B0D324RKRZ?ref=ppx_yo2ov_dt_b_fed_asin_title" target="_blank">Click Here</a></p>
 
 </br>
+
+| ![Top Chassis](https://github.com/user-attachments/assets/e55a8c4e-2957-4c40-9c8e-b38b8a7d69c2) |
+|:--:|
+| **Top Chassis** |
+
+
+
 
 The wide-angle camera serves as the car’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
