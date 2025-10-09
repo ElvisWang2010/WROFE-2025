@@ -725,6 +725,50 @@ At the heart of sense management is the idea of prioritization. Different sensor
 
 </br>
 
+## Inertial Measurement Unit (IMU)
+
+While the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
+
+</br>
+
+<table border="1" width="100%" style="font-size:20px;">
+  <tr>
+    <td width="50%" align="center" style="vertical-align:top;">
+      <img width="600" alt="image" src="https://github.com/user-attachments/assets/b6fa3cf6-a8aa-4aaa-ab9d-8c2424c89b00" />
+    </td>
+    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
+      <h2 style="font-size:26px;">MPU-6050 6-Axis IMU</h2>
+      <ul>
+        <li><strong>Sensor Type:</strong> 3-axis Accelerometer + 3-axis Gyroscope</li>
+        <li><strong>Accelerometer Range:</strong> ±16g</li>
+        <li><strong>Gyroscope Range:</strong>  ±2000°/s</li>
+        <li><strong>Resolution:</strong> 16-bit</li>
+        <li><strong>Interface:</strong> I²C (up to 400 kHz)</li>
+        <li><strong>Supply Voltage:</strong> 3.3V – 5V</li>
+        <li><strong>Features:</strong> On-chip DMP, auxiliary I²C bus, built-in temperature sensor, shock tolerant</li>
+        <li><strong>Package:</strong> 4×4×0.9 mm QFN</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+We mainly use the IMU to calculate the number of completed laps.
+
+*Comes with the RRC lite expansion board.*
+
+</br>
+
+### Potential Improvements 
+- Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
+- Replace the old IMU with a higher accuracy one.
+- Place the IMU further away from the vibrating motors for increased precision.
+</br>
+
+| ![Bottom Chassis](https://github.com/user-attachments/assets/925e56d0-8333-46a9-b433-a4e84bd4fb91) |
+|:--:|
+| **Lidar Stand** |
+
+
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
 </br>
@@ -773,51 +817,6 @@ While the current Pi Camera provides a good amount of sensing for our obstacle c
 
 </br>
 
-## Inertial Measurement Unit (IMU)
-
-While the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
-
-</br>
-
-<table border="1" width="100%" style="font-size:20px;">
-  <tr>
-    <td width="50%" align="center" style="vertical-align:top;">
-      <img width="600" alt="image" src="https://github.com/user-attachments/assets/b6fa3cf6-a8aa-4aaa-ab9d-8c2424c89b00" />
-    </td>
-    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
-      <h2 style="font-size:26px;">MPU-6050 6-Axis IMU</h2>
-      <ul>
-        <li><strong>Sensor Type:</strong> 3-axis Accelerometer + 3-axis Gyroscope</li>
-        <li><strong>Accelerometer Range:</strong> ±16g</li>
-        <li><strong>Gyroscope Range:</strong>  ±2000°/s</li>
-        <li><strong>Resolution:</strong> 16-bit</li>
-        <li><strong>Interface:</strong> I²C (up to 400 kHz)</li>
-        <li><strong>Supply Voltage:</strong> 3.3V – 5V</li>
-        <li><strong>Features:</strong> On-chip DMP, auxiliary I²C bus, built-in temperature sensor, shock tolerant</li>
-        <li><strong>Package:</strong> 4×4×0.9 mm QFN</li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-We mainly use the IMU to calculate the number of completed laps.
-
-*Comes with the RRC lite expansion board.*
-
-</br>
-
-### Potential Improvements 
-- Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
-- Replace the old IMU with a higher accuracy one.
-- Place the IMU further away from the vibrating motors for increased precision.
-</br>
-
-## Sensor Consideration/Potential Improvements
-
-We planned to use the LiDAR to find obstacles and measure distances to walls and pillars but eventually decided to stick to a simpler approach. This would've given us exact information about the environment, allowing the car to plan safe paths. When combined with the IMU, it would improve navigation accuracy during turns and on uneven surfaces.
-
-</br>
-
 ### Lidar 
 
 This LiDAR is good for its long-range accuracy, compact design, and robust scanning capability, making it ideal for mapping and obstacle detection in our car.  
@@ -852,9 +851,13 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
 
 The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
-You can use this data for path planning and collision avoidance. As the LiDAR spins, it continuously creates a profile of the environment. The car can then identify safe routes, avoid collisions, and even build lasting maps of the areas it explores. This is essential for autonomous navigation because it ensures the car always knows how much space it has to move, no matter the lighting or background conditions.
 
-Another benefit of LiDAR is its stability in changing environments. If a person or another car moves into its path, the LiDAR quickly detects the change and updates the map. This makes the system very responsive and safe for real-world use. By relying on geometry rather than appearance, LiDAR supports the camera and offers a reliability that vision alone cannot achieve.
+| ![Lidar Stand](https://github.com/user-attachments/assets/90089720-49f7-4c0a-8e74-7bd7c74961c1) |
+|:--:|
+| **Lidar Stand** |
+
+</br>
+
 
 ---
 
