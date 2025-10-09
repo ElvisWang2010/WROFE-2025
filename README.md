@@ -1382,20 +1382,24 @@ if self.pillar_cx is not None:
 In the image below the X value of the pillar centroid is 174
 In this frame the pillar is not yet far enough left for the car to turn left. If the formula is correct it should be turning right to avoid the pillar.
 <img width="1222" height="908" alt="image" src="https://github.com/user-attachments/assets/5dc8ce4b-fdd9-4bd0-93bd-f64455516585" />
+We plug in 174 into the formula
 error = 174 - 320 - 225
 error = 79
 And since steering adjustment = -error * 1.5
 steering adjustment = -118.5
-Therefore the final turning pwm is 1381.5 which corresponds to a left turn
+Therefore the final turning pwm is 1381.5 which corresponds to a left turn.
 
-In the image below the X value of the pillar centroid is 30
-Now, the pillar is far enough left for the car to turn left.
+
+In this next case the X value of the pillar centroid is 30
+
+Now, the pillar is far enough left to safely execute a left turn.
 <img width="1216" height="911" alt="image" src="https://github.com/user-attachments/assets/567df249-aff9-4100-96f2-7a23837a4e2b" />
+We plug in 30 into the formula
 error = 30 - 320 - 225
 error = -65
 And since steering adjustment = -error * 1.5
 steering adjustment = 97.5
-Therefore the final turning pwm is 1597.5 which corresponds to a left turn
+Therefore the final turning pwm is 1597.5 which corresponds to a slight left turn
 
 
 Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections where no pillars are detected, it will default to the same PD steering logic used in the open challenge.
