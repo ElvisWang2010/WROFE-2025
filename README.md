@@ -1112,7 +1112,8 @@ kp = how much to react to a error.
 kd = how much to stabilize a change in turning angle
 (area_diff - prev_diff) is the derivative.
 
-<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/9e6b8493-721e-4a06-91a4-b9b18f1084ec" />
+<img width="1230" height="911" alt="image" src="https://github.com/user-attachments/assets/72de4261-dc36-409c-bfee-b1f42e5bbd08" />
+
 Then we apply a clamp to make sure the steering angle never exceeds the predefined maximums and minimums
 ```
 angle_pwm = max(min(angle_pwm, MAX_LEFT), MAX_RIGHT)
@@ -1224,23 +1225,22 @@ self.stat_pub = self.create_publisher(String, '/state', 10)
 
 #### Camera logic
 ROI visualization
-<img width="951" height="710" alt="image" src="https://github.com/user-attachments/assets/0ed6440d-9b01-4633-829b-2a338a402aa3" />
-
+<img width="1222" height="908" alt="image" src="https://github.com/user-attachments/assets/ca6c5524-4ff6-4e29-ad73-80873bf316e4" />
 
 The camera logic is largely the same, with the addition of the central ROI and colour detecting HSV ranges.
 ```
-self.left_roi = (0, 220, 180, 150)  # x, y, w, h
-self.right_roi = (460, 220, 180, 150)
-self.center_roi = (200, 200, 240, 200)
-
-self.lower_red1 = np.array([0, 100, 100])
-self.upper_red1 = np.array([10, 255, 255])
-self.lower_red2 = np.array([160, 100, 100])
+self.lower_red1 = np.array([0, 120, 50])
+self.upper_red1 = np.array([5, 255, 255])
+self.lower_red2 = np.array([175, 120, 50])
 self.upper_red2 = np.array([179, 255, 255])
 self.lower_green = np.array([50, 150, 80])
 self.upper_green = np.array([95, 255, 255])
-self.lower_magenta = np.array([140, 100, 100])
+
+self.lower_magenta = np.array([150, 100, 80])
 self.upper_magenta = np.array([170, 255, 255])
+
+self.lower_orange = np.array([5, 100, 100])
+self.upper_orange = np.array([20, 255, 255])
 ```
 
 The camera node's job is to publish raw coloured frames to the navigator node in order for it to perform turns.
@@ -1294,6 +1294,8 @@ self.center_red_area = cv2.countNonZero(center_red_mask)
 ```
 
 #### Parking lot escape
+<img width="1238" height="881" alt="image" src="https://github.com/user-attachments/assets/651a3e4d-1f21-404f-acaa-417217110734" />
+
 In order to escape the parking lot, we must determine which side the car is on. We can do this by comparing the amount of black pixels in the left roi with the right roi.
 ```
 if self.mode == "start" and self.parking_side is None:
