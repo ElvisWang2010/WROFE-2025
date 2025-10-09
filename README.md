@@ -106,16 +106,14 @@
 
 <table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
   <tr>
-    <!-- LEFT: Photo -->
     <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
       <img
-        src="https://github.com/user-attachments/assets/3409afde-0a7f-469a-b698-f86b23a92b8a"
+        src="media/team-photos/ryan.png"
         alt="Ryan"
         width="240"
         style="border-radius:10px;"
       />
     </td>
-    <!-- RIGHT: Info -->
     <td width="72%" style="padding:12px 16px;">
       <h3 style="margin:0 0 6px 0;">Ryan</h3>
       <div><b>Role:</b> Documenter/Programmer</div>
@@ -131,7 +129,7 @@
   <tr>
     <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
       <img
-        src="https://github.com/user-attachments/assets/c2ed209e-06a3-4d77-bab5-33c1293f2548"
+        src="media/team-photos/elvis.png"
         alt="Elvis"
         width="240"
         style="border-radius:10px;"
@@ -152,7 +150,7 @@
   <tr>
     <td width="28%" align="center" style="padding:12px; border-right:6px solid #111;">
       <img
-        src="https://github.com/user-attachments/assets/256f3732-9d70-41b3-9cc6-33d591c8af89"
+        src="media/team-photos/harry.png"
         alt="Harry"
         width="240"
         style="border-radius:10px;"
@@ -183,7 +181,7 @@ Our objective is to design a low-cost, fully autonomous miniature car using acce
   <tr>
     <td align="center" style="padding:14px;">
       <div style="border:2px dashed #FFC107; border-radius:10px; padding:24px; height:320px; display:flex; align-items:center; justify-content:center;">
-        <b><img width="1000" height="750" alt="image" src="https://github.com/user-attachments/assets/03787643-0f57-4ebe-af5b-0a1fbd7ec2ca" /></b>
+        <b><img width="1000" height="750" alt="image" src="media/team-photos/together.png" /></b>
       </div>
       <div style="margin-top:8px; color:#444;"><em>Team Bees — WRO 2025 Future Engineers (Nationals → Panama)</em></div>
     </td>
@@ -203,7 +201,7 @@ The WRO Future Engineers is a competition for self-driven vehicles. Students in 
 
 More details about the competition can be found on [the official site of WRO Association](https://wro-association.org/competition/2025-season/#rules).
 
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/51e5db22-617e-4d90-a60a-5c4dbe9ec88f" />
+<img width="700" alt="image" src="media/repository-photos/construction-manual-map.png" />
 
 
 The materials are intended to be built with the [Mkdocs](https://www.mkdocs.org/) site generator.
@@ -327,7 +325,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
-      <img width="700" height="330" alt="image" src="https://github.com/user-attachments/assets/7c4a07bf-2d26-496d-b0ea-dce096a64a25" />
+      <img width="700" height="330" alt="image" src="media/repository-photos/wheels.png" />
     </td>
   </tr>
 </table>
@@ -377,7 +375,7 @@ Our car uses a rear wheel drive (RWD), meaning that motor's power is transmitted
 
 
   <td width="65%" align="center">
-    <img width="1000" height="666" alt="image" src="https://github.com/user-attachments/assets/3070d15c-5419-4bc4-9259-0041d3cc827d" /><br>
+    <img width="1000" height="666" alt="image" src="media/repository-photos/furitek-komodo-motor.png" /><br>
     <em>Furitek Komodo 1212 motor</em>
   </td>
 </tr>
@@ -430,7 +428,7 @@ To secure the motor to the chassis, we 3D printed a motor mechanism with a slot 
 
 </br>
 
-| ![Motor Mechanism](https://github.com/user-attachments/assets/cd8a5bfc-a8c7-4a32-b751-fa0a5de1196a) |
+| <img src="media/repository-photos/motor-mechanism.gif" /> |
 |:--:|
 | **Motor Mechanism** |
 
@@ -456,7 +454,7 @@ This ESC was chosen for its high current capacity, lightweight design, and relia
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
     <td width="50%" align="center" style="vertical-align:top;"> 
-      <img src="https://github.com/user-attachments/assets/e42ffea8-167e-4d05-9c82-ca2e05dc2562" width="500" alt="Furitek Lizard Pro ESC" /> 
+      <img src="media/repository-photos/furitek-lizardpro-esc.png" /> 
     </td> 
     <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
          <h2 style="font-size:28px;">Furitek Lizard Pro 30A/50A ESC</h2> 
@@ -489,7 +487,7 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 <table border="1" width="100%" style="font-size:20px;">
   <tr>
     <td width="50%" align="center" style="vertical-align:top;">
-      <img src="https://github.com/user-attachments/assets/56dbecd9-28f9-4358-8cb5-949740f3ea51" width="400" alt="HS-5055MG Digital Micro Servo" />
+      <img src="media/repository-photos/HS-5055MG-servo.png" />
     </td>
     <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
       <h2 style="font-size:26px;">HS-5055MG 11.9g Metal Gear Digital Micro Servo</h2>
@@ -579,7 +577,7 @@ At the same time, the servo motor handles steering. It changes the angle of the 
   </td>
 
   <td align="center" width="65%">
-    <img src="https://github.com/user-attachments/assets/cf44cd09-a0a1-47c7-8620-c4acd393ab89" alt="Gens Ace 1300mAh 2S 7.4V LiPo Battery" width="600"/><br>
+    <img src="media/repository-photos/gens-ace-battery.png"/><br>
     <em>Gens Ace 1300mAh 2S LiPo Battery</em>
   </td>
 </tr>
@@ -661,7 +659,7 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
-      <img width="1190" height="845" alt="SCH_Schematic1_1-P1_2025-09-07" src="https://github.com/user-attachments/assets/9f7d0862-7743-446f-8d3a-042c0bbd8374" />
+      <img width="1190" height="845" alt="SCH_Schematic1_1-P1_2025-09-07" src="schematic/SchematicDiagram.png" />
     </td>
   </tr>
 </table>
@@ -772,7 +770,7 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
     <td width="50%" align="center" style="vertical-align:top;"> 
-      <img width="500 alt="image" src="https://github.com/user-attachments/assets/f60b01c2-a8af-488a-9bf0-2b0dda0ea1aa" />
+      <img width="500 alt="image" src="media/repository-photos/5zero-camera-module.png" />
     </td> 
     <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
       <h2 style="font-size:28px;">5/Zero Camera Module (OV5647 Sensor)</h2> 
@@ -795,7 +793,7 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
 
 </br>
 
-| ![Top Chassis](https://github.com/user-attachments/assets/e55a8c4e-2957-4c40-9c8e-b38b8a7d69c2) |
+| <img src="media/repository-photos/top-chassis.gif"> |
 |:--:|
 | **Top Chassis** |
 
@@ -827,7 +825,7 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
 <table border="1" width="100%" style="font-size:20px; text-align:left;">
   <tr> 
     <td width="50%" align="center" style="vertical-align:top;"> 
-      <img src="https://github.com/user-attachments/assets/9657e574-9164-4301-acbb-571c49af60e9" width="500" alt="LDROBOT D500 LiDAR" /> 
+      <img src="media/repository-photos/d500-lidar.webp" width="500" alt="LDROBOT D500 LiDAR" /> 
     </td> 
     <td width="50%" valign="top" style="vertical-align:top; font-size:20px;"> 
       <h2 style="font-size:28px;">LDROBOT D500 LiDAR</h2> 
@@ -855,7 +853,7 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
 The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
 
-| ![Lidar Stand](https://github.com/user-attachments/assets/90089720-49f7-4c0a-8e74-7bd7c74961c1) |
+| <img src="media/repository-photos/lidar-stand.gif"> |
 |:--:|
 | **Lidar Stand** |
 
@@ -873,7 +871,7 @@ Python 3 is the core programming language used to build and run the autonomous c
 
 ### ROS2 Humble 
 ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time consuming to incorporate a working ROS2 enviorment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone Python file.
-<img width="955" height="443" alt="image" src="https://github.com/user-attachments/assets/541fb372-0a35-41a8-9da3-7a418b4bc60a" />
+<img width="955" height="443" alt="image" src="media/repository-photos/ROS2-humble-visualizer.png" />
 
 
 ## Libraries
@@ -903,7 +901,7 @@ The Open Challenge is designed to test a robot’s ability to autonomously navig
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
-      <img width="1054" height="303" alt="image" src="https://github.com/user-attachments/assets/ab41b669-f76a-46b9-9b8a-89a8487c6e2c" />
+      <img width="1054" height="303" alt="image" src="media/repository-photos/open-challenge-gamemap.png"/>
     </td>
   </tr>
 </table>
@@ -1101,7 +1099,7 @@ The obstacle challenge is a much more difficult version of the open challenge. I
 <table>
   <tr>
     <td style="border: 200px solid black; padding: 5px;">
-      <img width="1050" height="428" alt="image" src="https://github.com/user-attachments/assets/f9b9040f-8381-47ac-a8ac-c66108b36919" />
+      <img width="1050" height="428" alt="image" src="media/repository-photos/obstacle-challenge-gamemap.png" />
     </td>
   </tr>
 </table>
