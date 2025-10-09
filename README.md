@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="./Repository Photos/teambeesbanner.png/" alt="teambeesbanner">
+<img src=".media/repository-photos/teambeesbanner.png/" alt="teambeesbanner">
 </div>
 
 
