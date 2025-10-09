@@ -289,6 +289,7 @@ It provided reliable performance for our robot, where temperature resistance and
 
 ---
 
+<img width="260" height="21" alt="image" src="https://github.com/user-attachments/assets/120f3187-c87f-4eb6-af35-031b32f410a9" />
 
 
 
@@ -1362,8 +1363,9 @@ if self.wall_in_front or self.left_wall_close:
    self.angle_pwm = self.max_right
 ```
 #### Steering logic
+When a red pillar is in the center-right area we must turn right to pass the pillar on the right side. When the pillar is on the left side we can turn slightly to the left to make sure we don't overshoot. Similarly for the green pillars, when the green pilar is on the center-left we must turn left to pass the pillar on the left side and turn right otherwise.
+With the x-value of the centroid value we can execute this logic with the following formula where 225 is how far left or right from the center of the screen to change turning directions.
 
-With the x-value of the centroid value we can steer away from the pillar accurately
 ```
 if self.pillar_cx is not None:  
     if self.pillar_mode == "red":
@@ -1377,9 +1379,37 @@ if self.pillar_cx is not None:
         self.angle_pwm = self.straight_pwm + steering_adjustment
 ```
 
-Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections without pillars it will default to the same PD steering logic used in the open challenge.
+In the image below the X value of the pillar centroid is 174
+In this frame the pillar is not yet far enough left for the car to turn left. If the formula is correct it should be turning right to avoid the pillar.
+<img width="1222" height="908" alt="image" src="https://github.com/user-attachments/assets/5dc8ce4b-fdd9-4bd0-93bd-f64455516585" />
+error = 174 - 320 - 225
+error = 79
+And since steering adjustment = -error * 1.5
+steering adjustment = -118.5
+Therefore the final turning pwm is 1381.5 which corresponds to a left turn
 
-Once 3 laps of navigation have been complete, the imu node sends this information to the navigator node.
+In the image below the X value of the pillar centroid is 30
+Now, the pillar is far enough left for the car to turn left.
+<img width="1216" height="911" alt="image" src="https://github.com/user-attachments/assets/567df249-aff9-4100-96f2-7a23837a4e2b" />
+error = 30 - 320 - 225
+error = -65
+And since steering adjustment = -error * 1.5
+steering adjustment = 97.5
+Therefore the final turning pwm is 1597.5 which corresponds to a left turn
+
+
+Since pillar steering has a higher priority in our code, we will be using pillar steering for a large majority of the challenge. In straight/turn sections where no pillars are detected, it will default to the same PD steering logic used in the open challenge.
+```
+if self.pillar_cx is not None: # Pillar steering if pillar is detected
+#pillar logic here
+else: # PD steering if no pillar is detected
+    area_diff = self.right_area - self.left_area
+    self.angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
+    self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+    self.prev_diff = area_diff
+```
+            
+Once 3 laps of navigation have been complete, the imu node sends the stop command to the navigator node.
 
 ```
 if self.lap_count >= 3:
@@ -1388,7 +1418,7 @@ if self.lap_count >= 3:
     self.lap_done_pub.publish(msg_out)
     self.get_logger().info("3 laps done!")
 ```
-Once the navigator node receives this information it will change it's state
+Once the navigator node receives this information it will change it's state and prepare for parking.
 ```
 def lap_callback(self, msg):
     if msg.data and self.state != "park":
@@ -1398,7 +1428,7 @@ def lap_callback(self, msg):
 ```
 
 #### Parking
-
+At the end of the final lap, the car will keep avoiding obstacles as normal until the parking lot gets close. Once the parking lot is at the edge of the camera frame, we can swerve into it to complete partial parking.
 
 ## Image Resources
 
