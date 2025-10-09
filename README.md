@@ -102,6 +102,11 @@
 
 ---
 
+## Our Coach
+*Insert photo HERE DIDDY*
+
+A special thanks goes out to our amazing coach, who has been the foundation of our journey. He not only introduced us to ROS2, but was also the first person to open our eyes to the WRO Future Engineers competition and the broader world of robotics. 
+
 ## Team Members
 
 <table width="100%" style="border:2px solid #FFC107; border-radius:12px; margin:12px 0;">
