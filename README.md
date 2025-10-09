@@ -245,9 +245,56 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 
 ---
 
+## 3D Design and Fabrication
+
+| <img src="/media/repository-photos/full-robot.gif> |
+|:--:|
+| *Fully 3D printed design, every component made in-house* |
+
+### Overview  
+3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
+All major structural components — including the LiDAR mount, steering system, and motor mechanism — were modeled in Fusion 360 and fabricated using a PS1 Bambu Lab printer with PLA fillament.  
+The ability to produce rapid design iterations helped us fine-tune geometry, fit, and strength throughout testing.
+
+---
+
+### Printing Parameters  
+
+| Setting | Value |
+|----------|--------|
+| Printer | PS1 Bambu Lab |
+| Material | PLA |
+| Layer Height |  |
+| Infill Density |  |
+| Print Speed |  |
+| Nozzle Diameter |  |
+
+---
+
+### Why We Chose PLA  
+
+| Material | Strength | Heat Resistance | Printability | Availability | Notes |
+|:--:|:--:|:--:|:--:|:--:|:--|
+| PLA | Medium | Low | Very Easy | Widely Available | Ideal for prototypes and low-stress components. Excellent surface finish and easy to reprint. |
+| PETG | High | Medium | Moderate | Common | Stronger and more flexible, but harder to print cleanly. Useful for parts under stress. |
+| ABS | High | High | Difficult | Common | Better heat resistance, but warps easily and requires a heated enclosure. |
+| Nylon / CF-Nylon | Very High | High | Difficult | Limited | Excellent strength and flexibility, but expensive and requires high-end printers. |
+
 </br>
 
-# Assembly Gallery
+PLA was chosen for its ease of use, low cost, and availability, allowing quick iteration without sacrificing accuracy.  
+It provided reliable performance for our robot, where temperature resistance and high flexibility were not critical factors.  
+
+
+
+---
+
+
+
+
+</br>
+
+## Assembly Gallery
 
 <table>
   <!-- Row 1 -->
@@ -534,15 +581,6 @@ Our prototype used a commercial chassis. We quickly found that the steering syst
    
 </br>
 
-### Manufacturing & Assembly
-- All parts were modeled in CAD and 3D-printed using high-strength PLA filament.  
-- Ball screw were used in the knuckles to reduce friction and extend part life.  
-- The servo linkage was reinforced with a metal rod to prevent bending under load.
-
-</br>
-
-### Potential Improvements:
-- Use a different material, PLA is brittle, and PETG, ABS, or Nylon would've given more toughness and flexibility.
 - Add more fillets on corners, reducing stress concentration and preventing cracks.
 - Implement brass threaded inserts for screw holes rather than relying on bare plastic.
 
@@ -620,9 +658,6 @@ Its 7.4V rating offers stable power delivery without the extra wear that 3S (11.
 - Charge Rate: 5C (6.5A Max)  
 - Cell Configuration: 2S1P  
 - Watt Hours: 9.62Wh  
-- Connector: T-Style, G-Tech Smart Balance  
-- Dimensions: 70.9 × 35.2 × 14.5 mm  
-- Weight: 90 g  
 
 </td>
 </tr>
@@ -763,10 +798,13 @@ We mainly use the IMU to calculate the number of completed laps.
 - Place the IMU further away from the vibrating motors for increased precision.
 </br>
 
+---
+
 | ![Bottom Chassis](https://github.com/user-attachments/assets/925e56d0-8333-46a9-b433-a4e84bd4fb91) |
 |:--:|
 | **Bottom Chassis** |
 
+---
 
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
@@ -798,18 +836,20 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
 
 </br>
 
-| <img src="media/repository-photos/top-chassis.gif"> |
-|:--:|
-| **Top Chassis** |
-
-
-
 
 The wide-angle camera serves as the car’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
 We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
 </br>
+
+---
+
+| <img src="media/repository-photos/top-chassis.gif"> |
+|:--:|
+| **Top Chassis** |
+
+--- 
 
 ### Potential Improvements
 
@@ -857,10 +897,12 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
 
 The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
+---
 
 | <img src="media/repository-photos/lidar-stand.gif"> |
 |:--:|
 | **Lidar Stand** |
+
 
 </br>
 
