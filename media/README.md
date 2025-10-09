@@ -7,3 +7,4 @@ It contains the following media:
 - Team Photos
 - Repository Photos
 - Robot Photos
+- Youtube Videos
