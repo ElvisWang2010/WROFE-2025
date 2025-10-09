@@ -337,14 +337,13 @@ It provided reliable performance for our robot, where temperature resistance and
 
 
 # Mobility Management
-This section covers and houses all components that help or allow or robot to move and steer. It includes the steering system for directional control, the electronic speed controller (ESC) to manage motor power, the main motor for movement, a servo motor for precise adjustments like steering, and the chassis, which is the base to hold and support all these parts securely.
+This section covers and houses all components that help or allow our robot to move and steer. It includes the steering system for directional control, the electronic speed controller (ESC) to manage motor power, the main motor for movement, a servo motor for precise adjustments like steering, and the chassis, which is the base to hold and support all these parts securely.
 
 </br>
 
 ## Chassis 
 
-
-For our build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduce structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame.
+For our first build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduce structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame. Later on, we opted to redesign the entire chassis, 3D printing and customizing our entire robot in the process.
 
 </br>
 
