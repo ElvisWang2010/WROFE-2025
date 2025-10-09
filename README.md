@@ -247,13 +247,13 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 
 ## 3D Design and Fabrication
 
-| <img src="/media/repository-photos/full-robot.gif> |
+| <img src="/media/repository-photos/full-robot.gif"> |
 |:--:|
 | *Fully 3D printed design, every component made in-house* |
 
 ### Overview  
 3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
-All major structural components — including the LiDAR mount, steering system, and motor mechanism — were modeled in Fusion 360 and fabricated using a PS1 Bambu Lab printer with PLA fillament.  
+All major structural components — including the LiDAR mount, steering system, and motor mechanism — were modeled in Fusion 360 and fabricated using a PS1 Bambu Lab printer with PLA filament.  
 The ability to produce rapid design iterations helped us fine-tune geometry, fit, and strength throughout testing.
 
 ---
