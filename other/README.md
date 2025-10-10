@@ -4,3 +4,4 @@ This directory includes the following:
 - Old src
 - Old 3D models
 - Things that don't fall into any other category
+- We do not have all the old src's and models
