@@ -372,7 +372,7 @@ However, later on, we opted to redesign the entire chassis, 3D printing and cust
     </td>
     <td width="52%" valign="top">
 
-### Notable Features / Design Advantages
+### Notable Features 
 
 - Modular design allows quick attachment of sensors, electronics, and mounts.  
 - Integrated mounting rails support camera and LiDAR at optimized heights for field visibility.    
@@ -387,6 +387,12 @@ However, later on, we opted to redesign the entire chassis, 3D printing and cust
 ### Chassis Limitations
 
 Although the redesigned chassis offers significant improvements in modularity and sensor integration, it is not without challenges. The tall vertical structure increases air drag and introduces slight flex during high-speed operation, particularly when carrying additional sensors at the top. The frame’s precision mounting points demand tight tolerances, making small print variations more noticeable during assembly. Cable management also becomes more complex due to limited internal routing space, requiring external clips or channels to maintain a clean layout. 
+
+---
+### Use
+Our custom 3D-printed chassis was carefully designed to house all the key electronic components required for our autonomous car. The lower compartment securely holds the battery and RRC (ROS Robot Controller) expansion board, ensuring a low center of gravity for better stability and weight distribution. Just above that, a dedicated mounting section was created for the d. On the upper frame, we integrated a platform for the Raspberry Pi 5, which serves as the main processing unit for camera and sensor data. The long arm at the vertex of the chassis secures our camera. Right beneath it, there is a custom slot specifically designed to secure our ESC.
+
+</br>
 
 ---
 
@@ -708,7 +714,7 @@ The battery is located at the lowest point of the chassis and is securely attach
 
 </br>
 
-The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and in short bursts can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
+The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our car, as shown in the Power Ratings Table. Normally, the car uses about 13 W, which is about 1.7 A from the battery. The car typically draws around 4 W (≈0.5 A) and, in short bursts, can reach 97 W (≈13 A). The 7.4 V 1300 mAh LiPo has a 45C continuous and 90C peak rating, meaning it can safely supply up to 58.5 A continuously and 117 A in short bursts, far more than the car will ever require. This extra capacity allows the battery to provide stable voltage for the Raspberry Pi, controller, sensors, and peripherals.
 
 </br>
 
@@ -780,44 +786,73 @@ At the heart of sense management is the idea of prioritization. Different sensor
 
 </br>
 
-## Inertial Measurement Unit (IMU)
+## Hiwonder RRC Lite Controller
 
-While the camera can simultaneously identify different items and surroundings, understanding the car’s own motion and orientation is equally crucial. This is where the IMU comes in. The Inertial Measurement Unit tracks the car’s acceleration, angular velocity, and orientation in real-time, allowing the car to know exactly how it is moving through space. 
+---
 
-</br>
+<table>
+<tr>
+  <td valign="top" width="40%">
 
-<table border="1" width="100%" style="font-size:20px;">
-  <tr>
-    <td width="50%" align="center" style="vertical-align:top;">
-      <img width="600" alt="image" src="https://github.com/user-attachments/assets/b6fa3cf6-a8aa-4aaa-ab9d-8c2424c89b00" />
-    </td>
-    <td width="50%" valign="top" style="vertical-align:top; font-size:20px;">
-      <h2 style="font-size:26px;">MPU-6050 6-Axis IMU</h2>
-      <ul>
-        <li><strong>Sensor Type:</strong> 3-axis Accelerometer + 3-axis Gyroscope</li>
-        <li><strong>Accelerometer Range:</strong> ±16g</li>
-        <li><strong>Gyroscope Range:</strong>  ±2000°/s</li>
-        <li><strong>Resolution:</strong> 16-bit</li>
-        <li><strong>Interface:</strong> I²C (up to 400 kHz)</li>
-        <li><strong>Supply Voltage:</strong> 3.3V – 5V</li>
-        <li><strong>Features:</strong> On-chip DMP, auxiliary I²C bus, built-in temperature sensor, shock tolerant</li>
-        <li><strong>Package:</strong> 4×4×0.9 mm QFN</li>
-      </ul>
-    </td>
-  </tr>
+  ### Physical Qualities
+  | Field | Value |
+  |--------|--------|
+  | Product Title | Hiwonder RRC Lite Controller |
+  | Size | 85 × 56 × 17 mm |
+  | Weight | 32 g |
+  | Power Supply | 6–14 V DC |
+  | Mounting Pitch | 57.5 × 48.5 mm |
+
+  </td>
+
+  <td align="center" width="60%">
+    <img src="media/repository-photos/rrc-lite-controller.webp"/><br>
+    <em>Hiwonder RRC Lite Controller Board</em>
+  </td>
+</tr>
 </table>
 
-We mainly use the IMU to calculate the number of completed laps.
+---
 
-*Comes with the RRC lite expansion board.*
+<table>
+<tr>
+<td valign="top" width="65%">
 
+### Reasoning of Use
+We selected the Hiwonder RRC Lite Controller as the central control unit for our self-driving car.  
+It provides a compact yet powerful platform capable of handling motor control, IMU feedback, and servo operation all in one board.  
+Its integrated IMU sensor enables precise lap counting and orientation tracking, while the built-in motor drivers reduce the need for external hardware.  
+
+---
+
+### Potential Improvements
+ Our expansion board is quite cluttered, and the wires aren't properly managed. Wire management is crucial to a neat and properly designed robot, as it helps with airflow and modularity.
 </br>
 
-### Potential Improvements 
-- Upgrade to a 9-axis IMU to add a magnetometer for more precise heading and less drift.
-- Replace the old IMU with a higher accuracy one.
-- Place the IMU further away from the vibrating motors for increased precision.
-</br>
+</td>
+
+<td valign="top" width="35%">
+
+### Performance Specifications
+- MCU: STM32F407VET6 (100-pin)  
+- Motor Driver: SA8870C (Overcurrent Protection)  
+- IMU: 3-axis accelerometer + 3-axis gyroscope  
+- Motor Encoder Ports: 4 Independent Channels  
+- PWM Servo Ports: 4 (5–8.4V)  
+- Serial Servo Ports: 2 (6–12V)  
+- Indicators: 3 LEDs, 2 RGB LEDs, 1 Buzzer  
+- External Power: 5V 5A  
+
+</td>
+</tr>
+</table>
+
+---
+
+<p><strong>Where to Buy:</strong> <a href="https://www.hiwonder.com/cdn/shop/files/1_39aaca4a-992b-4976-b21c-6a53e3ac99a9.jpg?v=1726816513%201200w" target="_blank">Click Here</a></p>
+
+---
+
 
 ---
 
