@@ -223,7 +223,6 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 ### Components
 | Name | Product | Price (CAD)|
 | ----------- | ----------- | ----------- |
-| RC Car | [`ACXWA CD`](https://www.aliexpress.com/item/1005007495175639.html?src=bing&aff_short_key=UneMJZVf&aff_platform=true&isdl=y&albch=shopping&acnt=135095331&isdl=y&albcp=555018171&albag=1299623888131540&slnk=&trgt=pla-4584826057944442&plac=&crea=81226548307861&netw=o&device=c&mtctp=e&utm_source=Bing&utm_medium=shopping&utm_campaign=PA_Bing_CA_PLA_PC_Hot-Sale_MaxValue_20240715&utm_content=Hot%20sale&utm_term=1%2F28%20car%20chassie&msclkid=b27792305716194d30fcf5a6c0fef479)  | $27 |
 | RC Car Battery | [`Gens Ace 1300mAh Battery`](https://genstattu.com/gens-ace-1300mah-2s-7-4v-45c-g-tech-lipo-battery-pack-with-deans-plug/?srsltid=AfmBOoo-qPXzcxuH2dIqTfVYg5ghG9WdKi2b53X-R9M8j3XF_JQlLKJL) | $20.6 | 
 | Drive Motor | [`Furitek Micro Komodo 1212 3450KV Brushless Motor`](https://furitek.com/products/furitek-micro-komodo-1212-3456kv-brushless-motor-with-15t-steel-pinion-for-fury-wagon-fx118) | $35 |
 | Servo Motor | [`HS-5055MG 11.9g Metal Gear Digital Micro Servo`](https://hitecrcd.com/hs-5055mg-economy-metal-gear-feather-servo/?srsltid=AfmBOooq_9U4Nehv90Y-tGWqZeo6_1c0_7imuMD9W_dBJmYS1m0sd2Y_) | $25 |
@@ -271,7 +270,7 @@ The ability to produce rapid design iterations helped us fine-tune geometry, fit
 
 ---
 
-### Why We Chose PLA  
+### Why PLA?  
 
 | Material | Strength | Heat Resistance | Printability | Availability | Notes |
 |:--:|:--:|:--:|:--:|:--:|:--|
@@ -344,34 +343,40 @@ This section covers and houses all components that help or allow our robot to mo
 
 ## Chassis 
 
-For our first build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. During development, we redesigned the component connecting the front and rear sections to improve structural stability. This modification locked the chassis into a fixed 1/24 scale (16.2 cm). While adjustable lengths provide flexibility, they introduce structural weakness. Our fixed build removes this weak point, creating a rigid, non-sliding frame. Later on, we opted to redesign the entire chassis, 3D printing and customizing our entire robot in the process.
+We have had many chassis prototypes. For our first build, we selected the **ACXWA CD chassis**, a non-prebuilt frame originally crafted with a modular design to provide adjustable lengths between 1/28 and 1/24 scale. 
+However, later on, we opted to redesign the entire chassis, 3D printing and customizing our entire robot in the process, excluding a few minor metal modules (pins, screws, etc.).
 
 </br>
+
+<table>
+  <tr>
+    <td width="48%" valign="top">
+      <img src="media/repository-photos/full-chassis.gif" alt="Chassis" width="100%">
+      <p align="center"><em>Redesigned structural chassis assembly</em></p>
+    </td>
+    <td width="52%" valign="top">
 
 ### Notable Features / Design Advantages
 
-- **Cost-effective:** At only $27 CAD, the chassis allowed us to remain within budget, compared to typical pre-built chassis costing between $50 and $100+.
-- **Motor stand included:** This reduced assembly time and ensured accurate motor alignment, minimizing drivetrain losses and gear misalignment.
-- **High steering range:**  Front wheels pivoted significantly, enabling tight turns with less steering input.
-- **Compact form factor:** The fixed 1/24 scale size aided a streamlined electronics layout (ESC, battery), reducing clutter and improving airflow for cooling.
-</br>
+- Modular design allows quick attachment of sensors, electronics, and mounts.  
+- Integrated mounting rails support camera and LiDAR at optimized heights for field visibility.    
+- Designed to keep the center of gravity low, improving balance and traction during movement.  
 
-###  Chassis Limitations  
+    </td>
+  </tr>
+</table>
 
-Despite the benefits, the chassis presented several challenges that impacted performance and assembly:  
+---
 
-- **Tire traction:** The stock plastic tires offered almost no grip, which we noticed immediately during testing. On smooth surfaces like the game map, this resulted in uncontrolled wheelspin, unstable acceleration, and extended braking distances.
-- **Steering imbalance:** We also observed that the front wheels did not pivot evenly, creating unbalanced turning angles. The turning was unpredictable, and when navigating precise maneuvers, uneven steering made the car difficult to control consistently.
-</br>
+### Chassis Limitations
 
-###  How We Overcame These Limitations  
+Although the redesigned chassis offers significant improvements in modularity and sensor integration, it is not without challenges. The tall vertical structure increases air drag and introduces slight flex during high-speed operation, particularly when carrying additional sensors at the top. The frame’s precision mounting points demand tight tolerances, making small print variations more noticeable during assembly. Cable management also becomes more complex due to limited internal routing space, requiring external clips or channels to maintain a clean layout. 
 
-- **Improved traction:** We replaced stock plastic tires with rubber-coated wheels. 
-- **Balanced steering:** Designed and 3D-printed a custom steering system, succeeding our previous unequal one.
+---
 
 </br>
 
-### New Wheels
+### Wheels
 <div align="center">
 
 <table>
@@ -388,7 +393,7 @@ Despite the benefits, the chassis presented several challenges that impacted per
 
 </br>
 
-The switch to grippier wheels had an immediate effect on the car's performance. With better traction, the vehicle could accelerate harder without losing control. It could also maintain a steady speed through turns. This made handling more predictable, which was especially important for precise tasks like navigating pillars and parking.
+Our previous wheels came with the ACXWA chassis; however, the wheels were made to drift, and we needed to switch them out for grippier wheels. This switch had an immediate effect on the car's performance. With better traction, the vehicle could accelerate harder without losing control. It could also maintain a steady speed through turns. This made handling more predictable, which was especially important for precise tasks like navigating pillars and parking.
 
 The new wheels also improved efficiency. With less energy wasted on wheel slip, the motor’s output went more directly into forward motion. This not only made the car feel faster but also reduced strain on the drivetrain during long runs. As a result, we had a setup that was both quicker and more reliable in competition.
 
@@ -396,7 +401,7 @@ The new wheels also improved efficiency. With less energy wasted on wheel slip, 
 
 ## Drive System
 
-Our car uses a rear wheel drive (RWD), meaning that motor's power is transmitted to the back wheels rather than the front. This configuration provides many benefits to the car.
+Our car uses a rear wheel drive (RWD), meaning that the motor's power is transmitted to the back wheels rather than the front. This configuration provides many benefits to the car.
 
 </br>
 
