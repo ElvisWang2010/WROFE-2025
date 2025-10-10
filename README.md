@@ -871,14 +871,11 @@ Its integrated IMU sensor enables precise lap counting and orientation tracking,
 
 ---
 
-
----
-
 | ![Bottom Chassis](https://github.com/user-attachments/assets/925e56d0-8333-46a9-b433-a4e84bd4fb91) |
 |:--:|
 | **Bottom Chassis** |
 
-As mentioned in the Chassis section, this base chassis securely houses the battery and part of the servo motor.
+As mentioned in the [Chassis](#chassis) section, this base chassis securely houses the battery, part of the servo motor, and the expansion board.
 
 ---
 
@@ -915,7 +912,7 @@ This camera was chosen for its wide 175° field of view, compact size, and 5MP r
 
 The wide-angle camera serves as the car’s primary tool for visual detection. With its 175° lens, the camera captures almost the entire forward field of view, reducing blind spots and enabling the system to track multiple objects simultaneously. This feature proves particularly useful for tasks like pillar and wall detection, identifying obstacles ahead, and observing changes in the environment.
 
-We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
+We process the camera feed on the Raspberry Pi using computer programs. This setup allows the car to not only notice when something is in its path but also to identify what it is, such as open passages, furniture, people, or, in this case, walls and pillars. This understanding gives the car a significant edge over systems that depend solely on distance sensors.
 
 </br>
 
@@ -924,6 +921,8 @@ We process the camera feed on the Raspberry Pi using computer programs. This set
 | <img src="media/repository-photos/top-chassis.gif"> |
 |:--:|
 | **Top Chassis** |
+
+Mentioned in the [Chassis](#chassis) section, the top chassis houses our camera, ESC, and Raspberry Pi 5.
 
 --- 
 
@@ -973,6 +972,11 @@ This LiDAR is good for its long-range accuracy, compact design, and robust scann
 
 The LiDAR is the car’s most reliable tool for precise distance measurement and mapping. Unlike a camera, which depends on good lighting and struggles to estimate exact distances, the LiDAR provides accurate range data in every direction, up to 12 meters away. This gives the car a real-time 2D map of obstacles and open space. 
 
+
+### Important Note
+In our current code, we do not make use of the LiDAR, opting for a more straightforward approach for our first year. We already have a LiDAR and a stand, but we do not intend to utilize them.
+
+
 ---
 
 | <img src="media/repository-photos/lidar-stand.gif"> |
@@ -993,7 +997,7 @@ The LiDAR is the car’s most reliable tool for precise distance measurement and
 Python 3 is the core programming language used to build and run the autonomous car logic. Its simplicity, readability, and massive library pool make it ideal for controlling hardware like the Raspberry Pi. For robotics, Python makes it easy to interface with sensors and actuators, process images, and manage logic. However, Python is slower than compiled languages like C++, and because it’s dynamically typed, certain bugs may only appear at runtime if not carefully tested.
 
 ### ROS2 Humble 
-ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time consuming to incorporate a working ROS2 enviorment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone Python file.
+ROS 2 (Robot Operating System 2) Humble is a modern, open-source robotics middleware designed to enable communication between nodes in robotic systems. It provides tools for message passing to aid with maximizing robot software efficiency. Although efficient, it is difficult and time-consuming to incorporate a working ROS2 environment into your code. It is for this reason that only the obstacle challenge uses ROS 2 while the open challenge is done with a standalone Python file.
 <img width="955" height="443" alt="image" src="media/repository-photos/ROS2-humble-visualizer.png" />
 
 
@@ -1011,7 +1015,7 @@ cv_bridge is a ROS 2 library that converts between ROS Image messages and OpenCV
 The built-in Python time module is used for time-based operations, such as delays (sleep) or measuring time elapsed since an event.
 
 ### Numpy
-NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code, it is use for creating and handling arrays for color thresholding in HSV space.
+NumPy is a fundamental Python library for numerical computation. In robotics, it's often used for handling arrays, matrices, and mathematical operations efficiently. In our code, it is used for creating and handling arrays for color thresholding in HSV space.
 
 ### ROS_ROBOT_CONTROLLER_SDK
 This custom Python SDK (Software Development Kit) provided by HiWonder is responsible for controlling robot hardware, including steering servos, throttle motors, and RGB LEDs. It turns low-level control into simple methods, allowing the main code to remain clean.
@@ -1037,10 +1041,10 @@ The narrow configuration creates the opposite problem. With the walls placed clo
 To be successful, the code must be consistent enough to be able to navigate through both scenarios, which each present conflicting issues. Fixing an error in the wide setup may break something in the narrow setup and vice versa.
 
 ### Our Solution
-The primary means of navigation in the open challenge lies in the camera. The camera captures frames multiple times a second and performs wall following logic with information inside the ROIs. ROIs or region of interests are small rectangles placed strategically in areas of interest, to perform wall detection. The open challenge includes 3 of these ROIs initialized at the top
+The primary means of navigation in the open challenge lies in the camera. The camera captures frames multiple times a second and performs wall following logic with information inside the ROIs. ROIs or region of interests are small rectangles placed strategically in areas of interest to perform wall detection. The open challenge includes 3 of these ROIs initialized at the top
 
-The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detecton of differences in wall size to do PD steering and detect turn segments. 
-The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is is used to detect the orange line on the ground, detecting turn areas for lap counting only.
+The left and right ROIs are each placed on the edge of their respective sides. They are essential for the detection of differences in wall size to do PD steering and detect turn segments. 
+The orange ROI is a thin rectangular box, centered near the bottom of the frame. It is used to detect the orange line on the ground, detecting turn areas for lap counting only.
 
 In order to begin camera detection, we must define our ROIs, initialize the camera, and define the HSV ranges for orange:
 
