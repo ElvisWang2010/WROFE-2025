@@ -1,139 +1,128 @@
-# Building Instructions
+## Building Instructions
 
-## Motor Mechanism
-
-### Step 1
-<img width="1920" height="1080" alt="10" src="https://github.com/user-attachments/assets/bcee8d9c-88c7-4a3b-b4fb-9554c036c81a" />
-
----
-
-### Step 2
-<img width="1920" height="1080" alt="11" src="https://github.com/user-attachments/assets/0af967da-dc5d-46ef-8f46-ebcb80b8efde" />
-
+### Step 1 — Steering knuckles: add bearings
+<img src="media/building-photos/building-instruction-photo.png" alt="" width="100%">
+Insert four 6 mm ball bearings and axles.
 
 ---
 
-### Step 3
-<img width="1920" height="1080" alt="12" src="https://github.com/user-attachments/assets/d94f8e51-e614-445f-987f-99c0c8d10cbf" />
-
-
----
-
-### Step 4
-<img width="1920" height="1080" alt="13" src="https://github.com/user-attachments/assets/e51cad15-b466-4e23-ae4a-11b73d5b29d6" />
+### Step 2 — Prep for wheels
+<img src="media/building-photos/building-instruction-photo2.png" alt="" width="100%">
+Insert axle and screw in wheel.
 
 ---
 
-### Step 5
-<img width="1920" height="1080" alt="14" src="https://github.com/user-attachments/assets/034a97d4-ae09-4f3c-b82a-17ecd76ff70e" />
-
-
----
-
-### Step 6
-<img width="1920" height="1080" alt="15" src="https://github.com/user-attachments/assets/f173d15d-3710-475c-9c52-a6843aca70df" />
+### Step 3 — Link knuckles to control arm
+<img src="media/building-photos/building-instruction-photo3.png" alt="" width="100%">
+Connect both steering knuckles to the control arm.
 
 ---
 
-### Step 7
-<img width="1920" height="1080" alt="16" src="https://github.com/user-attachments/assets/f4165715-9bdf-400e-82b3-beb994ad6ec6" />
-
-## Turning Mechanism
-
-### Step 1
-<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/5e3960f6-a35e-4ae2-91ed-f44a422b2519" />
+### Step 4 — Mount steering to servo base
+<img src="media/building-photos/building-instruction-photo4.png" alt="" width="100%">
+Screw the control-arm block onto the servo base.
 
 ---
 
-### Step 2
-<img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/67b0f7c3-91e9-4097-b294-289ac460a065" />
+### Step 5 — Prepare servo horn
+<img src="media/building-photos/building-instruction-photo5.png" alt="" width="100%">
+Place the horn on the servo output.
 
 ---
 
-### Step 3
-<img width="1920" height="1080" alt="3" src="https://github.com/user-attachments/assets/193df7d9-ca9a-45f0-bedb-a3da8c9da0f8" />
+### Step 6 — Fix horn to servo
+<img src="media/building-photos/building-instruction-photo6.png" alt="" width="100%">
+Tighten the horn screw.
 
 ---
 
-### Step 4
-<img width="1920" height="1080" alt="4" src="https://github.com/user-attachments/assets/3d4ce9af-56a6-4fdc-8e1d-be55245090f2" />
+### Step 7 — Add anti-sway arm
+<img src="media/building-photos/building-instruction-photo7.png" alt="" width="100%">
+Connect the anti-sway arm to the horn.
 
 ---
 
-### Step 5
-<img width="1920" height="1080" alt="5" src="https://github.com/user-attachments/assets/41350b79-8176-40a2-9dd9-309c001fc259" />
+### Step 8 — Complete steering linkage
+<img src="media/building-photos/building-instruction-photo8.png" alt="" width="100%">
+Join anti-sway arm to control arm; confirm free motion.
 
 ---
 
-### Step 6
-<img width="1920" height="1080" alt="6" src="https://github.com/user-attachments/assets/159d2e14-3571-4c23-8503-7bae09055a60" />
+### Step 9 — Rear body mount: add bearings
+<img src="media/building-photos/building-instruction-photo9.png" alt="" width="100%">
+Insert four 6 mm bearings and axles.
 
 ---
 
-### Step 7
-<img width="1920" height="1080" alt="7" src="https://github.com/user-attachments/assets/1ccc3b20-343d-4b09-9bf3-0c9157acbf31" />
+### Step 10 — Rear axle & wheel prep
+<img src="media/building-photos/building-instruction-photo10.png" alt="" width="100%">
+Insert axle and secure wheel.
 
 ---
 
-### Step 8
-<img width="1920" height="1080" alt="8" src="https://github.com/user-attachments/assets/399cfa92-d75b-4ee0-8486-dbcc473184e3" />
-
----
-# Building the Entire Robot
-
-### Step 1
-Screw in the turning mechanism and place the servo into its mount.  
-<img width="600" alt="Step 1a" src="https://github.com/user-attachments/assets/fcac0f32-5a25-4d98-9a94-a2eec8b31c01" />  
-<img width="600" alt="Step 1b" src="https://github.com/user-attachments/assets/0dd37268-4dc7-40fd-ae3e-15047285d242" />
+### Step 11 — Install T-joint axle and gear
+<img src="media/building-photos/building-instruction-photo11.png" alt="" width="100%">
+Slide in T-joint axle; screw on the main gear.
 
 ---
 
-### Step 2
-Attach the moving mechanism to the back.  
-<img width="600" alt="Step 2a" src="https://github.com/user-attachments/assets/9a6e2113-e1b1-4480-a47b-5dd69d9b059e" />  
-<img width="600" alt="Step 2b" src="https://github.com/user-attachments/assets/4eec024c-64c4-4afd-8b11-8593ff490422" />
+### Step 12 — Attach motor mount
+<img src="media/building-photos/building-instruction-photo12.png" alt="" width="100%">
+Bolt the motor mount to the rear assembly.
 
 ---
 
-### Step 3
-Install M2 screws and M2 × 3 mm male brass standoffs on top.  
-Afterwards, place the Raspberry Pi 5 onto the standoffs and secure it using M2 standoffs of your choice.  
-<img width="600" alt="Step 3" src="https://github.com/user-attachments/assets/5334fd1d-4e08-42f1-8c47-afe4e493c830" />
+### Step 13 — Mount the motor
+<img src="media/building-photos/building-instruction-photo13.png" alt="" width="100%">
+Screw the motor to the mount.
 
 ---
 
-### Step 4
-Screw an M3 × 15 mm male brass standoff into the highlighted holes.  
-<img width="600" alt="Step 4a" src="https://github.com/user-attachments/assets/b8910cd1-ca6a-4693-bab1-ad1d922c5a00" />  
-
-It should look something like this:  
-<img width="600" alt="Step 4b" src="https://github.com/user-attachments/assets/2f4b6e7b-2467-475b-87c9-bf8fafb6d179" />
+### Step 14 — Add small motor gear
+<img src="media/building-photos/building-instruction-photo14.png" alt="" width="100%">
+Press-fit/secure the pinion on the motor shaft.
 
 ---
 
-### Step 5
-Mount the Hiwonder controller/expansion board on top of the M3 × 15 mm and 10 mm male brass standoffs.  
-Secure it to the M3 × 15 mm standoffs. Note: the standoff closest in the picture uses a smaller female brass standoff.  
-<img width="600" alt="Step 5" src="https://github.com/user-attachments/assets/04eaf78f-ef2f-49f8-8908-6bf4bd5a2d2e" />
+### Step 15 — Belt and rear assembly install
+<img src="media/building-photos/building-instruction-photo15.png" alt="" width="100%">
+Loop belt over both gears; screw assembly to chassis.
 
 ---
 
-### Step 6
-Insert 3 mm screws from the bottom upwards, then fasten them into the three brass standoffs above (M3 × 15 mm and 10 mm).  
-<img width="600" alt="Step 6a" src="https://github.com/user-attachments/assets/696874f9-d8da-4aee-afd9-bedd4abecb65" />  
-
-It should look like this:  
-<img width="600" alt="Step 6b" src="https://github.com/user-attachments/assets/dcf29feb-1cf0-4c43-bab8-03e3e6434c14" />
+### Step 16 — Chassis overview
+<img src="media/building-photos/building-instruction-photo16.png" alt="" width="100%">
+Identify bottom chassis, turning mechanism, and drive module.
 
 ---
 
-### Step 7
-Place the ESC into its holder.  
-<img width="600" alt="Step 7" src="https://github.com/user-attachments/assets/e4baf873-70fe-408b-9037-bb3a526479a9" />
-
-Now, you've finished the hardware!
+### Step 17 — Mount RRC Lite controller
+<img src="media/building-photos/building-instruction-photo17.png" alt="" width="100%">
+Align controller posts; screw in firmly.
 
 ---
+
+### Step 18 — Add top chassis & Pi mount
+<img src="media/building-photos/building-instruction-photo18.png" alt="" width="100%">
+Slide in the top plate; screw down Raspberry Pi 5.
+
+---
+
+### Step 19 — Install ESC
+<img src="media/building-photos/building-instruction-photo19.png" alt="" width="100%">
+Slide the ESC into the tower slot.
+
+---
+
+### Step 20 — Mount camera plate
+<img src="media/building-photos/building-instruction-photo20.png" alt="" width="100%">
+Screw camera to the top plate (four points).
+
+---
+
+### Step 21 — Final verification
+<img src="media/building-photos/building-instruction-photo21.png" alt="" width="100%">
+Check cable routing, belt tension, and free steering/drivetrain.
 
 </br>
 
