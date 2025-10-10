@@ -1310,6 +1310,48 @@ if self.mode == "start" and self.parking_side is None:
    elif self.right_area > self.left_area:
        self.parking_side = "right" 
 ```
+```
+if self.parking_side == "left": #wall is to the left
+  #1
+  self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+  time.sleep(2.3)
+  #2
+  self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+  time.sleep(2.3)
+  #3
+  self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+  time.sleep(2.3)
+  #4
+  self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+  time.sleep(2.3)
+  #5
+  self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+
+else: #wall is to the right
+  #1
+  self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+  time.sleep(2.3)
+  #2
+  self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+  time.sleep(2.3)
+  #3
+  self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+  time.sleep(2.3)
+  #4
+  self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+  self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+  time.sleep(2.3)               
+self.mode = "navigate"
+```
+Based on which side the car starts on, it will execute a series of precise servo movements before backing up to begin the navigation.
 #### Pillar detection/Navigation
 If the center ROI sees enough pixels of red/green it will stop PD steering and enter the corresponding pillar mode.
 
