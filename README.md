@@ -1005,7 +1005,7 @@ Just like that, it is the perfect combination of processing power and energy con
 
 ---
 
-<p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/RasTech-Raspberry-Pi-refroidisseur-inclus/dp/B0DQX6JPVM" target="_blank">RasTech Raspberry Pi 5 Kit on Amazon</a></p>
+<p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/RasTech-Raspberry-Pi-refroidisseur-inclus/dp/B0DQX6JPVM" target="_blank">Click Here</a></p>
 
 </br>
 
