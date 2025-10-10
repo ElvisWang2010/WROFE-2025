@@ -266,12 +266,39 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 | Switch | [`DaierTek ON Off Round Rocker Switches`](https://www.amazon.ca/DaierTek-Listed-Switches-Automotive-KCD1-5Pack/dp/B07S1MV462/ref=asc_df_B07S1MV462?mcid=7da2a9b953e93162885adff341695ef6&tag=googleshopc0c-20&linkCode=df0&hvadid=706726017537&hvpos=&hvnetw=g&hvrand=8977619187557058444&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000756&hvtargid=pla-813471950103&hvocijid=8977619187557058444-B07S1MV462-&hvexpln=0&gad_source=1&th=1). | $2.6 |
 | Wheels | [`Abendor 6 Spoke Wheel Rims`](https://www.amazon.ca/Abendor-Spoke-Narrow-Aluminum-Wltoys/dp/B09ZYVGYB4?th=1). | $31.6 |
 
-
 *Note: The switch is $13 for 5. 13/5 = 2.6.*
 
 **Total:** $439.8 *No Tax*
 
 **With Tax:** $496.97
+
+---
+
+### Tools and Equipment
+| Name | Product | Price (CAD)|
+| ----------- | ----------- | ----------- |
+| 3D Printer | [`Bambu Lab X1 Carbon 3D Printer`](https://genstattu.com/gens-ace-1300mah-2s-7-4v-45c-g-tech-lipo-battery-pack-with-deans-plug/?srsltid=AfmBOoo-qPXzcxuH2dIqTfVYg5ghG9WdKi2b53X-R9M8j3XF_JQlLKJL) | $1289 | 
+| Soldering Kit| [`TOAUTO DS90 Soldering Station`](https://www.amazon.ca/FASTTOBUY-Soldering-Station-194%C2%B0F-896%C2%B0F-Temperature/dp/B082HP4513?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&smid=A1QHHBFTGR8LSC&th=1) | $90 |
+| Screws, Screwdriver, Pliers, etc. | n/a | $~35 |  
+| Fillament 1kg | [`EconoFil™ Standard PLA Filament`](https://www.inksmith.ca/collections/filament/products/econofil-standard-pla-filament-black-1-75mm-1-kg?variant=50056253276442) | $26 |  
+
+**Total:** $~1440 *No Tax*
+
+**With Tax:** $~1627.2
+
+---
+
+### Summary of Cost
+| Category | Price (CAD) No Tax| Price (CAD) Tax Included|
+| ----------- | ----------- |----|
+| Components | $439.8| $496.97 |
+| Tools and Equipment | $1440| $1627.2 |
+| Shipping | $439.8| $~100 (*not taxed*) |
+
+**Grand Total** : $1979.8 CAD *No Tax* 
+
+**With Tax** : $2224.17 CAD
+
 
 </br>
 
@@ -726,11 +753,10 @@ The battery is located at the lowest point of the chassis and is securely attach
 | Furitek Lizard Pro ESC      | 7.4 V   | 0.007 A  | 0.10 A | 0.05 W  | 0.74 W  |
 | Furitek Micro Komodo Motor  | 7.4 V   | 0.95 A   | 10.0 A | 7.00 W  | 74.0 W  |
 | HS-5055MG Servo Motor       | 5 V     | 0.10 A   | 0.70 A | 0.50 W  | 3.50 W  |
-| LDROBOT D500 Lidar          | 5 V     | 0.12 A   | 0.35 A | 0.60 W  | 1.75 W  |
 | MicroSD, LEDs, Speakers     | 5 V     | 0.12 A   | 0.30 A | 0.60 W  | 1.50 W  |
 | Raspberry Pi 5              | 5 V     | 0.55 A   | 2.00 A | 2.75 W  | 10.0 W  |
 | Expansion Board             | 5 V     | 0.12 A   | 0.50 A | 0.60 W  | 2.50 W  |
-| Totals                      | —       | —        | —      | ~13 W   | ~97 W   |
+| Totals                      | —       | —        | —      | ~12.5 W   | ~95 W   |
 
 </br>
 
@@ -809,6 +835,9 @@ ESC also connects to the Expansion Board for monitoring/control
 **Red:** VCC / Positive power
 **Black:** GND / Ground
 **Yellow:** PWM / Control signal
+
+We used a soldering machine to securely connect wires, preventing loose connections and any erratic losses of power.
+
 </br>
 
 ---
