@@ -879,6 +879,79 @@ As mentioned in the [Chassis](#chassis) section, this base chassis securely hous
 
 ---
 
+## RasTech Raspberry Pi 5 Kit (8GB RAM)
+
+---
+
+<table>
+<tr>
+  <td valign="top" width="35%">
+
+  ### Physical Qualities
+  | Field | Value |
+  |--------|--------|
+  | Product Title | RasTech Raspberry Pi 5 Kit (8GB RAM) |
+  | Dimensions | 15 × 9.9 × 3.9 cm |
+  | Weight | 70 g |
+  | Included | Pi 5 Board, Case, Active Cooler, Screwdriver |
+  | Manufacturer | Vemico |
+  | Wireless | 802.11ac Wi-Fi, Bluetooth |
+
+
+  </td>
+
+  <td align="center" width="65%">
+    <img src="media/repository-photos/raspberry-pi-5.jpg" width="100%"/><br>
+    <em>Raspberry Pi 5</em>
+  </td>
+</tr>
+</table>
+
+---
+
+<table>
+<tr>
+<td valign="top" width="65%">
+
+### Reasoning of Purchase
+The main brain of our robot is a Raspberry Pi 5, which takes care of the system via computer vision, LiDAR data interpretation, and decision-making algorithms.
+Just like that, it is the perfect combination of processing power and energy consumption, making it very suitable for the execution of Python scripts and OpenCV tasks.
+
+---
+
+### Potential Improvements
+- Find more use for the GPIO pins
+- Place the Raspberry Pi 5 lower on our robot to lower the center of gravity. The Raspberry Pi is a heavy component relative to others, heavily influencing weight distribution.
+
+</br>
+
+</td>
+
+<td valign="top" width="35%">
+
+### Performance Specifications
+- Processor: Broadcom BCM2712, Quad-Core Cortex-A76 @ 2.4 GHz  
+- RAM: 8 GB LPDDR4X-4266  
+- GPU: VideoCore VII (Integrated)  
+- Storage: microSD  
+- Ports: 2× USB 3.0, 2× USB 2.0, 2× micro HDMI, Ethernet, GPIO  
+- OS: Raspberry Pi OS (Raspbian)  
+
+
+</td>
+</tr>
+</table>
+
+---
+
+<p><strong>Where to Buy:</strong> <a href="https://www.amazon.ca/RasTech-Raspberry-Pi-refroidisseur-inclus/dp/B0DQX6JPVM" target="_blank">RasTech Raspberry Pi 5 Kit on Amazon</a></p>
+
+</br>
+
+---
+
+</br>
+
 ## Camera
 This camera was chosen for its wide 175° field of view, compact size, and 5MP resolution, making it ideal for real-time vision processing and object detection on our car.  
 </br>
