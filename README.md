@@ -34,20 +34,17 @@
 <summary><h3>Hardware & Build</h3></summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
-- [Machinery & Components](#machinery)  
-- [Robot/Car Design Overview](#robotcar-design-overview)  
+- [Machinery & Components](#machinery)   
 - [Assembly Gallery](#assembly-gallery)
-
+- [3D Design](#3d-design-and-fabrication)
 </details>
 
 ---
 
 <details>
-<summary><h3>Power & Mobility</h3></summary>
+<summary><h3>Mobility</h3></summary>
 
-- [Power Management](#power-management)  
-  - [Battery](#battery)  
-  - [Electrical Wiring](#electrical-wiring)  
+
 - [Mobility Management](#mobility-management)  
   - [Chassis](#chassis)  
   - [Drive System](#drive-system)  
@@ -61,11 +58,24 @@
 ---
 
 <details>
+<summary><h3>Power</h3></summary>
+
+- [Power Management](#power-management)  
+  - [Battery](#battery)
+  - [Power Ratings Table](#power-ratings-table)
+  - [Electrical Wiring](#electrical-wiring)  
+  
+</details>
+
+---
+
+<details>
 <summary><h3>Sensors & Perception</h3></summary>
 
-- [Sense Management](#sense-management)  
-- [Camera](#camera)  
-- [IMU](#inertial-measurement-unit-imu)  
+- [Sense Management](#sense-management)
+- [Expansion Board](#expansion-board)
+- [Raspberry Pi](#raspberry-pi-5)
+- [Camera](#camera)    
 - [LiDAR](#lidar)
 
 </details>
@@ -474,7 +484,7 @@ Our car uses a rear wheel drive (RWD), meaning that the motor's power is transmi
 
 </br>
 
-## Furitek Micro Komodo 1212 3450KV Brushless Motor
+## Motor
 
 ---
 
@@ -674,7 +684,7 @@ The robot’s power system is carefully designed to balance performance and effi
 
 </br>
 
-## Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery
+## Battery
 
 ---
 
@@ -850,7 +860,7 @@ The car relies on various sensors to understand its surroundings and interact sa
 
 </br>
 
-## Hiwonder RRC Lite Controller
+## Expansion Board
 
 ---
 
@@ -925,7 +935,7 @@ As mentioned in the [Chassis](#chassis) section, this base chassis securely hous
 
 ---
 
-## RasTech Raspberry Pi 5 Kit (8GB RAM)
+## Raspberry Pi 5 
 
 ---
 
