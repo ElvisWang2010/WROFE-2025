@@ -643,6 +643,8 @@ At the same time, the servo motor handles steering. It changes the angle of the 
 
 # Power Management
 
+The robot’s power system is carefully designed to balance performance and efficiency, ensuring stable operation throughout the challenge.
+
 </br>
 
 ## Gens Ace 1300mAh 2S 7.4V 25C LiPo Battery
@@ -736,6 +738,23 @@ The **Gens Ace 1300 mAh 2S 7.4 V LiPo Battery** offers plenty of power for our c
 
 </br>
 
+### Estimated Runtime
+
+| Scenario           | What’s on                                                     | Battery current | Runtime 80% | Runtime 85% |
+|-------------------|---------------------------------------------------------------|----------------:|-------------:|-------------:|
+| Idle (no camera)  | RPi 5, RRC Lite, Expansion board, misc, ESC idle             | ~0.59 A         | ~106 min     | ~112 min     |
+| Idle + camera     | Above + camera streaming                                      | ~0.70 A         | ~89 min      | ~95 min      |
+| Driving (typical) | Idle + camera + drive motor (normal) + steering servo active | ~1.71 A         | ~37 min      | ~39 min      |
+
+#### Assumptions: 
+- In practice, you usually only use ~80–85% of the rated capacity (≈1.04–1.105 Ah).  
+- Power sums taken from your Normal Power column and converted at 7.4 V.  
+
+</br>
+
+---
+
+</br>
 
 ## Electrical Wiring
 
@@ -799,8 +818,6 @@ ESC also connects to the Expansion Board for monitoring/control
 # Sense Management
 
 The car relies on various sensors to understand its surroundings and interact safely with the environment. Sense management refers to how these inputs are coordinated, processed, and used for decision-making. Instead of treating each sensor independently, we designed a system that combines all data into a single model of the world. 
-
-At the heart of sense management is the idea of prioritization. Different sensors have different strengths; some are better at detecting precise distances, while others at identifying shapes or movement. By assigning specific roles to each sensor and merging their data, the car maintains a reliable awareness of its environment, even as conditions change.
 
 </br>
 
