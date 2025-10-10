@@ -284,9 +284,9 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 | *Fully 3D printed design, every component custom designed* |
 
 ### Overview  
-3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
-All major structural components, including the LiDAR mount, steering system, and motor mechanism, were modeled in Fusion and fabricated using a PS1 Bambu Lab printer with PLA filament.  
-The ability to produce rapid design iterations helped us fine-tune geometry, fit, and strength throughout testing.
+- 3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
+- All major structural components, including the LiDAR mount, steering system, and motor mechanism, were modeled in Fusion and fabricated using a PS1 Bambu Lab printer with PLA filament.  
+- The ability to produce rapid design iterations helped us fine-tune geometry, fit, and strength throughout testing.
 
 ---
 
