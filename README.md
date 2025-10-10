@@ -252,9 +252,9 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 
 *Note: The switch is $13 for 5. 13/5 = 2.6.*
 
-**Total:** $466.8 *No Tax*
+**Total:** $439.8 *No Tax*
 
-**With Tax:** $527.48
+**With Tax:** $496.97
 
 </br>
 
@@ -275,14 +275,20 @@ The ability to produce rapid design iterations helped us fine-tune geometry, fit
 
 ### Printing Parameters  
 
+### 3D Printing Settings — Bambu PLA Basic @BBL X1C
+
 | Setting | Value |
 |----------|--------|
-| Printer | PS1 Bambu Lab |
-| Material | PLA |
-| Layer Height |  |
-| Infill Density |  |
-| Print Speed |  |
-| Nozzle Diameter |  |
+| Printer | Bambu Lab X1 Carbon |
+| Material | PLA (Bambu Lab Basic) |
+| Nozzle Temperature | 230 °C |
+| Bed Temperature | 65 °C (Textured PEI Plate) |
+| Filament Diameter | 1.75 mm |
+| Flow Ratio | 0.96 |
+| Max Volumetric Speed | 12 mm³/s |
+| Layer Height | 0.2 mm |
+| Nozzle Diameter | 0.4 mm |
+| Infill Density | 15 % |
 
 ---
 
@@ -299,8 +305,6 @@ The ability to produce rapid design iterations helped us fine-tune geometry, fit
 
 PLA was chosen for its ease of use, low cost, and availability, allowing quick iteration without sacrificing accuracy.  
 It provided reliable performance for our robot, where temperature resistance and high flexibility were not critical factors.  
-
-
 
 ---
 
