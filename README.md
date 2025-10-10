@@ -34,9 +34,10 @@
 <summary><h3>Hardware & Build</h3></summary>
 
 - [Complete Construction Manual](#complete-construction-manual)  
-- [Machinery & Components](#machinery)   
-- [Assembly Gallery](#assembly-gallery)
+- [Machinery & Components](#machinery)
 - [3D Design](#3d-design-and-fabrication)
+- [Assembly Gallery](#assembly-gallery)
+
 </details>
 
 ---
