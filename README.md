@@ -101,6 +101,19 @@
 
 
 ---
+</br>
+
+## Experience
+
+Throughout our preparation for the WRO Future Engineers competition, each of us gained new skills and experiences that went far beyond what we expected.
+
+Months before the competition, Elvis was learning how to 3D model and 3D print custom parts for our robot. He also explored electronics in depth, learning how to wire, solder, and integrate components safely and effectively.
+
+Harry focused on the software side, diving into ROS 2 to learn how to create nodes, build packages, and structure entire workspaces for complex multi-node communication.
+
+Ryan improved his programming skills during the project. He learned how to properly use and navigate GitHub. He also expanded into 3D modeling.
+
+</br>
 
 ## Our Coach
 *Insert photo HERE DIDDY*
@@ -176,7 +189,7 @@ A special thanks goes out to our amazing coach, who has been the foundation of o
 </br>
 
 ## Introduction
-Team Bees is a group of high-school students from Ontario, Canada, passionate about robotics and self-driving technologies. Our car was designed and programmed to complete both the Open and Obstacle Challenges of WRO 2025 Future Engineers. After only placing 5th in Ottawa Nationals, we advanced to Panama Internationals, representing our country.
+Team Bees is a 1st year group of high-school students from Ontario, Canada, passionate about robotics and self-driving technologies. Our car was designed and programmed to complete both the Open and Obstacle Challenges of WRO 2025 Future Engineers. After only placing 5th in Ottawa Nationals, we advanced to Panama Internationals, representing our country.
 
 Our objective is to design a low-cost, fully autonomous miniature car using accessible components and open-source software, integrating vision, IMU, and LiDAR for perception and ROS 2 Humble for system control.
 
@@ -195,7 +208,10 @@ Our objective is to design a low-cost, fully autonomous miniature car using acce
 
 </div>
 
+</br>
+
 ---
+
 
 </br>
 
