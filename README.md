@@ -136,6 +136,8 @@ Ryan improved his programming skills during the project. He learned how to prope
 
   <td valign="top" width="60%">
 
+[![Website](https://img.shields.io/badge/Website-explorer--robotics.com-blue?style=for-the-badge&logo=google-chrome)](https://explorer-robotics.com/)
+
   ### Information
   - Head coach of Robotics Competitions, including FLL (First LEGO League),  WRO (World Robotics Olympiad) Robo Sports, Future Engineers, and Robo Mission. Led teams in winning multiple national, international robotics, and programming awards.
   - Over 20 years of IT industry experience as a software engineer working internationally.
