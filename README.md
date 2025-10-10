@@ -116,7 +116,24 @@ Ryan improved his programming skills during the project. He learned how to prope
 </br>
 
 ## Our Coach
-*Insert photo HERE DIDDY*
+<table>
+<tr>
+  <td align="center" width="40%">
+    <img src="media/team-photos/coach.png" width="100%"/><br>
+    <em>Our Coach — Mentor and Guide</em>
+  </td>
+
+  <td valign="top" width="60%">
+
+  ### Information
+  - Head coach of Robotics Competitions, including FLL (First LEGO League),  WRO (World Robotics Olympiad) Robo Sports, Future Engineers, and Robo Mission. Led teams in winning multiple national, international robotics, and programming awards.
+  - Over 20 years of IT industry experience as a software engineer working internationally.
+  - MSc in Electrical & Computer Engineering from the University of Alberta.
+  - BSc in Mathematics from Peking University.
+  - Founder of Explorer Robotics, a local robotics club in Ajax and Whitby, teaching coding, AI, robotics, etc.
+  </td>
+</tr>
+</table>
 
 A special thanks goes out to our amazing coach, who has been the foundation of our journey. He not only introduced us to ROS2, but was also the first person to open our eyes to the WRO Future Engineers competition and the broader world of robotics. 
 
@@ -137,7 +154,7 @@ A special thanks goes out to our amazing coach, who has been the foundation of o
       <div><b>Role:</b> Documenter/Programmer</div>
       <div><b>Strengths:</b> Writing, Hardworker.</div>
       <p style="margin-top:8px;">
-        <b>About Me:</b> Hi! I'm Ryan. I'm 14, I love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
+        <b>About Me:</b> Hi! I'm Ryan. I'm 14, love to write, play badminton, listen to music, and travel. I've been involved in robotics for nearly a decade and participated in both FLL and WRO Robo Mission. I also have a 4-year-old golden retriever 😊.
       </p>
     </td>
   </tr>
@@ -268,18 +285,16 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 
 ### Overview  
 3D printing played a key role in our project, allowing us to design, prototype, and refine custom mechanical parts with precision and speed.  
-All major structural components — including the LiDAR mount, steering system, and motor mechanism — were modeled in Fusion 360 and fabricated using a PS1 Bambu Lab printer with PLA filament.  
+All major structural components, including the LiDAR mount, steering system, and motor mechanism, were modeled in Fusion and fabricated using a PS1 Bambu Lab printer with PLA filament.  
 The ability to produce rapid design iterations helped us fine-tune geometry, fit, and strength throughout testing.
 
 ---
 
 ### Printing Parameters  
 
-### 3D Printing Settings — Bambu PLA Basic @BBL X1C
-
 | Setting | Value |
 |----------|--------|
-| Printer | Bambu Lab X1 Carbon |
+| Printer | [`Bambu Lab X1 Carbon`](https://ca.store.bambulab.com/products/x1-carbon?id=546459056505716744&skr=yes&gad_source=4&gad_campaignid=21547689817&gbraid=0AAAAA9pdpI53F4X02aKYyYBY6kjPG9sDy&gclid=CjwKCAjwup3HBhAAEiwA7euZuj5UNal7Qc6Uv0_yeZI9F0YmY398AreTELEVIFrH2sD4HZLzpMYmZRoC6-kQAvD_BwE_) |
 | Material | PLA (Bambu Lab Basic) |
 | Nozzle Temperature | 230 °C |
 | Bed Temperature | 65 °C (Textured PEI Plate) |
@@ -313,33 +328,31 @@ It provided reliable performance for our robot, where temperature resistance and
 ## Assembly Gallery
 
 <table>
-  <!-- Row 1 -->
   <tr>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-    <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/ee71536c-fdad-4c0f-b2a9-c6f9bffe3ca1" /><br/>
+    <img width="563" height="750" alt="image" src="media/robot-photos/front-view.webp" /><br/>
       <em><strong>Front View</strong><br>Shows the overall profile and front-facing components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/e105c404-02f3-450a-915e-0915fe9d4a86" /><br/>
+      <img width="563" height="750" alt="image" src="media/robot-photos/back-view.webp" /><br/>
       <em><strong>Rear View</strong><br>Shows the drive wheels and rear motor assembly.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-     <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/a586fe6f-86cf-445b-93d6-32a57938c8ed" /><br/>
+     <img width="563" height="750" alt="image" src="media/robot-photos/top-view.webp" /><br/>
       <em><strong>Top View</strong><br>Shows the layout of all major components on the upper chassis.</em>
     </td>
   </tr>
-  <!-- Row 2 -->
   <tr>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-     <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/293ffe3b-da48-497b-af34-55a1acfe2bcd" /><br/>
+     <img width="563" height="750" alt="image" src="media/robot-photos/left-view.webp" /><br/>
       <em><strong>Left Side View</strong><br>Shows the side profile and left-side components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/192e6cf3-a4ba-4d4d-b1c6-edbf07f30618" /><br/>
+      <img width="563" height="750" alt="image" src="media/robot-photos/right-view.webp" /><br/>
       <em><strong>Right Side View</strong><br>Shows the side profile and right-side components.</em>
     </td>
     <td align="center" style="border:1px solid #ddd; padding:15px;">
-      <img width="563" height="750" alt="image" src="https://github.com/user-attachments/assets/55920336-cb9c-41f5-9178-861a165bbac9" /><br/>
+      <img width="563" height="750" alt="image" src="media/robot-photos/bottom-view.webp" /><br/>
       <em><strong>Bottom View</strong><br>Shows the underside, wheel mounting, and lower chassis.</em>
     </td>
   </tr>
@@ -389,8 +402,8 @@ However, later on, we opted to redesign the entire chassis, 3D printing and cust
 Although the redesigned chassis offers significant improvements in modularity and sensor integration, it is not without challenges. The tall vertical structure increases air drag and introduces slight flex during high-speed operation, particularly when carrying additional sensors at the top. The frame’s precision mounting points demand tight tolerances, making small print variations more noticeable during assembly. Cable management also becomes more complex due to limited internal routing space, requiring external clips or channels to maintain a clean layout. 
 
 ---
-### Use
-Our custom 3D-printed chassis was carefully designed to house all the key electronic components required for our autonomous car. The lower compartment securely holds the battery and RRC (ROS Robot Controller) expansion board, ensuring a low center of gravity for better stability and weight distribution. Just above that, a dedicated mounting section was created for the d. On the upper frame, we integrated a platform for the Raspberry Pi 5, which serves as the main processing unit for camera and sensor data. The long arm at the vertex of the chassis secures our camera. Right beneath it, there is a custom slot specifically designed to secure our ESC.
+### Utilization
+Our custom 3D-printed chassis was carefully designed to house all the key electronic components required for our autonomous car. The lower compartment securely holds the battery and a part of the servo motor, ensuring a low center of gravity for better stability and weight distribution. Just above that, a dedicated mounting section was created for the RRC (ROS Robot Controller) expansion board. On the upper frame, we integrated a platform for the Raspberry Pi 5, which serves as the main processing unit for camera and sensor data. The long arm at the vertex of the chassis secures our camera. Right beneath it, there is a custom slot specifically designed to secure our ESC.
 
 </br>
 
@@ -415,7 +428,7 @@ Our custom 3D-printed chassis was carefully designed to house all the key electr
 
 </br>
 
-Our previous wheels came with the ACXWA chassis; however, the wheels were made to drift, and we needed to switch them out for grippier wheels. This switch had an immediate effect on the car's performance. With better traction, the vehicle could accelerate harder without losing control. It could also maintain a steady speed through turns. This made handling more predictable, which was especially important for precise tasks like navigating pillars and parking.
+Our previous wheels came with the ACXWA chassis; however, the wheels were designed to drift, and we needed to switch them out for grippier wheels. This switch had an immediate effect on the car's performance. With better traction, the vehicle could accelerate harder without losing control. It could also maintain a steady speed through turns. This made handling more predictable, which was especially important for precise tasks like navigating pillars and parking.
 
 The new wheels also improved efficiency. With less energy wasted on wheel slip, the motor’s output went more directly into forward motion. This not only made the car feel faster but also reduced strain on the drivetrain during long runs. As a result, we had a setup that was both quicker and more reliable in competition.
 
@@ -429,7 +442,7 @@ Our car uses a rear wheel drive (RWD), meaning that the motor's power is transmi
 
 ### Benefits
 - Better weight distribution. This is because the front wheels handle steering, and the rear wheels help with propulsion, which helps the car remain more balanced during acceleration and turning.
-- RWD also provides a stronger grip to surfaces. Since the rear of the robot is heavier, the back wheels get pressed into the ground, providing for more traction and therefore enhancing the grip.
+- RWD also provides a stronger grip on surfaces. Since the rear of the robot is heavier, the back wheels get pressed into the ground, providing for more traction and therefore enhancing the grip.
 - Since the front wheels are only used for steering, the car can turn more precisely, as there is no motor interference.
 
 </br>
@@ -595,7 +608,12 @@ This servo motor was chosen for its compact size, strong torque, and durable met
 
 ## Steering
 Our prototype used a commercial chassis. We quickly found that the steering system was inefficient and turned unevenly. To fix this, we built a completely new steering system from scratch, 3D-printing all the components for the precise and balanced control we needed. We developed two different steering designs. The first design includes a mounting frame that attaches the system to the chassis, a servo linkage arm that connects directly to the servo motor, and steering knuckles. However, the second design showed more potential. After testing, it performed better than the first design. This design features an antisway arm, steering knuckles, and a control arm, offering a more consistent turn, easier assembly, and greater durability.
+
 </br>
+
+| <img src="media/repository-photos/steering-system.gif" /> |
+|:--:|
+| **Steering System** |
 
 
 </br>
@@ -695,7 +713,7 @@ Its 7.4V rating offers stable power delivery without the extra wear that 3S (11.
 
 <p><strong>Where to Buy:</strong> <a href="https://www.aliexpress.com/item/1005007495175639.html?spm=a2g0o.order_list.order_list_main.11.48a11802NKINMb" target="_blank">Click Here</a></p>
 
-The battery is located at the lowest point of the chassis and is securely attached with Velcro. This setup reduces slippage and helps lower the center of gravity, improving cornering stability.
+The battery is located at the lowest point of the chassis and is securely attached with Velcro. 
 </br>
 
 ### Power Ratings Table
@@ -764,7 +782,7 @@ Channel 4 (Servo) → Signal (Servo) | +5V (Servo) | GND (Servo)
 
 #### Motor Power
 Battery (+) → Switch → ESC → Motor
-ESC also connects to Expansion Board for monitoring/control
+ESC also connects to the Expansion Board for monitoring/control
 
 #### Wire Color Codes
 *NOTE: Not all wires are color coded*
@@ -859,6 +877,8 @@ Its integrated IMU sensor enables precise lap counting and orientation tracking,
 | ![Bottom Chassis](https://github.com/user-attachments/assets/925e56d0-8333-46a9-b433-a4e84bd4fb91) |
 |:--:|
 | **Bottom Chassis** |
+
+As mentioned in the Chassis section, this base chassis securely houses the battery and part of the servo motor.
 
 ---
 
