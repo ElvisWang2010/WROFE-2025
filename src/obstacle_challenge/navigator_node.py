@@ -29,20 +29,16 @@ class NavigatorNode(Node):
         self.side_wall_threshold = 2500
         self.screen_center_x = 320
 
-
         #Control
         self.straight_pwm = 1500
-        self.throttle_pwm = 1610
-        self.throttle_slow = 1600
+        self.throttle_pwm = 1600
+        self.throttle_prev = 1600
         self.angle_pwm = 1500
         self.max_left = 1850
         self.max_right = 1150
         self.current_angle = 0.0
         #Park / Stop
         self.stop_timer = 3.0
-        self.escape_timeout = 2.3
-        self.backup_timer = 3
-        self.backup_time = 0
 
         self.left_roi = (0, 200, 180, 200)  # x, y, w, h
         self.right_roi = (460, 200, 180, 200)
@@ -51,18 +47,6 @@ class NavigatorNode(Node):
         self.left_wall_roi = (100, 300, 60, 60)     # Left side walls
         self.right_wall_roi = (480, 300, 60, 60)   # Right side walls
         
-        """
-        cambridge ranges
-        self.lower_red1 = np.array([0, 100, 20])
-        self.upper_red1 = np.array([4, 255, 150])
-        self.lower_red2 = np.array([176, 100, 20])
-        self.upper_red2 = np.array([179, 255, 150])
-        self.lower_green = np.array([40, 80, 30])
-        self.upper_green = np.array([85, 255, 200])
-        self.lower_magenta = np.array([140, 100, 100])
-        self.upper_magenta = np.array([170, 255, 255])
-        """
-        #home ranges
         self.lower_red1 = np.array([0, 120, 50])
         self.upper_red1 = np.array([5, 255, 255])
         self.lower_red2 = np.array([175, 120, 50])
@@ -76,15 +60,11 @@ class NavigatorNode(Node):
         self.upper_orange = np.array([20, 255, 255])
     
         # State
-        self.backup = False
         self.parking_side = None
         self.pillar_mode = None
-        self.escape_phase = None
         self.escape_start_time = 0
-        self.escape_phase_start = 0
         self.last_pillar_time = 0
         self.prev_diff = 0
-        self.escape_attempts = 0
         self.prev_angle = self.straight_pwm
         self.left_area = 0
         self.right_area = 0
@@ -94,11 +74,9 @@ class NavigatorNode(Node):
         self.center_green_area = 0
         self.lap_done_time = None
         self.frame_ready = False
-        self.parking_side = None
-        self.escape_mode = None
         self.pillar_close = False
         self.wall_in_front = False
-        self.right_wall_close = False
+        self.right_wall_close = False   
         self.left_wall_close = False
         self.last_pillar = None
         self.mode = "button"
@@ -113,7 +91,7 @@ class NavigatorNode(Node):
         2. start: escape parking lot
         3. navigate: navigate 3 laps around track
         4. park: parallel parking
-        5. stop: shutdown all nodes and stop moving
+        5. stop: shutdown all nodes and stop moving 
         """
     
         # ROS 2
@@ -144,6 +122,8 @@ class NavigatorNode(Node):
         
     def imu_callback(self, msg):
         self.current_angle = msg.data
+        if self.current_angle >= 800 and self.mode == "navigate":
+            self.mode = "park"
     
     def camera_callback(self, msg):
         current_time = time.time()
@@ -222,7 +202,7 @@ class NavigatorNode(Node):
                 self.pillar_close = False
             
         if self.center_red_area > self.pillar_detection_thresh and self.center_red_area > self.center_green_area:
-            self.pillar_mode = "red"
+            self.pillar_mode = "red" 
             self.last_pillar = "red"
             self.last_pillar_time = current_time
             self.prev_pillar_error = self.center_red_area
@@ -249,6 +229,13 @@ class NavigatorNode(Node):
             
         self.pillar_cx = None  # Reset centroid each frame
         self.pillar_cy = None
+        if self.mode == "park" and self.center_magenta_area >= self.pillar_detection_thresh:
+            # Find centroid
+            M = cv2.moments(center_magenta_mask)
+            if M["m00"] > 0:
+                self.parking_cx = int(M["m10"] / M["m00"])
+                self.parking_cy = int(M["m01"] / M["m00"])
+                self.pillar_cy = self.pillar_cy + self.center_roi[1]
 
         if self.pillar_mode == "red":
             # Find centroid
@@ -293,8 +280,8 @@ class NavigatorNode(Node):
         # NEW: Draw centroid if detected
         if self.pillar_cx is not None and self.pillar_cy is not None:
             cv2.circle(frame, (self.pillar_cx, self.pillar_cy), 10, (0, 255, 255), -1)  # Yellow circle
+            cv2.circle(frame, (self.parking_cx, self.parking_cy), 10, (255, 255, 255), -1)  # White circle
             cv2.putText(frame, f"CX: {self.pillar_cx}", (self.pillar_cx + 15, self.pillar_cy), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
-            # Add to your debug visualization:
             
         cv2.rectangle(frame, (self.front_wall_roi[0], self.front_wall_roi[1]), 
                     (self.front_wall_roi[0] + self.front_wall_roi[2], self.front_wall_roi[1] + self.front_wall_roi[3]), 
@@ -320,67 +307,56 @@ class NavigatorNode(Node):
     def drive_callback(self):
         if not self.frame_ready or self.mode == "button":
             return
-    
         current_time = time.time()
+
         if self.mode == "start":
-            # Initialize escape timing
-            if self.escape_start_time == 0:
-                self.escape_start_time = current_time
-                self.escape_phase_start = current_time
-                self.escape_mode = "front"
-                self.get_logger().info("Escape maneuver started")
-            
-            if  self.current_angle >= 80 or self.escape_attempts >= 4:
-                self.mode = "navigate"
-                self.get_logger().info("Max escape attempts reached, switching to navigate")
-                return
-        
-            # Calculate time elapsed in current phase
-            phase_elapsed = current_time - self.escape_phase_start
-            
-            # Check if phase should switch
-            if phase_elapsed >= self.escape_timeout and phase_elapsed < self.escape_timeout + 0.1:
-                if self.escape_mode == "front":
-                    self.escape_mode = "back"
-                    self.escape_attempts += 1
-                    self.escape_phase_start = current_time  # RESET PHASE TIMER
-                    self.get_logger().info(f"Switching to BACK, attempt {self.escape_attempts}")
-                else:
-                    self.escape_mode = "front" 
-                    self.escape_attempts += 1
-                    self.escape_phase_start = current_time  # RESET PHASE TIMER
-                    self.get_logger().info(f"Switching to FRONT, attempt {self.escape_attempts}")
-                return  # Skip execution this cycle to allow timer reset
-            
-            # Execute current phase
             if self.parking_side == "left":
-                if self.escape_mode == "front":
-                    self.angle_pwm = self.max_right - 200
-                    self.throttle = 1570
-                    self.get_logger().info(f"LEFT escape forwards ({phase_elapsed:.1f}s)")
-                else:
-                    self.angle_pwm = self.max_left + 200
-                    self.throttle = 1420
-                    self.get_logger().info(f"LEFT escape backwards ({phase_elapsed:.1f}s)")
+                #1
+                self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+                time.sleep(2.3)
+                #2
+                self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+                time.sleep(2.3)
+                #3
+                self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+                time.sleep(2.3)
+                #4
+                self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+                time.sleep(2.3)
+                #5
+                self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+  
+
+                self.mode = "navigate"
+
             else:
-                if self.escape_mode == "front":
-                    self.angle_pwm = self.max_left + 200
-                    self.throttle = 1570
-                    self.get_logger().info(f"RIGHT escape forwards ({phase_elapsed:.1f}s)")
-                else:
-                    self.angle_pwm = self.max_right - 200
-                    self.throttle = 1420
-                    self.get_logger().info(f"RIGHT escape backwards ({phase_elapsed:.1f}s)")
+                self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+                time.sleep(2.3)
+                #2
+                self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+                time.sleep(2.3)
+                #3
+                self.board.pwm_servo_set_position(0.1, [[2, 1570]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_left]])
+                time.sleep(2.3)
+                #4
+                self.board.pwm_servo_set_position(0.1, [[2, 1420]])
+                self.board.pwm_servo_set_position(0.1, [[4, self.max_right]])
+                time.sleep(2.3)
                 
-            # Apply controls and return
-            self.speed(self.throttle)
-            self.steer_pwm(self.angle_pwm)
-            return
-        
+                
+                self.mode = "navigate"
 
         if self.pillar_mode and self.mode != "start" and self.mode != "button" and self.mode != "stop":
             current_time = time.time()
-        
+            
             if self.pillar_cx is not None:  
                 if self.pillar_mode == "red":
                     error = self.pillar_cx - self.screen_center_x + 225
@@ -414,7 +390,8 @@ class NavigatorNode(Node):
                 
             # Apply limits
             self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
-            self.throttle = self.throttle_slow
+            self.throttle = self.throttle_pwm
+            self.throttle_prev = self.throttle
             #self.prev_pillar_error = error
         
         else:
@@ -423,6 +400,7 @@ class NavigatorNode(Node):
             self.angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
             self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
             self.throttle = self.throttle_pwm
+            self.throttle_prev = self.throttle
             if self.last_pillar == "red" and (self.wall_in_front or self.right_wall_close):
                 self.angle_pwm = self.max_left
                 self.get_logger().info("emergency left turn")
@@ -449,7 +427,8 @@ class NavigatorNode(Node):
         self.steer_pwm(self.angle_pwm)
 
     def speed(self, throttle):
-        self.board.pwm_servo_set_position(0.1, [[2, throttle]])
+        if self.throttle_pwm != self.throttle_prev: #prevent overloading the board
+            self.board.pwm_servo_set_position(0.1, [[2, throttle]])
 
     def steer_pwm(self, angle):
         self.board.pwm_servo_set_position(0.1, [[4, int(angle)]])
