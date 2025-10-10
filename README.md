@@ -308,10 +308,6 @@ It provided reliable performance for our robot, where temperature resistance and
 
 ---
 
-<img width="260" height="21" alt="image" src="https://github.com/user-attachments/assets/120f3187-c87f-4eb6-af35-031b32f410a9" />
-
-
-
 </br>
 
 ## Assembly Gallery
