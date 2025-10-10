@@ -12,7 +12,7 @@
 
 <img src="media/repository-photos/teambeesgif.gif/" alt="teambeesgif">
 
-<a href="https://www.youtube.com/@TeamBees2025"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
+<a href="https://www.youtube.com/@TeamBees2025Panama"><img src="https://img.shields.io/badge/YouTube-Team%20Bees%202025-FF0000?logo=youtube&logoColor=white&labelColor=111" height="20" alt="YouTube: Team Bees 2025">
 
 ---
 
