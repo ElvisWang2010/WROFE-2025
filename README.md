@@ -308,7 +308,7 @@ The example of the site is accessible at https://world-robot-olympiad-associatio
 | ----------- | ----------- |----|
 | Components | $439.8| $496.97 |
 | Tools and Equipment | $1440| $1627.2 |
-| Shipping | $439.8| $~100 (*not taxed*) |
+| Shipping | $~100 (*not taxed*)| $~100 (*not taxed*) |
 
 **Grand Total** : $1979.8 CAD *No Tax* 
 
