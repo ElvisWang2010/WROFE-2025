@@ -3,7 +3,7 @@
 #### GIF of Instructions
 | <img src="../media/building-photos/building-instructions.gif"> |
 |:--:|
-| *Fully 3D printed design, every component custom designed* |
+| *See Full Instructions Below* |
 
 ### Step 1 — Steering knuckles: add bearings
 <img src="../media/building-photos/building-instruction-photo.png" alt="" width="100%">
