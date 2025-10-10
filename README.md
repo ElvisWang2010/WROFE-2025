@@ -1326,7 +1326,7 @@ kp = how much to react to a error.
 kd = how much to stabilize a change in turning angle
 (area_diff - prev_diff) is the derivative.
 
-<img width="1230" height="911" alt="image" src="https://github.com/user-attachments/assets/72de4261-dc36-409c-bfee-b1f42e5bbd08" />
+<img width="1230" height="911" alt="image" src="media/repository-photos/pd-steering.png" />
 
 Then we apply a clamp to make sure the steering angle never exceeds the predefined maximums and minimums
 ```
@@ -1346,10 +1346,10 @@ if turns >= 13:
         lap_complete = True
 ```
 #### Pre-Turn
-<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/c3dbd833-70f1-4883-b4c9-6e65e34e9c36" />
+<img width="960" height="690" alt="image" src="media/repository-photos/pre-turn.png" />
 
 #### Post-Turn
-<img width="960" height="690" alt="image" src="https://github.com/user-attachments/assets/54c13de0-d796-43a5-8b65-32d21481195c" />
+<img width="960" height="690" alt="image" src="media/repository-photos/post-turn.png" />
 
 ## Obstacle Challenge
 
@@ -1387,7 +1387,7 @@ Unlike our open challenge, we used ROS 2 for our obstacle challenge, providing s
 ```
 
 This is a visualziation of how the nodes communicate:
-<img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="https://github.com/user-attachments/assets/94e4d3b1-762c-4baa-82bd-70e4aa4d126b" />
+<img width="1920" height="1080" alt="NAVIGATOR_NODE py" src="media/repository-photos/obstacle-challenge-ros2-structure.png" />
 
 ### NODES/TOPICS
 #### navigator_node.py
@@ -1439,7 +1439,7 @@ self.stat_pub = self.create_publisher(String, '/state', 10)
 
 #### Camera logic
 ROI visualization
-<img width="1222" height="908" alt="image" src="https://github.com/user-attachments/assets/ca6c5524-4ff6-4e29-ad73-80873bf316e4" />
+<img width="1222" height="908" alt="image" src="media/repository-photos/roi-visualization.png" />
 
 The camera logic is largely the same, with the addition of the central ROI and colour detecting HSV ranges.
 ```
@@ -1508,9 +1508,9 @@ self.center_red_area = cv2.countNonZero(center_red_mask)
 ```
 
 #### Parking lot escape
-<img width="1238" height="881" alt="image" src="https://github.com/user-attachments/assets/651a3e4d-1f21-404f-acaa-417217110734" />
+<img width="1238" height="881" alt="image" src="media/repository-photos/parking-lot-escape.png" />
 
-In order to escape the parking lot, we must determine which side the car is on. We can do this by comparing the amount of black pixels in the left roi with the right roi.
+In order to escape the parking lot, we must determine which side the car is on. We can do this by comparing the number of black pixels in the left roi with the right roi.
 ```
 if self.mode == "start" and self.parking_side is None:
    if self.left_area > self.right_area:
@@ -1636,7 +1636,7 @@ if self.pillar_cx is not None:
 
 In the image below the X value of the pillar centroid is 174
 In this frame the pillar is not yet far enough left for the car to turn left. If the formula is correct it should be turning right to avoid the pillar.
-<img width="1222" height="908" alt="image" src="https://github.com/user-attachments/assets/5dc8ce4b-fdd9-4bd0-93bd-f64455516585" />
+<img width="1222" height="908" alt="image" src="media/repository-photos/roi-visualization2.png" />
 We plug in 174 into the formula
 error = 174 - 320 - 225
 error = 79
@@ -1648,7 +1648,7 @@ Therefore the final turning pwm is 1381.5 which corresponds to a left turn.
 In this next case the X value of the pillar centroid is 30
 
 Now, the pillar is far enough left to safely execute a left turn.
-<img width="1216" height="911" alt="image" src="https://github.com/user-attachments/assets/567df249-aff9-4100-96f2-7a23837a4e2b" />
+<img width="1216" height="911" alt="image" src="media/repository-photos/roi-visualization3.png" />
 We plug in 30 into the formula
 error = 30 - 320 - 225
 error = -65
