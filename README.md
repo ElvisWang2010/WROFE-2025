@@ -1554,8 +1554,24 @@ def lap_callback(self, msg):
 ```
 
 #### Parking
-At the end of the final lap, the car will keep avoiding obstacles as normal until the parking lot gets close. Once the parking lot is at the edge of the camera frame, we can swerve into it to complete partial parking.
-
+At the end of the final lap, the car will keep avoiding obstacles as normal until the parking lot gets close. Once the parking lot is visible in the camera frame, we can swerve into it to complete partial parking.
+```
+if parking_cx is not None and self.mode == "park":
+  if self.parking_side = "right"
+      self.board.pwm_servo_set_position(0.1, [[4, 1300]]) 
+      self.board.pwm_servo_set_position(0.1, [[2, 1560]])  
+      time.sleep(2.0) 
+  else:
+      self.board.pwm_servo_set_position(0.1, [[4, 1700]]) 
+      self.board.pwm_servo_set_position(0.1, [[2, 1560]])  
+      time.sleep(2.0)  
+  
+      self.board.pwm_servo_set_position(0.1, [[4, 1500]]) 
+      self.board.pwm_servo_set_position(0.1, [[2, 1560]])  
+      time.sleep(1.5)
+  
+      self.board.pwm_servo_set_position(0.1, [[2, 1500]])
+```
 ## Image Resources
 
 
