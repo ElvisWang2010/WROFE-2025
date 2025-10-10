@@ -135,8 +135,8 @@ Ryan improved his programming skills during the project. He learned how to prope
   </td>
 
   <td valign="top" width="60%">
+  
 
-[![Website](https://img.shields.io/badge/Website-explorer--robotics.com-blue?style=for-the-badge&logo=google-chrome)](https://explorer-robotics.com/)
 
   ### Information
   - Head coach of Robotics Competitions, including FLL (First LEGO League),  WRO (World Robotics Olympiad) Robo Sports, Future Engineers, and Robo Mission. Led teams in winning multiple national, international robotics, and programming awards.
@@ -147,6 +147,8 @@ Ryan improved his programming skills during the project. He learned how to prope
   </td>
 </tr>
 </table>
+
+[![Website](https://img.shields.io/badge/Website-explorer--robotics.com-blue?style=for-the-badge&logo=google-chrome)](https://explorer-robotics.com/)
 
 A special thanks goes out to our amazing coach, who has been the foundation of our journey. He not only introduced us to ROS2, but was also the first person to open our eyes to the WRO Future Engineers competition and the broader world of robotics. 
 
