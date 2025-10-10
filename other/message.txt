@@ -1,0 +1,402 @@
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from std_msgs.msg import Float32, String, Bool
+from cv_bridge import CvBridge
+from obstacle_challenge import ros_robot_controller_sdk as rrc
+from ros_robot_controller_msgs.msg import ButtonState
+import cv2
+import numpy as np
+import time
+
+class NavigatorNode(Node):
+    def __init__(self):
+        super().__init__('navigator_node')
+        self.bridge = CvBridge()
+        self.board = rrc.Board()
+
+        # Configuration
+        self.kp = 0.09
+        self.kd = 0.003
+
+        self.kp_pillar = 0.08
+        self.kd_pillar = 0.003
+        self.min_turn_threshold = 800  # Minimum area to start aggressive turning
+        self.max_turn_threshold = 6000  # Area where we reach maximum turn
+        self.previous_pillar_error = 0
+
+        self.straight_pwm = 1500
+        self.throttle_pwm = 1615
+        self.throttle_slow = 1610
+        self.angle_pwm = 1500
+        self.max_left = 1700
+        self.max_right = 1300
+        self.turn_threshold = 3500
+        self.turn_detected = False
+        self.pillar_detection_thresh = 600
+        self.pillar_clear_thresh = 100 
+        self.escape_timeout = 2  
+        self.current_angle = 0.0
+        self.stop_timer = 3.0
+
+        self.left_roi = (0, 220, 180, 150)  # x, y, w, h
+        self.right_roi = (460, 220, 180, 150)
+        self.center_roi = (200, 230, 240, 150)
+
+        self.lower_red1 = np.array([0, 100, 100])
+        self.upper_red1 = np.array([5, 255, 255])
+        self.lower_red2 = np.array([175, 130, 130])
+        self.upper_red2 = np.array([179, 255, 255])
+        self.lower_green = np.array([50, 150, 80])
+        self.upper_green = np.array([95, 255, 255])
+        self.lower_magenta = np.array([160, 50, 50])
+        self.upper_magenta = np.array([175, 255, 255])
+        
+        # State
+        #self.last_turn_time = time.time()
+        self.last_pillar_time = 0
+        self.prev_diff = 0
+        self.escape_attempts = 0
+        self.prev_angle = self.straight_pwm
+        self.lap_done_time = None
+        self.frame_ready = False
+        #parking
+        self.parking_side = None
+        self.pillar_mode = None
+        self.escape_phase = None
+        self.escape_start_time = 0
+        self.escape_phase_start = 0
+        #pillar steering
+        self.left_area = 0
+        self.right_area = 0
+        self.left_red_area = 0
+        self.center_red_area = 0
+        self.right_green_area = 0
+        self.center_green_area = 0
+        self.left_magenta_area = 0
+        self.center_magenta_area = 0
+        self.right_magenta_area = 0
+        self.mode = "navigate" # starting mode
+
+        """
+        RGB COLOURS:
+        GREEN: Green pillar detected
+        RED: Red pillar detected
+        MAGENTA: NOTHING DECTED PD steering
+        STATES:
+        1. button: wait for button press
+        2. start: escape parking lot
+        3. navigate: navigate 3 laps around track
+        4. park: parallel parking
+        5. stop: shutdown all nodes and stop moving
+        """
+    
+        # ROS 2
+        self.create_subscription(Image, '/image_raw', self.camera_callback, 10)
+        self.create_subscription(Bool, '/lap_status', self.lap_callback, 10)
+        self.create_subscription(Float32, '/imu_angle', self.imu_callback, 10)
+        self.create_subscription(ButtonState, '/ros_robot_controller/button', self.button_callback, 10)
+        self.state_pub = self.create_publisher(String, '/state', 10)
+        self.timer = self.create_timer(0.05, self.drive_callback)
+
+        # Initialize board
+        self.board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
+        time.sleep(2)
+        self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+        
+    def button_callback(self, msg: ButtonState):
+        if msg.id == 2 and msg.state == 1 and self.mode == "button":
+            self.mode = "start"
+        else:
+            self.board.set_rgb([[1, 0, 255, 255], [2, 0, 255, 255]])
+            
+            
+    def lap_callback(self, msg):
+        if msg.data and self.mode != 'park':
+            self.get_logger().info("Received IMU signal: 3 laps complete, switching to parking mode.")
+            self.mode = 'park'
+            self.lap_done_time = time.time()
+    
+    def imu_callback(self, msg):
+        self.current_angle = msg.data
+
+    def camera_callback(self, msg):
+        frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='rgb8')
+    
+        gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+        _, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
+
+        
+        left_crop = thresh[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
+                            self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
+        right_crop = thresh[self.right_roi[1]:self.right_roi[1]+self.right_roi[3], 
+                            self.right_roi[0]:self.right_roi[0]+self.right_roi[2]]
+
+        left_color_crop = frame[self.left_roi[1]:self.left_roi[1]+self.left_roi[3], 
+                                self.left_roi[0]:self.left_roi[0]+self.left_roi[2]]
+        right_color_crop = frame[self.right_roi[1]:self.right_roi[1]+self.right_roi[3], 
+                            self.right_roi[0]:self.right_roi[0]+self.right_roi[2]]
+        center_color_crop = frame[self.center_roi[1]:self.center_roi[1]+self.center_roi[3], 
+                            self.center_roi[0]:self.center_roi[0]+self.center_roi[2]]
+
+        self.left_area = cv2.countNonZero(left_crop)
+        self.right_area = cv2.countNonZero(right_crop)
+
+        hsv_left = cv2.cvtColor(left_color_crop, cv2.COLOR_RGB2HSV)
+        hsv_right = cv2.cvtColor(right_color_crop, cv2.COLOR_RGB2HSV)
+        hsv_center = cv2.cvtColor(center_color_crop, cv2.COLOR_RGB2HSV)
+
+        left_red_mask = cv2.bitwise_or(cv2.inRange(hsv_left, self.lower_red1, self.upper_red1), 
+                                        cv2.inRange(hsv_left, self.lower_red2, self.upper_red2))
+        center_red_mask = cv2.bitwise_or(cv2.inRange(hsv_center, self.lower_red1, self.upper_red1), 
+                                        cv2.inRange(hsv_center, self.lower_red2, self.upper_red2))
+        right_red_mask = cv2.bitwise_or(cv2.inRange(hsv_right, self.lower_red1, self.upper_red1), 
+                                        cv2.inRange(hsv_right, self.lower_red2, self.upper_red2))
+        
+        # Remove magenta from parking lot
+        left_magenta_mask = cv2.inRange(hsv_left, self.lower_magenta, self.upper_magenta)
+        right_magenta_mask = cv2.inRange(hsv_right, self.lower_magenta, self.upper_magenta)
+        center_magenta_mask = cv2.inRange(hsv_center, self.lower_magenta, self.upper_magenta)
+
+        right_green_mask = cv2.inRange(hsv_right, self.lower_green, self.upper_green)
+        center_green_mask = cv2.inRange(hsv_center, self.lower_green, self.upper_green)
+        left_green_mask =  cv2.inRange(hsv_left, self.lower_green, self.upper_green)
+
+        # Count pixels
+        self.center_magenta_area = cv2.countNonZero(center_magenta_mask)
+        self.left_magenta_area = cv2.countNonZero(left_magenta_mask)
+        self.right_magenta_area = cv2.countNonZero(right_magenta_mask)
+        
+        self.left_red_area = cv2.countNonZero(left_red_mask)
+        self.left_green_area = cv2.countNonZero(left_green_mask)
+        self.right_green_area = cv2.countNonZero(right_green_mask)
+        self.right_red_area = cv2.countNonZero(right_red_mask)
+        self.center_red_area = cv2.countNonZero(center_red_mask)
+        self.center_green_area = cv2.countNonZero(center_green_mask)
+        
+        # Pillar detection
+        current_time = time.time()
+        if self.pillar_mode is None:
+            if (self.center_red_area > self.pillar_detection_thresh or 
+                self.left_red_area > self.pillar_detection_thresh or self.right_red_area > self.pillar_detection_thresh):
+                self.pillar_mode = "red"
+                self.last_pillar_time = current_time
+                self.prev_pillar_error = max(self.center_red_area, self.left_red_area)
+                self.get_logger().info("Entering RED pillar mode")
+                self.board.set_rgb([[1, 255, 0, 0], [2, 255, 0, 0]])
+                
+            elif (self.center_green_area > self.pillar_detection_thresh or 
+                self.right_green_area > self.pillar_detection_thresh or self.left_green_area > self.pillar_detection_thresh):
+                self.pillar_mode = "green"  
+                self.last_pillar_time = current_time
+                self.prev_pillar_error = max(self.center_green_area, self.right_green_area)
+                self.get_logger().info("Entering GREEN pillar mode")
+                self.board.set_rgb([[1, 0, 255, 0], [2, 0, 255, 0]])
+
+        else:
+            # USE STRONGEST SIGNAL
+            if self.pillar_mode == "red":
+                current_pillar_area = max(self.center_red_area, self.left_red_area, self.right_red_area)
+
+            else:
+                current_pillar_area = max(self.center_green_area, self.right_green_area, self.left_green_area)
+            # Exit conditions
+            if self.pillar_mode:
+                current_pillar_area = max(self.center_red_area, self.left_red_area) if self.pillar_mode == "red" else max(self.center_green_area, self.right_green_area)
+                
+                # Use hysteresis to prevent flickering
+                if (current_pillar_area < self.pillar_clear_thresh and 
+                    current_time - self.last_pillar_time > 0.5):  # Wait 0.5s of low signal
+                    self.get_logger().info(f"Exiting {self.pillar_mode} pillar mode")
+                    self.pillar_mode = None
+                    self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+
+        if self.mode == "start":
+            if self.left_area > self.right_area:
+                self.parking_side = "left"
+                self.get_logger().info("Parking lot detected on LEFT")
+            elif self.right_area > self.left_area:
+                self.parking_side = "right" 
+                self.get_logger().info("Parking lot detected on RIGHT")
+            self.escape_phase = "front"
+
+
+        # DEBUG
+        self.get_logger().info(f"Left ROI -> Black: {self.left_area}, Red: {self.left_red_area}")
+        self.get_logger().info(f"Right ROI -> Black: {self.right_area}, Green: {self.right_green_area}")
+        self.get_logger().info(f"Center ROI -> Red: {self.center_red_area}, Green: {self.center_green_area}")
+        self.get_logger().info("-" * 40)
+    
+        # Debug rois on frame
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+        cv2.rectangle(frame, (self.left_roi[0], self.left_roi[1]), 
+                        (self.left_roi[0] + self.left_roi[2], self.left_roi[1] + self.left_roi[3]), (255, 0, 0), 2)
+        cv2.rectangle(frame, (self.right_roi[0], self.right_roi[1]), 
+                        (self.right_roi[0] + self.right_roi[2], self.right_roi[1] + self.right_roi[3]), (0, 255, 0), 2)
+        cv2.rectangle(frame, (self.center_roi[0], self.center_roi[1]), 
+                        (self.center_roi[0] + self.center_roi[2], self.center_roi[1] + self.center_roi[3]), (0, 0, 255), 2)
+        cv2.putText(frame, f"State: {self.mode}", 
+                (10, 10), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 255, 0), 1)
+        cv2.imshow("Navigator Live Feed", frame)
+        cv2.waitKey(1)
+
+        self.frame_ready = True
+    
+    def drive_callback(self):
+        if not self.frame_ready or self.mode == "button":
+            return
+        
+        current_time = time.time()
+    
+        if self.mode == "start":
+            # Initialize escape timing
+            if self.escape_start_time == 0:
+                self.escape_start_time = current_time
+                self.escape_phase_start = current_time
+                self.escape_mode = "front"
+                self.get_logger().info("Escape maneuver started")
+            
+            if self.escape_attempts >= 6:
+                self.mode = "navigate"
+                self.get_logger().info("Max escape attempts reached, switching to navigate")
+                return
+            
+            # Calculate time elapsed in current phase
+            phase_elapsed = current_time - self.escape_phase_start
+            
+            # Check if phase should switch
+            if phase_elapsed >= self.escape_timeout:
+                if self.escape_mode == "front":
+                    self.escape_mode = "back"
+                    self.escape_attempts += 1
+                    self.escape_phase_start = current_time  # RESET PHASE TIMER
+                    self.get_logger().info(f"Switching to BACK, attempt {self.escape_attempts}")
+                else:
+                    self.escape_mode = "front" 
+                    self.escape_attempts += 1
+                    self.escape_phase_start = current_time  # RESET PHASE TIMER
+                    self.get_logger().info(f"Switching to FRONT, attempt {self.escape_attempts}")
+                return  # Skip execution this cycle to allow timer reset
+            
+            # Execute current phase
+            if self.parking_side == "left":
+                if self.escape_mode == "front":
+                    self.angle_pwm = self.max_right
+                    self.throttle = 1570
+                    self.get_logger().info(f"LEFT escape forwards ({phase_elapsed:.1f}s)")
+                else:
+                    self.angle_pwm = self.max_left
+                    self.throttle = 1430
+                    self.get_logger().info(f"LEFT escape backwards ({phase_elapsed:.1f}s)")
+            else:
+                if self.escape_mode == "front":
+                    self.angle_pwm = self.max_left
+                    self.throttle = 1570
+                    self.get_logger().info(f"RIGHT escape forwards ({phase_elapsed:.1f}s)")
+                else:
+                    self.angle_pwm = self.max_right
+                    self.throttle = 1430
+                    self.get_logger().info(f"RIGHT escape backwards ({phase_elapsed:.1f}s)")
+            
+            # Apply controls and return
+            self.speed(self.throttle)
+            self.steer_pwm(self.angle_pwm)
+            return
+
+
+    # PD Pillar steering
+        if self.pillar_mode and (self.mode == "navigate" or self.mode == "park"):
+            current_time = time.time()
+
+            if self.pillar_mode == "red":
+                # Use the strongest red signal
+                error = max(self.center_red_area, self.left_red_area, self.right_red_area)
+                derivative = error - self.prev_pillar_error
+                
+                # Different steering strategies based on pillar position
+                if self.left_red_area > self.center_red_area:
+                    # Pillar on left - prepare for sharp left turn
+                    base_angle = self.straight_pwm + 115  # More aggressive left bias
+                    steering_adjustment = (error * self.kp_pillar + derivative * self.kd_pillar) * 1.2
+                    self.get_logger().info("Red pillar LEFT - preparing sharp left")
+                else:
+                    # Pillar center - steer right to position it
+                    base_angle = self.straight_pwm - 80  # More aggressive right turn
+                    steering_adjustment = (error * self.kp_pillar + derivative * self.kd_pillar) * 1.5
+                    self.get_logger().info("Red pillar CENTER - aggressive right turn")
+                
+                self.angle_pwm = int(base_angle - steering_adjustment)
+
+            elif self.pillar_mode == "green":
+                # Use the strongest green signal
+                error = max(self.center_green_area, self.right_green_area, self.left_green_area)
+                derivative = error - self.prev_pillar_error
+                
+                if self.right_green_area > self.center_green_area:
+                    # Pillar on right - prepare for sharp right turn
+                    base_angle = self.straight_pwm - 115  # More aggressive right bias
+                    steering_adjustment = (error * self.kp_pillar + derivative * self.kd_pillar) * 1.2
+                    self.get_logger().info("Green pillar RIGHT - preparing sharp right")
+                else:
+                    # Pillar center - steer left to position it
+                    base_angle = self.straight_pwm + 80  # More aggressive left turn
+                    steering_adjustment = (error * self.kp_pillar + derivative * self.kd_pillar) * 1.5
+                    self.get_logger().info("Green pillar CENTER - aggressive left turn")
+        
+                self.angle_pwm = int(base_angle + steering_adjustment)
+    
+            # Apply limits and update state
+            self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+            self.throttle = self.throttle_slow
+            self.prev_pillar_error = error
+        else:
+            self.board.set_rgb([[1, 255, 0, 255], [2, 255, 0, 255]])
+            area_diff = self.right_area - self.left_area
+            self.angle_pwm = int(self.straight_pwm + area_diff * self.kp + (area_diff - self.prev_diff) * self.kd)
+            self.angle_pwm = max(min(self.angle_pwm, self.max_left), self.max_right)
+            self.throttle = self.throttle_pwm
+            self.prev_diff = area_diff
+        
+        
+
+        # Park
+        if self.mode == "park":
+            if time.time() - self.lap_done_time >= self.stop_timer:
+                self.get_logger().info("Preparing for parallel parking")
+                self.speed(1500)
+                self.steer_pwm(1500)
+                msg_out = String()
+                msg_out.data = "stop"
+                self.state_pub.publish(msg_out) #stop for now
+                rclpy.shutdown()
+                return
+
+        # Apply controls
+        self.speed(self.throttle)
+        self.steer_pwm(self.angle_pwm)
+
+    def speed(self, throttle):
+        self.board.pwm_servo_set_position(0.1, [[2, throttle]])
+
+    def steer_pwm(self, angle):
+        self.board.pwm_servo_set_position(0.1, [[4, angle]])
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = NavigatorNode()
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        # Cleanup
+        node.board.pwm_servo_set_position(0.1, [[4, 1500], [2, 1500]])
+        node.board.set_rgb([[1, 0, 0, 0], [2, 0, 0, 0]])
+        cv2.destroyAllWindows()
+        node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
