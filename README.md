@@ -1,4 +1,3 @@
-
 <div align="center">
 <img src="media/repository-photos/teambeesbanner.png/" alt="teambeesbanner">
 </div>
